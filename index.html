@@ -2,28 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jay Prasad - Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Prasad Majhi - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Jay Prasad Majhi</h1>
-    <p>IT Services | Study Abroad | IELTS/PTE | Business Operations</p>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
-  <main>
-    <section>
-      <h2>Welcome to My Portfolio</h2>
-      <p>This website showcases my work in IT, education, and business consultancy based in Nepal and globally.</p>
-    </section>
-  </main>
-  <footer>
-    <p>Contact: it@jayprasad.com.np</p>
-  </footer>
+
+  <section id="hero">
+    <h1>Hi, I'm Jay Prasad Majhi</h1>
+    <p>Your IT solutions expert, passionate about technology and business!</p>
+    <a href="#contact">Contact Me</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am an IT enthusiast with expertise in business solutions and web development. Based in Nepal, I work at Crunch Tech Pvt. Ltd. and provide IT services to businesses.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li><strong>Football News Website</strong> - Latest news from La Liga and Champions League.</li>
+      <li><strong>Tech Consultancy</strong> - IT solutions for businesses.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/it@jayprasad.com.np" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 </body>
 </html>
