@@ -1,56 +1,86 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: #f4f4f4;
+  color: #333;
 }
 
 header {
   background-color: #333;
-  padding: 1em;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
 }
 
 nav a {
   color: white;
-  padding: 0.5em;
+  margin: 0 10px;
   text-decoration: none;
 }
 
-section {
-  padding: 2em;
-  margin: 0 5%;
-}
-
 #hero {
-  background-color: #3498db;
+  background: url('background.jpg') no-repeat center center/cover;
   color: white;
+  padding: 80px 20px;
   text-align: center;
-  padding: 3em;
 }
 
-#hero h1 {
-  font-size: 2em;
+#about, #projects, #contact {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-#about {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+#clock {
+  font-size: 24px;
+  color: #333;
+  padding: 20px;
+  text-align: center;
 }
 
-form input, form textarea {
-  width: 100%;
-  padding: 1em;
-  margin: 0.5em 0;
-}
-
-form button {
-  padding: 1em;
-  background-color: #3498db;
+footer {
+  background-color: #333;
   color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Contact Form Styles */
+.fs-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fs-field {
+  margin-bottom: 20px;
+}
+
+.fs-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fs-input, .fs-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.fs-button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
 }
 
-form button:hover {
-  background-color: #2980b9;
+.fs-button:hover {
+  background-color: #555;
 }
