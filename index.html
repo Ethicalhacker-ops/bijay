@@ -791,4 +791,425 @@
         }
         
         .blog-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        body.dark-mode .blog-content p {
+            color: #d1d5db;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        body.dark-mode .read-more {
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+        
+        body.dark-mode .theme-toggle {
+            background-color: var(--accent-color);
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .resume-container {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            body.dark-mode nav ul {
+                background-color: #111827;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+         @media (max-width: 576px) {
+            .hero-text .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Jay<span>.</span></a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-me">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Jay Prasad Majhi</span><br>IT Professional & Web Developer</h1>
+                    <p>I specialize in creating innovative web solutions and providing strategic IT consulting to help businesses thrive in the digital landscape.</p>
+                    <div class="cta-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/500x500" alt="Jay Prasad Majhi">
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- About Section -->
+    <section id="about-me">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about my background, skills, and professional journey</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x500" alt="About Jay">
+                </div>
+                <div class="about-text">
+                    <h3>IT Professional & Web Developer</h3>
+                    <p>Hi, I'm Jay Prasad Majhi, an IT professional with a passion for problem-solving and technological innovation. With a background in business studies and hands-on experience in web development, I bring a unique perspective to every project I undertake.</p>
+                    <p>My approach combines technical expertise with business acumen, ensuring that the solutions I develop not only work well but also align with your strategic goals.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Web Development</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>IT Consulting</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Project Management</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+                <p>Explore some of my recent projects and see my skills in action</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Football News Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Football News Website</h3>
+                        <p>A comprehensive platform providing live updates, match statistics, and news about football leagues worldwide.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Web Development</span>
+                            <span class="portfolio-tag">Sports</span>
+                            <span class="portfolio-tag">News</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Tech Consultancy">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Tech Consultancy Platform</h3>
+                        <p>A business technology solutions portal offering IT consultancy services to small and medium enterprises.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Consulting</span>
+                            <span class="portfolio-tag">Business</span>
+                            <span class="portfolio-tag">IT Solutions</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Educational Platform">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Educational Platform</h3>
+                        <p>An online learning management system developed during my teaching volunteer experience.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Education</span>
+                            <span class="portfolio-tag">E-Learning</span>
+                            <span class="portfolio-tag">Web App</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Resume</h2>
+                <p>My professional journey and educational background</p>
+            </div>
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h3>Bachelor's Degree in Business Studies</h3>
+                        <span class="date">2015 - 2019</span>
+                        <p>University of Nepal</p>
+                        <p>Specialized in business management with coursework in information systems and technology applications in business.</p>
+                    </div>
+                    
+                    <h3>Certifications</h3>
+                    <div class="resume-item">
+                        <h3>Web Development Certification</h3>
+                        <span class="date">2020</span>
+                        <p>Online Platform</p>
+                        <p>Completed comprehensive training in modern web development technologies including HTML, CSS, JavaScript, and frameworks.</p>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3>Experience</h3>
+                    <div class="resume-item">
+                        <h3>Accounting & Documentation Officer</h3>
+                        <span class="date">2020 - Present</span>
+                        <p>Crunch Tech Pvt. Ltd.</p>
+                        <p>Managed financial records, documentation, and implemented digital systems to streamline operations. Provided technical support and IT solutions for the company.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Volunteer Teacher</h3>
+                        <span class="date">2018 - 2019</span>
+                        <p>New World English Secondary School</p>
+                        <p>Taught computer science and mathematics. Developed educational materials and introduced students to basic programming concepts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch for collaborations or just to say hello</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through any of the channels below.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>jay.prasad@example.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>+977 98XXXXXXXX</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kathmandu, Nepal</span>
+                        </div>
+    </div>
    
