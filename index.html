@@ -1,61 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jay Prasad Majhi - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Prasad Majhi - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 50px 20px;
+        }
+        #clock {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-  <header>
+
+<header>
+    <h1>Welcome to Jay Prasad Majhi's Portfolio</h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+        <a href="#home">Home</a>
+        <a href="#about-me">About Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#blog">Blog</a>
     </nav>
-  </header>
+</header>
 
-  <section id="hero">
-    <h1>Hi, I'm Jay Prasad Majhi</h1>
-    <p>Your IT solutions expert, passionate about technology and business!</p>
-    <a href="#contact">Contact Me</a>
-  </section>
+<!-- Home Section -->
+<section id="home">
+    <h2>Hero Section</h2>
+    <p>Welcome to my website. I'm Jay Prasad Majhi, a passionate IT professional who specializes in web development and consulting.</p>
+    <div id="clock"></div>
+</section>
 
-  <section id="about">
+<!-- About Me Section -->
+<section id="about-me">
     <h2>About Me</h2>
-    <p>I am an IT enthusiast with expertise in business solutions and web development. Based in Nepal, I work at Crunch Tech Pvt. Ltd. and provide IT services to businesses.</p>
-  </section>
-
-  <section id="projects">
-    <h2>My Projects</h2>
+    <p>Hi, I'm Jay Prasad Majhi, an IT professional with a passion for problem-solving and technological innovation.</p>
+    
+    <h3>Skills</h3>
     <ul>
-      <li><strong>Football News Website</strong> - Latest news from La Liga and Champions League.</li>
-      <li><strong>Tech Consultancy</strong> - IT solutions for businesses.</li>
+        <li>Web Development</li>
+        <li>Consulting</li>
+        <li>Project Management</li>
     </ul>
-  </section>
 
-  <!-- New Contact Form -->
-  <section id="contact">
-    <h2>Contact</h2>
+    <h3>Education</h3>
+    <p>Bachelor's Degree in Business Studies - University of Nepal</p>
+</section>
 
-    <form action="https://formspree.io/f/{FORM_ID}" class="fs-form" target="_top" method="POST">
-      <div class="fs-field">
-        <label class="fs-label" for="name">Your Name</label>
-        <input class="fs-input" id="name" name="name" required />
-      </div>
-      <div class="fs-field">
-        <label class="fs-label" for="email">Email</label>
-        <input class="fs-input" id="email" name="email" required />
-        <p class="fs-description">This will help me respond to your query via an email.</p>
-      </div>
-      <div class="fs-field">
-        <label class="fs-label" for="message">Message</label>
-        <textarea class="fs-textarea" id="message" name="message" required></textarea>
-        <p class="fs-description">What would you like to discuss?</p>
-      </div>
-      <div class="fs-button-group">
-        <button class="fs-button" type="submit">Submit</button>
-      </div>
+<!-- Portfolio Section -->
+<section id="portfolio">
+    <h2>My Portfolio</h2>
+    <div>
+        <h3>Football News Website</h3>
+        <p>This website provides live updates on football matches and news.</p>
+    </div>
+    <div>
+        <h3>Tech Consultancy</h3>
+        <p>Providing business technology solutions and IT consultancy.</p>
+    </div>
+</section>
+
+<!-- Resume Section -->
+<section id="resume">
+    <h2>Resume</h2>
+    <h3>Education</h3>
+    <ul>
+        <li>Bachelor's Degree in Business Studies - University of Nepal</li>
+    </ul>
+
+    <h3>Work Experience</h3>
+    <ul>
+        <li>Accounting & Documentation Officer at Crunch Tech Pvt. Ltd.</li>
+        <li>Volunteer Teacher at New World English Secondary School</li>
+    </ul>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
     </form>
-  </section>
+    <div>
+        <p>Follow me on social media:</p>
+        <a href="https://twitter.com/JayPrasad" target="_blank">Twitter</a>
+        <a href="https://linkedin.com/in/jayprasad" target="_blank">LinkedIn</a>
+        <a href="https://github.com/jayprasad" target="_blank">GitHub</a>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>"Jay is a great professional and a problem solver!" - Client 1</p>
+    <p>"Excellent work ethic and skills." - Client 2</p>
+</section>
+
+<!-- Blog Section -->
+<section id="blog">
+    <h2>Blog</h2>
+    <p>Check out my latest articles and posts!</p>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <p>© 2024 Jay Prasad Majhi</p>
+    <p>Last Updated: April 2024</p>
+</footer>
+
+<script>
+    // Live Clock
+    setInterval(function() {
+        var now = new Date();
+        document.getElementById("clock").innerText = now.toLocaleString();
+    }, 1000);
+
+    // Dark Mode Toggle (Optional)
+    document.getElementById("darkModeToggle").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+    });
+</script>
+
 </body>
 </html>
