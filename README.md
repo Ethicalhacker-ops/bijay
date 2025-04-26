@@ -1,6 +1,6 @@
 # Jay Prasad Majhi - Personal Portfolio Website
 
-![Hero Image](https://github.com/Ethicalhacker-ops/bijay/blob/main/hero.png)
+<img src="https://raw.githubusercontent.com/Ethicalhacker-ops/bijay/main/hero.png" alt="Hero Image" />
 
 This is the personal portfolio website of **Jay Prasad Majhi**, showcasing professional experience, services, portfolio, resume, blog, and contact information.
 
