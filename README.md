@@ -1,5 +1,7 @@
 # Welcome to My Personal Website!
 
+![Bijay](https://raw.githubusercontent.com/Ethicalhacker-ops/bijay/main/IMG_20250119_224733_861.webp)
+
 Hi! I’m **Jay Prasad Majhi**, a passionate IT enthusiast with a focus on technology and business solutions. I am currently working as an **Accountant and Documentation Officer** at **Crunch Tech Pvt. Ltd.** in Nepal. I have a background in **Electronics and Communication Engineering** and **Business Studies**, with a strong interest in IT services, football, and technology solutions.
 
 ## About Me
@@ -9,7 +11,7 @@ I have been deeply involved in technology for several years, working on differen
 - **Email**: [it@jayprasad.com.np](mailto:it@jayprasad.com.np)
 - **LinkedIn**: [Jay Prasad LinkedIn](https://www.linkedin.com/in/jay-prasad-majhi)
 - **GitHub**: [Jay Prasad GitHub](https://github.com/your-github)
-- **Facebook**: [Jay Prasad Facebook](https://www.facebook.com/yourprofile)
+- **Facebook**: [Jay Prasad Facebook](https://www.facebook.com/the.bijaay)
 
 ## Projects
 ### 1. **Football News Website**  
