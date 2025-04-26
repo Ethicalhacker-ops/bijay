@@ -7,7 +7,5 @@ This is the personal portfolio website of **Jay Prasad Majhi**, showcasing profe
 ## Contact Me
 - **General Email:** [contact@jayprasad.com.np](mailto:contact@jayprasad.com.np)
 - **Technical Department Email:** [admin@jayprasad.com.np](mailto:admin@jayprasad.com.np)
-- **Facebook:** [the.bijaay](https://facebook.com/the.bijaay)
-- **Instagram:** [@thebijaay](https://www.instagram.com/thebijaay?igsh=anJsYjMyZDBpaXBp)
 
 © Jay Prasad Majhi | All rights reserved.
