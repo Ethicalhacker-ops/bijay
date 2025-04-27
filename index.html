@@ -75,6 +75,12 @@
       padding: 30px;
       max-width: 1200px;
       margin: 0 auto;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .active {
@@ -150,7 +156,7 @@
       margin-top: 0;
     }
 
-    .project-grid {
+    .project-grid, .testimonial-grid, .services-grid, .certification-grid, .awards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
@@ -247,12 +253,6 @@
       color: var(--primary-color);
     }
 
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
     .testimonial-card {
       background-color: var(--card-bg);
       padding: 20px;
@@ -271,7 +271,7 @@
       color: var(--primary-color);
     }
 
-    .download-btn {
+    .btn {
       display: inline-block;
       background-color: var(--primary-color);
       color: white;
@@ -280,9 +280,12 @@
       text-decoration: none;
       margin-top: 10px;
       transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    .download-btn:hover {
+    .btn:hover {
       background-color: #0056b3;
       transform: translateY(-2px);
     }
@@ -303,18 +306,401 @@
 
     .faq-item {
       margin-bottom: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding-bottom: 15px;
     }
 
     .faq-question {
       font-weight: bold;
       color: var(--primary-color);
       cursor: pointer;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: "+";
+      font-size: 20px;
+    }
+
+    .faq-question.active::after {
+      content: "-";
     }
 
     .faq-answer {
-      margin-top: 5px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: 0;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .faq-answer.show {
+      max-height: 500px;
+      margin-top: 10px;
       padding-left: 15px;
       border-left: 3px solid var(--primary-color);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    }
+
+    .file-upload {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .file-upload-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .file-upload-label i {
+      font-size: 24px;
+      color: var(--primary-color);
+    }
+
+    .file-upload-input {
+      display: none;
+    }
+
+    .uploaded-files {
+      margin-top: 15px;
+    }
+
+    .uploaded-file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      background-color: rgba(0,0,0,0.05);
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    .remove-file {
+      color: #dc3545;
+      cursor: pointer;
+    }
+
+    .skill-container {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .skill-bar {
+      height: 20px;
+      border-radius: 5px;
+      background-color: var(--primary-color);
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      line-height: 20px;
+      font-size: 12px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -12px;
+      background-color: white;
+      border: 4px solid var(--primary-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--primary-color);
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid var(--primary-color);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--primary-color) transparent transparent;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: var(--card-bg);
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .newsletter-form button {
+      padding: 10px 20px;
+    }
+
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .cookie-consent button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: transparent;
+      z-index: 1000;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: var(--primary-color);
+      transition: width 0.1s ease;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      z-index: 1000;
+      white-space: nowrap;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--primary-color);
+      background: none;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .close-modal:hover {
+      transform: rotate(90deg);
+    }
+
+    .alert {
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+      margin-left: 5px;
+      padding: 2px 5px;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 768px) {
@@ -334,6 +720,59 @@
 
       .section-title {
         font-size: 1.8em;
+      }
+
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item::before {
+        left: 60px;
+        border: medium solid var(--primary-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--primary-color) transparent transparent;
+      }
+
+      .left::after, .right::after {
+        left: 15px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #resume, #resume * {
+        visibility: visible;
+      }
+      #resume {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        padding: 20px;
+      }
+      nav, footer, .back-to-top, .theme-toggle, .language-select {
+        display: none !important;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .btn {
+        display: none;
       }
     }
   </style>
@@ -375,14 +814,14 @@
       <h3>IT Consultant & Business Operations Specialist</h3>
       <p>I bridge the gap between technology and business with innovative digital solutions. With expertise in IT support, website development, and business process optimization, I help organizations achieve their digital transformation goals.</p>
       <div class="social-links">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://facebook.com" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://linkedin.com" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
     <div class="hero-image">
-      <img src=<img src="https://raw.githubusercontent.com/Ethicalhacker-ops/bijay/main/hero.png" alt="Hero Image" />">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Jay Prasad Majhi">
     </div>
   </div>
 </div>
@@ -396,23 +835,35 @@
   </div>
   
   <div class="card">
-    <h3>Skills</h3>
-    <ul>
-      <li>Website Development (HTML, CSS, JavaScript)</li>
-      <li>IT Support & Troubleshooting</li>
-      <li>Business Process Optimization</li>
-      <li>Digital Marketing Strategies</li>
-      <li>Project Management</li>
-      <li>Academic Consulting</li>
-    </ul>
+    <h3>Mission Statement</h3>
+    <p>To leverage technology to create efficient business solutions that drive growth and innovation while maintaining ethical standards and contributing to community development.</p>
   </div>
   
   <div class="card">
-    <h3>Education</h3>
-    <p><strong>Bachelor's in Business Studies</strong><br>
-    Tribhuvan University, Nepal</p>
-    <p><strong>IT Support Specialist Certification</strong><br>
-    Google Career Certificates</p>
+    <h3>Career Summary</h3>
+    <p>With over 5 years of experience in IT consulting and business operations, I've helped numerous organizations streamline their processes and implement technology solutions that enhance productivity and customer engagement. My unique combination of business acumen and technical expertise allows me to understand challenges from multiple perspectives.</p>
+  </div>
+  
+  <div class="card">
+    <h3>Skills</h3>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 90%">HTML/CSS 90%</div>
+    </div>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 80%">JavaScript 80%</div>
+    </div>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 85%">IT Support 85%</div>
+    </div>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 75%">Business Consulting 75%</div>
+    </div>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 70%">Digital Marketing 70%</div>
+    </div>
+    <div class="skill-container">
+      <div class="skill-bar" style="width: 80%">Project Management 80%</div>
+    </div>
   </div>
   
   <div class="card">
@@ -425,35 +876,41 @@
 <div id="services" class="content-section">
   <h2 class="section-title">My Services</h2>
   
-  <div class="project-grid">
+  <div class="services-grid">
     <div class="card">
       <h3><i class="fas fa-laptop-code"></i> Website Development</h3>
       <p>Custom website design and development tailored to your business needs. Responsive, SEO-friendly websites that work across all devices.</p>
+      <p><strong>Starting at:</strong> $500</p>
     </div>
     
     <div class="card">
       <h3><i class="fas fa-headset"></i> IT Support</h3>
       <p>Comprehensive IT support services including troubleshooting, system setup, network configuration, and ongoing maintenance.</p>
+      <p><strong>Hourly rate:</strong> $50/hour</p>
     </div>
     
     <div class="card">
       <h3><i class="fas fa-chart-line"></i> Business Consulting</h3>
       <p>Strategic advice to optimize your business operations, improve efficiency, and implement technology solutions that drive growth.</p>
+      <p><strong>Project-based pricing</strong></p>
     </div>
     
     <div class="card">
       <h3><i class="fas fa-graduation-cap"></i> Academic Consulting</h3>
       <p>Guidance for students seeking international education opportunities, including application support and career advice.</p>
+      <p><strong>Package deals available</strong></p>
     </div>
     
     <div class="card">
       <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
       <p>Digital marketing strategies including social media management, content creation, and online advertising to grow your brand.</p>
+      <p><strong>Monthly packages from:</strong> $300</p>
     </div>
     
     <div class="card">
       <h3><i class="fas fa-cogs"></i> Digital Transformation</h3>
       <p>Help your business transition to digital operations with customized solutions that meet your specific needs and budget.</p>
+      <p><strong>Custom quotes</strong></p>
     </div>
   </div>
 </div>
@@ -463,7 +920,7 @@
   <h2 class="section-title">Portfolio</h2>
   
   <div class="project-grid">
-    <div class="project-card">
+    <div class="project-card" data-link="https://example.com/project1">
       <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Business Website" class="project-image">
       <div class="project-info">
         <h3>Business Website</h3>
@@ -471,7 +928,7 @@
       </div>
     </div>
     
-    <div class="project-card">
+    <div class="project-card" data-link="https://example.com/project2">
       <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Educational Platform" class="project-image">
       <div class="project-info">
         <h3>Educational Platform</h3>
@@ -479,11 +936,35 @@
       </div>
     </div>
     
-    <div class="project-card">
+    <div class="project-card" data-link="https://example.com/project3">
       <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="IT Support System" class="project-image">
       <div class="project-info">
         <h3>IT Support System</h3>
         <p>Ticketing system and knowledge base for internal IT support operations.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-link="https://example.com/project4">
+      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Business Process Automation" class="project-image">
+      <div class="project-info">
+        <h3>Business Process Automation</h3>
+        <p>Custom workflow automation solution for a mid-sized manufacturing company.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-link="https://example.com/project5">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Digital Marketing Campaign" class="project-image">
+      <div class="project-info">
+        <h3>Digital Marketing Campaign</h3>
+        <p>Comprehensive digital marketing strategy for a local retail business.</p>
+      </div>
+    </div>
+    
+    <div class="project-card" data-link="https://example.com/project6">
+      <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mobile App Development" class="project-image">
+      <div class="project-info">
+        <h3>Mobile App Development</h3>
+        <p>Cross-platform mobile application for a community service organization.</p>
       </div>
     </div>
   </div>
@@ -494,43 +975,123 @@
   <h2 class="section-title">Resume</h2>
   
   <div class="card">
-    <h3>Education</h3>
-    <p><strong>Bachelor's in Business Studies</strong><br>
-    Tribhuvan University, Nepal | 2015-2019</p>
-    
-    <p><strong>IT Support Specialist Certification</strong><br>
-    Google Career Certificates | 2022</p>
+    <h3>Professional Summary</h3>
+    <p>Results-driven IT Consultant and Business Operations Specialist with 5+ years of experience in delivering technology solutions that drive business growth. Proven ability to analyze business needs, design efficient systems, and implement technology strategies that enhance productivity and customer engagement.</p>
   </div>
   
   <div class="card">
     <h3>Work Experience</h3>
     
-    <p><strong>IT Consultant</strong><br>
-    Crunch Tech Pvt. Ltd. | 2020-Present<br>
-    - Provide IT solutions and support to clients<br>
-    - Develop and maintain business websites<br>
-    - Implement digital transformation strategies</p>
-    
-    <p><strong>Documentation Officer</strong><br>
-    Oli and Associates | 2018-2020<br>
-    - Managed company documentation and records<br>
-    - Assisted with accounting and financial reporting<br>
-    - Provided basic IT support to staff</p>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>IT Consultant</h4>
+          <h5>Crunch Tech Pvt. Ltd. | 2020-Present</h5>
+          <ul>
+            <li>Provide IT solutions and support to clients across various industries</li>
+            <li>Develop and maintain business websites with custom functionality</li>
+            <li>Implement digital transformation strategies for small to medium businesses</li>
+            <li>Conduct technology needs assessments and recommend appropriate solutions</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>Documentation Officer</h4>
+          <h5>Oli and Associates | 2018-2020</h5>
+          <ul>
+            <li>Managed company documentation and records with digital archiving system</li>
+            <li>Assisted with accounting and financial reporting processes</li>
+            <li>Provided basic IT support to staff and implemented document management system</li>
+            <li>Streamlined office operations through process automation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>IT Support Intern</h4>
+          <h5>Tech Solutions Nepal | 2017-2018</h5>
+          <ul>
+            <li>Provided technical support to clients via phone, email, and in-person</li>
+            <li>Assisted with hardware and software installations</li>
+            <li>Maintained documentation of IT systems and procedures</li>
+            <li>Participated in network setup and maintenance projects</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="card">
-    <h3>Skills</h3>
-    <ul>
-      <li>Website Development (HTML, CSS, JavaScript)</li>
-      <li>IT Support & Troubleshooting</li>
-      <li>Business Process Optimization</li>
-      <li>Project Management</li>
-      <li>Digital Marketing</li>
-      <li>Academic Consulting</li>
-    </ul>
+    <h3>Education</h3>
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>Bachelor's in Business Studies</h4>
+          <h5>Tribhuvan University, Nepal | 2015-2019</h5>
+          <p>Specialized in Business Information Systems with coursework in management, accounting, and IT applications in business.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>IT Support Specialist Certification</h4>
+          <h5>Google Career Certificates | 2022</h5>
+          <p>Comprehensive training in IT support fundamentals including troubleshooting, customer service, networking, operating systems, system administration, and security.</p>
+        </div>
+      </div>
+    </div>
   </div>
   
-  <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Resume (PDF)</a>
+  <div class="card">
+    <h3>Certifications</h3>
+    <div class="certification-grid">
+      <div class="card">
+        <h4>Google IT Support Professional Certificate</h4>
+        <p>Google | 2022</p>
+      </div>
+      
+      <div class="card">
+        <h4>Certified Business Analysis Professional (CBAP)</h4>
+        <p>IIBA | 2021</p>
+      </div>
+      
+      <div class="card">
+        <h4>Project Management Professional (PMP)</h4>
+        <p>PMI | 2023</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <h3>Awards & Achievements</h3>
+    <div class="awards-grid">
+      <div class="card">
+        <h4>Employee of the Year</h4>
+        <p>Crunch Tech Pvt. Ltd. | 2021</p>
+        <p>Recognized for outstanding contributions to client projects and team collaboration.</p>
+      </div>
+      
+      <div class="card">
+        <h4>Innovation Award</h4>
+        <p>Nepal Tech Summit | 2020</p>
+        <p>Awarded for developing an innovative business process automation solution.</p>
+      </div>
+      
+      <div class="card">
+        <h4>Academic Excellence Scholarship</h4>
+        <p>Tribhuvan University | 2017</p>
+        <p>Awarded for top performance in Business Information Systems coursework.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div style="display: flex; gap: 10px; margin-top: 20px;">
+    <a href="#" class="btn"><i class="fas fa-download"></i> Download Resume (PDF)</a>
+    <button onclick="window.print()" class="btn btn-secondary"><i class="fas fa-print"></i> Print Resume</button>
+  </div>
 </div>
 
 <!-- Testimonials Section -->
@@ -539,18 +1100,33 @@
   
   <div class="testimonial-grid">
     <div class="testimonial-card">
-      <p class="testimonial-text">"Jay helped us design our website and IT setup — highly satisfied with his dedication and after-service. The website has significantly improved our online presence and customer engagement."</p>
-      <p class="testimonial-author">- A Client, Local Business Owner</p>
+      <div class="testimonial-text">"Jay helped us design our website and IT setup — highly satisfied with his dedication and after-service. The website has significantly improved our online presence and customer engagement."</div>
+      <div class="testimonial-author">- A Client, Local Business Owner</div>
     </div>
     
     <div class="testimonial-card">
-      <p class="testimonial-text">"A very detailed and efficient approach towards projects, always ready to support with additional insights. Jay's understanding of both business and technology is exceptional."</p>
-      <p class="testimonial-author">- Business Partner, Startup Founder</p>
+      <div class="testimonial-text">"A very detailed and efficient approach towards projects, always ready to support with additional insights. Jay's understanding of both business and technology is exceptional."</div>
+      <div class="testimonial-author">- Business Partner, Startup Founder</div>
     </div>
     
     <div class="testimonial-card">
-      <p class="testimonial-text">"Professional, responsive, and committed to delivering the best outcomes. Jay has been instrumental in our digital transformation journey."</p>
-      <p class="testimonial-author">- Employer, Educational Institution</p>
+      <div class="testimonial-text">"Professional, responsive, and committed to delivering the best outcomes. Jay has been instrumental in our digital transformation journey."</div>
+      <div class="testimonial-author">- Employer, Educational Institution</div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-text">"Jay provided excellent guidance for my study abroad plans. His knowledge of international education systems and application processes was invaluable."</div>
+      <div class="testimonial-author">- Student Client</div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-text">"The digital marketing strategy Jay developed for our business resulted in a 40% increase in online engagement and a 25% boost in sales within three months."</div>
+      <div class="testimonial-author">- Retail Business Owner</div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div class="testimonial-text">"As a colleague, Jay is a great team player who brings both technical expertise and business insight to every project. His problem-solving skills are outstanding."</div>
+      <div class="testimonial-author">- Coworker, Tech Company</div>
     </div>
   </div>
 </div>
@@ -563,25 +1139,70 @@
     <h3>Latest Articles</h3>
     <p>Through my blog, I share insights, tutorials, tips, and my experiences in technology, business, and professional development.</p>
     
+    <div class="search-container">
+      <input type="text" class="search-box" placeholder="Search blog posts..." onkeypress="handleSearch(event)">
+      <button onclick="searchBlog()" class="btn"><i class="fas fa-search"></i> Search</button>
+    </div>
+    
     <div class="project-grid">
       <div class="card">
         <h4>Building a Website with Free Tools</h4>
+        <p><small><i class="far fa-calendar"></i> June 15, 2023 | <i class="far fa-folder"></i> Web Development</small></p>
         <p>A step-by-step guide to creating a professional website without spending money on expensive software.</p>
-        <a href="#" class="download-btn">Read More</a>
+        <a href="#" class="btn btn-outline">Read More</a>
       </div>
       
       <div class="card">
         <h4>Tips for Studying Abroad</h4>
+        <p><small><i class="far fa-calendar"></i> May 2, 2023 | <i class="far fa-folder"></i> Education</small></p>
         <p>Essential advice for Nepali students planning to pursue higher education in foreign countries.</p>
-        <a href="#" class="download-btn">Read More</a>
+        <a href="#" class="btn btn-outline">Read More</a>
       </div>
       
       <div class="card">
         <h4>IT Support for Small Businesses</h4>
+        <p><small><i class="far fa-calendar"></i> April 10, 2023 | <i class="far fa-folder"></i> IT Support</small></p>
         <p>Best practices for implementing cost-effective IT solutions in small business environments.</p>
-        <a href="#" class="download-btn">Read More</a>
+        <a href="#" class="btn btn-outline">Read More</a>
+      </div>
+      
+      <div class="card">
+        <h4>Digital Transformation Roadmap</h4>
+        <p><small><i class="far fa-calendar"></i> March 22, 2023 | <i class="far fa-folder"></i> Business</small></p>
+        <p>How to plan and execute a successful digital transformation for your business.</p>
+        <a href="#" class="btn btn-outline">Read More</a>
+      </div>
+      
+      <div class="card">
+        <h4>Essential Business Analysis Techniques</h4>
+        <p><small><i class="far fa-calendar"></i> February 15, 2023 | <i class="far fa-folder"></i> Business Analysis</small></p>
+        <p>Key techniques every business analyst should know to improve requirements gathering.</p>
+        <a href="#" class="btn btn-outline">Read More</a>
+      </div>
+      
+      <div class="card">
+        <h4>Remote Work Technology Setup</h4>
+        <p><small><i class="far fa-calendar"></i> January 5, 2023 | <i class="far fa-folder"></i> IT Support</small></p>
+        <p>The essential technology tools and setup for productive remote work environments.</p>
+        <a href="#" class="btn btn-outline">Read More</a>
       </div>
     </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="#" class="btn">View All Blog Posts</a>
+    </div>
+  </div>
+  
+  <div class="card">
+    <h3>Subscribe to Newsletter</h3>
+    <p>Get the latest articles, tips, and resources delivered straight to your inbox.</p>
+    
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+    
+    <p><small>We respect your privacy. Unsubscribe at any time.</small></p>
   </div>
 </div>
 
@@ -614,6 +1235,21 @@
       <div class="faq-question">Do you provide ongoing support after project completion?</div>
       <div class="faq-answer">Yes, I offer various maintenance and support packages to ensure your systems continue to run smoothly after the initial project is completed.</div>
     </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">What technologies do you specialize in?</div>
+      <div class="faq-answer">I specialize in web technologies (HTML, CSS, JavaScript), business analysis tools, IT support systems, and digital marketing platforms. My expertise focuses on practical solutions that deliver business value.</div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">How do you handle project timelines and deadlines?</div>
+      <div class="faq-answer">I provide clear project timelines upfront and maintain regular communication to ensure we stay on track. For larger projects, I break them into phases with milestones to ensure steady progress.</div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">Can you help with both technical implementation and business strategy?</div>
+      <div class="faq-answer">Absolutely! My unique combination of business education and technical expertise allows me to bridge the gap between technology and business objectives, ensuring solutions align with your strategic goals.</div>
+    </div>
   </div>
 </div>
 
@@ -629,45 +1265,165 @@
       <div class="card">
         <h4><i class="fas fa-envelope"></i> Email</h4>
         <p>For general inquiries:<br>
-        <a href="mailto:support@jayprasad.com.np">support@jayprasad.com.np</a></p>
+        <a href="mailto:support@jayprasad.com.np">support@jayprasad.com.np</a>
+        <button onclick="copyEmail('support@jayprasad.com.np')" class="copy-btn">
+          <i class="far fa-copy"></i>
+        </button></p>
         <p>For technical support:<br>
-        <a href="mailto:it@jayprasad.com.np">it@jayprasad.com.np</a></p>
+        <a href="mailto:it@jayprasad.com.np">it@jayprasad.com.np</a>
+        <button onclick="copyEmail('it@jayprasad.com.np')" class="copy-btn">
+          <i class="far fa-copy"></i>
+        </button></p>
       </div>
       
       <div class="card">
         <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
         <p>Birtamode, Jhapa<br>
         Nepal</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370777525!2d87.9863143150426!3d26.84196608316171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e5c9e9a9e9e9e9%3A0x9e9e9e9e9e9e9e9!2sBirtamode%2C%20Jhapa!5e0!3m2!1sen!2snp!4v1620000000000!5m2!1sen!2snp" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       
       <div class="card">
         <h4><i class="fas fa-share-alt"></i> Social Media</h4>
         <div class="social-links">
-          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://facebook.com" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com" target="_blank" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
         </div>
+        
+        <h4 style="margin-top: 20px;"><i class="fas fa-phone"></i> Phone</h4>
+        <p>+977 98XXXXXXXX</p>
       </div>
     </div>
   </div>
   
+  <div class="card">
+    <h3>Send Me a Message</h3>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Upload Documents (Optional)</label>
+        <div class="file-upload">
+          <label class="file-upload-label">
+            <i class="fas fa-paperclip"></i>
+            <span>Attach Files</span>
+            <input type="file" class="file-upload-input" multiple>
+          </label>
+          <small>You can upload resumes, project briefs, or other relevant documents (PDF, DOC, JPG, PNG)</small>
+          <div class="uploaded-files" id="uploadedFiles"></div>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+  
   <div class="search-container">
     <input type="text" class="search-box" placeholder="Search Google..." onkeypress="handleSearch(event)">
-    <button onclick="searchGoogle()"><i class="fas fa-search"></i></button>
+    <button onclick="searchGoogle()" class="btn"><i class="fas fa-search"></i> Search</button>
+  </div>
+</div>
+
+<!-- Privacy Policy Section -->
+<div id="privacy" class="content-section">
+  <h2 class="section-title">Privacy Policy</h2>
+  
+  <div class="card">
+    <h3>Information We Collect</h3>
+    <p>We may collect personal information such as your name, email address, and contact details when you submit forms on our website.</p>
+    
+    <h3>How We Use Your Information</h3>
+    <p>We use the information we collect to respond to your inquiries, provide services, and improve our website.</p>
+    
+    <h3>Cookies</h3>
+    <p>Our website uses cookies to enhance your experience. You can control cookies through your browser settings.</p>
+    
+    <h3>Data Security</h3>
+    <p>We implement appropriate security measures to protect your personal information.</p>
+    
+    <h3>Changes to This Policy</h3>
+    <p>We may update this privacy policy from time to time. The latest version will always be posted here.</p>
+    
+    <p><strong>Last Updated:</strong> June 1, 2023</p>
+  </div>
+</div>
+
+<!-- Terms of Service Section -->
+<div id="terms" class="content-section">
+  <h2 class="section-title">Terms of Service</h2>
+  
+  <div class="card">
+    <h3>Acceptance of Terms</h3>
+    <p>By using this website, you agree to these terms and conditions.</p>
+    
+    <h3>Intellectual Property</h3>
+    <p>All content on this website is the property of Jay Prasad Majhi and protected by copyright laws.</p>
+    
+    <h3>Limitation of Liability</h3>
+    <p>We are not liable for any damages resulting from your use of this website.</p>
+    
+    <h3>Governing Law</h3>
+    <p>These terms shall be governed by and construed in accordance with the laws of Nepal.</p>
+    
+    <p><strong>Last Updated:</strong> June 1, 2023</p>
   </div>
 </div>
 
 <footer>
+  <div class="footer-links">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('services')">Services</a>
+    <a href="#" onclick="showSection('portfolio')">Portfolio</a>
+    <a href="#" onclick="showSection('resume')">Resume</a>
+    <a href="#" onclick="showSection('blog')">Blog</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+    <a href="#" onclick="showSection('privacy')">Privacy Policy</a>
+    <a href="#" onclick="showSection('terms')">Terms of Service</a>
+  </div>
+  
   <p>© <span id="copyright-year"></span> Jay Prasad Majhi | All Rights Reserved</p>
   <p>Support: <a href="mailto:support@jayprasad.com.np">support@jayprasad.com.np</a> | Technical: <a href="mailto:it@jayprasad.com.np">it@jayprasad.com.np</a></p>
-  <p><a href="#" onclick="showSection('privacy')">Privacy Policy</a> | <a href="#" onclick="showSection('terms')">Terms of Service</a></p>
+  <p>Visitors: <span id="visitor-counter">Loading...</span></p>
 </footer>
 
 <!-- Back to Top Button -->
 <div class="back-to-top" onclick="scrollToTop()">
   <i class="fas fa-arrow-up"></i>
   <span>Back to Top</span>
+</div>
+
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress">
+  <div class="scroll-progress-bar"></div>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent">
+  <p>This website uses cookies to ensure you get the best experience. <a href="#" onclick="showSection('privacy')">Learn more</a></p>
+  <button onclick="acceptCookies()">I Accept</button>
 </div>
 
 <!-- JavaScript -->
@@ -715,6 +1471,12 @@ window.onscroll = function() {
   } else {
     backToTop.classList.remove('visible');
   }
+  
+  // Update scroll progress
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollProgress = (scrollTop / scrollHeight) * 100;
+  document.querySelector('.scroll-progress-bar').style.width = scrollProgress + '%';
 };
 
 function scrollToTop() {
@@ -777,346 +1539,93 @@ function searchGoogle() {
   }
 }
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', function() {
-  // Set current year in footer
-  document.getElementById('copyright-year').textContent = new Date().getFullYear();
-  
-  // Initialize clock
-  updateClock();
-});
-</script>
+// Blog search function
+function searchBlog() {
+  const searchBox = document.querySelectorAll('.search-box')[1];
+  if (searchBox.value.trim() !== '') {
+    alert(`Searching for: ${searchBox.value}\nThis would filter blog posts in a real implementation.`);
+  }
+}
 
-</body>
-</html>
-<!-- Add this right before the closing </body> tag -->
-<script>
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+// FAQ toggle functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    question.classList.toggle('active');
+    const answer = question.nextElementSibling;
+    answer.classList.toggle('show');
+  });
+});
+
+// File upload functionality
+const fileInput = document.querySelector('.file-upload-input');
+const uploadedFilesContainer = document.getElementById('uploadedFiles');
+
+fileInput.addEventListener('change', function(e) {
+  uploadedFilesContainer.innerHTML = '';
+  
+  if (this.files.length > 0) {
+    Array.from(this.files).forEach(file => {
+      const fileElement = document.createElement('div');
+      fileElement.className = 'uploaded-file';
+      fileElement.innerHTML = `
+        <span>${file.name}</span>
+        <span class="remove-file" onclick="removeUploadedFile(this)"><i class="fas fa-times"></i></span>
+      `;
+      uploadedFilesContainer.appendChild(fileElement);
     });
-  });
+  }
 });
 
-// Project modal functionality
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-  card.addEventListener('click', function() {
-    const imgSrc = this.querySelector('img').src;
-    const title = this.querySelector('h3').textContent;
-    const description = this.querySelector('p').textContent;
-    
-    openModal(imgSrc, title, description);
-  });
-});
+function removeUploadedFile(element) {
+  element.parentElement.remove();
+}
 
-function openModal(imgSrc, title, description) {
-  const modal = document.createElement('div');
-  modal.className = 'modal';
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <img src="${imgSrc}" alt="${title}">
-      <h3>${title}</h3>
-      <p>${description}</p>
-      <button class="visit-btn">Visit Project</button>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-  
-  // Close modal when clicking X
-  modal.querySelector('.close-modal').addEventListener('click', () => {
-    modal.remove();
-  });
-  
-  // Close modal when clicking outside
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.remove();
-    }
+// Copy email function
+function copyEmail(email) {
+  navigator.clipboard.writeText(email).then(() => {
+    alert('Email copied to clipboard: ' + email);
+  }).catch(err => {
+    console.error('Could not copy text: ', err);
   });
 }
 
-// Add this to your CSS section (inside the <style> tag)
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background-color: var(--card-bg);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.modal-content img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--primary-color);
-}
-
-.visit-btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: all 0.3s ease;
-}
-
-.visit-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-/* Animation for section transitions */
-.content-section {
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Skill bars for About section */
-.skill-container {
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 5px;
-  margin: 10px 0;
-}
-
-.skill-bar {
-  height: 20px;
-  border-radius: 5px;
-  background-color: var(--primary-color);
-  text-align: right;
-  padding-right: 10px;
-  color: white;
-  line-height: 20px;
-  font-size: 12px;
-}
-
-/* Add this to your About section HTML (replace the skills list) */
-<div class="card">
-  <h3>Skills</h3>
-  <div class="skill-container">
-    <div class="skill-bar" style="width: 90%">HTML/CSS 90%</div>
-  </div>
-  <div class="skill-container">
-    <div class="skill-bar" style="width: 80%">JavaScript 80%</div>
-  </div>
-  <div class="skill-container">
-    <div class="skill-bar" style="width: 85%">IT Support 85%</div>
-  </div>
-  <div class="skill-container">
-    <div class="skill-bar" style="width: 75%">Business Consulting 75%</div>
-  </div>
-</div>
-
-<!-- Add this to your Contact section for a proper contact form -->
-<div class="card">
-  <h3>Send Me a Message</h3>
-  <form id="contactForm">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required>
-    </div>
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="download-btn">Send Message</button>
-  </form>
-</div>
-
-<!-- Add this CSS for the contact form -->
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: var(--card-bg);
-  color: var(--text-color);
-}
-
-/* Add this JavaScript for form handling */
+// Contact form submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // Get form values
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
+  // Show loading spinner
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  submitBtn.disabled = true;
   
-  // Here you would typically send this data to a server
-  // For now, we'll just show a success message
-  alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
-  
-  // Reset the form
-  this.reset();
-});
-
-/* Add a loading animation for better UX */
-.loading-spinner {
-  display: none;
-  border: 4px solid rgba(0,0,0,0.1);
-  border-radius: 50%;
-  border-top: 4px solid var(--primary-color);
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin: 20px auto;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Add this to your form submission handler */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const spinner = document.createElement('div');
-  spinner.className = 'loading-spinner';
-  this.appendChild(spinner);
-  spinner.style.display = 'block';
-  
-  // Simulate form submission delay
+  // Simulate form submission (replace with actual AJAX call)
   setTimeout(() => {
-    spinner.style.display = 'none';
-    alert('Message sent successfully!');
+    // Hide loading spinner
+    submitBtn.innerHTML = originalBtnText;
+    submitBtn.disabled = false;
+    
+    // Show success message
+    const successMsg = document.createElement('div');
+    successMsg.className = 'alert alert-success';
+    successMsg.innerHTML = `
+      <i class="fas fa-check-circle"></i>
+      Thank you! Your message has been sent successfully.
+    `;
+    this.parentNode.insertBefore(successMsg, this.nextSibling);
+    
+    // Reset form
     this.reset();
+    uploadedFilesContainer.innerHTML = '';
+    
+    // Remove success message after 5 seconds
+    setTimeout(() => {
+      successMsg.remove();
+    }, 5000);
   }, 1500);
 });
 
-/* Add visitor counter to footer */
-<footer>
-  <p>© <span id="copyright-year"></span> Jay Prasad Majhi | All Rights Reserved</p>
-  <p>Support: <a href="mailto:support@jayprasad.com.np">support@jayprasad.com.np</a> | Technical: <a href="mailto:it@jayprasad.com.np">it@jayprasad.com.np</a></p>
-  <p><a href="#" onclick="showSection('privacy')">Privacy Policy</a> | <a href="#" onclick="showSection('terms')">Terms of Service</a></p>
-  <p>Visitors: <span id="visitor-counter">Loading...</span></p>
-</footer>
-
-/* Add this JavaScript for visitor counter */
-// Simulate visitor counter - in a real app, this would come from a backend
-function updateVisitorCounter() {
-  // Generate a random number to simulate visitors
-  const baseVisitors = 1245;
-  const randomAddition = Math.floor(Math.random() * 100);
-  document.getElementById('visitor-counter').textContent = baseVisitors + randomAddition;
-}
-
-// Call on page load
-updateVisitorCounter();
-
-/* Add a "Print Resume" button */
-<button onclick="window.print()" class="download-btn" style="margin-left: 10px;">
-  <i class="fas fa-print"></i> Print Resume
-</button>
-
-/* Add media query for print */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #resume, #resume * {
-    visibility: visible;
-  }
-  #resume {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-  nav, footer, .back-to-top {
-    display: none !important;
-  }
-}
-
-/* Add cookie consent banner */
-<div id="cookieConsent" class="cookie-consent">
-  <p>This website uses cookies to ensure you get the best experience. <a href="#" onclick="showSection('privacy')">Learn more</a></p>
-  <button onclick="acceptCookies()">I Accept</button>
-</div>
-
-/* Add CSS for cookie consent */
-.cookie-consent {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 999;
-}
-
-.cookie-consent button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Add JavaScript for cookie consent */
+// Cookie consent functions
 function checkCookies() {
   if (!localStorage.getItem('cookiesAccepted')) {
     document.getElementById('cookieConsent').style.display = 'flex';
@@ -1128,397 +1637,15 @@ function acceptCookies() {
   document.getElementById('cookieConsent').style.display = 'none';
 }
 
-// Call on page load
-document.addEventListener('DOMContentLoaded', checkCookies);
-
-/* Add animated scroll progress indicator */
-<div class="scroll-progress">
-  <div class="scroll-progress-bar"></div>
-</div>
-
-/* Add CSS for scroll progress */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: transparent;
-  z-index: 1000;
+// Visitor counter simulation
+function updateVisitorCounter() {
+  // Generate a random number to simulate visitors
+  const baseVisitors = 1245;
+  const randomAddition = Math.floor(Math.random() * 100);
+  document.getElementById('visitor-counter').textContent = baseVisitors + randomAddition;
 }
 
-.scroll-progress-bar {
-  height: 100%;
-  width: 0;
-  background-color: var(--primary-color);
-  transition: width 0.1s ease;
-}
-
-/* Add JavaScript for scroll progress */
-window.addEventListener('scroll', function() {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrollProgress = (scrollTop / scrollHeight) * 100;
-  document.querySelector('.scroll-progress-bar').style.width = scrollProgress + '%';
-});
-
-/* Add a "Share This Page" button */
-<button onclick="sharePage()" class="download-btn" style="margin-left: 10px;">
-  <i class="fas fa-share-alt"></i> Share
-</button>
-
-/* Add JavaScript for sharing */
-function sharePage() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Jay Prasad Majhi - Portfolio',
-      text: 'Check out my professional portfolio website',
-      url: window.location.href
-    }).catch(err => {
-      console.log('Error sharing:', err);
-    });
-  } else {
-    // Fallback for browsers that don't support Web Share API
-    alert('Share this page using: ' + window.location.href);
-  }
-}
-
-/* Add a "Copy Email" button next to email addresses */
-function copyEmail(email) {
-  navigator.clipboard.writeText(email).then(() => {
-    alert('Email copied to clipboard: ' + email);
-  }).catch(err => {
-    console.error('Could not copy text: ', err);
-  });
-}
-
-/* Update email links to include copy button */
-<p>For general inquiries:
-  <a href="mailto:support@jayprasad.com.np">support@jayprasad.com.np</a>
-  <button onclick="copyEmail('support@jayprasad.com.np')" class="copy-btn">
-    <i class="far fa-copy"></i>
-  </button>
-</p>
-
-/* Add CSS for copy button */
-.copy-btn {
-  background: none;
-  border: none;
-  color: var(--primary-color);
-  cursor: pointer;
-  margin-left: 5px;
-  padding: 2px 5px;
-}
-</script>
-/* Add this to your existing CSS */
-/* Enhanced Project Modal Styling */
-.modal-content {
-  position: relative;
-  background-color: var(--card-bg);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-}
-
-.modal-content img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(0,0,0,0.1);
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--primary-color);
-  background: none;
-  border: none;
-  transition: transform 0.3s ease;
-}
-
-.close-modal:hover {
-  transform: rotate(90deg);
-}
-
-/* Enhanced Form Styling */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: var(--card-bg);
-  color: var(--text-color);
-  font-size: 16px;
-  transition: border 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--primary-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-}
-
-/* Enhanced Button Styling */
-.btn {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: #0069d9;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-/* Enhanced Testimonial Cards */
-.testimonial-card {
-  position: relative;
-  background-color: var(--card-bg);
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-}
-
-.testimonial-card::before {
-  content: """;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 60px;
-  color: rgba(0,123,255,0.1);
-  font-family: Georgia, serif;
-  line-height: 1;
-}
-
-.testimonial-text {
-  font-style: italic;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial-author {
-  font-weight: bold;
-  text-align: right;
-  color: var(--primary-color);
-  margin-top: 15px;
-}
-
-/* Enhanced FAQ Section */
-.faq-item {
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding-bottom: 15px;
-}
-
-.faq-question {
-  font-weight: bold;
-  color: var(--primary-color);
-  cursor: pointer;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-question::after {
-  content: "+";
-  font-size: 20px;
-}
-
-.faq-question.active::after {
-  content: "-";
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  margin-top: 0;
-  padding-left: 0;
-  border-left: none;
-}
-
-.faq-answer.show {
-  max-height: 500px;
-  margin-top: 10px;
-  padding-left: 15px;
-  border-left: 3px solid var(--primary-color);
-}
-
-/* Enhanced Footer */
-footer {
-  padding: 30px 20px;
-  text-align: center;
-  background-color: var(--header-footer-bg);
-  color: white;
-  margin-top: 50px;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #cce5ff;
-  text-decoration: underline;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 15px 0;
-}
-
-/* Privacy Policy and Terms Sections */
-#privacy, #terms {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px 20px;
-}
-
-#privacy h2, #terms h2 {
-  color: var(--primary-color);
-  margin-top: 0;
-}
-
-#privacy h3, #terms h3 {
-  margin-top: 30px;
-  color: var(--primary-color);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .hero-text, .hero-image {
-    min-width: 100%;
-  }
-  
-  nav button {
-    padding: 8px 12px;
-    font-size: 14px;
-    margin: 3px;
-  }
-  
-  .section-title {
-    font-size: 1.8em;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .modal-content {
-    padding: 20px 15px;
-  }
-}
-
-/* Animation Classes */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.animate-on-scroll.animated {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Add this JavaScript to handle FAQ toggles */
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    question.classList.toggle('active');
-    const answer = question.nextElementSibling;
-    answer.classList.toggle('show');
-  });
-});
-
-/* Enhanced Scroll Animation */
-function checkScroll() {
-  const elements = document.querySelectorAll('.animate-on-scroll');
-  elements.forEach(element => {
-    const elementTop = element.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (elementTop < windowHeight - 100) {
-      element.classList.add('animated');
-    }
-  });
-}
-
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
-
-/* Enhanced Modal Functionality */
+// Project modal functionality
 function openModal(imgSrc, title, description, link) {
   const modal = document.createElement('div');
   modal.className = 'modal-overlay';
@@ -1556,7 +1683,7 @@ function openModal(imgSrc, title, description, link) {
   });
 }
 
-/* Update project cards to include links */
+// Initialize project cards
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', function() {
     const imgSrc = this.querySelector('img').src;
@@ -1568,138 +1695,37 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-/* Enhanced Form Validation */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Show loading spinner
-  const submitBtn = this.querySelector('button[type="submit"]');
-  const originalBtnText = submitBtn.innerHTML;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  submitBtn.disabled = true;
-  
-  // Simulate form submission (replace with actual AJAX call)
-  setTimeout(() => {
-    // Hide loading spinner
-    submitBtn.innerHTML = originalBtnText;
-    submitBtn.disabled = false;
-    
-    // Show success message
-    const successMsg = document.createElement('div');
-    successMsg.className = 'alert alert-success';
-    successMsg.innerHTML = `
-      <i class="fas fa-check-circle"></i>
-      Thank you! Your message has been sent successfully.
-    `;
-    this.parentNode.insertBefore(successMsg, this.nextSibling);
-    
-    // Reset form
-    this.reset();
-    
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-      successMsg.remove();
-    }, 5000);
-  }, 1500);
-});
-
-/* Alert Styles */
-.alert {
-  padding: 15px;
-  border-radius: 5px;
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+// Scroll animation functionality
+function checkScroll() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (elementTop < windowHeight - 100) {
+      element.classList.add('animated');
+    }
+  });
 }
 
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-/* Add this to your contact form HTML */
-<div id="contactForm">
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="message">Your Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-  </div>
-  
-  <button type="submit" class="btn">
-    <i class="fas fa-paper-plane"></i> Send Message
-  </button>
-</div>
-
-/* Add Privacy Policy and Terms Sections */
-<div id="privacy" class="content-section">
-  <h2 class="section-title">Privacy Policy</h2>
-  <div class="card">
-    <h3>Information We Collect</h3>
-    <p>We may collect personal information such as your name, email address, and contact details when you submit forms on our website.</p>
-    
-    <h3>How We Use Your Information</h3>
-    <p>We use the information we collect to respond to your inquiries, provide services, and improve our website.</p>
-    
-    <h3>Cookies</h3>
-    <p>Our website uses cookies to enhance your experience. You can control cookies through your browser settings.</p>
-    
-    <h3>Data Security</h3>
-    <p>We implement appropriate security measures to protect your personal information.</p>
-    
-    <h3>Changes to This Policy</h3>
-    <p>We may update this privacy policy from time to time. The latest version will always be posted here.</p>
-  </div>
-</div>
-
-<div id="terms" class="content-section">
-  <h2 class="section-title">Terms of Service</h2>
-  <div class="card">
-    <h3>Acceptance of Terms</h3>
-    <p>By using this website, you agree to these terms and conditions.</p>
-    
-    <h3>Intellectual Property</h3>
-    <p>All content on this website is the property of Jay Prasad Majhi and protected by copyright laws.</p>
-    
-    <h3>Limitation of Liability</h3>
-    <p>We are not liable for any damages resulting from your use of this website.</p>
-    
-    <h3>Governing Law</h3>
-    <p>These terms shall be governed by and construed in accordance with the laws of Nepal.</p>
-  </div>
-</div>
-
-/* Final JavaScript Initialization */
+// Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize copyright year
+  // Set current year in footer
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
   
-  // Initialize digital clock
+  // Initialize clock
   updateClock();
-  setInterval(updateClock, 1000);
   
   // Check for cookie consent
   checkCookies();
   
+  // Initialize visitor counter
+  updateVisitorCounter();
+  
   // Initialize scroll animations
   checkScroll();
+  window.addEventListener('scroll', checkScroll);
   
-  // Initialize all tooltips
+  // Initialize tooltips
   const tooltipTriggers = document.querySelectorAll('[data-tooltip]');
   tooltipTriggers.forEach(trigger => {
     trigger.addEventListener('mouseenter', showTooltip);
@@ -1707,7 +1733,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-/* Tooltip Functionality */
+// Tooltip functionality
 function showTooltip(e) {
   const tooltipText = this.getAttribute('data-tooltip');
   const tooltip = document.createElement('div');
@@ -1726,78 +1752,6 @@ function hideTooltip() {
     tooltip.remove();
   }
 }
-
-/* Tooltip CSS */
-.tooltip {
-  position: absolute;
-  background-color: #333;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  z-index: 1000;
-  white-space: nowrap;
-}
-
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #333 transparent transparent transparent;
-}
-
-/* Add tooltips to social icons */
-<div class="social-links">
-  <a href="https://facebook.com" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
-  <a href="https://linkedin.com" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
-  <a href="https://twitter.com" target="_blank" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
-  <a href="https://github.com" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
-</div>
-
-/* Final Polish - Add micro-interactions */
-button, a, [role="button"] {
-  transition: all 0.3s ease;
-}
-
-button:hover, a:hover, [role="button"]:hover {
-  transform: translateY(-2px);
-}
-
-/* Add focus styles for accessibility */
-button:focus, a:focus, input:focus, textarea:focus, select:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* Print-specific styles */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #resume, #resume * {
-    visibility: visible;
-  }
-  #resume {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    color: black;
-    padding: 20px;
-  }
-  nav, footer, .back-to-top, .theme-toggle, .language-select {
-    display: none !important;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  .btn {
-    display: none;
-  }
-}
+</script>
+</body>
+</html>
