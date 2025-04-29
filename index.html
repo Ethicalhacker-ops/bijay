@@ -900,32 +900,6 @@
     </footer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-<style>
-.marquee-content {
-  position: fixed;
-  top: 40%;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #f0f0f0;
-  padding: 10px;
-  border-radius: 0 8px 8px 0;
-}
-.marquee-content a {
-  text-decoration: none;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-</style>
-
-<div class="marquee-content">
-  <a href="https://www.linkedin.com/company/nextedgeit/" target="_blank"><i class="fab fa-linkedin"></i></a>
-  <a href="mailto:email@technologist.com"><i class="fas fa-envelope"></i></a>
-  <a href="#top"><i class="fas fa-arrow-up"></i> Back to Top</a>
-</div>
     
     <a href="#" class="back-to-top" id="backToTop">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -950,7 +924,31 @@
                 hour12: true,
                 weekday: 'long',
                 hour: 'numeric',
-                minute: 'numeric',
+                minu<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+.marquee-content {
+  position: fixed;
+  top: 40%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 5px;
+}
+.marquee-content a {
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+}
+</style>
+
+<div class="marquee-content">
+  <a href="https://www.linkedin.com/company/nextedgeit/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <a href="mailto:email@technologist.com"><i class="fas fa-envelope"></i></a>
+  <a href="#top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    te: 'numeric',
                 second: 'numeric'
             };
             const formatter = new Intl.DateTimeFormat([], options);
