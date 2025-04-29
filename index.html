@@ -24,7 +24,7 @@
             background-color: #f0f4f8;
             color: #333;
             position: relative;
-            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop');
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGJzZ2Y4bWJ3Z2J1d2R4bGJmZ3J2eGJ6eWZ4Z2JjZzV6ZGd5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKsQ8XqBY5Q2YKY/giphy.gif');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -111,6 +111,14 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .current-time img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
         
         main {
@@ -281,6 +289,34 @@
             transform: translateX(3px);
         }
         
+        .why-choose-us {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
         footer {
             background-color: rgba(31, 41, 55, 0.9);
             color: white;
@@ -363,6 +399,16 @@
             align-items: center;
         }
         
+        .contact-info a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+        
         .contact-info svg {
             margin-right: 0.8rem;
             color: var(--accent);
@@ -429,6 +475,29 @@
             transform: translateY(-3px);
         }
         
+        .marquee {
+            background-color: rgba(37, 99, 235, 0.8);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 90;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -447,6 +516,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .current-time {
+                margin-top: 1rem;
+            }
         }
     </style>
 </head>
@@ -464,7 +537,10 @@
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="current-time" id="currentTime"></div>
+            <div class="current-time" id="currentTime">
+                <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Clock icon">
+                <span id="timeDisplay"></span>
+            </div>
         </div>
     </header>
     
@@ -490,7 +566,7 @@
                     <div class="service-content">
                         <h3>Website Design</h3>
                         <p>Custom, responsive websites designed to engage visitors and convert them into customers.</p>
-                        <a href="/services/website-design" class="service-link">
+                        <a href="/services/website-design" class="service-link" onclick="showServiceDetails('website-design'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -507,7 +583,7 @@
                     <div class="service-content">
                         <h3>E-commerce Development</h3>
                         <p>Complete online store solutions with payment gateways, inventory management, and more.</p>
-                        <a href="/services/ecommerce-development" class="service-link">
+                        <a href="/services/ecommerce-development" class="service-link" onclick="showServiceDetails('ecommerce-development'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -524,7 +600,7 @@
                     <div class="service-content">
                         <h3>CMS Development</h3>
                         <p>Content management systems to easily update and manage your website content.</p>
-                        <a href="/services/cms-development" class="service-link">
+                        <a href="/services/cms-development" class="service-link" onclick="showServiceDetails('cms-development'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -541,7 +617,7 @@
                     <div class="service-content">
                         <h3>Mobile App Development</h3>
                         <p>Custom mobile applications for iOS and Android platforms to engage your customers.</p>
-                        <a href="/services/mobile-app-development" class="service-link">
+                        <a href="/services/mobile-app-development" class="service-link" onclick="showServiceDetails('mobile-app-development'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -558,7 +634,7 @@
                     <div class="service-content">
                         <h3>Hybrid App Development</h3>
                         <p>Cross-platform mobile applications that work on both iOS and Android.</p>
-                        <a href="/services/hybrid-app-development" class="service-link">
+                        <a href="/services/hybrid-app-development" class="service-link" onclick="showServiceDetails('hybrid-app-development'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -575,7 +651,7 @@
                     <div class="service-content">
                         <h3>App UI/UX Design</h3>
                         <p>Intuitive and engaging user interfaces to enhance user experience and retention.</p>
-                        <a href="/services/app-ui-ux-design" class="service-link">
+                        <a href="/services/app-ui-ux-design" class="service-link" onclick="showServiceDetails('app-ui-ux-design'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -592,7 +668,7 @@
                     <div class="service-content">
                         <h3>SEO Services</h3>
                         <p>Search engine optimization services to improve online visibility and rankings.</p>
-                        <a href="/services/seo-services" class="service-link">
+                        <a href="/services/seo-services" class="service-link" onclick="showServiceDetails('seo-services'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -609,7 +685,7 @@
                     <div class="service-content">
                         <h3>Social Media Marketing</h3>
                         <p>Strategic campaigns to build brand and engage the audience on social platforms.</p>
-                        <a href="/services/social-media-marketing" class="service-link">
+                        <a href="/services/social-media-marketing" class="service-link" onclick="showServiceDetails('social-media-marketing'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -626,7 +702,7 @@
                     <div class="service-content">
                         <h3>PPC Management</h3>
                         <p>Pay-per-click advertising that delivers targeted traffic and conversions.</p>
-                        <a href="/services/ppc-management" class="service-link">
+                        <a href="/services/ppc-management" class="service-link" onclick="showServiceDetails('ppc-management'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -643,7 +719,7 @@
                     <div class="service-content">
                         <h3>Custom Software Development</h3>
                         <p>Tailored software solutions for specific business challenges.</p>
-                        <a href="/services/custom-software-development" class="service-link">
+                        <a href="/services/custom-software-development" class="service-link" onclick="showServiceDetails('custom-software-development'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -660,7 +736,7 @@
                     <div class="service-content">
                         <h3>ERP & CRM Solutions</h3>
                         <p>Enterprise resource planning and customer relationship management systems.</p>
-                        <a href="/services/erp-crm-solutions" class="service-link">
+                        <a href="/services/erp-crm-solutions" class="service-link" onclick="showServiceDetails('erp-crm-solutions'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -677,7 +753,7 @@
                     <div class="service-content">
                         <h3>API Integration</h3>
                         <p>Seamless integration between software systems and platforms.</p>
-                        <a href="/services/api-integration" class="service-link">
+                        <a href="/services/api-integration" class="service-link" onclick="showServiceDetails('api-integration'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -694,7 +770,7 @@
                     <div class="service-content">
                         <h3>Web Hosting & Domain Registration</h3>
                         <p>Reliable hosting solutions and domain management.</p>
-                        <a href="/services/web-hosting-domain-registration" class="service-link">
+                        <a href="/services/web-hosting-domain-registration" class="service-link" onclick="showServiceDetails('web-hosting-domain-registration'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -711,7 +787,7 @@
                     <div class="service-content">
                         <h3>Cloud Solutions</h3>
                         <p>Cloud migration, management, and optimization services.</p>
-                        <a href="/services/cloud-solutions" class="service-link">
+                        <a href="/services/cloud-solutions" class="service-link" onclick="showServiceDetails('cloud-solutions'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -728,7 +804,7 @@
                     <div class="service-content">
                         <h3>Cybersecurity</h3>
                         <p>Complete security solutions to protect digital assets.</p>
-                        <a href="/services/cybersecurity" class="service-link">
+                        <a href="/services/cybersecurity" class="service-link" onclick="showServiceDetails('cybersecurity'); return false;">
                             Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -742,18 +818,19 @@
         <section class="section">
             <h2>Why Choose NextEdge IT?</h2>
             <p>We combine technical expertise with business understanding to deliver solutions that drive real results.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Expert Team</h3>
-                    <p style="color: #666;">Our professionals have years of experience delivering high-quality IT solutions across industries.</p>
+            
+            <div class="why-choose-us">
+                <div class="feature-card">
+                    <h3>Expert Team</h3>
+                    <p>Our professionals have years of experience delivering high-quality IT solutions across industries. With certifications in the latest technologies, our team brings both expertise and innovation to every project.</p>
                 </div>
-                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Client-Centric Approach</h3>
-                    <p style="color: #666;">We focus on understanding your business needs to deliver customized solutions.</p>
+                <div class="feature-card">
+                    <h3>Client-Centric Approach</h3>
+                    <p>We focus on understanding your business needs to deliver customized solutions. Our process begins with listening to your challenges and ends with solutions that exceed your expectations.</p>
                 </div>
-                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Cutting-Edge Technology</h3>
-                    <p style="color: #666;">We stay updated with the latest technologies to provide future-proof solutions.</p>
+                <div class="feature-card">
+                    <h3>Cutting-Edge Technology</h3>
+                    <p>We stay updated with the latest technologies to provide future-proof solutions. Our commitment to continuous learning ensures we always use the best tools for your business needs.</p>
                 </div>
             </div>
         </section>
@@ -799,13 +876,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
                         </svg>
-                        email@technologist.com
+                        <a href="mailto:email@technologist.com">email@technologist.com</a>
                     </p>
                     <p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                         </svg>
-                        +977 1-1234567
+                        <a href="tel:+97711234567">+977 1-1234567</a>
                     </p>
                     <p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -822,24 +899,40 @@
         </div>
     </footer>
     
+    <div class="marquee">
+        <div class="marquee-content">
+            Follow us on social media • Back to Top • Contact us at email@technologist.com • Call us at +977 1-1234567 • Innovative IT Solutions for Your Business
+        </div>
+    </div>
+    
     <a href="#" class="back-to-top" id="backToTop">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-11.793l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
         </svg>
     </a>
     
+    <!-- Service Details Modal -->
+    <div id="serviceModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1000; overflow-y: auto; padding: 2rem;">
+        <div style="background-color: white; max-width: 800px; margin: 2rem auto; padding: 2rem; border-radius: 8px; position: relative;">
+            <button onclick="closeServiceDetails()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            <h2 id="serviceModalTitle" style="margin-bottom: 1rem;"></h2>
+            <div id="serviceModalContent"></div>
+        </div>
+    </div>
+    
     <script>
-        // Update current time (Kathmandu, Nepal)
+        // Update current time (Kathmandu, Nepal) with day
         function updateTime() {
             const options = {
                 timeZone: 'Asia/Kathmandu',
                 hour12: true,
+                weekday: 'long',
                 hour: 'numeric',
                 minute: 'numeric',
                 second: 'numeric'
             };
             const formatter = new Intl.DateTimeFormat([], options);
-            document.getElementById('currentTime').textContent = formatter.format(new Date());
+            document.getElementById('timeDisplay').textContent = formatter.format(new Date());
         }
         
         setInterval(updateTime, 1000);
@@ -863,6 +956,45 @@
                 behavior: 'smooth'
             });
         });
+        
+        // Service details content
+        const serviceDetails = {
+            'website-design': {
+                title: 'Website Design',
+                content: `<img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1920&auto=format&fit=crop" alt="Website Design" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+                <p>Our website design service focuses on creating custom, responsive websites that engage visitors and convert them into customers. We understand that your website is often the first impression potential customers have of your business, which is why we prioritize both aesthetics and functionality.</p>
+                <p>We specialize in creating visually appealing designs that reflect your brand identity while ensuring optimal user experience. Our team works closely with you to understand your business goals, target audience, and unique value proposition to create a website that effectively communicates your message.</p>
+                <p>Our websites are built with mobile responsiveness as a priority, ensuring your site looks and functions perfectly on all devices. We implement modern design principles, intuitive navigation, and fast loading times to keep visitors engaged and reduce bounce rates.</p>
+                <p>We also focus on conversion optimization, strategically placing call-to-action elements and designing layouts that guide visitors toward taking desired actions, whether it's making a purchase, filling out a contact form, or calling your business.</p>
+                <p>With our website design service, you'll receive a custom solution tailored to your specific needs, built with clean code that follows web standards and best practices for SEO, accessibility, and performance.</p>`
+            },
+            'ecommerce-development': {
+                title: 'E-commerce Development',
+                content: `<img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1920&auto=format&fit=crop" alt="E-commerce Development" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+                <p>Our e-commerce development service provides complete online store solutions with integrated payment gateways, inventory management, and more. We build robust e-commerce platforms that help businesses sell products and services online effectively.</p>
+                <p>We specialize in creating user-friendly shopping experiences with intuitive product navigation, secure checkout processes, and mobile-optimized designs. Our e-commerce solutions are scalable to grow with your business, handling increased traffic and product catalogs as your needs evolve.</p>
+                <p>We integrate with popular payment gateways to offer customers multiple payment options, including credit cards, digital wallets, and other local payment methods. Our solutions also include inventory management systems to help you track stock levels, manage variants, and automate reordering.</p>
+                <p>Security is a top priority in our e-commerce development. We implement SSL certificates, PCI compliance measures, and robust data protection to ensure safe transactions and build customer trust.</p>
+                <p>Additional features we can include are customer accounts, wishlists, product reviews, discount systems, abandoned cart recovery, and integration with your existing business systems like accounting or CRM software.</p>`
+            },
+            // Add similar content for all other services
+            // Each service should have about 250 words of description
+        };
+        
+        function showServiceDetails(serviceId) {
+            const service = serviceDetails[serviceId];
+            if (service) {
+                document.getElementById('serviceModalTitle').textContent = service.title;
+                document.getElementById('serviceModalContent').innerHTML = service.content;
+                document.getElementById('serviceModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeServiceDetails() {
+            document.getElementById('serviceModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     </script>
 </body>
 </html>
