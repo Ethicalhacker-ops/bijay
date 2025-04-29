@@ -3,315 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextEdge IT Services - Powering Your Digital Growth</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>NextEdge IT Services - Digital Solutions Provider</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #1f2937;
+            --light: #f9fafb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: #f0f4f8;
             color: #333;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
         
-        .navbar {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
         }
         
-        .navbar-brand {
+        header {
+            background-color: rgba(31, 41, 55, 0.9);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: white !important;
+            color: white;
+            text-decoration: none;
         }
         
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
             font-weight: 500;
-            margin: 0 10px;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
         }
         
-        .nav-link:hover {
-            color: white !important;
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .current-time {
+            background-color: rgba(37, 99, 235, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
         
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn-primary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            padding: 10px 25px;
-            font-weight: 600;
-        }
-        
-        .btn-primary:hover {
-            background-color: #c0392b;
-            border-color: #c0392b;
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 10px 25px;
-            font-weight: 600;
-            margin-left: 15px;
-        }
-        
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--primary-color);
-        }
-        
-        .service-card {
-            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 30px;
-            height: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 50px;
+            padding: 4rem 2rem;
             text-align: center;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-        
-        .about-section {
-            padding: 80px 0;
-            background-color: #f9f9f9;
-        }
-        
-        .portfolio-item {
-            margin-bottom: 30px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
         }
         
-        .portfolio-item img {
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay {
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(44, 62, 80, 0.8);
+            background-color: rgba(37, 99, 235, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
         }
         
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
         }
         
-        .testimonial-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .testimonial-card .quote {
+        .hero p {
             font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
         }
         
-        .client-info {
-            display: flex;
-            align-items: center;
-        }
-        
-        .client-info img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .blog-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-            transition: transform 0.3s;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .blog-card img {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .blog-card .card-body {
-            padding: 25px;
-        }
-        
-        .contact-info {
-            padding: 30px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            height: 100%;
-        }
-        
-        .contact-info i {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-right: 15px;
-        }
-        
-        .form-control {
-            padding: 12px 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-        }
-        
-        .form-control:focus {
-            box-shadow: none;
-            border-color: var(--secondary-color);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
             color: white;
-            padding: 60px 0 20px;
-        }
-        
-        footer h5 {
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        footer a {
-            color: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
             text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
             transition: color 0.3s;
         }
         
-        footer a:hover {
-            color: white;
+        .service-link:hover {
+            color: var(--secondary);
         }
         
-        .social-icons a {
+        .service-link svg {
+            margin-left: 0.3rem;
+            transition: transform 0.3s;
+        }
+        
+        .service-link:hover svg {
+            transform: translateX(3px);
+        }
+        
+        footer {
+            background-color: rgba(31, 41, 55, 0.9);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
             display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info svg {
+            margin-right: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
+            color: white;
             transition: all 0.3s;
         }
         
-        .social-icons a:hover {
-            background-color: var(--accent-color);
-            color: white;
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
         }
         
-        .copyright {
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 40px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
         }
         
-        .whatsapp-float {
+        .back-to-top {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
         }
         
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            color: white;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
         
-        /* Responsive adjustments */
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -319,701 +447,422 @@
             .hero p {
                 font-size: 1rem;
             }
-            
-            .btn-secondary {
-                margin-left: 0;
-                margin-top: 15px;
-            }
-            
-            .section-title {
-                margin-bottom: 30px;
-            }
-            
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 25px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">NextEdge IT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+    <header>
+        <div class="header-container">
+            <a href="/home" class="logo">NextEdge<span>IT</span></a>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="current-time" id="currentTime"></div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Innovative IT Solutions for Your Business</h1>
+                <p>We deliver cutting-edge technology services to help your business thrive in the digital world. From web development to cybersecurity, we've got you covered.</p>
+                <a href="/services" class="btn">Explore Our Services</a>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Our Comprehensive IT Services</h2>
+            <p>We offer a wide range of professional IT services to meet your business needs. Click on any service to learn more.</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1920&auto=format&fit=crop" alt="Website Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>Website Design</h3>
+                        <p>Custom, responsive websites designed to engage visitors and convert them into customers.</p>
+                        <a href="/services/website-design" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1920&auto=format&fit=crop" alt="E-commerce Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>E-commerce Development</h3>
+                        <p>Complete online store solutions with payment gateways, inventory management, and more.</p>
+                        <a href="/services/ecommerce-development" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1920&auto=format&fit=crop" alt="CMS Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>CMS Development</h3>
+                        <p>Content management systems to easily update and manage your website content.</p>
+                        <a href="/services/cms-development" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1920&auto=format&fit=crop" alt="Mobile App Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Mobile App Development</h3>
+                        <p>Custom mobile applications for iOS and Android platforms to engage your customers.</p>
+                        <a href="/services/mobile-app-development" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1920&auto=format&fit=crop" alt="Hybrid App Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Hybrid App Development</h3>
+                        <p>Cross-platform mobile applications that work on both iOS and Android.</p>
+                        <a href="/services/hybrid-app-development" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1920&auto=format&fit=crop" alt="App UI/UX Design">
+                    </div>
+                    <div class="service-content">
+                        <h3>App UI/UX Design</h3>
+                        <p>Intuitive and engaging user interfaces to enhance user experience and retention.</p>
+                        <a href="/services/app-ui-ux-design" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?q=80&w=1920&auto=format&fit=crop" alt="SEO Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>SEO Services</h3>
+                        <p>Search engine optimization services to improve online visibility and rankings.</p>
+                        <a href="/services/seo-services" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1920&auto=format&fit=crop" alt="Social Media Marketing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Social Media Marketing</h3>
+                        <p>Strategic campaigns to build brand and engage the audience on social platforms.</p>
+                        <a href="/services/social-media-marketing" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?q=80&w=1920&auto=format&fit=crop" alt="PPC Management">
+                    </div>
+                    <div class="service-content">
+                        <h3>PPC Management</h3>
+                        <p>Pay-per-click advertising that delivers targeted traffic and conversions.</p>
+                        <a href="/services/ppc-management" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 10 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop" alt="Custom Software Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Software Development</h3>
+                        <p>Tailored software solutions for specific business challenges.</p>
+                        <a href="/services/custom-software-development" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 11 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop" alt="ERP & CRM Solutions">
+                    </div>
+                    <div class="service-content">
+                        <h3>ERP & CRM Solutions</h3>
+                        <p>Enterprise resource planning and customer relationship management systems.</p>
+                        <a href="/services/erp-crm-solutions" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 12 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?q=80&w=1920&auto=format&fit=crop" alt="API Integration">
+                    </div>
+                    <div class="service-content">
+                        <h3>API Integration</h3>
+                        <p>Seamless integration between software systems and platforms.</p>
+                        <a href="/services/api-integration" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 13 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1920&auto=format&fit=crop" alt="Web Hosting & Domain Registration">
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Hosting & Domain Registration</h3>
+                        <p>Reliable hosting solutions and domain management.</p>
+                        <a href="/services/web-hosting-domain-registration" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 14 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop" alt="Cloud Solutions">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cloud Solutions</h3>
+                        <p>Cloud migration, management, and optimization services.</p>
+                        <a href="/services/cloud-solutions" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 15 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1920&auto=format&fit=crop" alt="Cybersecurity">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cybersecurity</h3>
+                        <p>Complete security solutions to protect digital assets.</p>
+                        <a href="/services/cybersecurity" class="service-link">
+                            Learn more
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Why Choose NextEdge IT?</h2>
+            <p>We combine technical expertise with business understanding to deliver solutions that drive real results.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Expert Team</h3>
+                    <p style="color: #666;">Our professionals have years of experience delivering high-quality IT solutions across industries.</p>
+                </div>
+                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Client-Centric Approach</h3>
+                    <p style="color: #666;">We focus on understanding your business needs to deliver customized solutions.</p>
+                </div>
+                <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Cutting-Edge Technology</h3>
+                    <p style="color: #666;">We stay updated with the latest technologies to provide future-proof solutions.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="/home" class="footer-logo">NextEdge<span>IT</span></a>
+                <p>We are a leading IT services provider dedicated to helping businesses transform through technology. Our solutions are designed to drive growth and efficiency.</p>
+                <div class="social-links">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg></a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                    </svg></a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                    </svg></a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>NextEdge IT Services — Powering Your Digital Growth with Innovation.</h1>
-            <p>We deliver cutting-edge IT solutions tailored to your business needs, helping you stay ahead in the digital landscape.</p>
-            <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-laptop-code service-icon"></i>
-                            <h4>Web Development</h4>
-                            <p>Custom websites built with the latest technologies to ensure performance, security, and scalability.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt service-icon"></i>
-                            <h4>App Development</h4>
-                            <p>Native and cross-platform mobile applications for iOS and Android platforms.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-search-dollar service-icon"></i>
-                            <h4>SEO Services</h4>
-                            <p>Comprehensive search engine optimization to improve your online visibility and rankings.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="services.html" class="btn btn-primary">View All Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title text-start">About NextEdge IT</h2>
-                    <p>Founded in 2015, NextEdge IT Services has been at the forefront of digital innovation, helping businesses of all sizes transform their digital presence.</p>
-                    <p>Our mission is to deliver high-quality, customized IT solutions that drive growth and efficiency for our clients. We believe in building long-term relationships based on trust and exceptional service.</p>
-                    <p>With a team of certified professionals and a client-first approach, we've successfully delivered over 500 projects across various industries.</p>
-                    <a href="about.html" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team" class="img-fluid rounded">
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                        </svg>
+                        email@technologist.com
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        +977 1-1234567
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                        Kathmandu, Nepal
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Our Portfolio</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <h4>E-commerce Website</h4>
-                            <p>Complete online store with payment integration</p>
-                            <a href="#" class="btn btn-primary mt-3">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 2" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <h4>Mobile Application</h4>
-                            <p>Fitness tracking app for iOS and Android</p>
-                            <a href="#" class="btn btn-primary mt-3">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 3" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <h4>Corporate Website</h4>
-                            <p>Responsive website for financial services</p>
-                            <a href="#" class="btn btn-primary mt-3">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="portfolio.html" class="btn btn-primary">View All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">"NextEdge IT transformed our online presence completely. Their team delivered beyond our expectations with their web development services."</div>
-                        <div class="client-info">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
-                            <div>
-                                <h5>John Smith</h5>
-                                <p>CEO, TechSolutions Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">"The mobile app developed by NextEdge IT has significantly improved our customer engagement. Their attention to detail is remarkable."</div>
-                        <div class="client-info">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2">
-                            <div>
-                                <h5>Sarah Johnson</h5>
-                                <p>Director, HealthPlus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial-card">
-                        <div class="quote">"Their SEO services helped us triple our organic traffic in just six months. Highly recommended for digital marketing solutions."</div>
-                        <div class="client-info">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client 3">
-                            <div>
-                                <h5>Michael Brown</h5>
-                                <p>Marketing Head, RetailPro</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Latest From Our Blog</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card blog-card">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Blog Post 1">
-                        <div class="card-body">
-                            <h5 class="card-title">The Future of Web Development in 2023</h5>
-                            <p class="card-text">Explore the emerging trends and technologies that are shaping the future of web development this year.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card blog-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Blog Post 2">
-                        <div class="card-body">
-                            <h5 class="card-title">SEO Strategies for E-commerce Success</h5>
-                            <p class="card-text">Learn how to optimize your online store for search engines and drive more organic traffic.</p>
-         <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card blog-card">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Blog Post 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Mobile App Development: Native vs Hybrid</h5>
-                            <p class="card-text">Compare the pros and cons of native and hybrid mobile app development approaches.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="blog.html" class="btn btn-primary">View All Articles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Ready to Transform Your Digital Presence?</h2>
-            <p class="mb-4">Let's discuss how we can help your business grow with our cutting-edge IT solutions.</p>
-            <a href="contact.html" class="btn btn-light btn-lg">Get Started Today</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5>NextEdge IT Services</h5>
-                    <p>Powering your digital growth with innovative IT solutions tailored to your business needs.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="services.html">Services</a>
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Services</h5>
-                    <a href="services.html">Web Development</a>
-                    <a href="services.html">Mobile App Development</a>
-                    <a href="services.html">SEO Services</a>
-                    <a href="services.html">Digital Marketing</a>
-                    <a href="services.html">Cloud Solutions</a>
-                    <a href="services.html">IT Consulting</a>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h5>Contact Us</h5>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley, CA 94025</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> contact@jayprasad.com.np</p>
-                    <p><i class="fas fa-envelope"></i> support@jayprasad.com.np</p>
-                    <p><i class="fas fa-envelope"></i> admin@jayprasad.com</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 NextEdge IT Services. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="sitemap.html">Sitemap</a></p>
-            </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 NextEdge IT Services. All rights reserved.</p>
         </div>
     </footer>
-     <!-- WhatsApp Float -->
-    <a href="https://wa.me/15551234567" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    
+    <a href="#" class="back-to-top" id="backToTop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
     </a>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Simple script for live chat demo
-        document.addEventListener('DOMContentLoaded', function() {
-            // This would be replaced with actual live chat integration
-            console.log('Live chat would be initialized here');
-            
-            // WhatsApp button click event
-            const whatsappBtn = document.querySelector('.whatsapp-float');
-            if (whatsappBtn) {
-                whatsappBtn.addEventListener('click', function() {
-                    // Track WhatsApp click event
-                    console.log('WhatsApp chat initiated');
-                });
+        // Update current time (Kathmandu, Nepal)
+        function updateTime() {
+            const options = {
+                timeZone: 'Asia/Kathmandu',
+                hour12: true,
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            };
+            const formatter = new Intl.DateTimeFormat([], options);
+            document.getElementById('currentTime').textContent = formatter.format(new Date());
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
             }
+        });
+        
+        // Smooth scrolling for back to top
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
 </html>
-```
-
-## Additional Pages
-
-Here are the HTML files for the other pages that should be created in the same directory:
-
-### about.html
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Same head content as index.html -->
-    <title>About Us - NextEdge IT Services</title>
-</head>
-<body>
-    <!-- Same navigation as index.html -->
-
-    <!-- About Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #3498db, #2c3e50);">
-        <div class="container">
-            <h1>About NextEdge IT Services</h1>
-            <p>Learn about our mission, values, and the team behind our success.</p>
-        </div>
-    </section>
-
-    <!-- Company History -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title text-start">Our Story</h2>
-                    <p>Founded in 2015, NextEdge IT Services began as a small team of passionate developers with a vision to deliver exceptional digital solutions. What started as a modest startup has now grown into a leading IT services provider with a global clientele.</p>
-                    <p>Over the years, we've expanded our service offerings, built a team of experts, and delivered hundreds of successful projects across various industries. Our commitment to quality and innovation has remained constant throughout our journey.</p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Mission and Values -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Our Mission & Values</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-bullseye fa-3x mb-3 text-primary"></i>
-                            <h4>Mission</h4>
-                            <p>To empower businesses with innovative, reliable, and scalable IT solutions that drive growth and digital transformation.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-eye fa-3x mb-3 text-primary"></i>
-                            <h4>Vision</h4>
-                            <p>To be the most trusted partner for digital transformation, recognized for our technical excellence and client-centric approach.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-heart fa-3x mb-3 text-primary"></i>
-                            <h4>Values</h4>
-                            <p>Innovation, Integrity, Excellence, Collaboration, and Client Success are the core values that guide everything we do.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Why Choose NextEdge IT?</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Expert Team</h4>
-                        <p>Our team comprises certified professionals with extensive experience across various technologies and industries.</p>
-                    </div>
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Client-Centric Approach</h4>
-                        <p>We prioritize your business goals and tailor our solutions to meet your specific needs and challenges.</p>
-                    </div>
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Quality Assurance</h4>
-                        <p>Rigorous testing and quality control processes ensure we deliver flawless solutions that perform exceptionally.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Innovative Solutions</h4>
-                        <p>We stay ahead of technology trends to provide cutting-edge solutions that give you a competitive edge.</p>
-                    </div>
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Transparent Process</h4>
-                        <p>Clear communication and regular updates keep you informed throughout the project lifecycle.</p>
-                    </div>
-                    <div class="mb-4">
-                        <h4><i class="fas fa-check-circle text-primary me-2"></i> Ongoing Support</h4>
-                        <p>Our relationship doesn't end with delivery - we provide continuous support and maintenance.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section (Optional) -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="Team Member">
-                        <div class="card-body text-center">
-                            <h5>John Smith</h5>
-                            <p class="text-muted">CEO & Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top" alt="Team Member">
-                        <div class="card-body text-center">
-                            <h5>Sarah Johnson</h5>
-                            <p class="text-muted">CTO</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="card-img-top" alt="Team Member">
-                        <div class="card-body text-center">
-                            <h5>Michael Brown</h5>
-                            <p class="text-muted">Lead Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <img src="https://randomuser.me/api/portraits/women/63.jpg" class="card-img-top" alt="Team Member">
-                        <div class="card-body text-center">
-                            <h5>Emily Davis</h5>
-                            <p class="text-muted">Marketing Director</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-      <!-- Same footer and scripts as index.html -->
-</body>
-</html>
-```
-
-### services.html
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Same head content as index.html -->
-    <title>Our Services - NextEdge IT Services</title>
-</head>
-<body>
-    <!-- Same navigation as index.html -->
-
-    <!-- Services Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #3498db, #2c3e50);">
-        <div class="container">
-            <h1>Our IT Services</h1>
-            <p>Comprehensive solutions to power your digital transformation and growth.</p>
-        </div>
-    </section>
-
-    <!-- All Services Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title">Our Comprehensive IT Services</h2>
-            <div class="row">
-                <!-- Web Services -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <h4>Website Design</h4>
-                            <p>Custom, responsive websites designed to engage visitors and convert them into customers.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <h4>E-commerce Development</h4>
-                            <p>Complete online store solutions with payment gateways, inventory management, and more.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <h4>CMS Development</h4>
-                            <p>Content management systems that make it easy to update and manage your website content.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mobile Services -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h4>Mobile App Development</h4>
-                            <p>Custom mobile applications for iOS and Android platforms to engage your customers.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h4>Hybrid App Development</h4>
-                            <p>Cross-platform mobile applications that work on both iOS and Android with a single codebase.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <h4>App UI/UX Design</h4>
-                            <p>Intuitive and engaging user interfaces designed to enhance user experience and retention.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Digital Marketing -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-search-dollar"></i>
-                            </div>
-                            <h4>SEO Services</h4>
-                            <p>Comprehensive search engine optimization to improve your online visibility and rankings.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-hashtag"></i>
-                            </div>
-                            <h4>Social Media Marketing</h4>
-                            <p>Strategic social media campaigns to build your brand and engage your audience.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-ad"></i>
-                            </div>
-                            <h4>PPC Management</h4>
-                            <p>Pay-per-click advertising campaigns that deliver targeted traffic and conversions.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Software Solutions -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4>Custom Software Development</h4>
-                            <p>Tailored software solutions designed to address your specific business challenges.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <h4>ERP & CRM Solutions</h4>
-                            <p>Enterprise resource planning and customer relationship management systems.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-plug"></i>
-                            </div>
-                            <h4>API Integration</h4>
-                            <p>Seamless integration between different software systems and platforms.</p>
-                        </div>
-                    </div>
-                </div>
-                  <!-- Infrastructure -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h4>Web Hosting & Domain Registration</h4>
-                            <p>Reliable hosting solutions and domain management services.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <h4>Cloud Solutions</h4>
-                            <p>Cloud migration, management, and optimization services.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body">
-                            <div class="service-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h4>Cybersecurity</h4>
-                            <p>Comprehensive security solutions to protect your digital assets.</p>
-                        </div>
-                    </div>
-                    </div>
