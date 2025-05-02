@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextEdge IT Services - Digital Solutions Provider | Web, Cloud & Software Development</title>
-    <meta name="description" content="NextEdge IT Services provides cutting-edge technology solutions including web development, mobile apps, cloud services, and cybersecurity for businesses worldwide.">
-    <meta name="keywords" content="IT services, web development, mobile apps, cloud solutions, cybersecurity, software development, digital transformation">
-    <meta name="author" content="NextEdge IT Services">
-    <meta property="og:title" content="NextEdge IT Services - Digital Solutions Provider">
-    <meta property="og:description" content="Innovative IT solutions for your business growth. Web, mobile, cloud, and cybersecurity services.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.nextedgeit.com">
-    <meta property="og:image" content="https://www.nextedgeit.com/images/social-preview.jpg">
-    <link rel="canonical" href="https://www.nextedgeit.com">
+    <title>Jay Prasad - Portfolio</title>
+    <meta name="description" content="Personal portfolio of Jay Prasad, Frontend Developer and IT Professional">
+    <meta name="keywords" content="portfolio, frontend developer, web developer, IT professional">
+    <meta name="author" content="Jay Prasad">
     <style>
         :root {
             --primary: #2563eb;
@@ -20,12 +14,8 @@
             --accent: #3b82f6;
             --dark: #1f2937;
             --light: #f9fafb;
-            --bg-light: #f0f4f8;
-            --bg-dark: #0f172a;
             --text-light: #333;
             --text-dark: #f8fafc;
-            --card-bg-light: #ffffff;
-            --card-bg-dark: #1e293b;
         }
         
         * {
@@ -33,72 +23,59 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
         }
         
         body {
-            background-color: var(--bg-light);
+            background-color: var(--light);
             color: var(--text-light);
-            position: relative;
-            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            line-height: 1.6;
         }
         
         body.dark-mode {
-            background-color: var(--bg-dark);
+            background-color: var(--dark);
             color: var(--text-dark);
-            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920&auto=format&fit=crop');
         }
         
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: -1;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
         
-        body.dark-mode::before {
-            background-color: rgba(0, 0, 0, 0.85);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
         header {
-            background-color: rgba(31, 41, 55, 0.9);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
         
         body.dark-mode header {
-            background-color: rgba(15, 23, 42, 0.9);
+            background-color: rgba(31, 41, 55, 0.9);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 1rem 0;
         }
         
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: white;
-            text-decoration: none;
         }
         
         .logo span {
-            color: var(--accent);
+            color: var(--primary);
         }
         
         nav ul {
@@ -108,16 +85,14 @@
         }
         
         nav a {
-            color: white;
-            text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
             padding: 0.5rem 0;
             position: relative;
+            transition: color 0.3s;
         }
         
         nav a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         
         nav a::after {
@@ -127,7 +102,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
+            background-color: var(--primary);
             transition: width 0.3s;
         }
         
@@ -135,32 +110,9 @@
             width: 100%;
         }
         
-        .header-utils {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .current-time {
-            background-color: rgba(37, 99, 235, 0.8);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-        
-        .current-time img {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-        }
-        
         .theme-toggle {
             background: none;
             border: none;
-            color: white;
             font-size: 1.2rem;
             cursor: pointer;
             width: 40px;
@@ -173,64 +125,57 @@
         }
         
         .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .theme-toggle:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
         
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
+        /* Hero Section */
         .hero {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        body.dark-mode .hero {
-            background-color: rgba(30, 41, 59, 0.9);
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(37, 99, 235, 0.7);
-        }
-        
-        body.dark-mode .hero::before {
-            background-color: rgba(15, 23, 42, 0.8);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
         }
         
         .hero-content {
-            position: relative;
-            z-index: 1;
-            color: white;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: white;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
         
         .btn {
@@ -239,505 +184,276 @@
             color: white;
             padding: 0.8rem 1.8rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            border: none;
-            cursor: pointer;
         }
         
         .btn:hover {
             background-color: var(--secondary);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             margin-left: 1rem;
         }
         
         .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        body.dark-mode .social-links a {
             background-color: rgba(255, 255, 255, 0.1);
         }
         
+        /* About Section */
         .section {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 6rem 0;
         }
         
-        body.dark-mode .section {
-            background-color: rgba(30, 41, 59, 0.9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        body.dark-mode .section h2 {
-            color: var(--text-dark);
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-        
-        .section p {
-            color: #666;
-        }
-        
-        body.dark-mode .section p {
-            color: #cbd5e1;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .service-card {
-            background-color: var(--card-bg-light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        body.dark-mode .service-card {
-            background-color: var(--card-bg-dark);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        body.dark-mode .service-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
-        
-        .service-img {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.05);
-        }
-        
-        .service-content {
-            padding: 1.5rem;
-        }
-        
-        .service-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .service-content h3 {
-            color: var(--text-dark);
-        }
-        
-        .service-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        body.dark-mode .service-content p {
-            color: #cbd5e1;
-        }
-        
-        .service-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s;
-        }
-        
-        .service-link:hover {
-            color: var(--secondary);
-        }
-        
-        .service-link svg {
-            margin-left: 0.3rem;
-            transition: transform 0.3s;
-        }
-        
-        .service-link:hover svg {
-            transform: translateX(3px);
-        }
-        
-        .why-choose-us {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background-color: var(--card-bg-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        body.dark-mode .feature-card {
-            background-color: var(--card-bg-dark);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card p {
-            color: #666;
-        }
-        
-        body.dark-mode .feature-card p {
-            color: #cbd5e1;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            margin: 3rem 0;
-        }
-        
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-        
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-card {
-            min-width: 100%;
-            padding: 0 1rem;
-            box-sizing: border-box;
-        }
-        
-        .testimonial-content {
-            background-color: var(--card-bg-light);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        body.dark-mode .testimonial-content {
-            background-color: var(--card-bg-dark);
-        }
-        
-        .testimonial-content::before {
-            content: '"';
-            font-size: 5rem;
-            color: rgba(59, 130, 246, 0.1);
-            position: absolute;
-            top: 0;
-            left: 1rem;
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-        }
-        
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 0.2rem;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .author-info h4 {
-            color: var(--text-dark);
-        }
-        
-        .author-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        body.dark-mode .author-info p {
-            color: #cbd5e1;
-        }
-        
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-            gap: 0.5rem;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .testimonial-dot.active {
-            background-color: var(--primary);
-        }
-        
-        /* Clients Section */
-        .clients-section {
-            margin: 3rem 0;
-        }
-        
-        .client-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .client-logo {
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: filter 0.3s, opacity 0.3s;
-            max-width: 150px;
-            max-height: 80px;
-        }
-        
-        .client-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        
-        /* Team Section */
-        .team-section {
-            margin: 3rem 0;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .team-member {
-            background-color: var(--card-bg-light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        body.dark-mode .team-member {
-            background-color: var(--card-bg-dark);
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-        
-        .member-photo {
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .team-member:hover .member-photo img {
-            transform: scale(1.05);
-        }
-        
-        .member-info {
-            padding: 1.5rem;
+        .section-title {
             text-align: center;
+            margin-bottom: 3rem;
         }
         
-        .member-info h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .member-info h3 {
-            color: var(--text-dark);
-        }
-        
-        .member-info p {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .member-social a {
-            color: #666;
-            transition: color 0.3s;
-        }
-        
-        body.dark-mode .member-social a {
-            color: #cbd5e1;
-        }
-        
-        .member-social a:hover {
-            color: var(--primary);
-        }
-        
-        /* Newsletter Section */
-        .newsletter-section {
-            background-color: var(--primary);
-            padding: 3rem 2rem;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .newsletter-section h2 {
+        .section-title h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
         }
         
-        .newsletter-section h2::after {
+        .section-title h2::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: white;
+            height: 4px;
+            background-color: var(--primary);
         }
         
-        .newsletter-section p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
             margin: 0 auto;
         }
         
-        .newsletter-form input {
+        body.dark-mode .section-title p {
+            color: #cbd5e1;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
             flex: 1;
-            padding: 0.8rem 1rem;
-            border: none;
-            border-radius: 50px 0 0 50px;
-            font-size: 1rem;
         }
         
-        .newsletter-form button {
-            background-color: var(--secondary);
-            color: white;
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        body.dark-mode .skill-item {
+            background-color: #1e293b;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        body.dark-mode .service-card {
+            background-color: #1e293b;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            background: none;
             border: none;
-            padding: 0 1.5rem;
-            border-radius: 0 50px 50px 0;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         
-        .newsletter-form button:hover {
-            background-color: #1e3a8a;
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(37, 99, 235, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
         }
         
         /* Contact Section */
-        .contact-section {
+        .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
         
-        .contact-info-card {
-            background-color: var(--card-bg-light);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .contact-info {
+            margin-bottom: 2rem;
         }
         
-        body.dark-mode .contact-info-card {
-            background-color: var(--card-bg-dark);
-        }
-        
-        .contact-info-card h3 {
+        .contact-info h3 {
             margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 0.5rem;
         }
         
-        .contact-info-card h3::after {
+        .contact-info h3::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -747,57 +463,26 @@
             background-color: var(--primary);
         }
         
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-        
         .contact-detail {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 1rem;
         }
         
-        .contact-detail svg {
+        .contact-detail i {
             margin-right: 1rem;
             color: var(--primary);
-            flex-shrink: 0;
-        }
-        
-        .contact-detail a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        body.dark-mode .contact-detail a {
-            color: #cbd5e1;
-        }
-        
-        .contact-detail a:hover {
-            color: var(--primary);
-        }
-        
-        .contact-map {
-            height: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .contact-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
         }
         
         .contact-form {
-            background-color: var(--card-bg-light);
+            background-color: white;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         body.dark-mode .contact-form {
-            background-color: var(--card-bg-dark);
+            background-color: #1e293b;
         }
         
         .form-group {
@@ -811,23 +496,19 @@
         }
         
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 0.8rem 1rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 1rem;
-            background-color: var(--card-bg-light);
-            color: var(--text-light);
         }
         
         body.dark-mode .form-group input,
-        body.dark-mode .form-group textarea,
-        body.dark-mode .form-group select {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-            border-color: #334155;
+        body.dark-mode .form-group textarea {
+            background-color: #1f2937;
+            border-color: #374151;
+            color: white;
         }
         
         .form-group textarea {
@@ -835,153 +516,72 @@
             resize: vertical;
         }
         
-        .form-submit {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .form-submit:hover {
-            background-color: var(--secondary);
-        }
-        
+        /* Footer */
         footer {
-            background-color: rgba(31, 41, 55, 0.9);
+            background-color: var(--dark);
             color: white;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 3rem;
+            padding: 3rem 0;
+            text-align: center;
         }
         
-        body.dark-mode footer {
-            background-color: rgba(15, 23, 42, 0.9);
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-logo span {
-            color: var(--accent);
-        }
-        
-        .footer-about p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .footer-links h3, .footer-contact h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-links h3::after, .footer-contact h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-            transform: translateX(5px);
-        }
-        
-        .contact-info {
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-info p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.8rem;
+        .footer-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
         }
         
-        .contact-info a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
             transition: color 0.3s;
         }
         
-        .contact-info a:hover {
-            color: var(--accent);
+        .footer-links a:hover {
+            color: var(--primary);
         }
         
-        .contact-info svg {
-            margin-right: 0.8rem;
-            color: var(--accent);
-        }
-        
-        .social-links {
+        .footer-social {
             display: flex;
             gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .social-links a {
-            display: inline-flex;
+        .footer-social a {
+            display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
             transition: all 0.3s;
         }
         
-        .social-links a:hover {
-            background-color: var(--accent);
+        .footer-social a:hover {
+            background-color: var(--primary);
             transform: translateY(-3px);
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+        .copyright {
             font-size: 0.9rem;
+            opacity: 0.8;
         }
         
+        /* Back to top button */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -994,8 +594,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
@@ -1012,991 +610,351 @@
             transform: translateY(-3px);
         }
         
-        .marquee {
-            background-color: rgba(37, 99, 235, 0.8);
-            color: white;
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 90;
-        }
-        
-        body.dark-mode .marquee {
-            background-color: rgba(15, 23, 42, 0.9);
-        }
-        
-        .marquee-content {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        /* Floating Social Media */
-        .floating-social {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 90;
-        }
-        
-        .floating-social a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .floating-social a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        /* Cookie Consent */
-        .cookie-consent {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--card-bg-light);
-            color: var(--text-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            max-width: 90%;
-            width: 600px;
-            z-index: 1000;
-            display: none;
-        }
-        
-        body.dark-mode .cookie-consent {
-            background-color: var(--card-bg-dark);
-            color: var(--text-dark);
-        }
-        
-        .cookie-consent.show {
-            display: block;
-            animation: slideUp 0.5s ease;
-        }
-        
-        @keyframes slideUp {
-            from { bottom: -100px; opacity: 0; }
-            to { bottom: 20px; opacity: 1; }
-        }
-        
-        .cookie-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cookie-text {
-            flex: 1;
-        }
-        
-        .cookie-text p {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .cookie-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-        
-        .cookie-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .cookie-accept {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-        }
-        
-        .cookie-accept:hover {
-            background-color: var(--secondary);
-        }
-        
-        .cookie-decline {
-            background-color: transparent;
-            border: 1px solid #ddd;
-            color: var(--text-light);
-        }
-        
-        body.dark-mode .cookie-decline {
-            border-color: #334155;
-            color: var(--text-dark);
-        }
-        
-        .cookie-decline:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-        
-        body.dark-mode .cookie-decline:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Loading Animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s;
-        }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .loading-text {
-            color: white;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        /* Animation Classes */
-        .fade-in {
-            animation: fadeIn 1s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .slide-up {
-            animation: slideUp 0.8s ease;
-        }
-        
         /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .contact-section {
-                grid-template-columns: 1fr;
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content {
+                flex-direction: column;
             }
             
-            .floating-social {
-                left: 10px;
+            .hero-text,
+            .about-text {
+                order: 2;
+                text-align: center;
             }
             
-            .floating-social a {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+            .hero-image,
+            .about-image {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
         }
         
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
+            .menu-toggle {
+                display: block;
             }
             
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .header-utils {
-                margin-top: 1rem;
-                width: 100%;
-                justify-content: center;
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
             
             .btn-outline {
                 margin-left: 0;
                 margin-top: 1rem;
-            }
-            
-            .cookie-consent {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cookie-actions {
-                justify-content: center;
+                display: block;
             }
         }
         
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 1rem;
-            }
-            
+        @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
-            .newsletter-form {
-                flex-direction: column;
+            .hero h2 {
+                font-size: 1.2rem;
             }
             
-            .newsletter-form input {
-                border-radius: 50px;
-                margin-bottom: 1rem;
-            }
-            
-            .newsletter-form button {
-                border-radius: 50px;
-                padding: 0.8rem;
-            }
-            
-            .cookie-consent {
-                width: 90%;
-                padding: 1rem;
-            }
-            
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Loading NextEdge IT Services...</div>
-    </div>
-    
-    <!-- Floating Social Media -->
-    <div class="floating-social">
-        <a href="https://www.facebook.com/nextedgeit" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/nextedgeit" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/company/nextedgeit" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/nextedgeit" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:contact@nextedgeit.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-    </div>
-    
+    <!-- Header -->
     <header>
-        <div class="header-container">
-            <a href="/home" class="logo">NextEdge<span>IT</span></a>
+        <div class="container header-container">
+            <a href="#" class="logo">Jay <span>Prasad</span></a>
             <nav>
                 <ul>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/careers">Careers</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="header-utils">
-                <div class="current-time" id="currentTime">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Clock icon">
-                    <span id="timeDisplay"></span>
-                </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
-    
-    <main>
-        <section class="hero fade-in">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
             <div class="hero-content">
-                <h1>Innovative IT Solutions for Your Business</h1>
-                <p>We deliver cutting-edge technology services to help your business thrive in the digital world. From web development to cybersecurity, we've got you covered.</p>
-                <div>
-                    <a href="/services" class="btn">Explore Our Services</a>
-                    <a href="/contact" class="btn btn-outline">Get a Free Quote</a>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>Our Comprehensive IT Services</h2>
-            <p>We offer a wide range of professional IT services to meet your business needs. Click on any service to learn more.</p>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1920&auto=format&fit=crop" alt="Website Design" loading="lazy">
+                <div class="hero-text">
+                    <h3>Welcome To My World</h3>
+                    <h1>Hi, I'm Jay Prasad</h1>
+                    <h2>Frontend Developer</h2>
+                    <p>I am passionate about technology, football, and business operations, with interests in IT services and website management. I have 5 years of experience in information technology and computer systems, along with experience in accounting.</p>
+                    <div class="hero-buttons">
+                        <a href="mailto:admin@jayprasad.com.np" class="btn">Hire Me Now!</a>
+                        <a href="#" class="btn btn-outline">Download CV</a>
                     </div>
-                    <div class="service-content">
-                        <h3>Website Design</h3>
-                        <p>Custom, responsive websites designed to engage visitors and convert them into customers.</p>
-                        <a href="/services/website-design" class="service-link" onclick="showServiceDetails('website-design'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1920&auto=format&fit=crop" alt="E-commerce Development" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>E-commerce Development</h3>
-                        <p>Complete online store solutions with payment gateways, inventory management, and more.</p>
-                        <a href="/services/ecommerce-development" class="service-link" onclick="showServiceDetails('ecommerce-development'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1920&auto=format&fit=crop" alt="CMS Development" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>CMS Development</h3>
-                        <p>Content management systems to easily update and manage your website content.</p>
-                        <a href="/services/cms-development" class="service-link" onclick="showServiceDetails('cms-development'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1920&auto=format&fit=crop" alt="Mobile App Development" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Mobile App Development</h3>
-                        <p>Custom mobile applications for iOS and Android platforms to engage your customers.</p>
-                        <a href="/services/mobile-app-development" class="service-link" onclick="showServiceDetails('mobile-app-development'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1920&auto=format&fit=crop" alt="Hybrid App Development" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Hybrid App Development</h3>
-                        <p>Cross-platform mobile applications that work on both iOS and Android.</p>
-                        <a href="/services/hybrid-app-development" class="service-link" onclick="showServiceDetails('hybrid-app-development'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1920&auto=format&fit=crop" alt="App UI/UX Design" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>App UI/UX Design</h3>
-                        <p>Intuitive and engaging user interfaces to enhance user experience and retention.</p>
-                        <a href="/services/app-ui-ux-design" class="service-link" onclick="showServiceDetails('app-ui-ux-design'); return false;">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="/services" class="btn">View All Services</a>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>Why Choose NextEdge IT?</h2>
-            <p>We combine technical expertise with business understanding to deliver solutions that drive real results.</p>
-            
-            <div class="why-choose-us">
-                <div class="feature-card">
-                    <h3>Expert Team</h3>
-                    <p>Our professionals have years of experience delivering high-quality IT solutions across industries. With certifications in the latest technologies, our team brings both expertise and innovation to every project.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Client-Centric Approach</h3>
-                    <p>We focus on understanding your business needs to deliver customized solutions. Our process begins with listening to your challenges and ends with solutions that exceed your expectations.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Cutting-Edge Technology</h3>
-                    <p>We stay updated with the latest technologies to provide future-proof solutions. Our commitment to continuous learning ensures we always use the best tools for your business needs.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>Our Recent Work</h2>
-            <p>Explore some of our successful projects that have helped businesses transform digitally.</p>
-            
-            <div class="services-grid">
-                <!-- Portfolio Item 1 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop" alt="E-commerce Platform" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Global E-commerce Platform</h3>
-                        <p>A scalable online marketplace serving customers in 15 countries with multi-currency support.</p>
-                        <a href="/portfolio/ecommerce-platform" class="service-link">
-                            View Case Study
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop" alt="Healthcare CRM" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Healthcare CRM System</h3>
-                        <p>Custom patient management system for a network of clinics with HIPAA compliance.</p>
-                        <a href="/portfolio/healthcare-crm" class="service-link">
-                            View Case Study
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="service-card">
-                    <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1624953587687-daf255b6b80a?q=80&w=1920&auto=format&fit=crop" alt="IoT Solution" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Industrial IoT Solution</h3>
-                        <p>Real-time monitoring system for manufacturing equipment with predictive maintenance.</p>
-                        <a href="/portfolio/iot-solution" class="service-link">
-                            View Case Study
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="/portfolio" class="btn">View Full Portfolio</a>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>What Our Clients Say</h2>
-            <p>Hear from businesses that have transformed with our IT solutions.</p>
-            
-            <div class="testimonials">
-                <div class="testimonial-slider">
-                    <div class="testimonial-track" id="testimonialTrack">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">NextEdge IT transformed our outdated website into a modern, high-performing platform that has increased our online sales by 180%. Their team's attention to detail and understanding of our business needs was exceptional.</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Sarah Johnson</h4>
-                                        <p>CEO, Retail Solutions Inc.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">The custom CRM system developed by NextEdge IT has streamlined our operations and improved customer satisfaction significantly. Their team was professional, responsive, and delivered beyond our expectations.</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Michael Chen</h4>
-                                        <p>Operations Director, HealthPlus</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-text">We partnered with NextEdge IT for our cloud migration project, and the results have been outstanding. Their expertise in AWS architecture saved us thousands in operational costs while improving system reliability.</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">
-                                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez">
-                                    </div>
-                                    <div class="author-info">
-                                        <h4>Emma Rodriguez</h4>
-                                        <p>CTO, FinTech Solutions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-nav">
-                        <div class="testimonial-dot active" data-index="0"></div>
-                        <div class="testimonial-dot" data-index="1"></div>
-                        <div class="testimonial-dot" data-index="2"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>Our Valued Clients</h2>
-            <p>We're proud to partner with industry leaders and innovative startups alike.</p>
-            
-            <div class="clients-section">
-                <div class="client-logos">
-                    <img src="https://via.placeholder.com/150x80?text=TechCorp" alt="TechCorp Logo" class="client-logo" loading="lazy">
-                    <img src="https://via.placeholder.com/150x80?text=GlobalBank" alt="GlobalBank Logo" class="client-logo" loading="lazy">
-                    <img src="https://via.placeholder.com/150x80?text=HealthPlus" alt="HealthPlus Logo" class="client-logo" loading="lazy">
-                    <img src="https://via.placeholder.com/150x80?text=EduTech" alt="EduTech Logo" class="client-logo" loading="lazy">
-                    <img src="https://via.placeholder.com/150x80?text=GreenEnergy" alt="GreenEnergy Logo" class="client-logo" loading="lazy">
-                </div>
-            </div>
-        </section>
-        
-        <section class="section slide-up">
-            <h2>Meet Our Team</h2>
-            <p>Our team of experts brings together diverse skills and experience to deliver exceptional results.</p>
-            
-            <div class="team-section">
-                <div class="team-grid">
-                    <!-- Team Member 1 -->
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="John Smith" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>John Smith</h3>
-                            <p>Chief Technology Officer</p>
-                            <div class="member-social">
-                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="mailto:john@nextedgeit.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 2 -->
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sarah Johnson" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>Sarah Johnson</h3>
-                            <p>Lead UX Designer</p>
-                            <div class="member-social">
-                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="mailto:sarah@nextedgeit.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 3 -->
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Chen" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>Michael Chen</h3>
-                            <p>Senior Developer</p>
-                            <div class="member-social">
-                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="mailto:michael@nextedgeit.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 4 -->
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" loading="lazy">
-                        </div>
-                        <div class="member-info">
-                            <h3>Emma Rodriguez</h3>
-                            <p>Project Manager</p>
-                            <div class="member-social">
-                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="mailto:emma@nextedgeit.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/about#team" class="btn">View Full Team</a>
-                </div>
-            </div>
-        </section>
-        
-        <section class="newsletter-section slide-up">
-            <h2>Stay Updated</h2>
-            <p>Subscribe to our newsletter for the latest tech insights, company news, and special offers.</p>
-            
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            
-            <p style="font-size: 0.8rem; opacity: 0.7;">We respect your privacy. Unsubscribe at any time.</p>
-        </section>
-        
-        <section class="contact-section slide-up">
-            <div class="contact-info-card">
-                <h3>Get In Touch</h3>
-                <div class="contact-details">
-                    <div class="contact-detail">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                        </svg>
-                        <a href="mailto:contact@nextedgeit.com">contact@nextedgeit.com</a>
-                    </div>
-                    <div class="contact-detail">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                        </svg>
-                        <a href="tel:+97711234567">+1 (555) 123-4567</a>
-                    </div>
-                    <div class="contact-detail">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                        </svg>
-                        <span>123 Tech Park, Kathmandu, Nepal</span>
-                    </div>
-                </div>
-                
-                <h3>Business Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
-                
-                <div class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.456715365104!2d85.3205153150621!3d27.70554468279391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a74aa1f23%3A0x74ebef82ad0e5c15!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <h3>Send Us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Interested In</label>
-                        <select id="service" name="service">
-                            <option value="">Select a service</option>
-                            <option value="web-design">Website Design</option>
-                            <option value="ecommerce">E-commerce Development</option>
-                            <option value="mobile-app">Mobile App Development</option>
-                            <option value="cloud">Cloud Solutions</option>
-                            <option value="cybersecurity">Cybersecurity</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="slide-up">
-        <div class="footer-container">
-            <div class="footer-about">
-                <a href="/home" class="footer-logo">NextEdge<span>IT</span></a>
-                <p>We are a leading IT services provider dedicated to helping businesses transform through technology. Our solutions are designed to drive growth and efficiency.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/nextedgeit" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/nextedgeit" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/nextedgeit" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/nextedgeit" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/nextedgeit" target="_blank" aria-label="GitHub"><i class="
-                    <a href="https://www.youtube.com/nextedgeit" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/portfolio">Portfolio</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/careers">Careers</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="/services/web-development">Web Development</a></li>
-                    <li><a href="/services/mobile-apps">Mobile Apps</a></li>
-                    <li><a href="/services/cloud-solutions">Cloud Solutions</a></li>
-                    <li><a href="/services/cybersecurity">Cybersecurity</a></li>
-                    <li><a href="/services/ai-ml">AI & ML Solutions</a></li>
-                    <li><a href="/services/it-consulting">IT Consulting</a></li>
-                    <li><a href="/services/all-services">View All Services</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <div class="contact-info">
-                    <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                        </svg>
-                        <a href="mailto:contact@nextedgeit.com">contact@nextedgeit.com</a>
-                    </p>
-                    <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                        </svg>
-                        <a href="tel:+97711234567">+1 (555) 123-4567</a>
-                    </p>
-                    <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                        </svg>
-                        123 Tech Park, Kathmandu, Nepal
-                    </p>
-                </div>
-                
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/nextedgeit" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/nextedgeit" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/nextedgeit" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/nextedgeit" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Jay Prasad">
                 </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 NextEdge IT Services. All rights reserved. | <a href="/privacy-policy" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="/terms" style="color: rgba(255,255,255,0.7);">Terms of Service</a> | <a href="/sitemap" style="color: rgba(255,255,255,0.7);">Sitemap</a></p>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about me and my skills</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>4 Years Experience in Web Development</h3>
+                    <p>I am passionate about technology, football, and business operations, with 5 years of experience in information technology and computer systems, along with a background in business!</p>
+                    
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h4>Frontend Development</h4>
+                            <p>HTML, CSS, JavaScript, React</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>UI/UX Design</h4>
+                            <p>User Interface & Experience Design</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>IT Services</h4>
+                            <p>Computer systems and IT support</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Business Operations</h4>
+                            <p>Business management and accounting</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="About Jay Prasad">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>What I can do for you</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, dynamic websites to enhance online presence effectively.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>App Development</h3>
+                        <p>Creating mobile applications with user-friendly features and seamless functionality.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Designing intuitive interfaces that enhance user experience and satisfaction.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>IT Services</h3>
+                        <p>Providing IT solutions and support for computer systems and networks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Portfolio</h2>
+                <p>Check out some of my recent work</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Web Development</button>
+                <button class="filter-btn">UI/UX Design</button>
+                <button class="filter-btn">App Development</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1000&auto=format&fit=crop" alt="Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-commerce Website</h3>
+                        <p>Online store with payment integration</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1000&auto=format&fit=crop" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Business Dashboard</h3>
+                        <p>Analytics and management dashboard</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1000&auto=format&fit=crop" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Mobile App</h3>
+                        <p>Fitness tracking application</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000&auto=format&fit=crop" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio design</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1000&auto=format&fit=crop" alt="Project 5" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>UI Design</h3>
+                        <p>Mobile app interface design</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Project 6" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Business Website</h3>
+                        <p>Corporate website redesign</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch for projects or collaborations</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>Feel free to reach out for any questions or project inquiries. I'll get back to you as soon as possible.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:admin@jayprasad.com.np">admin@jayprasad.com.np</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+9771234567890">+977 1234567890</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kathmandu, Nepal</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">Jay <span>Prasad</span></a>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <p class="copyright">© 2023 Jay Prasad. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-    
-    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5v-11.793l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </a>
-    
-    <!-- Live Chat Widget -->
-    <div class="live-chat" id="liveChat">
-        <div class="chat-header">
-            <span>Live Chat</span>
-            <button class="chat-close" id="chatClose">&times;</button>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="chat-messages" id="chatMessages">
-                <div class="chat-message bot">
-                    <p>Hello! How can we help you today?</p>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type your message..." id="chatInput">
-                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-    <button class="chat-toggle" id="chatToggle">
-        <i class="fas fa-comments"></i>
-    </button>
-    
-    <!-- Cookie Consent -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
-            </div>
-            <div class="cookie-actions">
-                <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
-                <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Service Details Modal -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeServiceDetails()">&times;</span>
-            <h2 id="serviceModalTitle"></h2>
-            <div id="serviceModalContent"></div>
-        </div>
-    </div>
-    
-    <!-- Appointment Modal -->
-    <div id="appointmentModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeAppointmentModal()">&times;</span>
-            <h2>Schedule a Consultation</h2>
-            <form id="appointmentForm">
-                <div class="form-group">
-                    <label for="appointmentName">Your Name</label>
-                    <input type="text" id="appointmentName" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentEmail">Email Address</label>
-                    <input type="email" id="appointmentEmail" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentPhone">Phone Number</label>
-                    <input type="tel" id="appointmentPhone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentDate">Preferred Date</label>
-                    <input type="date" id="appointmentDate" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentTime">Preferred Time</label>
-                    <input type="time" id="appointmentTime" name="time" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentService">Service Interested In</label>
-                    <select id="appointmentService" name="service" required>
-                        <option value="">Select a service</option>
-                        <option value="web-design">Website Design</option>
-                        <option value="ecommerce">E-commerce Development</option>
-                        <option value="mobile-app">Mobile App Development</option>
-                        <option value="cloud">Cloud Solutions</option>
-                        <option value="cybersecurity">Cybersecurity</option>
-                        <option value="consulting">IT Consulting</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentMessage">Additional Notes</label>
-                    <textarea id="appointmentMessage" name="message" rows="4"></textarea>
-                </div>
-                <button type="submit" class="form-submit">Schedule Appointment</button>
-            </form>
-        </div>
-    </div>
-    
+
     <script>
-        // Loading Animation
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loading-overlay').style.opacity = '0';
-                setTimeout(function() {
-                    document.querySelector('.loading-overlay').style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
-        
-        // Update current time (Kathmandu, Nepal) with day
-        function updateTime() {
-            const options = {
-                timeZone: 'Asia/Kathmandu',
-                hour12: true,
-                weekday: 'long',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric'
-            };
-            const formatter = new Intl.DateTimeFormat([], options);
-            document.getElementById('timeDisplay').textContent = formatter.format(new Date());
-        }
-        
-        setInterval(updateTime, 1000);
-        updateTime();
-        
         // Dark/Light Mode Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
@@ -2032,283 +990,57 @@
             }
         });
         
-        // Smooth scrolling for back to top
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Testimonial Slider
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update dots
-            testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            
-            currentSlide = index;
-        }
-        
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const slideIndex = parseInt(this.getAttribute('data-index'));
-                showSlide(slideIndex);
-            });
-        });
-        
-        // Auto slide
-        setInterval(function() {
-            currentSlide = (currentSlide + 1) % testimonialDots.length;
-            showSlide(currentSlide);
-        }, 5000);
-        
-        // Service details content
-        const serviceDetails = {
-            'website-design': {
-                title: 'Website Design',
-                content: `<img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1920&auto=format&fit=crop" alt="Website Design" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <p>Our website design service focuses on creating custom, responsive websites that engage visitors and convert them into customers. We understand that your website is often the first impression potential customers have of your business, which is why we prioritize both aesthetics and functionality.</p>
-                <h4>Our Approach</h4>
-                <ul>
-                    <li>Custom design tailored to your brand identity</li>
-                    <li>Mobile-first responsive design</li>
-                    <li>SEO-friendly structure</li>
-                    <li>Fast loading times</li>
-                    <li>Intuitive navigation</li>
-                </ul>
-                <h4>Technologies We Use</h4>
-                <p>HTML5, CSS3, JavaScript, React, Vue.js, WordPress, Shopify, and other modern frameworks.</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/contact" class="btn">Get a Free Quote</a>
-                </div>`
-            },
-            'ecommerce-development': {
-                title: 'E-commerce Development',
-                content: `<img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1920&auto=format&fit=crop" alt="E-commerce Development" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <p>Our e-commerce development service provides complete online store solutions with integrated payment gateways, inventory management, and more. We build robust e-commerce platforms that help businesses sell products and services online effectively.</p>
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Secure payment gateway integration</li>
-                    <li>Product catalog management</li>
-                    <li>Mobile-responsive design</li>
-                    <li>Order tracking system</li>
-                    <li>Customer account management</li>
-                </ul>
-                <h4>Platforms We Work With</h4>
-                <p>Shopify, WooCommerce, Magento, BigCommerce, and custom solutions.</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/contact" class="btn">Start Your Online Store</a>
-                </div>`
-            },
-            'mobile-app-development': {
-                title: 'Mobile App Development',
-                content: `<img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1920&auto=format&fit=crop" alt="Mobile App Development" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
-                <p>We create custom mobile applications for iOS and Android platforms that engage users and drive business growth. Our mobile apps are designed with the user experience in mind, ensuring high retention rates and positive reviews.</p>
-                <h4>Our Process</h4>
-                <ul>
-                    <li>Requirement analysis and planning</li>
-                    <li>UI/UX design</li>
-                    <li>Native or cross-platform development</li>
-                    <li>Rigorous testing</li>
-                    <li>App store deployment</li>
-                </ul>
-                <h4>Technologies</h4>
-                <p>Swift, Kotlin, React Native, Flutter, and other cutting-edge frameworks.</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn" onclick="showAppointmentModal('mobile-app-development')">Schedule Consultation</button>
-                </div>`
-            }
-        };
-        
-        function showServiceDetails(serviceId) {
-            const service = serviceDetails[serviceId];
-            if (service) {
-                document.getElementById('serviceModalTitle').textContent = service.title;
-                document.getElementById('serviceModalContent').innerHTML = service.content;
-                document.getElementById('serviceModal').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        function closeServiceDetails() {
-            document.getElementById('serviceModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Appointment Modal
-        function showAppointmentModal(service) {
-            if (service) {
-                document.getElementById('appointmentService').value = service;
-            }
-            document.getElementById('appointmentModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeAppointmentModal() {
-            document.getElementById('appointmentModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to your server
-            alert('Thank you for your message! We will contact you soon.');
-            this.reset();
-        });
-        
-        // Newsletter Form Submission
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the email to your newsletter service
-            alert('Thank you for subscribing to our newsletter!');
-            this.reset();
-        });
-        
-        // Appointment Form Submission
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the appointment request to your scheduling system
-            alert('Your appointment request has been received. We will confirm shortly.');
-            this.reset();
-            closeAppointmentModal();
-        });
-        
-        // Live Chat Toggle
-        const chatToggle = document.getElementById('chatToggle');
-        const liveChat = document.getElementById('liveChat');
-        const chatClose = document.getElementById('chatClose');
-        
-        chatToggle.addEventListener('click', function() {
-            liveChat.style.display = 'block';
-            setTimeout(() => {
-                liveChat.style.opacity = '1';
-                liveChat.style.transform = 'translateY(0)';
-            }, 10);
-        });
-        
-        chatClose.addEventListener('click', function() {
-            liveChat.style.opacity = '0';
-            liveChat.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                liveChat.style.display = 'none';
-            }, 300);
-        });
-        
-        // Simple Chat Functionality
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const chatMessages = document.getElementById('chatMessages');
-        
-        function addMessage(text, isBot) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${isBot ? 'bot' : 'user'}`;
-            messageDiv.innerHTML = `<p>${text}</p>`;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        chatSend.addEventListener('click', function() {
-            const message = chatInput.value.trim();
-            if (message) {
-                addMessage(message, false);
-                chatInput.value = '';
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Simulate bot response
-                setTimeout(() => {
-                    addMessage("Thanks for your message! Our team will get back to you soon.", true);
-                }, 1000);
-            }
-        });
-        
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                chatSend.click();
-            }
-        });
-        
-        // Cookie Consent
-        const cookieConsent = document.getElementById('cookieConsent');
-        const cookieAccept = document.getElementById('cookieAccept');
-        const cookieDecline = document.getElementById('cookieDecline');
-        
-        // Check if cookie consent was already given
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => {
-                cookieConsent.classList.add('show');
-            }, 2000);
-        }
-        
-        cookieAccept.addEventListener('click', function() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieConsent.classList.remove('show');
-        });
-        
-        cookieDecline.addEventListener('click', function() {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieConsent.classList.remove('show');
-        });
-        
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('nav ul li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.slide-up').forEach(el => {
-            observer.observe(el);
         });
         
-        // Google Analytics (replace with your actual tracking ID)
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-XXXXX-Y');
-    </script>
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NextEdge IT Services",
-      "url": "https://www.nextedgeit.com",
-      "logo": "https://www.nextedgeit.com/images/logo.png",
-      "description": "Providing innovative IT solutions including web development, mobile apps, cloud services, and cybersecurity.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Tech Park",
-        "addressLocality": "Kathmandu",
-        "addressRegion": "Bagmati",
-        "postalCode": "44600",
-        "addressCountry": "NP"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-555-123-4567",
-        "contactType": "customer service",
-        "email": "email@technologist.com",
-        "areaServed": "Global",
-        "availableLanguage": "English"
-      },
-      "sameAs": [
-        "https://www.facebook.com/nextedgeit",
-        "https://twitter.com/nextedgeit",
-        "https://www.linkedin.com/company/nextedgeit",
-        "https://www.instagram.com/nextedgeit"
-      ]
-    }
+        // Portfolio filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filterValue = this.textContent;
+                
+                // Filter portfolio items
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'All' || item.querySelector('.portfolio-overlay h3').textContent.includes(filterValue)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
