@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jay Prasad - Portfolio</title>
-    <meta name="description" content="Personal portfolio of Jay Prasad, Frontend Developer and IT Professional">
-    <meta name="keywords" content="portfolio, frontend developer, web developer, IT professional">
+    <meta name="description" content="Professional portfolio of Jay Prasad - Frontend Developer, IT Specialist, and Business Consultant">
+    <meta name="keywords" content="portfolio, frontend developer, IT services, business consultant, football analyst">
     <meta name="author" content="Jay Prasad">
     <style>
         :root {
@@ -436,6 +436,101 @@
             transform: scale(1.1);
         }
         
+        /* Testimonials Section */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .testimonial-card {
+            background-color: #1e293b;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        body.dark-mode .blog-card {
+            background-color: #1e293b;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        body.dark-mode .blog-date {
+            color: #cbd5e1;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -610,6 +705,69 @@
             transform: translateY(-3px);
         }
         
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        body.dark-mode .modal-content {
+            background-color: #1e293b;
+            color: white;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .login-form {
+            margin-top: 1.5rem;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        body.dark-mode .login-form input {
+            background-color: #1f2937;
+            border-color: #374151;
+            color: white;
+        }
+        
+        .login-gif {
+            margin: 1rem 0;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-content,
@@ -681,7 +839,10 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" id="loginLink">Login</a></li>
                 </ul>
             </nav>
             <button class="theme-toggle" id="themeToggle">
@@ -697,8 +858,8 @@
                 <div class="hero-text">
                     <h3>Welcome To My World</h3>
                     <h1>Hi, I'm Jay Prasad</h1>
-                    <h2>Frontend Developer</h2>
-                    <p>I am passionate about technology, football, and business operations, with interests in IT services and website management. I have 5 years of experience in information technology and computer systems, along with experience in accounting.</p>
+                    <h2>Frontend Developer & IT Specialist</h2>
+                    <p>I am passionate about technology, football, and business operations, with 5 years of experience in information technology and computer systems, along with experience in accounting and business management.</p>
                     <div class="hero-buttons">
                         <a href="mailto:admin@jayprasad.com.np" class="btn">Hire Me Now!</a>
                         <a href="#" class="btn btn-outline">Download CV</a>
@@ -726,25 +887,25 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>4 Years Experience in Web Development</h3>
-                    <p>I am passionate about technology, football, and business operations, with 5 years of experience in information technology and computer systems, along with a background in business!</p>
+                    <h3>5 Years Experience in IT & Development</h3>
+                    <p>I bring a unique combination of technical expertise and business acumen, with experience in frontend development, IT services, and business operations. My passion for technology extends to football analytics and helping students with test preparation and study abroad guidance.</p>
                     
                     <div class="skills-list">
                         <div class="skill-item">
                             <h4>Frontend Development</h4>
-                            <p>HTML, CSS, JavaScript, React</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>UI/UX Design</h4>
-                            <p>User Interface & Experience Design</p>
+                            <p>HTML, CSS, JavaScript, React, Vue.js</p>
                         </div>
                         <div class="skill-item">
                             <h4>IT Services</h4>
-                            <p>Computer systems and IT support</p>
+                            <p>Computer systems, Networking, Support</p>
                         </div>
                         <div class="skill-item">
                             <h4>Business Operations</h4>
-                            <p>Business management and accounting</p>
+                            <p>Accounting, Management, Consulting</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Education Services</h4>
+                            <p>Test Preparation, Study Abroad Guidance</p>
                         </div>
                     </div>
                 </div>
@@ -784,19 +945,37 @@
                 <div class="service-card">
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-paint-brush"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3>UI/UX Design</h3>
-                        <p>Designing intuitive interfaces that enhance user experience and satisfaction.</p>
+                        <h3>IT Services</h3>
+                        <p>Providing IT solutions and support for computer systems and networks.</p>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-content">
                         <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
+                            <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <h3>IT Services</h3>
-                        <p>Providing IT solutions and support for computer systems and networks.</p>
+                        <h3>Test Preparation</h3>
+                        <p>Guidance and resources for standardized tests and academic success.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Study Abroad</h3>
+                        <p>Consultation for international education opportunities and applications.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Football Analysis</h3>
+                        <p>Insights, statistics, and commentary on football matches and players.</p>
                     </div>
                 </div>
             </div>
@@ -813,8 +992,8 @@
             <div class="portfolio-filter">
                 <button class="filter-btn active">All</button>
                 <button class="filter-btn">Web Development</button>
-                <button class="filter-btn">UI/UX Design</button>
-                <button class="filter-btn">App Development</button>
+                <button class="filter-btn">IT Solutions</button>
+                <button class="filter-btn">Education</button>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
@@ -844,25 +1023,124 @@
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000&auto=format&fit=crop" alt="Project 4" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>Portfolio Website</h3>
-                        <p>Personal portfolio design</p>
+                        <h3>Test Prep Portal</h3>
+                        <p>Online test preparation platform</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1000&auto=format&fit=crop" alt="Project 5" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>UI Design</h3>
-                        <p>Mobile app interface design</p>
+                        <h3>University Portal</h3>
+                        <p>Study abroad application system</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Project 6" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>Business Website</h3>
-                        <p>Corporate website redesign</p>
+                        <h3>Football Analytics</h3>
+                        <p>Player performance dashboard</p>
                         <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>What my clients say about my work</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Jay transformed our outdated website into a modern, high-performing platform that has increased our online sales by 180%. His attention to detail and understanding of our business needs was exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, Retail Solutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The IT solutions provided by Jay have streamlined our operations significantly. His team was professional, responsive, and delivered beyond our expectations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        </div>
+                        <div>
+                            <h4>Michael Chen</h4>
+                            <p>Operations Director, HealthPlus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Jay's guidance on test preparation and study abroad options was invaluable for my daughter. His personalized approach made all the difference in her successful university applications."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez">
+                        </div>
+                        <div>
+                            <h4>Emma Rodriguez</h4>
+                            <p>Parent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Blog Posts</h2>
+                <p>Insights and updates on technology, education, and football</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Blog Post 1">
+                    </div>
+                    <div class="blog-content">
+                        <p class="blog-date">June 15, 2023</p>
+                        <h3>Top Web Development Trends in 2023</h3>
+                        <p>Exploring the latest technologies and frameworks shaping the future of web development.</p>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=1000&auto=format&fit=crop" alt="Blog Post 2">
+                    </div>
+                    <div class="blog-content">
+                        <p class="blog-date">May 28, 2023</p>
+                        <h3>Preparing for Standardized Tests</h3>
+                        <p>Effective strategies and resources to help students excel in their test preparations.</p>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000&auto=format&fit=crop" alt="Blog Post 3">
+                    </div>
+                    <div class="blog-content">
+                        <p class="blog-date">May 10, 2023</p>
+                        <h3>Football Tactics Analysis</h3>
+                        <p>Breaking down the most effective strategies in modern football and player performance metrics.</p>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Read More</a>
                     </div>
                 </div>
             </div>
@@ -902,7 +1180,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" required>
@@ -937,6 +1215,7 @@
                     <a href="#services">Services</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#contact">Contact</a>
+                    <a href="#" id="footerLoginLink">Login</a>
                 </div>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -944,7 +1223,7 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <p class="copyright">© 2023 Jay Prasad. All rights reserved.</p>
+                <p class="copyright">© 2023 Jay Prasad. All rights reserved. <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -953,6 +1232,25 @@
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Login</h2>
+            <div class="login-gif">
+                GAMAPCC<br>
+                GAMAPCC<br>
+                GAMAPCC<br>
+                GAMAPCC
+            </div>
+            <form class="login-form">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         // Dark/Light Mode Toggle
@@ -993,6 +1291,8 @@
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -1025,21 +1325,60 @@
                 
                 // Filter portfolio items
                 portfolioItems.forEach(item => {
-                    if (filterValue === 'All' || item.querySelector('.portfolio-overlay h3').textContent.includes(filterValue)) {
+                    if (filterValue === 'All') {
                         item.style.display = 'block';
                     } else {
-                        item.style.display = 'none';
+                        const itemCategory = item.querySelector('.portfolio-overlay h3').textContent;
+                        if (itemCategory.includes(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     }
                 });
             });
         });
         
         // Form submission
-        const contactForm = document.querySelector('.contact-form form');
+        const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
+        });
+        
+        // Login Modal
+        const loginModal = document.getElementById('loginModal');
+        const loginLink = document.getElementById('loginLink');
+        const footerLoginLink = document.getElementById('footerLoginLink');
+        const closeModal = document.getElementById('closeModal');
+        
+        loginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+        
+        footerLoginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', function() {
+            loginModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+        
+        // Login form submission
+        const loginForm = document.querySelector('.login-form');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here with backend integration');
+            loginModal.style.display = 'none';
         });
     </script>
 </body>
