@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
     :root {
-      --primary: #2563eb;
-      --secondary: #1e40af;
+      --primary: #3b82f6;
+      --secondary: #2563eb;
       --accent: #f59e0b;
     }
     .dark-mode {
-      background-color: #1a202c;
-      color: #e2e8f0;
+      background-color: #111827;
+      color: #f3f4f6;
     }
     .skill-bar {
       height: 8px;
       border-radius: 4px;
-      background-color: #e2e8f0;
+      background-color: #e5e7eb;
     }
     .skill-progress {
       height: 100%;
@@ -36,6 +36,9 @@
     }
     .testimonial-card:hover {
       transform: scale(1.02);
+    }
+    .hero-pattern {
+      background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.2) 90%);
     }
   </style>
   <script>
@@ -77,7 +80,7 @@
   <header class="bg-gradient-to-r from-blue-700 to-blue-800 text-white p-4 sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <img src="https://jayprasad.com.np/images/logo.png" alt="Jay Prasad Majhi Logo" class="h-10 w-10 rounded-full">
+        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jay Prasad Majhi Logo" class="h-10 w-10 rounded-full object-cover">
         <h1 class="text-2xl md:text-3xl font-bold">Jay Prasad Majhi</h1>
       </div>
       
@@ -115,8 +118,8 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-    <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover;"></div>
+  <section id="home" class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white hero-pattern">
+    <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80'); background-size: cover;"></div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-10 md:mb-0">
@@ -129,7 +132,6 @@
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
-          <img src="https://jayprasad.com.np/images/profile-highres.jpg" alt="Jay Prasad Majhi" class="rounded-full border-4 border-white shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover">
         </div>
       </div>
     </div>
@@ -213,7 +215,7 @@
             <p class="mb-4">I am Jay Prasad Majhi, a multifaceted professional with a diverse background spanning technology, business, and education. My journey began with a foundation in Electronics and Communication Engineering, which sparked my passion for technology and innovation.</p>
             <p class="mb-4">Over the years, I've worn many hats - from Research Engineer to Accountant, Documentation Officer to IT Consultant. This varied experience has given me a unique perspective that allows me to bridge the gap between technical solutions and business needs.</p>
             <p class="mb-4">In 2021, I founded Crunch Tech Pvt. Ltd. in Birtamode, Nepal, with the vision of providing comprehensive IT and business solutions to our community. Our services range from domain registration and web hosting to study abroad consulting and IELTS/PTE preparation.</p>
-            <p>When I'm not working with clients, you can find me publishing football news, mentoring students, or exploring new technologies that can benefit our services. I believe in continuous learning and sharing knowledge to help others succeed.</p>
+            <p>When I'm not working with clients, you can find me publishing football news, mentoring students, or exploring new technologies that can benefit our services. I believe in continuous learning and sharing knowledge to help others succeed.</p> 
           </div>
           
           <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -263,7 +265,7 @@
               <span>Email hosting</span>
             </li>
           </ul>
-          <a href="#contact" class="text-blue-600 font-semibold hover:underline">Get Started →</a>
+          <a href="https://jayprasad.com.np/domain-hosting" class="text-blue-600 font-semibold hover:underline">Get Started →</a>
         </div>
         
         <!-- Service 2 -->
@@ -287,7 +289,7 @@
               <span>Application processing</span>
             </li>
           </ul>
-          <a href="#contact" class="text-blue-600 font-semibold hover:underline">Learn More →</a>
+          <a href="https://jayprasad.com.np/study-abroad" class="text-blue-600 font-semibold hover:underline">Learn More →</a>
         </div>
         
         <!-- Service 3 -->
@@ -311,7 +313,7 @@
               <span>Personalized feedback</span>
             </li>
           </ul>
-          <a href="#contact" class="text-blue-600 font-semibold hover:underline">Enroll Now →</a>
+          <a href="https://jayprasad.com.np/ielts-pte" class="text-blue-600 font-semibold hover:underline">Enroll Now →</a>
         </div>
         
         <!-- Service 4 -->
@@ -335,7 +337,7 @@
               <span>Security solutions</span>
             </li>
           </ul>
-          <a href="#contact" class="text-blue-600 font-semibold hover:underline">Get Support →</a>
+          <a href="https://jayprasad.com.np/it-support" class="text-blue-600 font-semibold hover:underline">Get Support →</a>
         </div>
         
         <!-- Service 5 -->
@@ -359,7 +361,7 @@
               <span>Expert analysis</span>
             </li>
           </ul>
-          <a href="#blog" class="text-blue-600 font-semibold hover:underline">Read Articles →</a>
+          <a href="https://jayprasad.com.np/football-news" class="text-blue-600 font-semibold hover:underline">Read Articles →</a>
         </div>
         
         <!-- Service 6 -->
@@ -383,7 +385,7 @@
               <span>Technical documentation</span>
             </li>
           </ul>
-          <a href="#contact" class="text-blue-600 font-semibold hover:underline">Request Service →</a>
+          <a href="https://jayprasad.com.np/documentation-services" class="text-blue-600 font-semibold hover:underline">Request Service →</a>
         </div>
       </div>
     </div>
@@ -427,7 +429,7 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">Enterprise IT Infrastructure</h3>
             <p class="text-gray-600 mb-4">Designed and implemented a complete IT infrastructure solution for a mid-sized business.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/it-infrastructure" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
         
@@ -443,7 +445,7 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">Study Abroad Program</h3>
             <p class="text-gray-600 mb-4">Developed a comprehensive study abroad program assisting 50+ students annually.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/study-abroad" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
         
@@ -459,7 +461,7 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">Business Process Optimization</h3>
             <p class="text-gray-600 mb-4">Streamlined operations for a local business resulting in 30% cost savings.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/business-optimization" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
         
@@ -475,7 +477,7 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">E-commerce Website</h3>
             <p class="text-gray-600 mb-4">Developed a custom e-commerce platform for a local retailer with payment integration.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/ecommerce-website" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
         
@@ -491,7 +493,7 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">IELTS Training Program</h3>
             <p class="text-gray-600 mb-4">Created a specialized IELTS preparation curriculum with 90% success rate.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/ielts-training" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
         
@@ -507,13 +509,13 @@
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2">Financial System Implementation</h3>
             <p class="text-gray-600 mb-4">Implemented accounting software and trained staff for a growing business.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">View Project →</a>
+            <a href="https://jayprasad.com.np/projects/financial-system" class="text-blue-600 font-medium hover:underline">View Project →</a>
           </div>
         </div>
       </div>
       
       <div class="text-center mt-8">
-        <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <a href="https://jayprasad.com.np/portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
           View All Projects
           <i class="fas fa-arrow-right ml-2"></i>
         </a>
@@ -587,7 +589,7 @@
       </div>
       
       <div class="text-center mt-8">
-        <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <a href="https://jayprasad.com.np/testimonials" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
           More Testimonials
           <i class="fas fa-arrow-right ml-2"></i>
         </a>
@@ -616,7 +618,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">How to Choose the Right Web Hosting for Your Business</h3>
             <p class="text-gray-600 mb-4">A comprehensive guide to selecting the perfect hosting solution based on your website's needs and traffic expectations.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/web-hosting-guide" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
         
@@ -634,7 +636,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">Top 5 Mistakes to Avoid When Applying to Study Abroad</h3>
             <p class="text-gray-600 mb-4">Learn from common errors students make during the application process and how to navigate them successfully.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/study-abroad-mistakes" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
         
@@ -652,7 +654,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">Essential IT Security Practices for Small Businesses</h3>
             <p class="text-gray-600 mb-4">Protect your business from cyber threats with these fundamental security measures any organization can implement.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/it-security-practices" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
       </div>
@@ -673,7 +675,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">IELTS vs PTE: Which English Test is Right for You?</h3>
             <p class="text-gray-600 mb-4">A detailed comparison of the two most popular English proficiency tests to help you decide which one to take.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/ielts-vs-pte" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
         
@@ -691,7 +693,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">5 Digital Tools Every Small Business Should Use in 2023</h3>
             <p class="text-gray-600 mb-4">Discover the essential digital tools that can help streamline your operations and boost productivity.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/digital-tools-business" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
         
@@ -709,7 +711,7 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">Emerging Football Talents to Watch in 2023</h3>
             <p class="text-gray-600 mb-4">Our scouting team identifies the most promising young footballers who could make a big impact this year.</p>
-            <a href="#" class="text-blue-600 font-medium hover:underline">Read More →</a>
+            <a href="https://jayprasad.com.np/blog/football-talents-2023" class="text-blue-600 font-medium hover:underline">Read More →</a>
           </div>
         </div>
       </div>
@@ -751,8 +753,8 @@
                 </div>
                 <div>
                   <h4 class="font-medium">Email</h4>
-                  <p class="text-gray-600">contact@jayprasad.com.np</p>
-                  <p class="text-gray-600">support@jayprasad.com.np</p>
+                  <a href="mailto:contact@jayprasad.com.np" class="text-gray-600 hover:text-blue-600">contact@jayprasad.com.np</a><br>
+                  <a href="mailto:support@jayprasad.com.np" class="text-gray-600 hover:text-blue-600">support@jayprasad.com.np</a>
                 </div>
               </div>
               
@@ -803,7 +805,7 @@
           <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4">Schedule a Meeting</h3>
             <p class="mb-4">Book a convenient time for a consultation or discussion about your project.</p>
-            <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+            <a href="https://calendly.com/jayprasad/consultation" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
               <i class="far fa-calendar-alt mr-2"></i>
               Book Appointment
             </a>
@@ -970,7 +972,7 @@
         <!-- Column 1 -->
         <div>
           <div class="flex items-center mb-4">
-            <img src="https://jayprasad.com.np/images/logo-white.png" alt="Logo" class="h-10 mr-3">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Logo" class="h-10 w-10 rounded-full mr-3">
             <h3 class="text-xl font-bold text-white">Jay Prasad Majhi</h3>
           </div>
           <p class="mb-4">Providing comprehensive IT solutions, education consulting, and business services to help you achieve your goals.</p>
@@ -1020,22 +1022,22 @@
           <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
           <ul class="space-y-2">
             <li>
-              <a href="#" class="hover:text-white transition">Domain & Hosting</a>
+              <a href="https://jayprasad.com.np/domain-hosting" class="hover:text-white transition">Domain & Hosting</a>
             </li>
             <li>
-              <a href="#" class="hover:text-white transition">Study Abroad Consulting</a>
+              <a href="https://jayprasad.com.np/study-abroad" class="hover:text-white transition">Study Abroad Consulting</a>
             </li>
             <li>
-              <a href="#" class="hover:text-white transition">IELTS/PTE Preparation</a>
+              <a href="https://jayprasad.com.np/ielts-pte" class="hover:text-white transition">IELTS/PTE Preparation</a>
             </li>
             <li>
-              <a href="#" class="hover:text-white transition">IT Support</a>
+              <a href="https://jayprasad.com.np/it-support" class="hover:text-white transition">IT Support</a>
             </li>
             <li>
-              <a href="#" class="hover:text-white transition">Football News</a>
+              <a href="https://jayprasad.com.np/football-news" class="hover:text-white transition">Football News</a>
             </li>
             <li>
-              <a href="#" class="hover:text-white transition">Documentation Services</a>
+              <a href="https://jayprasad.com.np/documentation-services" class="hover:text-white transition">Documentation Services</a>
             </li>
           </ul>
         </div>
@@ -1050,7 +1052,7 @@
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <span>contact@jayprasad.com.np</span>
+              <a href="mailto:contact@jayprasad.com.np" class="hover:text-white">contact@jayprasad.com.np</a>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
