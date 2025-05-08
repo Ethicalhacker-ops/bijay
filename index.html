@@ -52,42 +52,95 @@
       background-color: #e6900a;
       transform: translateY(-2px);
     }
+    
+    /* New styles for the added features */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: modalFadeIn 0.3s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+    .close-modal:hover {
+      color: #333;
+    }
+    
+    /* Circular hover effect */
+    .hover-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .hover-effect::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease, height 0.3s ease;
+      z-index: 0;
+    }
+    .hover-effect:hover::before {
+      width: 150%;
+      height: 150%;
+    }
+    .hover-effect > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Modern background enhancements */
+    .modern-bg {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      background-size: 200% 200%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .service-card {
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(5px);
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
   </style>
-  <script>
-    // Dark/Light mode toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
-
-    // Check for saved user preference
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-    }
-
-    // Real-time clock
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = now.toLocaleString('en-US', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
-      });
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300 modern-bg">
   <!-- Navigation -->
   <header class="bg-gradient-to-r from-blue-700 to-blue-800 text-white p-4 sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
@@ -108,13 +161,13 @@
         
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-1 items-center">
-          <a href="#home" class="px-3 py-2 rounded hover:bg-blue-600 transition">Home</a>
-          <a href="#about" class="px-3 py-2 rounded hover:bg-blue-600 transition">About</a>
-          <a href="#services" class="px-3 py-2 rounded hover:bg-blue-600 transition">Services</a>
-          <a href="#portfolio" class="px-3 py-2 rounded hover:bg-blue-600 transition">Portfolio</a>
-          <a href="#blog" class="px-3 py-2 rounded hover:bg-blue-600 transition">Blog</a>
-          <a href="#contact" class="px-3 py-2 rounded hover:bg-blue-600 transition">Contact</a>
-          <a href="https://the.jayprasad.com.np" target="_blank" class="login-btn ml-2">
+          <a href="#home" class="px-3 py-2 rounded transition hover-effect">Home</a>
+          <a href="#about" class="px-3 py-2 rounded transition hover-effect">About</a>
+          <a href="#services" class="px-3 py-2 rounded transition hover-effect">Services</a>
+          <a href="#portfolio" class="px-3 py-2 rounded transition hover-effect">Portfolio</a>
+          <a href="#blog" class="px-3 py-2 rounded transition hover-effect">Blog</a>
+          <a href="#contact" class="px-3 py-2 rounded transition hover-effect">Contact</a>
+          <a href="https://the.jayprasad.com.np" target="_blank" class="login-btn ml-2 hover-effect">
             <i class="fas fa-sign-in-alt mr-1"></i> Login
           </a>
         </nav>
@@ -123,17 +176,72 @@
     
     <!-- Mobile Navigation -->
     <div id="mobile-menu" class="hidden md:hidden bg-blue-800 mt-2 py-2 px-4 rounded-lg">
-      <a href="#home" class="block py-2 hover:bg-blue-700 px-2 rounded transition">Home</a>
-      <a href="#about" class="block py-2 hover:bg-blue-700 px-2 rounded transition">About</a>
-      <a href="#services" class="block py-2 hover:bg-blue-700 px-2 rounded transition">Services</a>
-      <a href="#portfolio" class="block py-2 hover:bg-blue-700 px-2 rounded transition">Portfolio</a>
-      <a href="#blog" class="block py-2 hover:bg-blue-700 px-2 rounded transition">Blog</a>
-      <a href="#contact" class="block py-2 hover:bg-blue-700 px-2 rounded transition">Contact</a>
-      <a href="https://the.jayprasad.com.np" target="_blank" class="block py-2 hover:bg-blue-700 px-2 rounded transition bg-orange-500 text-white font-medium mt-2 text-center">
+      <a href="#home" class="block py-2 px-2 rounded transition hover-effect">Home</a>
+      <a href="#about" class="block py-2 px-2 rounded transition hover-effect">About</a>
+      <a href="#services" class="block py-2 px-2 rounded transition hover-effect">Services</a>
+      <a href="#portfolio" class="block py-2 px-2 rounded transition hover-effect">Portfolio</a>
+      <a href="#blog" class="block py-2 px-2 rounded transition hover-effect">Blog</a>
+      <a href="#contact" class="block py-2 px-2 rounded transition hover-effect">Contact</a>
+      <a href="https://the.jayprasad.com.np" target="_blank" class="block py-2 px-2 rounded transition bg-orange-500 text-white font-medium mt-2 text-center hover-effect">
         <i class="fas fa-sign-in-alt mr-1"></i> Login
       </a>
     </div>
   </header>
+
+  <!-- Service Modals -->
+  <!-- Domain & Hosting Modal -->
+  <div id="domain-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">Domain & Hosting Services</h3>
+      <p>Our comprehensive domain registration and web hosting solutions provide everything you need to establish a strong online presence. We offer reliable hosting with 99.9% uptime, free SSL certificates, and 24/7 technical support. Whether you need shared hosting for a small website or dedicated servers for high-traffic applications, we have packages tailored to your specific requirements. Our team will help you choose the perfect domain name and ensure your website is always accessible to your audience with our state-of-the-art infrastructure.</p>
+    </div>
+  </div>
+
+  <!-- Study Abroad Modal -->
+  <div id="study-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">Study Abroad Consulting</h3>
+      <p>Our expert study abroad consultants provide personalized guidance to help you navigate the complex process of international education. From selecting the right university and program to preparing your application and visa documentation, we offer end-to-end support. We have partnerships with institutions worldwide and can help you find scholarships and financial aid options. Our services include pre-departure orientation, accommodation assistance, and even post-arrival support to ensure your transition to studying abroad is as smooth as possible.</p>
+    </div>
+  </div>
+
+  <!-- IELTS/PTE Modal -->
+  <div id="ielts-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">IELTS/PTE Preparation</h3>
+      <p>Our specialized test preparation courses are designed to help you achieve your target scores in IELTS or PTE exams. Taught by experienced instructors, our courses cover all test components with a focus on your weak areas. We provide authentic practice materials, simulated tests, and personalized feedback to maximize your performance. Our small class sizes ensure individual attention, and we offer flexible scheduling options including intensive crash courses. With our proven strategies and techniques, you'll gain the confidence and skills needed to excel in your English proficiency test.</p>
+    </div>
+  </div>
+
+  <!-- IT Support Modal -->
+  <div id="it-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">IT Support & Consultancy</h3>
+      <p>Our professional IT support services help businesses of all sizes maintain optimal technology performance. We offer comprehensive solutions including network setup, system maintenance, cybersecurity protection, and cloud migration. Our certified technicians provide both remote and on-site support with rapid response times. Whether you need help troubleshooting technical issues, implementing new software, or developing a long-term IT strategy, our team has the expertise to keep your operations running smoothly. We also offer training programs to help your staff become more tech-savvy.</p>
+    </div>
+  </div>
+
+  <!-- Football News Modal -->
+  <div id="football-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">Football News Publishing</h3>
+      <p>Stay updated with the latest in the world of football through our comprehensive news coverage. We provide in-depth match analysis, transfer rumors, injury updates, and tactical breakdowns from major leagues across the globe. Our team of football experts offers unique insights and perspectives you won't find elsewhere. We specialize in coverage of Asian football and emerging talents, in addition to the major European leagues. Whether you're a casual fan or a football enthusiast, our content will keep you informed and engaged with the beautiful game.</p>
+    </div>
+  </div>
+
+  <!-- Documentation Modal -->
+  <div id="docs-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3 class="text-xl font-semibold mb-4">Documentation Services</h3>
+      <p>Our professional documentation services help businesses and individuals create polished, effective written materials. We specialize in preparing business reports, academic papers, technical documentation, and legal paperwork. Our team of skilled writers and editors ensures your documents are clear, concise, and professionally formatted. We can assist with everything from simple document formatting to complex technical writing projects. Whether you need help creating documentation from scratch or polishing existing materials, we'll ensure your documents make the right impression and effectively communicate your message.</p>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section id="home" class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white hero-pattern">
@@ -145,8 +253,8 @@
           <p class="text-xl md:text-2xl mb-6">IT Consultant | Business Professional | Educator</p>
           <p class="text-lg mb-8">Providing comprehensive study abroad consulting, and business services to help you achieve your goals.</p>
           <div class="flex space-x-4">
-            <a href="#contact" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg">Get In Touch</a>
-            <a href="#services" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition">Our Services</a>
+            <a href="#contact" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover-effect">Get In Touch</a>
+            <a href="#services" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition hover-effect">Our Services</a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
@@ -257,7 +365,7 @@
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Service 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('domain-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-globe"></i>
           </div>
@@ -277,11 +385,11 @@
               <span>Email hosting</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/domain-hosting" class="text-blue-600 font-semibold hover:underline">Get Started →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
         
         <!-- Service 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('study-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-graduation-cap"></i>
           </div>
@@ -301,11 +409,11 @@
               <span>Application processing</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/study-abroad" class="text-blue-600 font-semibold hover:underline">Learn More →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
         
         <!-- Service 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('ielts-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-language"></i>
           </div>
@@ -325,11 +433,11 @@
               <span>Personalized feedback</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/ielts-pte" class="text-blue-600 font-semibold hover:underline">Enroll Now →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
         
         <!-- Service 4 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('it-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-laptop-code"></i>
           </div>
@@ -349,11 +457,11 @@
               <span>Security solutions</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/it-support" class="text-blue-600 font-semibold hover:underline">Get Support →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
         
         <!-- Service 5 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('football-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-newspaper"></i>
           </div>
@@ -373,11 +481,11 @@
               <span>Expert analysis</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/football-news" class="text-blue-600 font-semibold hover:underline">Read Articles →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
         
         <!-- Service 6 -->
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('docs-modal')">
           <div class="text-blue-600 text-4xl mb-4">
             <i class="fas fa-file-alt"></i>
           </div>
@@ -397,7 +505,7 @@
               <span>Technical documentation</span>
             </li>
           </ul>
-          <a href="https://jayprasad.com.np/documentation-services" class="text-blue-600 font-semibold hover:underline">Request Service →</a>
+          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
         </div>
       </div>
     </div>
@@ -527,7 +635,7 @@
       </div>
       
       <div class="text-center mt-8">
-        <a href="https://jayprasad.com.np/portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <a href="https://jayprasad.com.np/portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
           View All Projects
           <i class="fas fa-arrow-right ml-2"></i>
         </a>
@@ -601,7 +709,7 @@
       </div>
       
       <div class="text-center mt-8">
-        <a href="https://jayprasad.com.np/testimonials" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <a href="https://jayprasad.com.np/testimonials" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
           More Testimonials
           <i class="fas fa-arrow-right ml-2"></i>
         </a>
@@ -729,7 +837,7 @@
       </div>
       
       <div class="text-center mt-8">
-        <button id="load-more-blogs" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <button id="load-more-blogs" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
           View More Articles
           <i class="fas fa-arrow-down ml-2"></i>
         </button>
@@ -817,7 +925,7 @@
           <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4">Schedule a Meeting</h3>
             <p class="mb-4">Book a convenient time for a consultation or discussion about your project.</p>
-            <a href="https://calendly.com/ictconsultant" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+            <a href="https://calendly.com/ictconsultant" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
               <i class="far fa-calendar-alt mr-2"></i>
               Book Appointment
             </a>
@@ -854,7 +962,7 @@
                 <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
               </div>
               
-              <button type="submit" class="w-full bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition">
+              <button type="submit" class="w-full bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition hover-effect">
                 Send Message
               </button>
             </form>
@@ -873,7 +981,7 @@
       <div class="max-w-3xl mx-auto space-y-4">
         <!-- FAQ Item 1 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
             <h3 class="text-lg font-medium text-left">What IT services do you provide?</h3>
             <i class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -884,7 +992,7 @@
         
         <!-- FAQ Item 2 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
             <h3 class="text-lg font-medium text-left">How can you help with studying abroad?</h3>
             <i class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -895,7 +1003,7 @@
         
         <!-- FAQ Item 3 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
             <h3 class="text-lg font-medium text-left">What's the duration of your IELTS/PTE preparation courses?</h3>
             <i class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -913,7 +1021,7 @@
         
         <!-- FAQ Item 4 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
             <h3 class="text-lg font-medium text-left">Do you provide ongoing support after website development?</h3>
             <i class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -931,7 +1039,7 @@
         
         <!-- FAQ Item 5 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
             <h3 class="text-lg font-medium text-left">What makes your football news coverage unique?</h3>
             <i class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -952,7 +1060,7 @@
       
       <div class="text-center mt-8">
         <p class="mb-4">Have a different question?</p>
-        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
           Contact Me
           <i class="fas fa-arrow-right ml-2"></i>
         </a>
@@ -968,7 +1076,7 @@
       
       <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
         <input type="email" placeholder="Your email address" required class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button type="submit" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-md font-semibold transition">
+        <button type="submit" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-md font-semibold transition hover-effect">
           Subscribe
         </button>
       </form>
@@ -1009,25 +1117,25 @@
           <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
           <ul class="space-y-2">
             <li>
-              <a href="#home" class="hover:text-white transition">Home</a>
+              <a href="#home" class="hover:text-white transition hover-effect">Home</a>
             </li>
             <li>
-              <a href="#about" class="hover:text-white transition">About Me</a>
+              <a href="#about" class="hover:text-white transition hover-effect">About Me</a>
             </li>
             <li>
-              <a href="#services" class="hover:text-white transition">Services</a>
+              <a href="#services" class="hover:text-white transition hover-effect">Services</a>
             </li>
             <li>
-              <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+              <a href="#portfolio" class="hover:text-white transition hover-effect">Portfolio</a>
             </li>
             <li>
-              <a href="#blog" class="hover:text-white transition">Blog</a>
+              <a href="#blog" class="hover:text-white transition hover-effect">Blog</a>
             </li>
             <li>
-              <a href="#contact" class="hover:text-white transition">Contact</a>
+              <a href="#contact" class="hover:text-white transition hover-effect">Contact</a>
             </li>
             <li>
-              <a href="https://the.jayprasad.com.np" target="_blank" class="hover:text-white transition">Login</a>
+              <a href="https://the.jayprasad.com.np" target="_blank" class="hover:text-white transition hover-effect">Login</a>
             </li>
           </ul>
         </div>
@@ -1037,22 +1145,22 @@
           <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
           <ul class="space-y-2">
             <li>
-              <a href="https://jayprasad.com.np/domain-hosting" class="hover:text-white transition">Domain & Hosting</a>
+              <a href="https://jayprasad.com.np/domain-hosting" class="hover:text-white transition hover-effect">Domain & Hosting</a>
             </li>
             <li>
-              <a href="https://jayprasad.com.np/study-abroad" class="hover:text-white transition">Study Abroad Consulting</a>
+              <a href="https://jayprasad.com.np/study-abroad" class="hover:text-white transition hover-effect">Study Abroad Consulting</a>
             </li>
             <li>
-              <a href="https://jayprasad.com.np/ielts-pte" class="hover:text-white transition">IELTS/PTE Preparation</a>
+              <a href="https://jayprasad.com.np/ielts-pte" class="hover:text-white transition hover-effect">IELTS/PTE Preparation</a>
             </li>
             <li>
-              <a href="https://jayprasad.com.np/it-support" class="hover:text-white transition">IT Support</a>
+              <a href="https://jayprasad.com.np/it-support" class="hover:text-white transition hover-effect">IT Support</a>
             </li>
             <li>
-              <a href="https://jayprasad.com.np/football-news" class="hover:text-white transition">Football News</a>
+              <a href="https://jayprasad.com.np/football-news" class="hover:text-white transition hover-effect">Football News</a>
             </li>
             <li>
-              <a href="https://jayprasad.com.np/documentation-services" class="hover:text-white transition">Documentation Services</a>
+              <a href="https://jayprasad.com.np/documentation-services" class="hover:text-white transition hover-effect">Documentation Services</a>
             </li>
           </ul>
         </div>
@@ -1067,7 +1175,7 @@
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <a href="mailto:contact@jayprasad.com.np" class="hover:text-white">contact@jayprasad.com.np</a>
+              <a href="mailto:contact@jayprasad.com.np" class="hover:text-white hover-effect">contact@jayprasad.com.np</a>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
@@ -1089,7 +1197,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <a href="#top" class="fixed bottom-6 right-6 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition z-50">
+  <a href="#top" class="fixed bottom-6 right-6 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition z-50 hover-effect">
     <i class="fas fa-arrow-up"></i>
   </a>
 
@@ -1141,6 +1249,61 @@
     document.getElementById('load-more-blogs').addEventListener('click', function() {
       document.getElementById('more-blogs').classList.remove('hidden');
       this.style.display = 'none';
+    });
+
+    // Modal functionality
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Close modals when clicking X
+    document.querySelectorAll('.close-modal').forEach(button => {
+      button.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    });
+
+    // Dark/Light mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    // Check for saved user preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Real-time clock
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = now.toLocaleString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body>
