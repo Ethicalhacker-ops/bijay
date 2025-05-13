@@ -53,7 +53,7 @@
       transform: translateY(-2px);
     }
     
-    /* New styles for the added features */
+    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
@@ -70,8 +70,10 @@
       background-color: white;
       padding: 2rem;
       border-radius: 8px;
-      max-width: 500px;
+      max-width: 800px;
       width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
       position: relative;
       animation: modalFadeIn 0.3s ease-out;
     }
@@ -138,6 +140,104 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
+    
+    /* Project modal styles */
+    .project-modal-content {
+      max-width: 900px;
+    }
+    .project-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .project-details {
+        flex-direction: row;
+      }
+    }
+    .project-image {
+      flex: 1;
+      min-height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+    }
+    .project-info {
+      flex: 2;
+    }
+    .email-quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    .email-link {
+      background: #f0f4f8;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .email-link:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    /* Cookie consent banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1e293b;
+      color: white;
+      padding: 15px;
+      z-index: 1000;
+      display: none;
+    }
+    
+    /* Language selector */
+    .language-selector {
+      position: relative;
+      display: inline-block;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      background: white;
+      min-width: 120px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 4px;
+      right: 0;
+    }
+    .language-selector:hover .language-dropdown {
+      display: block;
+    }
+    .language-option {
+      padding: 8px 12px;
+      display: block;
+      cursor: pointer;
+    }
+    .language-option:hover {
+      background: #f1f5f9;
+    }
+    
+    /* Print styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300 modern-bg">
@@ -150,6 +250,17 @@
       </div>
       
       <div class="flex items-center space-x-4">
+        <div class="language-selector mr-2">
+          <button class="p-2 rounded-full hover:bg-blue-600 transition">
+            <i class="fas fa-language"></i>
+          </button>
+          <div class="language-dropdown">
+            <div class="language-option" onclick="changeLanguage('en')">English</div>
+            <div class="language-option" onclick="changeLanguage('np')">नेपाली</div>
+            <div class="language-option" onclick="changeLanguage('hi')">हिन्दी</div>
+          </div>
+        </div>
+        
         <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-blue-600 transition">
           <i class="fas fa-moon"></i>
         </button>
@@ -243,6 +354,139 @@
     </div>
   </div>
 
+  <!-- Project Detail Modals -->
+  <!-- Project 1 Modal -->
+  <div id="project1-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">Enterprise IT Infrastructure</h3>
+          <div class="mb-4">
+            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
+          </div>
+          <p class="mb-4">This comprehensive IT infrastructure project involved designing and implementing a complete technological framework for a mid-sized manufacturing company with 150+ employees across three locations. The solution included a hybrid cloud environment combining on-premise servers with AWS cloud services, ensuring both security and scalability. We deployed a robust network architecture with redundant fiber connections, enterprise-grade firewalls, and segmented VLANs for different departments. The implementation featured Microsoft 365 for productivity, VoIP phone systems with unified communications, and custom ERP integration with their existing inventory management software. Our team also established comprehensive backup solutions with both local NAS devices and cloud storage, along with disaster recovery protocols. The project was completed in 6 months with minimal disruption to daily operations, resulting in a 40% improvement in system reliability and 30% reduction in IT-related downtime. Post-implementation, we provided training for their internal IT staff and continue to offer managed services for ongoing support and maintenance.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=Inquiry about Enterprise IT Infrastructure Project" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:assistance@technologist.com?subject=Enterprise IT Infrastructure Project" class="email-link">assistance@technologist.com</a>
+            <a href="mailto:ict@technologist.com?subject=IT Infrastructure Project Query" class="email-link">ict@technologist.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 Modal -->
+  <div id="project2-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">Study Abroad Program</h3>
+          <div class="mb-4">
+            <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
+          </div>
+          <p class="mb-4">Our study abroad program was developed to assist Nepalese students in navigating the complex process of international education. The comprehensive service includes university selection based on academic profiles and career goals, application document preparation (SOPs, LORs, resumes), visa guidance, and pre-departure orientation. We've established partnerships with 50+ universities across 10 countries including the US, UK, Canada, Australia, and Japan. The program features personalized counseling sessions, IELTS/TOEFL preparation workshops, and scholarship application assistance. In 2022 alone, we successfully placed 87 students in top-ranked institutions with over $1.2 million in combined scholarships. Our unique value proposition includes post-arrival support services such as airport pickup, accommodation assistance, and local mentorship programs. We also conduct regular alumni networking events and maintain an active online community for current students abroad. The program has maintained a 95% visa success rate and receives consistently positive feedback for our transparent processes and ethical practices. Our counselors each specialize in specific destination countries, ensuring expert guidance tailored to each student's preferred study location.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=Study Abroad Program Inquiry" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:email@technologist.com?subject=Study Abroad Consultation" class="email-link">email@technologist.com</a>
+            <a href="mailto:partner@technologist.com?subject=University Partnership" class="email-link">partner@technologist.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 Modal -->
+  <div id="project3-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">Business Process Optimization</h3>
+          <div class="mb-4">
+            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
+          </div>
+          <p class="mb-4">This business optimization project transformed operations for a regional retail chain with 12 locations across Nepal. We conducted a comprehensive operational audit that identified inefficiencies in inventory management, staff scheduling, and customer service processes. Our solution implemented a centralized inventory system with real-time tracking, reducing stockouts by 65% and excess inventory by 40%. We redesigned staff workflows and introduced cross-training programs that improved productivity by 30%. Customer service enhancements included a new CRM system and standardized service protocols that increased customer satisfaction scores from 78% to 92%. The project also included financial process improvements that reduced accounting errors by 90% and shortened monthly closing from 10 days to 3 days. Technology upgrades included POS system integration, digital payment solutions, and an e-commerce platform that now accounts for 15% of total sales. The 9-month engagement delivered a 28% reduction in operational costs and 35% increase in net profitability. We continue to provide quarterly performance reviews and adjustment recommendations to ensure continuous improvement.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=Business Optimization Inquiry" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:assistance@technologist.com?subject=Business Process Consultation" class="email-link">assistance@technologist.com</a>
+            <a href="mailto:promotions@technologist.com?subject=Business Services" class="email-link">promotions@technologist.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 4 Modal -->
+  <div id="project4-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">E-commerce Website</h3>
+          <div class="mb-4">
+            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
+          </div>
+          <p class="mb-4">This custom e-commerce platform was developed for a growing handicraft business looking to expand beyond local markets. The responsive website features a clean, intuitive design optimized for both desktop and mobile users. Key functionalities include multi-vendor support, inventory management, and integration with Nepal's major payment gateways (Khalti, eSewa, Fonepay). The platform supports both Nepali and English languages with currency conversion for international buyers. We implemented advanced product filtering, wishlist functionality, and a recommendation engine that increased average order value by 22%. The admin dashboard provides real-time sales analytics, customer behavior insights, and automated reporting. Security features include SSL encryption, two-factor authentication, and regular vulnerability scanning. Since launch, the platform has processed over 5,000 orders with 99.8% uptime. The business has seen a 300% increase in sales volume and expanded to serve customers in 15 countries. Ongoing maintenance includes performance optimization, feature enhancements, and marketing integration with social media platforms.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=E-commerce Website Inquiry" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:ict@technologist.com?subject=E-commerce Development" class="email-link">ict@technologist.com</a>
+            <a href="mailto:support@jayprasad.com.np?subject=E-commerce Support" class="email-link">support@jayprasad.com.np</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 5 Modal -->
+  <div id="project5-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">IELTS Training Program</h3>
+          <div class="mb-4">
+            <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
+          </div>
+          <p class="mb-4">Our specialized IELTS preparation program was designed to address the specific challenges Nepalese students face with the exam. The curriculum covers all four test components (Listening, Reading, Writing, Speaking) with particular emphasis on writing task achievement and speaking fluency. Classes are limited to 12 students to ensure personalized attention, with options for both in-person and online instruction. The program includes 60 hours of instruction plus 20 hours of practice tests and individual feedback sessions. Our unique methodology focuses on common mistakes made by Nepali test-takers and strategies to overcome them. Students receive access to our proprietary study materials, including a bank of 100+ writing samples and 50 speaking test simulations. The program boasts a 90% success rate in helping students achieve their target scores, with 65% of students exceeding their expected band by 0.5-1.0. We also offer post-course support including visa interview preparation and academic writing workshops. The program has prepared over 500 students since its inception, with many achieving band scores of 7.5 or higher.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=IELTS Training Inquiry" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:email@technologist.com?subject=IELTS Course Information" class="email-link">email@technologist.com</a>
+            <a href="mailto:admin@jayprasad.com.np?subject=IELTS Registration" class="email-link">admin@jayprasad.com.np</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 6 Modal -->
+  <div id="project6-modal" class="modal">
+    <div class="modal-content project-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="project-details">
+        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80')"></div>
+        <div class="project-info">
+          <h3 class="text-2xl font-bold mb-2">Financial System Implementation</h3>
+          <div class="mb-4">
+            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
+          </div>
+          <p class="mb-4">This financial system implementation transformed accounting operations for a mid-sized import/export business with annual revenue of $5M. We replaced their manual bookkeeping processes with a fully integrated accounting software solution (Tally.ERP 9) customized for Nepalese tax regulations and reporting requirements. The implementation included automation of accounts payable/receivable, inventory valuation, and GST/VAT compliance. We integrated the system with their banking platforms for automatic transaction reconciliation and developed custom reports for management decision-making. The project included comprehensive staff training with documentation in both English and Nepali. Post-implementation, the business reduced accounting errors by 95%, shortened monthly closing from 15 days to 3 days, and improved cash flow visibility. The system also enabled real-time financial reporting to stakeholders and automated tax filing processes. We continue to provide quarterly system updates to accommodate changing tax laws and business requirements. The CFO reports saving approximately 20 hours per week previously spent on manual processes and reconciliation.</p>
+          <div class="email-quick-links">
+            <a href="mailto:bijay@technologist.com?subject=Financial System Inquiry" class="email-link">bijay@technologist.com</a>
+            <a href="mailto:assistance@technologist.com?subject=Financial Software Consultation" class="email-link">assistance@technologist.com</a>
+            <a href="mailto:partner@technologist.com?subject=Business Partnership" class="email-link">partner@technologist.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section id="home" class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white hero-pattern">
     <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80'); background-size: cover;"></div>
@@ -258,6 +502,12 @@
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
+          <div class="relative w-64 h-64 md:w-80 md:h-80">
+            <div class="absolute inset-0 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute inset-4 bg-blue-600 rounded-full opacity-30 animate-pulse delay-100"></div>
+            <div class="absolute inset-8 bg-blue-700 rounded-full opacity-40 animate-pulse delay-200"></div>
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Jay Prasad Majhi" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl">
+          </div>
         </div>
       </div>
     </div>
@@ -275,1036 +525,7 @@
             <ul class="space-y-3">
               <li class="flex items-start">
                 <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
-                <span>IT Enthusiastic </span>
+                <span>IT Enthusiastic</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
-                <span>Based in Kathmandu, Nepal</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-calendar-alt text-blue-600 mt-1 mr-3"></i>
-                <span>Established 2021</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="mt-6 bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">My Skills</h3>
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>IT Consulting</span>
-                  <span>95%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Business Management</span>
-                  <span>90%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 90%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Education Consulting</span>
-                  <span>85%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Web Development</span>
-                  <span>80%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="md:w-2/3">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">My Story</h3>
-            <p class="mb-4">I am Jay Prasad Majhi, a multifaceted professional with a diverse background spanning technology, business, and education. My journey began with a foundation in computer science, which sparked my passion for technology and innovation.</p>
-            <p>When I'm not working with clients, mentoring students, or exploring new technologies that can benefit our services. I believe in continuous learning and sharing knowledge to help others succeed.</p> 
-          </div>
-          
-          <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="bg-blue-700 text-white p-4 rounded-lg text-center shadow-md">
-              <i class="fas fa-users text-3xl mb-2"></i>
-              <h4 class="font-semibold">200+ Clients</h4>
-            </div>
-            <div class="bg-blue-600 text-white p-4 rounded-lg text-center shadow-md">
-              <i class="fas fa-project-diagram text-3xl mb-2"></i>
-              <h4 class="font-semibold">50+ Projects</h4>
-            </div>
-            <div class="bg-blue-800 text-white p-4 rounded-lg text-center shadow-md">
-              <i class="fas fa-globe text-3xl mb-2"></i>
-              <h4 class="font-semibold">Global Reach</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-700">Services</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Comprehensive solutions tailored to meet your business, education, and technology needs.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('domain-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Domain & Hosting</h3>
-          <p class="mb-4">Professional domain registration and reliable web hosting services with 99.9% uptime and 24/7 support.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Domain registration</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Website hosting</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Email hosting</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('study-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Study Abroad Consulting</h3>
-          <p class="mb-4">Expert guidance for students looking to study overseas, including visa assistance and university applications.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>University selection</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Visa documentation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Application processing</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('ielts-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-language"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">IELTS/PTE Preparation</h3>
-          <p class="mb-4">Comprehensive test preparation courses to help you achieve your desired scores for study or migration.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Expert instructors</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Practice tests</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Personalized feedback</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 4 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('it-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">IT Support & Consultancy</h3>
-          <p class="mb-4">Professional IT solutions for businesses including system setup, maintenance, and troubleshooting.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Network setup</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>System maintenance</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Security solutions</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 5 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('football-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-newspaper"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Football News Publishing</h3>
-          <p class="mb-4">Latest football news, analysis, and updates from major leagues around the world.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Match reports</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Transfer news</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Expert analysis</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 6 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('docs-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Documentation Services</h3>
-          <p class="mb-4">Professional documentation preparation for businesses, academic purposes, and legal requirements.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Business reports</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Academic papers</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Technical documentation</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-700">Portfolio</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">A showcase of my recent projects and professional work across various domains.</p>
-      
-      <!-- Portfolio Filter -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex rounded-md shadow-sm">
-          <button class="px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="all">
-            All
-          </button>
-          <button class="px-4 py-2 text-sm font-medium border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="it">
-            IT Solutions
-          </button>
-          <button class="px-4 py-2 text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="education">
-            Education
-          </button>
-          <button class="px-4 py-2 text-sm font-medium rounded-r-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="business">
-            Business
-          </button>
-        </div>
-      </div>
-      
-      <!-- Portfolio Items -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Portfolio Item 1 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="it">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IT Infrastructure Project" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Enterprise IT Infrastructure</h3>
-            <p class="text-gray-600 mb-4">Designed and implemented a complete IT infrastructure solution for a mid-sized business.</p>
-            <a href="https://jayprasad.com.np/projects/it-infrastructure" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="education">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Study Abroad Program</h3>
-            <p class="text-gray-600 mb-4">Developed a comprehensive study abroad program assisting 50+ students annually.</p>
-            <a href="https://jayprasad.com.np/projects/study-abroad" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 3 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="business">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Business Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Business Process Optimization</h3>
-            <p class="text-gray-600 mb-4">Streamlined operations for a local business resulting in 30% cost savings.</p>
-            <a href="https://jayprasad.com.np/projects/business-optimization" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 4 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="it">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Web Development" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">E-commerce Website</h3>
-            <p class="text-gray-600 mb-4">Developed a custom e-commerce platform for a local retailer with payment integration.</p>
-            <a href="https://jayprasad.com.np/projects/ecommerce-website" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 5 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="education">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="IELTS Training" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">IELTS Training Program</h3>
-            <p class="text-gray-600 mb-4">Created a specialized IELTS preparation curriculum with 90% success rate.</p>
-            <a href="https://jayprasad.com.np/projects/ielts-training" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 6 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="business">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Financial Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Financial System Implementation</h3>
-            <p class="text-gray-600 mb-4">Implemented accounting software and trained staff for a growing business.</p>
-            <a href="https://jayprasad.com.np/projects/financial-system" class="text-blue-600 font-medium hover:underline">View Project →</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <a href="https://jayprasad.com.np/portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          View All Projects
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Client <span class="text-blue-700">Testimonials</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">What people say about my services and professional work.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Rajesh Sharma</h4>
-              <p class="text-gray-600 text-sm">Business Owner</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700">"Jay's IT consulting services transformed our business operations. His expertise in setting up our network and recommending the right software solutions saved us both time and money."</p>
-        </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 w-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Priya Patel</h4>
-              <p class="text-gray-600 text-sm">Student</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700">"Thanks to Jay's guidance, I successfully got admission to my dream university in Australia. His knowledge of the application process and visa requirements was invaluable."</p>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Amit Singh</h4>
-              <p class="text-gray-600 text-sm">IT Manager</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <p class="text-gray-700">"We've been using Jay's web hosting services for three years now. The reliability and customer support are exceptional. Highly recommend Crunch Tech for any business needs."</p>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <a href="https://jayprasad.com.np/testimonials" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          More Testimonials
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Latest <span class="text-blue-700">Blog Posts</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Insights, tips, and updates from my professional experience and industry knowledge.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Blog Post 1 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Choosing Web Hosting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">IT</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>May 15, 2023</span>
-              <span class="mx-2">•</span>
-              <span>8 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">How to Choose the Right Web Hosting for Your Business</h3>
-            <p class="text-gray-600 mb-4">A comprehensive guide to selecting the perfect hosting solution based on your website's needs and traffic expectations.</p>
-            <a href="https://jayprasad.com.np/blog/web-hosting-guide" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-        
-        <!-- Blog Post 2 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Study Abroad Tips" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Education</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>April 28, 2023</span>
-              <span class="mx-2">•</span>
-              <span>10 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Top 5 Mistakes to Avoid When Applying to Study Abroad</h3>
-            <p class="text-gray-600 mb-4">Learn from common errors students make during the application process and how to navigate them successfully.</p>
-            <a href="https://jayprasad.com.np/blog/study-abroad-mistakes" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-        
-        <!-- Blog Post 3 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IT Security" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">IT</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>April 10, 2023</span>
-              <span class="mx-2">•</span>
-              <span>6 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Essential IT Security Practices for Small Businesses</h3>
-            <p class="text-gray-600 mb-4">Protect your business from cyber threats with these fundamental security measures any organization can implement.</p>
-            <a href="https://jayprasad.com.np/blog/it-security-practices" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Additional Blog Posts (hidden initially, can be loaded with "View More") -->
-      <div id="more-blogs" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        <!-- Blog Post 4 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IELTS Preparation" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Education</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>March 22, 2023</span>
-              <span class="mx-2">•</span>
-              <span>12 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">IELTS vs PTE: Which English Test is Right for You?</h3>
-            <p class="text-gray-600 mb-4">A detailed comparison of the two most popular English proficiency tests to help you decide which one to take.</p>
-            <a href="https://jayprasad.com.np/blog/ielts-vs-pte" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-        
-        <!-- Blog Post 5 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business Growth" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>March 5, 2023</span>
-              <span class="mx-2">•</span>
-              <span>9 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">5 Digital Tools Every Small Business Should Use in 2023</h3>
-            <p class="text-gray-600 mb-4">Discover the essential digital tools that can help streamline your operations and boost productivity.</p>
-            <a href="https://jayprasad.com.np/blog/digital-tools-business" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-        
-        <!-- Blog Post 6 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Football Analysis" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Sports</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span>February 18, 2023</span>
-              <span class="mx-2">•</span>
-              <span>7 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Emerging Football Talents to Watch in 2023</h3>
-            <p class="text-gray-600 mb-4">Our scouting team identifies the most promising young footballers who could make a big impact this year.</p>
-            <a href="https://jayprasad.com.np/blog/football-talents-2023" class="text-blue-600 font-medium hover:underline">Read More →</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <button id="load-more-blogs" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          View More Articles
-          <i class="fas fa-arrow-down ml-2"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Get In <span class="text-blue-700">Touch</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Have questions or want to discuss a project? Reach out to me through any of these channels.</p>
-      
-      <div class="flex flex-col lg:flex-row gap-8">
-        <div class="lg:w-1/2">
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
-            
-            <div class="space-y-4">
-              <div class="flex items-start">
-                <div class="text-blue-600 text-xl mr-4 mt-1">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium">Address</h4>
-                  <p class="text-gray-600">Birtamode, Jhapa, Nepal</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-blue-600 text-xl mr-4 mt-1">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium">Email</h4>
-                  <a href="mailto:contact@jayprasad.com.np" class="text-gray-600 hover:text-blue-600">contact@jayprasad.com.np</a><br>
-                  <a href="mailto:support@jayprasad.com.np" class="text-gray-600 hover:text-blue-600">support@jayprasad.com.np</a>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-blue-600 text-xl mr-4 mt-1">
-                  <i class="fas fa-phone-alt"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium">Phone</h4>
-                  <p class="text-gray-600">+977 98XXXXXXXX</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-blue-600 text-xl mr-4 mt-1">
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium">Working Hours</h4>
-                  <p class="text-gray-600">Sunday-Friday: 9AM - 6PM</p>
-                  <p class="text-gray-600">Saturday: Closed</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="mt-6">
-              <h4 class="font-medium mb-3">Follow Me</h4>
-              <div class="flex space-x-4">
-                <a href="#" class="text-blue-600 hover:text-blue-800 text-2xl">
-                  <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="text-blue-400 hover:text-blue-600 text-2xl">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="text-gray-800 hover:text-gray-600 text-2xl">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="text-blue-700 hover:text-blue-900 text-2xl">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="text-red-600 hover:text-red-800 text-2xl">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">Schedule a Meeting</h3>
-            <p class="mb-4">Book a convenient time for a consultation or discussion about your project.</p>
-            <a href="https://calendly.com/ictconsultant" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-              <i class="far fa-calendar-alt mr-2"></i>
-              Book Appointment
-            </a>
-          </div>
-        </div>
-        
-        <div class="lg:w-1/2">
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">Send Me a Message</h3>
-            <form action="https://formspree.io/f/xanooyvg" method="POST" class="space-y-4">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              </div>
-              
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              </div>
-              
-              <div>
-                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <select id="subject" name="subject" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  <option value="">Select a subject</option>
-                  <option value="it">IT Services Inquiry</option>
-                  <option value="education">Study Abroad Consultation</option>
-                  <option value="ielts">IELTS/PTE Classes</option>
-                  <option value="other">Other Inquiry</option>
-                </select>
-              </div>
-              
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-              </div>
-              
-              <button type="submit" class="w-full bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition hover-effect">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Frequently Asked <span class="text-blue-700">Questions</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Find answers to common questions about my services and processes.</p>
-      
-      <div class="max-w-3xl mx-auto space-y-4">
-        <!-- FAQ Item 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
-            <h3 class="text-lg font-medium text-left">What IT services do you provide?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200">
-            <p>We offer a comprehensive range of IT services including domain registration, web hosting, email hosting, website development, IT infrastructure setup, network security solutions, and ongoing IT support for businesses of all sizes.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
-            <h3 class="text-lg font-medium text-left">How can you help with studying abroad?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200">
-            <p>Our study abroad consulting service provides end-to-end guidance including university selection based on your profile, application assistance, documentation preparation, visa guidance, pre-departure orientation, and even post-arrival support in some destinations.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
-            <h3 class="text-lg font-medium text-left">What's the duration of your IELTS/PTE preparation courses?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200">
-            <p>We offer flexible course durations to suit different needs:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>Crash Course: 2 weeks (for those needing a quick refresher)</li>
-                <li>Standard Course: 4-6 weeks (comprehensive preparation)</li>
-                <li>Extended Course: 8-12 weeks (for beginners or those needing significant improvement)</li>
-              </ul>
-              We assess your current level first to recommend the most suitable option.
-            </p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
-            <h3 class="text-lg font-medium text-left">Do you provide ongoing support after website development?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200">
-            <p>Yes, we offer various maintenance packages:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>Basic: Security updates and bug fixes</li>
-                <li>Standard: Basic + content updates (up to 5 hours/month)</li>
-                <li>Premium: Standard + SEO optimization and performance monitoring</li>
-              </ul>
-              We can also provide training for your team to manage basic updates in-house.
-            </p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 5 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect">
-            <h3 class="text-lg font-medium text-left">What makes your football news coverage unique?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200">
-            <p>Our football news service focuses on:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>In-depth analysis rather than just match reports</li>
-                <li>Special coverage of Asian and Nepalese football</li>
-                <li>Exclusive interviews with players and coaches</li>
-                <li>Tactical breakdowns for serious fans</li>
-                <li>Youth development tracking</li>
-              </ul>
-              We aim to provide content that goes beyond what's available in mainstream sports media.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <p class="mb-4">Have a different question?</p>
-        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          Contact Me
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="py-16 bg-gradient-to-r from-blue-700 to-blue-800 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Subscribe to My Newsletter</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">Get the latest updates, tips, and insights on IT, education consulting, and more directly to your inbox.</p>
-      
-      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
-        <input type="email" placeholder="Your email address" required class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button type="submit" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-md font-semibold transition hover-effect">
-          Subscribe
-        </button>
-      </form>
-      
-      <p class="mt-4 text-sm opacity-80">We respect your privacy. Unsubscribe at any time.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Column 1 -->
-        <div>
-          <div class="flex items-center mb-4">
-            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Logo" class="h-10 w-10 rounded-full mr-3">
-            <h3 class="text-xl font-bold text-white">Jay Prasad Majhi</h3>
-          </div>
-          <p class="mb-4">Providing comprehensive IT solutions, education consulting, and business services to help you achieve your goals.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li>
-              <a href="#home" class="hover:text-white transition hover-effect">Home</a>
-            </li>
-            <li>
-              <a href="#about" class="hover:text-white transition hover-effect">About Me</a>
-            </li>
-            <li>
-              <a href="#services" class="hover:text-white transition hover-effect">Services</a>
-            </li>
-            <li>
-              <a href="#portfolio" class="hover:text-white transition hover-effect">Portfolio</a>
-            </li>
-            <li>
-              <a href="#blog" class="hover:text-white transition hover-effect">Blog</a>
-            </li>
-            <li>
-              <a href="#contact" class="hover:text-white transition hover-effect">Contact</a>
-            </li>
-            <li>
-              <a href="https://the.jayprasad.com.np" target="_blank" class="hover:text-white transition hover-effect">Login</a>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
-          <ul class="space-y-2">
-            <li>
-              <a href="https://jayprasad.com.np/domain-hosting" class="hover:text-white transition hover-effect">Domain & Hosting</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/study-abroad" class="hover:text-white transition hover-effect">Study Abroad Consulting</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/ielts-pte" class="hover:text-white transition hover-effect">IELTS/PTE Preparation</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/it-support" class="hover:text-white transition hover-effect">IT Support</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/football-news" class="hover:text-white transition hover-effect">Football News</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/documentation-services" class="hover:text-white transition hover-effect">Documentation Services</a>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Kathmandu, Nepal</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <a href="mailto:contact@jayprasad.com.np" class="hover:text-white hover-effect">contact@jayprasad.com.np</a>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span>+977 9812345678</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-clock mt-1 mr-3 text-blue-400"></i>
-              <span>Sun-Fri: 9AM - 6PM</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p id="datetime" class="mb-4 md:mb-0"></p>
-        <p>&copy; Jay Prasad Majhi. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Back to Top Button -->
-  <a href="#top" class="fixed bottom-6 right-6 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition z-50 hover-effect">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-
-    // FAQ toggle functionality
-    document.querySelectorAll('.faq-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('i');
-        
-        content.classList.toggle('hidden');
-        icon.classList.toggle('fa-chevron-down');
-        icon.classList.toggle('fa-chevron-up');
-      });
-    });
-
-    // Portfolio filtering
-    document.querySelectorAll('[data-filter]').forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        // Update active button
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-          btn.classList.remove('bg-blue-100', 'text-blue-800');
-        });
-        
-        if (filter !== 'all') {
-          button.classList.add('bg-blue-100', 'text-blue-800');
-        }
-        
-        // Filter items
-        portfolioItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Load more blogs
-    document.getElementById('load-more-blogs').addEventListener('click', function() {
-      document.getElementById('more-blogs').classList.remove('hidden');
-      this.style.display = 'none';
-    });
-
-    // Modal functionality
-    function openModal(modalId) {
-      document.getElementById(modalId).style.display = 'flex';
-    }
-
-    function closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
-    }
-
-    // Close modals when clicking X
-    document.querySelectorAll('.close-modal').forEach(button => {
-      button.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
-      });
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-      }
-    });
-
-    // Dark/Light mode toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
-
-    // Check for saved user preference
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-    }
-
-    // Real-time clock
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = now.toLocaleString('en-US', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
-      });
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+                <i class="fas fa-map-marker-alt text-blue-600 mt
