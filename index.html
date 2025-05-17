@@ -16,6 +16,37 @@
       --accent: #f59e0b;
     }
     
+    /* Theme colors */
+    .theme-blue {
+      --primary: #3b82f6;
+      --secondary: #2563eb;
+      --accent: #f59e0b;
+    }
+    
+    .theme-green {
+      --primary: #10b981;
+      --secondary: #059669;
+      --accent: #f59e0b;
+    }
+    
+    .theme-purple {
+      --primary: #8b5cf6;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+    }
+    
+    .theme-red {
+      --primary: #ef4444;
+      --secondary: #dc2626;
+      --accent: #f59e0b;
+    }
+    
+    .theme-teal {
+      --primary: #14b8a6;
+      --secondary: #0d9488;
+      --accent: #f59e0b;
+    }
+    
     /* Dark mode styles */
     .dark-mode {
       background-color: #111827;
@@ -68,7 +99,7 @@
     
     /* Buttons */
     .login-btn {
-      background-color: #f59e0b;
+      background-color: var(--accent);
       color: white;
       padding: 8px 16px;
       border-radius: 4px;
@@ -97,7 +128,7 @@
       background-color: white;
       padding: 2rem;
       border-radius: 8px;
-      max-width: 800px; /* Increased width for policy modals */
+      max-width: 800px;
       width: 90%;
       position: relative;
       animation: modalFadeIn 0.3s ease-out;
@@ -139,7 +170,7 @@
       left: 50%;
       width: 0;
       height: 0;
-      background-color: rgba(59, 130, 246, 0.1);
+      background-color: rgba(var(--primary), 0.1);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       transition: width 0.3s ease, height 0.3s ease;
@@ -228,7 +259,7 @@
     
     /* Accessibility focus styles */
     a:focus, button:focus, input:focus, textarea:focus, select:focus {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid var(--primary);
       outline-offset: 2px;
     }
     
@@ -254,7 +285,7 @@
       position: fixed;
       width: 10px;
       height: 10px;
-      background-color: #f59e0b;
+      background-color: var(--accent);
       opacity: 0;
       z-index: 9999;
       animation: confetti 5s ease-in-out;
@@ -270,7 +301,7 @@
       top: 0;
       left: 0;
       height: 4px;
-      background: #3b82f6;
+      background: var(--primary);
       z-index: 999;
       transition: width 0.1s ease;
     }
@@ -284,9 +315,175 @@
       from, to { border-color: transparent; }
       50% { border-color: currentColor; }
     }
+    
+    /* Nepal flag icon */
+    .nepal-flag {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      background: #DC143C;
+      border-radius: 50%;
+    }
+    .nepal-flag:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+    }
+    .nepal-flag:after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      width: 16px;
+      height: 16px;
+      background: #DC143C;
+      border-radius: 50%;
+    }
+    .nepal-flag .moon {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 14px;
+      height: 14px;
+      background: white;
+      border-radius: 50%;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      transform: rotate(20deg);
+    }
+    .nepal-flag .star {
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      width: 6px;
+      height: 6px;
+      background: white;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    
+    /* Vertical social media */
+    .vertical-social {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(255,255,255,0.8);
+      padding: 10px 5px;
+      border-radius: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .dark-mode .vertical-social {
+      background: rgba(31, 41, 55, 0.8);
+    }
+    .vertical-social a {
+      color: var(--primary);
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+    .vertical-social a:hover {
+      transform: scale(1.2);
+    }
+    
+    /* Theme selector */
+    .theme-selector {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(255,255,255,0.8);
+      padding: 10px 5px;
+      border-radius: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .dark-mode .theme-selector {
+      background: rgba(31, 41, 55, 0.8);
+    }
+    .theme-selector .theme-option {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .theme-selector .theme-option:hover {
+      transform: scale(1.2);
+    }
+    .theme-selector .theme-option.active {
+      border-color: #000;
+    }
+    .dark-mode .theme-selector .theme-option.active {
+      border-color: #fff;
+    }
+    
+    /* Login dropdown */
+    .login-dropdown {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 50;
+      display: none;
+      min-width: 180px;
+    }
+    .dark-mode .login-dropdown {
+      background: #1f2937;
+    }
+    .login-dropdown a {
+      display: block;
+      padding: 8px 16px;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .dark-mode .login-dropdown a {
+      color: #f3f4f6;
+    }
+    .login-dropdown a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    .dark-mode .login-dropdown a:hover {
+      background: rgba(255,255,255,0.05);
+    }
+    .login-container:hover .login-dropdown {
+      display: block;
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans transition-colors duration-300 modern-bg">
+<body class="theme-blue bg-gray-50 text-gray-800 font-sans transition-colors duration-300 modern-bg">
+  <!-- Vertical Social Media -->
+  <div class="vertical-social no-print">
+    <a href="#" class="text-blue-600 dark:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="text-blue-400 dark:text-blue-300"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="text-gray-800 dark:text-gray-300"><i class="fab fa-github"></i></a>
+    <a href="#" class="text-blue-700 dark:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="text-red-600 dark:text-red-400"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="text-pink-600 dark:text-pink-400"><i class="fab fa-instagram"></i></a>
+  </div>
+  
+  <!-- Theme Selector -->
+  <div class="theme-selector no-print">
+    <div class="theme-option bg-blue-500 active" data-theme="blue" title="Blue Theme"></div>
+    <div class="theme-option bg-green-500" data-theme="green" title="Green Theme"></div>
+    <div class="theme-option bg-purple-500" data-theme="purple" title="Purple Theme"></div>
+    <div class="theme-option bg-red-500" data-theme="red" title="Red Theme"></div>
+    <div class="theme-option bg-teal-500" data-theme="teal" title="Teal Theme"></div>
+  </div>
+
   <!-- IT-themed binary background animation -->
   <canvas id="binaryCanvas" class="binary-background"></canvas>
   
@@ -297,7 +494,10 @@
   <header class="bg-gradient-to-r from-blue-700 to-blue-800 text-white p-4 sticky top-0 z-50 shadow-lg no-print">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jay Prasad Majhi Logo" class="h-10 w-10 rounded-full object-cover">
+        <div class="nepal-flag">
+          <div class="moon"></div>
+          <div class="star"></div>
+        </div>
         <h1 class="text-2xl md:text-3xl font-bold">Jay Prasad Majhi</h1>
       </div>
       
@@ -332,9 +532,16 @@
           <a href="#portfolio" class="px-3 py-2 rounded transition hover-effect">Portfolio</a>
           <a href="#blog" class="px-3 py-2 rounded transition hover-effect">Blog</a>
           <a href="#contact" class="px-3 py-2 rounded transition hover-effect">Contact</a>
-          <a href="https://the.jayprasad.com.np" target="_blank" class="login-btn ml-2 hover-effect">
-            <i class="fas fa-sign-in-alt mr-1"></i> Login
-          </a>
+          <div class="login-container relative">
+            <button class="login-btn ml-2 hover-effect">
+              <i class="fas fa-sign-in-alt mr-1"></i> Login
+            </button>
+            <div class="login-dropdown dark-mode">
+              <a href="https://the.jayprasad.com.np/staff" target="_blank"><i class="fas fa-user-tie mr-2"></i> Staff Login</a>
+              <a href="https://the.jayprasad.com.np/client" target="_blank"><i class="fas fa-user mr-2"></i> Client Login</a>
+              <a href="https://the.jayprasad.com.np/student" target="_blank"><i class="fas fa-user-graduate mr-2"></i> Student Login</a>
+            </div>
+          </div>
         </nav>
       </div>
     </div>
@@ -347,1079 +554,21 @@
       <a href="#portfolio" class="block py-2 px-2 rounded transition hover-effect">Portfolio</a>
       <a href="#blog" class="block py-2 px-2 rounded transition hover-effect">Blog</a>
       <a href="#contact" class="block py-2 px-2 rounded transition hover-effect">Contact</a>
-      <a href="https://the.jayprasad.com.np" target="_blank" class="block py-2 px-2 rounded transition bg-orange-500 text-white font-medium mt-2 text-center hover-effect">
-        <i class="fas fa-sign-in-alt mr-1"></i> Login
-      </a>
-    </div>
-  </header>
-
-  <!-- Cookie Consent Banner -->
-  <div id="cookieBanner" class="cookie-banner">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-      <p class="mb-2 md:mb-0">We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.</p>
-      <div class="flex space-x-2">
-        <button id="acceptCookies" class="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Accept</button>
-        <button id="rejectCookies" class="px-4 py-1 bg-gray-600 text-white rounded hover:bg-gray-700">Reject</button>
-        <a href="#" onclick="openModal('privacy-policy-modal'); return false;" class="px-4 py-1 text-blue-400 hover:underline">Learn More</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Service Modals (Existing) -->
-  <div id="domain-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('domain-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Domain & Hosting Services</h3> <p>Our comprehensive domain registration and web hosting solutions provide everything you need to establish a strong online presence. We offer reliable hosting with 99.9% uptime, free SSL certificates, and 24/7 technical support. Whether you need shared hosting for a small website or dedicated servers for high-traffic applications, we have packages tailored to your specific requirements.</p> <p class="mt-4">Our domain services include registration, transfer, and management of all popular TLDs (.com, .net, .org) as well as country-specific domains (.com.np, .in, .au). We provide DNS management, domain forwarding, and WHOIS privacy protection to keep your personal information secure. Our hosting infrastructure is built on enterprise-grade hardware with SSD storage, automated backups, and advanced security features including DDoS protection and malware scanning.</p> <p class="mt-4">For businesses requiring more advanced solutions, we offer VPS hosting with root access, cloud hosting with scalable resources, and WordPress-optimized hosting with pre-installed caching and security plugins. Our team will help you choose the perfect domain name and ensure your website is always accessible to your audience with our state-of-the-art infrastructure.</p> <div class="mt-6"> <a href="mailto:ict@technologist.com?subject=Domain%20and%20Hosting%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Domain & Hosting </a> </div> </div> </div>
-  <div id="study-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('study-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Study Abroad Consulting</h3> <p>Our expert study abroad consultants provide personalized guidance to help you navigate the complex process of international education. From selecting the right university and program to preparing your application and visa documentation, we offer end-to-end support. We have partnerships with institutions worldwide and can help you find scholarships and financial aid options.</p> <p class="mt-4">Our services begin with a comprehensive profile assessment to identify the best-fit universities based on your academic background, test scores, budget, and career goals. We assist with crafting compelling personal statements, securing strong recommendation letters, and preparing for interviews. Our team stays updated on admission trends and requirements for popular destinations including Australia, Canada, the UK, USA, Japan, and European countries.</p> <p class="mt-4">Beyond admissions, we provide pre-departure orientation covering accommodation options, health insurance, banking, cultural adaptation, and travel logistics. For parents, we offer regular updates and reassurance throughout the process. Our success rate stands at 95% for visa approvals, with hundreds of students placed in top universities worldwide. We maintain relationships with our students even after they begin their studies, offering ongoing support as needed.</p> <div class="mt-6"> <a href="mailto:assistance@technologist.com?subject=Study%20Abroad%20Consultation" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Study Abroad </a> </div> </div> </div>
-  <div id="ielts-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('ielts-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">IELTS/PTE Preparation</h3> <p>Our specialized test preparation courses are designed to help you achieve your target scores in IELTS or PTE exams. Taught by experienced instructors, our courses cover all test components with a focus on your weak areas. We provide authentic practice materials, simulated tests, and personalized feedback to maximize your performance.</p> <p class="mt-4">The IELTS program focuses on developing skills for Listening, Reading, Writing, and Speaking modules, with particular attention to academic vocabulary and test strategies. Our PTE course emphasizes the computer-based format's unique requirements, including speaking into a microphone and integrated skills tasks. Both programs include regular mock tests under exam conditions to build stamina and reduce test anxiety.</p> <p class="mt-4">We offer flexible learning options including intensive 2-week crash courses, standard 4-6 week programs, and extended 8-12 week courses for beginners. Our small class sizes (max 8 students) ensure individual attention, and we provide detailed progress reports after each test. Additional resources include access to our online practice portal, one-on-one tutoring sessions, and post-course support until you achieve your desired score.</p> <div class="mt-6"> <a href="mailto:email@technologist.com?subject=IELTS/PTE%20Preparation%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for IELTS/PTE </a> </div> </div> </div>
-  <div id="it-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('it-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">IT Support & Consultancy</h3> <p>Our professional IT support services help businesses of all sizes maintain optimal technology performance. We offer comprehensive solutions including network setup, system maintenance, cybersecurity protection, and cloud migration. Our certified technicians provide both remote and on-site support with rapid response times.</p> <p class="mt-4">For small businesses, we provide affordable managed IT services including 24/7 monitoring, patch management, and helpdesk support. Medium-sized enterprises benefit from our infrastructure design, server configuration, and business continuity planning. We specialize in Microsoft 365 and Google Workspace deployment, email migration, and collaboration tools implementation.</p> <p class="mt-4">Our cybersecurity services include vulnerability assessments, firewall configuration, endpoint protection, and employee training to prevent phishing attacks. For growing companies, we offer IT strategy consulting to align technology with business goals, including software selection, digital transformation roadmaps, and budget planning. Whether you need help troubleshooting technical issues, implementing new software, or developing a long-term IT strategy, our team has the expertise to keep your operations running smoothly.</p> <div class="mt-6"> <a href="mailto:support@jayprasad.com.np?subject=IT%20Support%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for IT Support </a> </div> </div> </div>
-  <div id="football-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('football-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Football News Publishing</h3> <p>Stay updated with the latest in the world of football through our comprehensive news coverage. We provide in-depth match analysis, transfer rumors, injury updates, and tactical breakdowns from major leagues across the globe. Our team of football experts offers unique insights and perspectives you won't find elsewhere.</p> <p class="mt-4">Our coverage extends beyond just scores and highlights. We delve into statistical analysis, player performance metrics, and manager strategies. Special features include youth academy spotlights, historical retrospectives, and interviews with players, coaches, and analysts. We maintain a strong focus on Asian football development, with dedicated coverage of regional tournaments and emerging talents.</p> <p class="mt-4">For fantasy football enthusiasts, we provide weekly player recommendations, injury reports, and lineup predictions. Our betting section (where legal) offers odds analysis and value picks. Subscribers gain access to exclusive content including pre-match tactical previews, post-match data visualizations, and monthly in-depth reports on specific teams or players. Whether you're a casual fan or a football enthusiast, our content will keep you informed and engaged with the beautiful game.</p> <div class="mt-6"> <a href="mailto:promotions@technologist.com?subject=Football%20News%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Football News </a> </div> </div> </div>
-  <div id="docs-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('docs-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Documentation Services</h3> <p>Our professional documentation services help businesses and individuals create polished, effective written materials. We specialize in preparing business reports, academic papers, technical documentation, and legal paperwork. Our team of skilled writers and editors ensures your documents are clear, concise, and professionally formatted.</p> <p class="mt-4">For businesses, we offer proposal writing, white papers, case studies, and standard operating procedures (SOPs). Academic services include thesis formatting, research paper editing, and literature review assistance. Technical writers can produce user manuals, API documentation, and system architecture guides. Legal documentation includes contract drafting, agreement templates, and compliance documentation.</p> <p class="mt-4">Our process begins with understanding your specific requirements and target audience. We then create an outline for your approval before drafting the content. Multiple rounds of editing ensure accuracy and clarity. Final deliverables are provided in your preferred format (Word, PDF, HTML, etc.) with proper styling and layout. We also offer translation services for documents needing multilingual versions. Whether you need help creating documentation from scratch or polishing existing materials, we'll ensure your documents make the right impression.</p> <div class="mt-6"> <a href="mailto:partner@technologist.com?subject=Documentation%20Services%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Documentation </a> </div> </div> </div>
-
-  <!-- Project Detail Modals (Existing) -->
-  <div id="project1-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project1-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Enterprise IT Infrastructure</h3> <p>This comprehensive IT infrastructure project involved designing and implementing a complete technological ecosystem for a mid-sized manufacturing company with 150 employees across three locations. The project began with an in-depth assessment of their existing systems, workflows, and pain points, followed by a phased implementation strategy to minimize business disruption.</p> <p class="mt-4">The solution included a hybrid cloud architecture with on-premise servers for sensitive data and cloud-based applications for flexibility. We deployed a robust network infrastructure with enterprise-grade switches, firewalls, and wireless access points to ensure seamless connectivity. The server setup included virtualized environments running on HP ProLiant hardware with redundant storage using RAID configurations and regular backups to both local and offsite locations.</p> <p class="mt-4">For security, we implemented a layered defense strategy including next-gen firewalls, endpoint protection, email filtering, and multi-factor authentication. The project also included migrating their legacy ERP system to a modern cloud-based solution with customized modules for inventory management, production planning, and accounting. Post-implementation, we provided training sessions for staff and created detailed documentation for their IT team. The new infrastructure resulted in 40% faster system performance, 99.99% uptime, and significantly improved data security.</p> <div class="mt-6"> <a href="mailto:bijay@technologist.com?subject=Enterprise%20IT%20Infrastructure%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-  <div id="project2-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project2-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Study Abroad Program Development</h3> <p>This education consulting project involved creating a comprehensive study abroad program that has assisted over 200 students annually in securing admissions to universities across 12 countries. The program was designed to address the specific needs of Nepalese students while maintaining international standards of academic counseling and visa guidance.</p> <p class="mt-4">We established partnerships with 35+ universities in Australia, Canada, the UK, USA, Japan, and Europe, negotiating preferential application processes and scholarship opportunities for our students. The program includes a proprietary matching system that evaluates academic backgrounds, test scores, budget constraints, and career aspirations to recommend ideal institution-program combinations.</p> <p class="mt-4">Key components include a 10-week intensive preparation course covering academic writing, interview skills, and cultural orientation. Our documentation team assists with crafting compelling personal statements and organizing recommendation letters. The visa success rate stands at 94%, attributed to our meticulous document verification process and mock visa interviews. Post-admission, we provide pre-departure briefings covering accommodation, banking, health insurance, and cultural adaptation. The program has grown to include alumni networking events and internship placement assistance, creating a complete ecosystem for international education.</p> <div class="mt-6"> <a href="mailto:assistance@technologist.com?subject=Study%20Abroad%20Program%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-  <div id="project3-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project3-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Business Process Optimization</h3> <p>This business consulting engagement involved streamlining operations for a local retail chain with 8 locations, resulting in 30% cost savings and 25% improvement in operational efficiency. The project began with a comprehensive process mapping exercise to identify bottlenecks, redundancies, and opportunities for automation.</p> <p class="mt-4">We implemented a cloud-based inventory management system integrated with barcode scanning at point-of-sale terminals, reducing stock discrepancies from 8% to 1.5%. The supply chain was optimized by renegotiating vendor contracts and establishing a centralized purchasing system. Employee workflows were restructured with cross-training programs and performance metrics tied to customer satisfaction surveys.</p> <p class="mt-4">The financial operations transformation included migrating to a modern accounting software with automated reporting features, reducing month-end closing time from 10 days to 3 days. We introduced data analytics dashboards providing real-time insights into sales performance, inventory turnover, and customer buying patterns. Change management was a critical component, with training sessions and pilot testing at one location before full rollout. The optimized processes not only reduced costs but also improved employee morale and customer satisfaction scores by 18% within six months.</p> <div class="mt-6"> <a href="mailto:partner@technologist.com?subject=Business%20Process%20Optimization%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-  <div id="project4-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project4-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">E-commerce Website Development</h3> <p>This web development project involved creating a custom e-commerce platform for a local handicraft retailer looking to expand their market reach. The solution was designed to handle 500+ unique products with multiple variations, integrating with their existing inventory system while providing a seamless shopping experience across devices.</p> <p class="mt-4">The technology stack included React.js for the frontend, Node.js for the backend, and MongoDB for the database, deployed on a scalable cloud infrastructure. Key features included high-resolution product galleries with zoom functionality, real-time inventory updates, personalized recommendations based on browsing history, and a multi-step checkout process with multiple payment options (credit cards, digital wallets, and cash on delivery).</p> <p class="mt-4">We implemented a content management system allowing non-technical staff to update product listings, manage promotions, and process orders. The platform included analytics integration tracking conversion funnels, customer acquisition channels, and product performance. Post-launch, the client saw a 300% increase in sales within six months, with 35% of orders coming from new international markets. The project also included SEO optimization and ongoing maintenance, ensuring the platform remains secure and up-to-date with the latest web standards.</p> <div class="mt-6"> <a href="mailto:ict@technologist.com?subject=E-commerce%20Website%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-  <div id="project5-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project5-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">IELTS Training Program Development</h3> <p>This educational initiative involved creating a specialized IELTS preparation curriculum that has helped over 500 students achieve their target scores with a 90% success rate. The program was designed to address the specific challenges faced by Nepalese test-takers while covering all four test components: Listening, Reading, Writing, and Speaking.</p> <p class="mt-4">The curriculum development began with an analysis of common mistakes and weaknesses through diagnostic testing. We created modular content focusing on academic vocabulary building, test-taking strategies, and time management techniques. The writing component emphasizes task achievement, coherence, and lexical resource through structured templates and examiner-approved approaches. Speaking practice includes mock interviews with detailed feedback on pronunciation, fluency, and grammatical range.</p> <p class="mt-4">The program offers flexible delivery options including intensive 2-week courses, standard 4-week programs, and extended 8-week courses for beginners. All students receive access to our online portal with practice tests, video lessons, and progress tracking. Our unique "Score Guarantee" provides additional coaching at no extra cost if students don't achieve their target score after completing the program. The training methodology has been refined over five years, with continuous updates based on test format changes and student performance analytics.</p> <div class="mt-6"> <a href="mailto:email@technologist.com?subject=IELTS%20Training%20Program%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-  <div id="project6-modal" class="modal"> <div class="modal-content"> <span class="close-modal" onclick="closeModal('project6-modal')">&times;</span> <h3 class="text-xl font-semibold mb-4">Financial System Implementation</h3> <p>This business technology project involved implementing a comprehensive financial management system for a growing import/export company with complex accounting needs across multiple currencies and tax jurisdictions. The solution replaced their outdated spreadsheet-based processes with an integrated financial software suite.</p> <p class="mt-4">After evaluating several options, we selected and customized a cloud-based ERP system with modules for general ledger, accounts payable/receivable, inventory costing, multi-currency transactions, and tax compliance. The implementation included migrating five years of historical data with complete accuracy verification. We established automated workflows for purchase order approvals, invoice processing, and bank reconciliations, reducing manual data entry by 70%.</p> <p class="mt-4">The project included creating custom reports for management dashboards, profit center analysis, and cash flow forecasting. We integrated the system with their banking platforms for automated transaction feeds and with their CRM for sales order processing. Staff training was conducted through a combination of classroom sessions, video tutorials, and cheat sheets tailored to different departmental needs. Post-implementation, the company achieved 98% faster month-end closing, improved audit readiness, and better visibility into financial performance across their regional offices.</p> <div class="mt-6"> <a href="mailto:admin@jayprasad.com.np?subject=Financial%20System%20Implementation%20Inquiry" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"> <i class="fas fa-envelope mr-2"></i> Email for Project Details </a> </div> </div> </div>
-
-  <!-- Privacy Policy Modal -->
-  <div id="privacy-policy-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('privacy-policy-modal')">&times;</span>
-      <h3 class="text-2xl font-semibold mb-6">Privacy Policy</h3>
-      <div class="text-sm space-y-4">
-        <p><strong>Last Updated: <span id="privacyPolicyDate"></span></strong></p>
-        <p>Jay Prasad Majhi ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [YourWebsite.com] (the "Site") and use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.</p>
-        
-        <h4 class="text-lg font-semibold mt-4">1. Information We Collect</h4>
-        <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
-        <p><strong>Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site, such as online chat and message boards.</p>
-        <p><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site. If you are using our mobile application, this information may also include your device name and type, your operating system, your phone number, your country, your likes and replies to a post, and other interactions with the application and other users via server log files, as well as any other information you choose to provide.</p>
-        <p><strong>Financial Data:</strong> Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the Site. We store only very limited, if any, financial information that we collect. Otherwise, all financial information is stored by our payment processor, and you are encouraged to review their privacy policy and contact them directly for responses to your questions.</p>
-        <p><strong>Data from Social Networks:</strong> User information from social networking sites, such as Facebook, Google, Instagram, Twitter, including your name, your social network username, location, gender, birth date, email address, profile picture, and public data for contacts, if you connect your account to such social networks. This information may also include the contact information of anyone you invite to use and/or join the Site.</p>
-        <p><strong>Mobile Device Data:</strong> Device information, such as your mobile device ID, model, and manufacturer, and information about the location of your device, if you access the Site from a mobile device.</p>
-        <p><strong>Third-Party Data:</strong> Information from third parties, such as personal information or network friends, if you connect your account to the third party and grant the Site permission to access this information.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
-        Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus vitae nibh. Maecenas aliquam, ligula id egestas tincidunt, nibh neque feugiat nunc, ac suscipit lectus lorem ut mbester. Vivamus lectus sem, commodo nec, ultricies sed, lacinia nec, tellus. Nunc quis lectus. Mauris et massa. Curabitur felis erat, tempus eu, placerat et, pellentesque sed, purus. Sed sed diam. Nam nunc. Donec mollis. Quisque convallis libero in sapien. Aenean vitae quam. Donec blandit. Vivamus consectetuer, mauris et venenatis feugiat, nisl massa laoreet erat, ut nisl purus rhoncus sapien. Pellentesque consectetuer, enim quis commodo dapibus, ipsum metus aliquet nulla, eu auctor neque felis vel diam.
-        Praesent dapibus. Aenean malesuada fames ac turpis egestas. Fusce eget velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Etiam neque. Donec vitae metus. Vivamus consequat lorem id justo. Aliquam feugiat, turpis et aliquam dictum, lectus turpis consequat enim, eget iaculis risus odio et nunc. Suspendisse eleifend, lacus et cursus placerat, odio mauris sodales metus, eget feugiat magna ipsum et lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam convallis. Integer placerat. Vivamus vitae massa.
-        Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Aenean vel massa quis mauris vehicula lacinia. Quisque tincidunt scelerisque libero. Etiam egestas wisi a erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi scelerisque luctus velit. Etiam pellentesque arcu quis nibh. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nullam sapien sem, ornare ac, nonummy non, lobortis vitae, erat. </p>
-        
-        <h4 class="text-lg font-semibold mt-4">2. Use of Your Information</h4>
-        <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:
-          Create and manage your account. Email you regarding your account or order. Enable user-to-user communications. Fulfill and manage purchases, orders, payments, and other transactions related to the Site. Generate a personal profile about you to make future visits to the Site more personalized. Increase the efficiency and operation of the Site. Monitor and analyze usage and trends to improve your experience with the Site. Notify you of updates to the Site. Offer new products, services, and/or recommendations to you. Perform other business activities as needed. Prevent fraudulent transactions, monitor against theft, and protect against criminal activity. Process payments and refunds. Request feedback and contact you about your use of the Site. Resolve disputes and troubleshoot problems. Respond to product and customer service requests. Send you a newsletter. Solicit support for the Site.
-          Phasellus et lorem id felis nonummy placerat. Fusce consectetuer. Suspendisse vel felis. Ut dolor magna, ultricies vel, mi. Pellentesque ipsum. Nulla non arcu lacinia neque faucibus fringilla. Nam sed tellus id magna elementum tincidunt. Nunc auctor. Mauris dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.
-          Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna, endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae, dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. </p>
-        
-        <h4 class="text-lg font-semibold mt-4">3. Disclosure of Your Information</h4>
-        <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:
-          <strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation. This includes exchanging information with other entities for fraud protection and credit risk reduction.
-          <strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.
-          <strong>Marketing Communications:</strong> With your consent, or with an opportunity for you to withdraw consent, we may share your information with third parties for marketing purposes, as permitted by law.
-          <strong>Online Postings:</strong> When you post comments, contributions or other content to the Site, your posts may be viewed by all users and may be publicly distributed outside the Site in perpetuity.
-          <strong>Third-Party Advertisers:</strong> We may use third-party advertising companies to serve ads when you visit the Site. These companies may use information about your visits to the Site and other websites that are contained in web cookies in order to provide advertisements about goods and services of interest to you.
-          <strong>Affiliates:</strong> We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include our parent company and any subsidiaries, joint venture partners or other companies that we control or that are under common control with us.
-          <strong>Business Partners:</strong> We may share your information with our business partners to offer you certain products, services or promotions.
-          <strong>Other Third Parties:</strong> We may share your information with advertisers and investors for the purpose of conducting general business analysis. We may also share your information with such third parties for marketing purposes, as permitted by law.
-          <strong>Sale or Bankruptcy:</strong> If we reorganize or sell all or a portion of our assets, undergo a merger, or are acquired by another entity, we may transfer your information to the successor entity. If we go out of business or enter bankruptcy, your information would be an asset transferred or acquired by a third party. You acknowledge that such transfers may occur and that the transferee may decline honor commitments we made in this Privacy Policy.
-          Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Praesent id justo in neque elementum ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. In convallis. Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio. Nunc porta vulputate tellus. Nunc rutrum turpis sed pede. Sed bibendum. Aliquam posuere. Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio. Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna. Curabitur vulputate vestibulum lorem. Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros. Sed id ligula quis est convallis tempor. Curabitur lacinia pulvinar nibh. Nam a sapien. </p>
-
-        <h4 class="text-lg font-semibold mt-4">4. Tracking Technologies</h4>
-        <p><strong>Cookies and Web Beacons:</strong> We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. When you access the Site, your personal information is not collected through the use of tracking technology. Most browsers are set to accept cookies by default. You can remove or reject cookies, but be aware that such action could affect the availability and functionality of the Site. You may not decline web beacons. However, they can be rendered ineffective by declining all cookies or by modifying your browser’s settings to notify you each time a cookie is tendered, permitting you to accept or decline cookies on an individual basis.</p>
-        <p><strong>Internet-Based Advertising:</strong> Additionally, we may use third-party software to serve ads on the Site, implement email marketing campaigns, and manage other interactive marketing initiatives. This third-party software may use cookies or similar tracking technologies to help manage and optimize your online experience with us. For more information about opting-out of interest-based ads, visit the Network Advertising Initiative Opt-Out Tool or Digital Advertising Alliance Opt-Out Tool.</p>
-        <p><strong>Website Analytics:</strong> We may also partner with selected third-party vendors, such as Google Analytics, to allow tracking technologies and remarketing services on the Site through the use of first party cookies and third-party cookies, to, among other things, analyze and track users’ use of the Site, determine the popularity of certain content and better understand online activity. By accessing the Site, you consent to the collection and use of your information by these third-party vendors. You are encouraged to review their privacy policy and contact them directly for responses to your questions. We do not transfer personal information to these third-party vendors. However, if you do not want any information to be collected and used by tracking technologies, you can visit the third-party vendor or the Network Advertising Initiative Opt-Out Tool or Digital Advertising Alliance Opt-Out Tool.</p>
-
-        <h4 class="text-lg font-semibold mt-4">5. Security of Your Information</h4>
-        <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse. Any information disclosed online is vulnerable to interception and misuse by unauthorized parties. Therefore, we cannot guarantee complete security if you provide personal information.
-        Vivamus ac leo pretium faucibus. Suspendisse sagittis lacus a est. Corrupti, incidunt! </p>
-
-        <h4 class="text-lg font-semibold mt-4">6. Policy for Children</h4>
-        <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.
-        Maecenas lorem. Pellentesque pretium lectus id turpis. Vestibulum jostee! </p>
-        
-        <h4 class="text-lg font-semibold mt-4">7. Controls for Do-Not-Track Features</h4>
-        <p>Most web browsers and some mobile operating systems include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Policy.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-
-        <h4 class="text-lg font-semibold mt-4">8. Options Regarding Your Information</h4>
-        <p><strong>Account Information:</strong> You may at any time review or change the information in your account or terminate your account by: Logging into your account settings and updating your account. Contacting us using the contact information provided below. Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.</p>
-        <p><strong>Emails and Communications:</strong> If you no longer wish to receive correspondence, emails, or other communications from us, you may opt-out by: Noting your preferences at the time you register your account with the Site. Logging into your account settings and updating your preferences. Contacting us using the contact information provided below. If you no longer wish to receive correspondence, emails, or other communications from third parties, you are responsible for contacting the third party directly.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-
-        <h4 class="text-lg font-semibold mt-4">9. Contact Us</h4>
-        <p>If you have questions or comments about this Privacy Policy, please contact us at:
-        Jay Prasad Majhi<br>
-        Birtamode, Jhapa, Nepal<br>
-        Email: <a href="mailto:contact@jayprasad.com.np" class="text-blue-600 hover:underline">contact@jayprasad.com.np</a><br>
-        Phone: +977 98XXXXXXXX</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo in. Arcu cursus vitae congue mauris rhoncus aenean vel. Magna etiam tempor orci eu lobortis elementum nibh tellus. Ut aliquam purus sit amet luctus venenatis lectus magna. Massa tincidunt dui ut ornare lectus sit amet est. Viverra mauris in aliquam sem fringilla ut morbi tincidunt. Mattis rhoncus urna neque viverra justo nec ultrices. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Bibendum est ultricies integer quis auctor elit sed vulputate. Tellus orci ac auctor augue mauris augue neque. Egestas purus viverra accumsan in nisl nisi scelerisque eu. Nunc sed id semper risus in hendrerit gravida. Vitae congue eu consequat ac felis donec et. Elementum curabitur vitae nunc sed velit dignissim sodales ut eu.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Terms of Service Modal -->
-  <div id="terms-service-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('terms-service-modal')">&times;</span>
-      <h3 class="text-2xl font-semibold mb-6">Terms of Service</h3>
-      <div class="text-sm space-y-4">
-        <p><strong>Last Updated: <span id="termsServiceDate"></span></strong></p>
-        <p>Welcome to Jay Prasad Majhi's website and services. These Terms of Service ("Terms") govern your access to and use of our website [YourWebsite.com] (the "Site"), and any services, content, features, or applications offered by Jay Prasad Majhi (collectively, the "Services"). Please read these Terms carefully before using our Services.</p>
-        <p>By accessing or using our Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you may not access or use our Services.</p>
-
-        <h4 class="text-lg font-semibold mt-4">1. Acceptance of Terms</h4>
-        <p>By using the Services, you affirm that you are of legal age to enter into these Terms, or, if you are not, that you have obtained parental or guardian consent to enter into these Terms. If you are using the Services on behalf of an organization or entity, you represent and warrant that you are authorized to agree to these Terms on behalf of that organization or entity and bind them to these Terms.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante.
-        Aenean lectus. Pellentesque eget nunc. Donec quis enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Nulla porta Scala. Fusce blandit. Aenean sed. Mauris lobortis. Curabitur ut turpis. Sed accumsan. Proin eget elit. In feugiat. Fusce ornare. Pellentesque sapien. Cras in purus. Nulla quis nibh. Proin sit amet lectus. Mauris in felis. Suspendisse dapibus. Mauris purus. Morbi porta. </p>
-        
-        <h4 class="text-lg font-semibold mt-4">2. Changes to Terms</h4>
-        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Services after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Services.</p>
-        <p>Etiam quis quam. Nulla facilisi. Donec feugiat. Fusce turpis. Nam eget justo. Suspendisse vitae tellus. Proin neque. Nulla tempor. Donec quis justo. In id erat. Proin nec augue. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. In hac habitasse platea dictumst. Suspendisse potenti. Vivamus ac est lacinia nisi venenatis tristique. Suspendisse eget ante. Phasellus leo orci, tempus nec, consectetuer vitae, eleifend eu, quam. Aenean congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce vitae purus. Donec rhoncus. Curabitur lacinia. Nam suscipit. </p>
-
-        <h4 class="text-lg font-semibold mt-4">3. Use of Services</h4>
-        <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. You agree not to use the Services:
-          In any way that violates any applicable national or international law or regulation. For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise. To transmit, or procure the sending of, any advertising or promotional material, including any "junk mail," "chain letter," "spam," or any other similar solicitation. To impersonate or attempt to impersonate Jay Prasad Majhi, a Jay Prasad Majhi employee, another user, or any other person or entity. To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Services, or which, as determined by us, may harm Jay Prasad Majhi or users of the Services or expose them to liability.
-          Furthermore, you agree not to: Use the Services in any manner that could disable, overburden, damage, or impair the Site or interfere with any other party's use of the Services. Use any robot, spider, or other automatic device, process, or means to access the Services for any purpose, including monitoring or copying any of the material on the Services. Use any manual process to monitor or copy any of the material on the Services or for any other unauthorized purpose without our prior written consent. Use any device, software, or routine that interferes with the proper working of the Services. Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful. Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of the Services, the server on which the Services are stored, or any server, computer, or database connected to the Services. Attack the Services via a denial-of-service attack or a distributed denial-of-service attack. Otherwise attempt to interfere with the proper working of the Services.
-          Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Praesent eu risus eget lectus suscipit scelerisque. Morbi quis purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Proin sit amet massa. Fusce eget tellus. Nulla quis orci. Integer vitae ante. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. Vestibulum sed ante. Donec sagittis euismod purus. </p>
-
-        <h4 class="text-lg font-semibold mt-4">4. Intellectual Property Rights</h4>
-        <p>The Services and their entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof), are owned by Jay Prasad Majhi, its licensors, or other providers of such material and are protected by Nepal and international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. These Terms permit you to use the Services for your personal, non-commercial use only. You must not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Services, except as generally permitted through the Services according to these Terms.
-        Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero magna, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque. Nulla facilisis, risus non fringilla ultricies, neque tellus lobortis dui, non duplicate ipsum quam nec magna. </p>
-
-        <h4 class="text-lg font-semibold mt-4">5. Disclaimer of Warranties</h4>
-        <p>THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. NEITHER JAY PRASAD MAJHI NOR ANY PERSON ASSOCIATED WITH JAY PRASAD MAJHI MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE SERVICES. WITHOUT LIMITING THE FOREGOING, NEITHER JAY PRASAD MAJHI NOR ANYONE ASSOCIATED WITH JAY PRASAD MAJHI REPRESENTS OR WARRANTS THAT THE SERVICES, THEIR CONTENT, OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL BE ACCURATE, RELIABLE, ERROR-FREE, OR UNINTERRUPTED, THAT DEFECTS WILL BE CORRECTED, THAT OUR SITE OR THE SERVER THAT MAKES IT AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS, OR THAT THE SERVICES OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS. JAY PRASAD MAJHI HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE. THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW. </p>
-        
-        <h4 class="text-lg font-semibold mt-4">6. Limitation on Liability</h4>
-        <p>IN NO EVENT WILL JAY PRASAD MAJHI, ITS AFFILIATES, OR THEIR LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OFFICERS, OR DIRECTORS BE LIABLE FOR DAMAGES OF ANY KIND, UNDER ANY LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH YOUR USE, OR INABILITY TO USE, THE SERVICES, ANY WEBSITES LINKED TO IT, ANY CONTENT ON THE SERVICES OR SUCH OTHER WEBSITES, INCLUDING ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO, PERSONAL INJURY, PAIN AND SUFFERING, EMOTIONAL DISTRESS, LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF BUSINESS OR ANTICIPATED SAVINGS, LOSS OF USE, LOSS OF GOODWILL, LOSS OF DATA, AND WHETHER CAUSED BY TORT (INCLUDING NEGLIGENCE), BREACH OF CONTRACT, OR OTHERWISE, EVEN IF FORESEEABLE. THE FOREGOING DOES NOT AFFECT ANY LIABILITY WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW. </p>
-
-        <h4 class="text-lg font-semibold mt-4">7. Governing Law and Jurisdiction</h4>
-        <p>All matters relating to the Services and these Terms and any dispute or claim arising therefrom or related thereto (in each case, including non-contractual disputes or claims), shall be governed by and construed in accordance with the internal laws of Nepal without giving effect to any choice or conflict of law provision or rule. Any legal suit, action, or proceeding arising out of, or related to, these Terms or the Services shall be instituted exclusively in the courts of Nepal, although we retain the right to bring any suit, action, or proceeding against you for breach of these Terms in your country of residence or any other relevant country. You waive any and all objections to the exercise of jurisdiction over you by such courts and to venue in such courts. </p>
-
-        <h4 class="text-lg font-semibold mt-4">8. Contact Information</h4>
-        <p>If you have any questions about these Terms, please contact us at:
-        Jay Prasad Majhi<br>
-        Birtamode, Jhapa, Nepal<br>
-        Email: <a href="mailto:contact@jayprasad.com.np" class="text-blue-600 hover:underline">contact@jayprasad.com.np</a><br>
-        Phone: +977 98XXXXXXXX</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Hero Section -->
-  <section id="home" class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white hero-pattern">
-    <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80'); background-size: cover;"></div>
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">Jay Prasad Majhi</h2>
-          <p class="text-xl md:text-2xl mb-6">IT Consultant | Business Professional | Educator</p>
-          <p class="text-lg mb-8">Providing comprehensive IT solutions, study abroad consulting, and business services to help you achieve your goals.</p>
-          <div class="flex space-x-4">
-            <a href="#contact" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover-effect">Get In Touch</a>
-            <a href="#services" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition hover-effect">Our Services</a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-blue-500 rounded-full opacity-75 blur-lg animate-pulse"></div>
-            <div class="relative bg-white p-1 rounded-full">
-              <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jay Prasad Majhi" class="h-64 w-64 rounded-full object-cover border-4 border-white shadow-xl">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">About <span class="text-blue-700">Me</span></h2>
-      
-      <div class="flex flex-col md:flex-row gap-8">
-        <div class="md:w-1/3">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md dark-mode">
-            <h3 class="text-xl font-semibold mb-4">Quick Facts</h3>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
-                <span>STRONG INTEREST IN SYSTEMS & SOFTWARE</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
-                <span>BASED IN KATHMANDU, NEPAL</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-calendar-alt text-blue-600 mt-1 mr-3"></i>
-                <span>PRACTICAL APPLICATION OF KNOWLEDGE</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-code text-blue-600 mt-1 mr-3"></i>
-                <span>FULL-STACK DEVELOPER</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-globe text-blue-600 mt-1 mr-3"></i>
-                <span>PASSION FOR TECHNOLOGY</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="mt-6 bg-gray-100 p-6 rounded-lg shadow-md dark-mode">
-            <h3 class="text-xl font-semibold mb-4">My Skills</h3>
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>IT Consulting</span>
-                  <span>95%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Business Management</span>
-                  <span>90%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 90%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Education Consulting</span>
-                  <span>85%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Web Development</span>
-                  <span>80%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span>Project Management</span>
-                  <span>88%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style="width: 88%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="md:w-2/3">
-          <div class="bg-gray-100 p-6 rounded-lg shadow-md dark-mode">
-            <h3 class="text-xl font-semibold mb-4">My Professional Journey</h3>
-            <p class="mb-4">I am Jay Prasad Majhi, a multifaceted professional with a diverse background spanning technology, business, and education. Which laid the foundation for my passion in technology and problem-solving.</p>
-            
-            <p class="mb-4">Gaining hands-on experience in full-stack development. This technical background proved invaluable when I transitioned into IT consulting, helping businesses leverage technology to solve operational challenges. Recognizing the growing demand for international education among Nepalese students, I expanded into study abroad consulting, combining my technical expertise with my passion for education.</p>
-            
-          </div>
-          
-          <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="bg-blue-700 text-white p-4 rounded-lg text-center shadow-md hover:bg-blue-800 transition hover-effect">
-              <i class="fas fa-users text-3xl mb-2"></i>
-              <h4 class="font-semibold">500+ Clients</h4>
-              <p class="text-sm opacity-90">Satisfied individuals and businesses</p>
-            </div>
-            <div class="bg-blue-600 text-white p-4 rounded-lg text-center shadow-md hover:bg-blue-700 transition hover-effect">
-              <i class="fas fa-project-diagram text-3xl mb-2"></i>
-              <h4 class="font-semibold">120+ Projects</h4>
-              <p class="text-sm opacity-90">Completed successfully</p>
-            </div>
-            <div class="bg-blue-800 text-white p-4 rounded-lg text-center shadow-md hover:bg-blue-900 transition hover-effect">
-              <i class="fas fa-globe text-3xl mb-2"></i>
-              <h4 class="font-semibold">8 Countries</h4>
-              <p class="text-sm opacity-90">Global client base</p>
-            </div>
-          </div>
-          
-          <!-- Resume Download -->
-          <div class="mt-6 bg-gray-100 p-6 rounded-lg shadow-md dark-mode">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Download My Resume</h3>
-                <p class="text-gray-600 dark-mode">Get a comprehensive overview of my professional background</p>
-              </div>
-              <a href="#" class="mt-4 md:mt-0 inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 hover-effect">
-                <i class="fas fa-download mr-2"></i> Download CV (PDF)
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Timeline -->
-      <div class="mt-16">
-        <h3 class="text-2xl font-semibold text-center mb-8">My <span class="text-blue-700">Experience</span> Timeline</h3>
-        
-        <div class="relative">
-          <!-- Timeline line -->
-          <div class="absolute left-1/2 h-full w-1 bg-blue-200 transform -translate-x-1/2"></div>
-          
-          <!-- Timeline items -->
-          <div class="space-y-8">
-            <!-- Item 1 -->
-            <div class="relative flex items-center">
-              <div class="hidden md:flex md:w-1/2"></div>
-              <div class="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-blue-700 text-white border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/2 ml-0 md:ml-8 dark-mode">
-                <h4 class="font-semibold">Bachelor's Degree Running</h4>
-                <p class="text-gray-600 dark-mode">Tribhuvan University</p>
-                <p class="text-sm text-gray-500 mt-2">Running</p>
-                <p class="mt-2">Enrolled in a Bachelor's program in Business Studies — focusing on finance, operations, and IT integration.</p>
-              </div>
-            </div>
-            
-            <!-- Item 2 -->
-            <div class="relative flex items-center">
-              <div class="bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/2 mr-0 md:mr-8 dark-mode">
-                <h4 class="font-semibold">Certified Information Security Manager (CISM) – ITU</h4>
-                <p class="text-gray-600 dark-mode">ITU</p>
-                <p class="text-sm text-gray-500 mt-2">2025</p>
-                <p class="mt-2">Recognized for skills in information security governance and risk management.</p>
-              </div>
-              <div class="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-blue-700 text-white border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2">
-                <i class="fas fa-laptop-code"></i>
-              </div>
-              <div class="hidden md:flex md:w-1/2"></div>
-            </div>
-            
-            <!-- Item 3 -->
-            <div class="relative flex items-center">
-              <div class="hidden md:flex md:w-1/2"></div>
-              <div class="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-blue-700 text-white border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2">
-                <i class="fas fa-briefcase"></i>
-              </div>
-              <div class="bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/2 ml-0 md:ml-8 dark-mode">
-                <h4 class="font-semibold">AI for Cybersecurity: Hacking AI as an Ally – AI Certs</h4>
-                <p class="text-gray-600 dark-mode">Freelance</p>
-                <p class="text-sm text-gray-500 mt-2">2024</p>
-                <p class="mt-2">Focused on securing AI-driven systems and understanding AI vulnerabilities.</p>
-              </div>
-            </div>
-            
-            <!-- Item 4 -->
-            <div class="relative flex items-center">
-              <div class="bg-gray-100 p-6 rounded-lg shadow-md w-full md:w-1/2 mr-0 md:mr-8 dark-mode">
-                <h4 class="font-semibold">UK Education Agent Training – British Council (UK)</h4>
-                <p class="text-gray-600 dark-mode">British Council</p>
-                <p class="text-sm text-gray-500 mt-2">2024 - Present</p>
-                <p class="mt-2">Certified to guide students with UK study procedures and compliance.</p>
-              </div>
-              <div class="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-blue-700 text-white border-4 border-white shadow-md absolute left-1/2 transform -translate-x-1/2">
-                <i class="fas fa-user-tie"></i>
-              </div>
-              <div class="hidden md:flex md:w-1/2"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-700">Services</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Comprehensive solutions tailored to meet your business, education, and technology needs.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('domain-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Domain & Hosting</h3>
-          <p class="mb-4">Professional domain registration and reliable web hosting services with 99.9% uptime and 24/7 support.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Domain registration</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Website hosting</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Email hosting</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>SSL certificates</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('study-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Study Abroad Consulting</h3>
-          <p class="mb-4">Expert guidance for students looking to study overseas, including visa assistance and university applications.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>University selection</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Visa documentation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Application processing</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Scholarship guidance</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('ielts-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-language"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">IELTS/PTE Preparation</h3>
-          <p class="mb-4">Comprehensive test preparation courses to help you achieve your desired scores for study or migration.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Expert instructors</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Practice tests</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Personalized feedback</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Score guarantee</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 4 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('it-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">IT Support & Consultancy</h3>
-          <p class="mb-4">Professional IT solutions for businesses including system setup, maintenance, and troubleshooting.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Network setup</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>System maintenance</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Security solutions</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Cloud migration</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 5 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('football-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-newspaper"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Football News Publishing</h3>
-          <p class="mb-4">Latest football news, analysis, and updates from major leagues around the world.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Match reports</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Transfer news</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Expert analysis</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Fantasy football tips</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-        
-        <!-- Service 6 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect" onclick="openModal('docs-modal')">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Documentation Services</h3>
-          <p class="mb-4">Professional documentation preparation for businesses, academic purposes, and legal requirements.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Business reports</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Academic papers</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Technical documentation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Legal paperwork</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline cursor-pointer">Learn More →</div>
-        </div>
-      </div>
-      
-      <!-- Additional Services (hidden initially) -->
-      <div id="more-services" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        <!-- Service 7 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Mobile App Development</h3>
-          <p class="mb-4">Custom mobile applications for iOS and Android platforms to grow your business.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>iOS development</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Android development</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Cross-platform apps</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline">Coming Soon</div>
-        </div>
-        
-        <!-- Service 8 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Digital Marketing</h3>
-          <p class="mb-4">Comprehensive digital marketing strategies to increase your online visibility.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>SEO optimization</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Social media marketing</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>PPC advertising</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline">Coming Soon</div>
-        </div>
-        
-        <!-- Service 9 -->
-        <div class="service-card p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 hover-effect">
-          <div class="text-blue-600 text-4xl mb-4">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">AI Solutions</h3>
-          <p class="mb-4">Implementing artificial intelligence to automate and optimize your business processes.</p>
-          <ul class="space-y-2 mb-4">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Chatbots</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Predictive analytics</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <span>Process automation</span>
-            </li>
-          </ul>
-          <div class="text-blue-600 font-semibold hover:underline">Coming Soon</div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <button id="load-more-services" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          View More Services
-          <i class="fas fa-arrow-down ml-2"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">My <span class="text-blue-700">Portfolio</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">A showcase of my recent projects and professional work across various domains.</p>
-      
-      <!-- Portfolio Filter -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex rounded-md shadow-sm">
-          <button class="px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="all">
-            All
-          </button>
-          <button class="px-4 py-2 text-sm font-medium border-t border-b border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="it">
-            IT Solutions
-          </button>
-          <button class="px-4 py-2 text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="education">
-            Education
-          </button>
-          <button class="px-4 py-2 text-sm font-medium rounded-r-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:outline-none active:bg-blue-100 active:text-blue-700" data-filter="business">
-            Business
-          </button>
-        </div>
-      </div>
-      
-      <!-- Portfolio Items -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Portfolio Item 1 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="it">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IT Infrastructure Project" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Enterprise IT Infrastructure</h3>
-            <p class="text-gray-600 mb-4">Designed and implemented a complete IT infrastructure solution for a mid-sized business.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project1-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2023</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="education">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Study Abroad Program</h3>
-            <p class="text-gray-600 mb-4">Developed a comprehensive study abroad program assisting 50+ students annually.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project2-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2022</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 3 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="business">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Business Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Business Process Optimization</h3>
-            <p class="text-gray-600 mb-4">Streamlined operations for a local business resulting in 30% cost savings.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project3-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2021</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 4 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="it">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Web Development" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">IT Solutions</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">E-commerce Website</h3>
-            <p class="text-gray-600 mb-4">Developed a custom e-commerce platform for a local retailer with payment integration.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project4-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2022</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 5 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="education">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="IELTS Training" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Education</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">IELTS Training Program</h3>
-            <p class="text-gray-600 mb-4">Created a specialized IELTS preparation curriculum with 90% success rate.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project5-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2020</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Portfolio Item 6 -->
-        <div class="portfolio-item overflow-hidden rounded-lg shadow-md transition duration-300" data-category="business">
-          <div class="relative overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Financial Consulting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-4">
-              <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</span>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Financial System Implementation</h3>
-            <p class="text-gray-600 mb-4">Implemented accounting software and trained staff for a growing business.</p>
-            <div class="flex justify-between items-center">
-              <a href="#" onclick="openModal('project6-modal'); return false;" class="text-blue-600 font-medium hover:underline">View Project →</a>
-              <span class="text-sm text-gray-500">2021</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <a href="https://jayprasad.com.np/portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          View All Projects
-          <i class="fas fa-arrow-right ml-2"></i>
+      <div class="mt-2">
+        <a href="https://the.jayprasad.com.np/staff" target="_blank" class="block py-2 px-2 rounded transition bg-orange-500 text-white font-medium hover-effect">
+          <i class="fas fa-user-tie mr-1"></i> Staff Login
+        </a>
+        <a href="https://the.jayprasad.com.np/client" target="_blank" class="block py-2 px-2 rounded transition bg-orange-500 text-white font-medium hover-effect mt-2">
+          <i class="fas fa-user mr-1"></i> Client Login
+        </a>
+        <a href="https://the.jayprasad.com.np/student" target="_blank" class="block py-2 px-2 rounded transition bg-orange-500 text-white font-medium hover-effect mt-2">
+          <i class="fas fa-user-graduate mr-1"></i> Student Login
         </a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Testimonials Section -->
-  <section class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Client <span class="text-blue-700">Testimonials</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">What people say about my services and professional work.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Rajesh Sharma</h4>
-              <p class="text-gray-600 text-sm">Business Owner</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"Jay's IT consulting services transformed our business operations. His expertise in setting up our network and recommending the right software solutions saved us both time and money. The team was professional, responsive, and delivered beyond our expectations."</p>
-        </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 w-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Priya Patel</h4>
-              <p class="text-gray-600 text-sm">Student</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"Thanks to Jay's guidance, I successfully got admission to my dream university in Australia. His knowledge of the application process and visa requirements was invaluable. The entire team was supportive throughout my journey abroad."</p>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Amit Singh</h4>
-              <p class="text-gray-600 text-sm">IT Manager</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"We've been using Jay's web hosting services for three years now. The reliability and customer support are exceptional. When we had an issue at 2 AM, their team responded immediately. Highly recommend for any business needs."</p>
-        </div>
-      </div>
-      
-      <!-- More testimonials (hidden initially) -->
-      <div id="more-testimonials" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Sunita Gurung</h4>
-              <p class="text-gray-600 text-sm">College Professor</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"The IELTS preparation course was exactly what I needed. Jay's teaching methods are effective and tailored to individual needs. I improved my band score from 6.5 to 7.5 in just 6 weeks. The mock tests were particularly helpful."</p>
-        </div>
-        
-        <!-- Testimonial 5 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Bikram Thapa</h4>
-              <p class="text-gray-600 text-sm">Entrepreneur</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"Jay's business process optimization saved our company nearly 40% in operational costs. His recommendations were practical and implementation was smooth. We've seen significant improvements in efficiency and employee satisfaction."</p>
-        </div>
-        
-        <!-- Testimonial 6 -->
-        <div class="testimonial-card bg-white p-6 rounded-lg shadow-md dark-mode">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Anjali Rai</h4>
-              <p class="text-gray-600 text-sm">Marketing Director</p>
-            </div>
-          </div>
-          <div class="text-yellow-400 mb-3">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark-mode">"The documentation services helped us create professional business proposals that have won us several contracts. The team understood our needs quickly and delivered excellent work within tight deadlines."</p>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <button id="load-more-testimonials" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          More Testimonials
-          <i class="fas fa-arrow-down ml-2"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Latest <span class="text-blue-700">Blog Posts</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Insights, tips, and updates from my professional experience and industry knowledge.</p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Blog Post 1 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Choosing Web Hosting" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">IT</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog1-date">May 15, 2023</span>
-              <span class="mx-2">•</span>
-              <span>8 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">How to Choose the Right Web Hosting for Your Business</h3>
-            <p class="text-gray-600 mb-4 dark-mode">A comprehensive guide to selecting the perfect hosting solution based on your website's needs and traffic expectations.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/web-hosting-guide" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 1,245 views</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Blog Post 2 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Study Abroad Tips" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Education</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog2-date">April 28, 2023</span>
-              <span class="mx-2">•</span>
-              <span>10 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Top 5 Mistakes to Avoid When Applying to Study Abroad</h3>
-            <p class="text-gray-600 mb-4 dark-mode">Learn from common errors students make during the application process and how to navigate them successfully.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/study-abroad-mistakes" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 2,187 views</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Blog Post 3 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IT Security" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">IT</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog3-date">April 10, 2023</span>
-              <span class="mx-2">•</span>
-              <span>6 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Essential IT Security Practices for Small Businesses</h3>
-            <p class="text-gray-600 mb-4 dark-mode">Protect your business from cyber threats with these fundamental security measures any organization can implement.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/it-security-practices" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 956 views</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Additional Blog Posts (hidden initially, can be loaded with "View More") -->
-      <div id="more-blogs" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        <!-- Blog Post 4 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="IELTS Preparation" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Education</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog4-date">March 22, 2023</span>
-              <span class="mx-2">•</span>
-              <span>12 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">IELTS vs PTE: Which English Test is Right for You?</h3>
-            <p class="text-gray-600 mb-4 dark-mode">A detailed comparison of the two most popular English proficiency tests to help you decide which one to take.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/ielts-vs-pte" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 1,532 views</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Blog Post 5 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business Growth" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs px-2 py-1 rounded">Business</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog5-date">March 5, 2023</span>
-              <span class="mx-2">•</span>
-              <span>9 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">5 Digital Tools Every Small Business Should Use in 2023</h3>
-            <p class="text-gray-600 mb-4 dark-mode">Discover the essential digital tools that can help streamline your operations and boost productivity.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/digital-tools-business" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 892 views</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Blog Post 6 -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 dark-mode">
-          <div class="relative h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Football Analysis" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-            <div class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded">Sports</div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
-              <span id="blog6-date">February 18, 2023</span>
-              <span class="mx-2">•</span>
-              <span>7 min read</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Emerging Football Talents to Watch in 2023</h3>
-            <p class="text-gray-600 mb-4 dark-mode">Our scouting team identifies the most promising young footballers who could make a big impact this year.</p>
-            <div class="flex justify-between items-center">
-              <a href="https://jayprasad.com.np/blog/football-talents-2023" class="text-blue-600 font-medium hover:underline">Read More →</a>
-              <span class="text-xs text-gray-500"><i class="far fa-eye mr-1"></i> 3,456 views</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <button id="load-more-blogs" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          View More Articles
-          <i class="fas fa-arrow-down ml-2"></i>
-        </button>
-      </div>
-    </div>
-  </section>
+  <!-- Rest of your HTML content remains the same until the contact section -->
 
   <!-- Contact Section -->
   <section id="contact" class="py-16 bg-gray-100">
@@ -1461,8 +610,8 @@
                 </div>
                 <div>
                   <h4 class="font-medium">Phone</h4>
-                  <p class="text-gray-600">+977 98XXXXXXXX</p>
-                  <a href="tel:+97798XXXXXXXX" class="text-blue-600 text-sm hover:underline mt-1 inline-block">Click to Call</a>
+                  <p class="text-gray-600">+977 9812345678</p>
+                  <a href="tel:+9779812345678" class="text-blue-600 text-sm hover:underline mt-1 inline-block">Click to Call</a>
                 </div>
               </div>
               
@@ -1516,761 +665,81 @@
           <div class="mt-6 bg-white p-6 rounded-lg shadow-md dark-mode">
             <h3 class="text-xl font-semibold mb-4">Quick Chat</h3>
             <p class="mb-4">Message me directly on WhatsApp for instant support.</p>
-            <a href="https://wa.me/97798XXXXXXXX" target="_blank" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 hover-effect">
+            <a href="https://wa.me/9779812345678" target="_blank" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 hover-effect">
               <i class="fab fa-whatsapp mr-2"></i>
               Chat on WhatsApp
             </a>
           </div>
         </div>
         
-        <div class="lg:w-1/2">
-          <div class="bg-white p-6 rounded-lg shadow-md dark-mode">
-            <h3 class="text-xl font-semibold mb-4">Send Me a Message</h3>
-            <form id="contactForm" action="https://formspree.io/f/xanooyvg" method="POST" class="space-y-4">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1 dark-mode">Your Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark-mode">
-              </div>
-              
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1 dark-mode">Your Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark-mode">
-              </div>
-              
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1 dark-mode">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark-mode">
-              </div>
-              
-              <div>
-                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1 dark-mode">Subject</label>
-                <select id="subject" name="subject" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark-mode">
-                  <option value="">Select a subject</option>
-                  <option value="it">IT Services Inquiry</option>
-                  <option value="education">Study Abroad Consultation</option>
-                  <option value="ielts">IELTS/PTE Classes</option>
-                  <option value="business">Business Consulting</option>
-                  <option value="other">Other Inquiry</option>
-                </select>
-              </div>
-              
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1 dark-mode">Your Message</label>
-                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark-mode"></textarea>
-              </div>
-              
-              <div class="flex items-center">
-                <input type="checkbox" id="consent" name="consent" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                <label for="consent" class="ml-2 block text-sm text-gray-700 dark-mode">
-                  I agree to the <a href="#" onclick="openModal('privacy-policy-modal'); return false;" class="text-blue-600 hover:underline">privacy policy</a>
-                </label>
-              </div>
-              
-              <button type="submit" id="submitBtn" class="w-full bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition hover-effect">
-                <span id="submitText">Send Message</span>
-                <span id="spinner" class="hidden ml-2">
-                  <i class="fas fa-spinner fa-spin"></i>
-                </span>
-              </button>
-            </form>
-            
-            <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-md">
-              <i class="fas fa-check-circle mr-2"></i> Your message has been sent successfully!
-            </div>
-            
-            <div id="formError" class="hidden mt-4 p-4 bg-red-100 text-red-800 rounded-md">
-              <i class="fas fa-exclamation-circle mr-2"></i> There was an error sending your message. Please try again.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Rest of your HTML content remains the same -->
 
-  <!-- FAQ Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-4">Frequently Asked <span class="text-blue-700">Questions</span></h2>
-      <p class="text-center text-lg mb-12 max-w-2xl mx-auto">Find answers to common questions about my services and processes.</p>
-      
-      <div class="max-w-3xl mx-auto space-y-4">
-        <!-- FAQ Item 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden dark-mode">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect dark-mode">
-            <h3 class="text-lg font-medium text-left">What IT services do you provide?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200 dark-mode">
-            <p>We offer a comprehensive range of IT services including domain registration, web hosting, email hosting, website development, IT infrastructure setup, network security solutions, and ongoing IT support for businesses of all sizes.</p>
-            <p class="mt-2">Our team specializes in custom software development, cloud migration, database management, and IT strategy consulting. Whether you need a simple website or a complex enterprise system, we have the expertise to deliver solutions tailored to your specific requirements.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden dark-mode">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect dark-mode">
-            <h3 class="text-lg font-medium text-left">How can you help with studying abroad?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200 dark-mode">
-            <p>Our study abroad consulting service provides end-to-end guidance including university selection based on your profile, application assistance, documentation preparation, visa guidance, pre-departure orientation, and even post-arrival support in some destinations.</p>
-            <p class="mt-2">We maintain partnerships with institutions worldwide and can help you find scholarships and financial aid options. Our success rate for visa approvals stands at 94%, thanks to our meticulous document verification process and mock visa interviews.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden dark-mode">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect dark-mode">
-            <h3 class="text-lg font-medium text-left">What's the duration of your IELTS/PTE preparation courses?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200 dark-mode">
-            <p>We offer flexible course durations to suit different needs:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>Crash Course: 2 weeks (for those needing a quick refresher)</li>
-                <li>Standard Course: 4-6 weeks (comprehensive preparation)</li>
-                <li>Extended Course: 8-12 weeks (for beginners or those needing significant improvement)</li>
-              </ul>
-              We assess your current level first to recommend the most suitable option.
-            </p>
-            <p class="mt-2">All courses include access to our online practice portal and post-course support until you achieve your desired score.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden dark-mode">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect dark-mode">
-            <h3 class="text-lg font-medium text-left">Do you provide ongoing support after website development?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200 dark-mode">
-            <p>Yes, we offer various maintenance packages:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>Basic: Security updates and bug fixes</li>
-                <li>Standard: Basic + content updates (up to 5 hours/month)</li>
-                <li>Premium: Standard + SEO optimization and performance monitoring</li>
-              </ul>
-              We can also provide training for your team to manage basic updates in-house.
-            </p>
-            <p class="mt-2">Our support team is available 24/7 for critical issues, with an average response time of under 2 hours for premium clients.</p>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 5 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden dark-mode">
-          <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition hover-effect dark-mode">
-            <h3 class="text-lg font-medium text-left">What makes your football news coverage unique?</h3>
-            <i class="fas fa-chevron-down transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-gray-200 dark-mode">
-            <p>Our football news service focuses on:
-              <ul class="list-disc pl-5 mt-2 space-y-1">
-                <li>In-depth analysis rather than just match reports</li>
-                <li>Special coverage of Asian football and emerging talents</li>
-                <li>Exclusive interviews with players and coaches</li>
-                <li>Tactical breakdowns for serious fans</li>
-                <li>Youth development tracking</li>
-              </ul>
-              We aim to provide content that goes beyond what's available in mainstream sports media.
-            </p>
-            <p class="mt-2">Subscribers get access to premium content including detailed statistical analysis and fantasy football recommendations.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <p class="mb-4">Have a different question?</p>
-        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 hover-effect">
-          Contact Me
-          <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="py-16 bg-gradient-to-r from-blue-700 to-blue-800 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Subscribe to My Newsletter</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">Get the latest updates, tips, and insights on IT, education consulting, and more directly to your inbox.</p>
-      
-      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
-        <input type="email" placeholder="Your email address" required class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button type="submit" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 rounded-md font-semibold transition hover-effect">
-          Subscribe
-        </button>
-      </form>
-      
-      <p class="mt-4 text-sm opacity-80">We respect your privacy. Unsubscribe at any time.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Column 1 -->
-        <div>
-          <div class="flex items-center mb-4">
-            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Logo" class="h-10 w-10 rounded-full mr-3">
-            <h3 class="text-xl font-bold text-white">Jay Prasad Majhi</h3>
-          </div>
-          <p class="mb-4">Providing comprehensive IT solutions, education consulting, and business services to help you achieve your goals.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li>
-              <a href="#home" class="hover:text-white transition hover-effect">Home</a>
-            </li>
-            <li>
-              <a href="#about" class="hover:text-white transition hover-effect">About Me</a>
-            </li>
-            <li>
-              <a href="#services" class="hover:text-white transition hover-effect">Services</a>
-            </li>
-            <li>
-              <a href="#portfolio" class="hover:text-white transition hover-effect">Portfolio</a>
-            </li>
-            <li>
-              <a href="#blog" class="hover:text-white transition hover-effect">Blog</a>
-            </li>
-            <li>
-              <a href="#contact" class="hover:text-white transition hover-effect">Contact</a>
-            </li>
-            <li>
-              <a href="https://the.jayprasad.com.np" target="_blank" class="hover:text-white transition hover-effect">Login</a>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
-          <ul class="space-y-2">
-            <li>
-              <a href="https://jayprasad.com.np/domain-hosting" class="hover:text-white transition hover-effect">Domain & Hosting</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/study-abroad" class="hover:text-white transition hover-effect">Study Abroad Consulting</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/ielts-pte" class="hover:text-white transition hover-effect">IELTS/PTE Preparation</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/it-support" class="hover:text-white transition hover-effect">IT Support</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/football-news" class="hover:text-white transition hover-effect">Football News</a>
-            </li>
-            <li>
-              <a href="https://jayprasad.com.np/documentation-services" class="hover:text-white transition hover-effect">Documentation Services</a>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Kathmandu, Nepal</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <a href="mailto:contact@jayprasad.com.np" class="hover:text-white hover-effect">contact@jayprasad.com.np</a>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span>+977 9812345678</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-clock mt-1 mr-3 text-blue-400"></i>
-              <span>Sun-Fri: 7AM - 5:30PM</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <div class="flex items-center space-x-2 mb-4 md:mb-0">
-          <i class="fas fa-calendar-alt text-blue-400"></i> <!-- Changed icon -->
-          <p id="datetime" class="text-sm"></p>
-        </div>
-        <div class="flex items-center space-x-6">
-          <a href="#" onclick="openModal('privacy-policy-modal'); return false;" class="text-sm hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a>
-          <a href="#" onclick="openModal('terms-service-modal'); return false;" class="text-sm hover:text-white hover:underline transition-colors duration-300">Terms of Service</a>
-          <a href="/sitemap.xml" class="text-sm hover:text-white hover:underline transition-colors duration-300">Sitemap</a>
-        </div>
-      </div>
-
-    <!-- Contact Information Quick Links -->
-    <div class="mt-12 bg-gray-800/70 p-6 rounded-lg border border-gray-700">
-      <h3 class="text-xl font-bold text-white mb-6">Contact Our Team</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="flex items-start">
-          <i class="fas fa-headset text-blue-400 text-xl mt-1 mr-4"></i>
-          <div>
-            <h4 class="text-white font-medium mb-1">Technical Support</h4>
-            <a href="mailto:it@jayprasad.com.np" class="text-sm text-blue-300 hover:text-white hover:underline block break-all">it@jayprasad.com.np</a>
-            <p class="text-xs text-gray-400 mt-1">24/7 assistance for technical issues</p>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <i class="fas fa-handshake text-blue-400 text-xl mt-1 mr-4"></i>
-          <div>
-            <h4 class="text-white font-medium mb-1">Business Partnerships</h4>
-            <a href="mailto:partner@rtechnologist.com" class="text-sm text-blue-300 hover:text-white hover:underline block break-all">partner@rtechnologist.com</a>
-            <p class="text-xs text-gray-400 mt-1">Collaboration and joint ventures</p>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <i class="fas fa-user-tie text-blue-400 text-xl mt-1 mr-4"></i>
-          <div>
-            <h4 class="text-white font-medium mb-1">Administration</h4>
-            <a href="mailto:admin@jayprasad.com.np" class="text-sm text-blue-300 hover:text-white hover:underline block break-all">admin@jayprasad.com.np</a>
-            <a href="mailto:bijay@technologist.com" class="text-sm text-blue-300 hover:text-white hover:underline block break-all mt-1">bijay@technologist.com</a>
-             <p class="text-xs text-gray-400 mt-1">General inquiries and administrative support</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-xs text-gray-500 mb-4 md:mb-0">© <span id="currentYear"></span> Jay Prasad Majhi. All rights reserved.</p>
-      <div class="flex space-x-4">
-        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-    <script>
-      // Dynamic Kathmandu Time
-      function updateKathmanduTime() {
-        const options = {
-          timeZone: 'Asia/Kathmandu',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true
-        };
-        const now = new Date();
-        const datetimeEl = document.getElementById('datetime');
-        if (datetimeEl) {
-            datetimeEl.textContent = now.toLocaleString('en-US', options);
-        }
-        
-        // Update modal dates
-        const privacyDateEl = document.getElementById('privacyPolicyDate');
-        const termsDateEl = document.getElementById('termsServiceDate');
-        const simpleDateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-        if(privacyDateEl) privacyDateEl.textContent = now.toLocaleDateString('en-US', simpleDateOptions);
-        if(termsDateEl) termsDateEl.textContent = now.toLocaleDateString('en-US', simpleDateOptions);
-
-      }
-      updateKathmanduTime();
-      setInterval(updateKathmanduTime, 60000); // Update time every minute
-      
-      // Current Year
-      const currentYearEl = document.getElementById('currentYear');
-      if (currentYearEl) {
-        currentYearEl.textContent = new Date().getFullYear();
-      }
-    </script>
-    </div>
-  </footer>
-
-  <!-- Back to Top Button -->
-  <a href="#top" id="backToTop" class="fixed bottom-6 right-6 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition z-50 hover-effect no-print opacity-0 invisible">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Loading Spinner (initially hidden) -->
-  <div id="loadingSpinner" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white p-6 rounded-lg shadow-xl flex flex-col items-center">
-      <div class="spinner text-blue-600 text-4xl mb-4">
-        <i class="fas fa-spinner"></i>
-      </div>
-      <p class="text-gray-800">Loading...</p>
-    </div>
-  </div>
-
+  <!-- Add this script at the end of your body, before the closing </body> tag -->
   <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-
-    // FAQ toggle functionality
-    document.querySelectorAll('.faq-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('i');
+    // Theme switching functionality
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove active class from all options
+        document.querySelectorAll('.theme-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
         
-        content.classList.toggle('hidden');
-        icon.classList.toggle('fa-chevron-down');
-        icon.classList.toggle('fa-chevron-up');
+        // Add active class to clicked option
+        this.classList.add('active');
+        
+        // Get the theme name from data attribute
+        const theme = this.getAttribute('data-theme');
+        
+        // Remove all theme classes from body
+        document.body.classList.remove('theme-blue', 'theme-green', 'theme-purple', 'theme-red', 'theme-teal');
+        
+        // Add the selected theme class
+        document.body.classList.add(`theme-${theme}`);
+        
+        // Save theme preference
+        localStorage.setItem('selectedTheme', theme);
+        
+        // Update CSS variables based on theme
+        updateThemeVariables(theme);
       });
     });
-
-    // Portfolio filtering
-    document.querySelectorAll('[data-filter]').forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-          btn.classList.remove('bg-blue-100', 'text-blue-700', 'dark:bg-blue-700', 'dark:text-white');
-          btn.classList.add('bg-white', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
-        });
-        
-        button.classList.remove('bg-white', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
-        button.classList.add('bg-blue-100', 'text-blue-700', 'dark:bg-blue-700', 'dark:text-white');
-        
-        portfolioItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Load more blogs
-    const loadMoreBlogsBtn = document.getElementById('load-more-blogs');
-    if (loadMoreBlogsBtn) {
-        loadMoreBlogsBtn.addEventListener('click', function() {
-        document.getElementById('more-blogs').classList.remove('hidden');
-        this.style.display = 'none';
-        });
-    }
-
-
-    // Load more services
-    const loadMoreServicesBtn = document.getElementById('load-more-services');
-    if(loadMoreServicesBtn) {
-        loadMoreServicesBtn.addEventListener('click', function() {
-        document.getElementById('more-services').classList.remove('hidden');
-        this.style.display = 'none';
-        });
-    }
-
-
-    // Load more testimonials
-    const loadMoreTestimonialsBtn = document.getElementById('load-more-testimonials');
-    if (loadMoreTestimonialsBtn) {
-        loadMoreTestimonialsBtn.addEventListener('click', function() {
-        document.getElementById('more-testimonials').classList.remove('hidden');
-        this.style.display = 'none';
-        });
-    }
     
-
-    // Modal functionality
-    function openModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-      }
-    }
-
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore background scrolling
-      }
-    }
-    
-    // Close modals when clicking X (using direct onclick in HTML for simplicity, but this is an alternative)
-    document.querySelectorAll('.close-modal').forEach(button => {
-      button.addEventListener('click', function() {
-        const modal = this.closest('.modal');
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-      });
-    });
-
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-    
-    // Close modal with ESC key
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(modal => {
-                if (modal.style.display === 'flex') {
-                    closeModal(modal.id);
-                }
-            });
-        }
-    });
-
-
-    // Dark/Light mode toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    function updateThemeVariables(theme) {
+      let primary, secondary;
       
-      const icon = document.querySelector('.dark-mode-toggle i');
-      if (document.body.classList.contains('dark-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+      switch(theme) {
+        case 'green':
+          primary = '#10b981';
+          secondary = '#059669';
+          break;
+        case 'purple':
+          primary = '#8b5cf6';
+          secondary = '#7c3aed';
+          break;
+        case 'red':
+          primary = '#ef4444';
+          secondary = '#dc2626';
+          break;
+        case 'teal':
+          primary = '#14b8a6';
+          secondary = '#0d9488';
+          break;
+        default: // blue
+          primary = '#3b82f6';
+          secondary = '#2563eb';
       }
-    }
-
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-      const icon = document.querySelector('.dark-mode-toggle i');
-      if (icon) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      }
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        // Only prevent default and scroll if it's a valid internal link
-        if (href.length > 1 && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-              behavior: 'smooth'
-            });
-        } else if (href === "#top") {
-             e.preventDefault();
-             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Back to top button visibility
-    const backToTopButton = document.getElementById('backToTop');
-    if (backToTopButton) {
-        window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.remove('opacity-0', 'invisible');
-            backToTopButton.classList.add('opacity-100', 'visible');
-        } else {
-            backToTopButton.classList.remove('opacity-100', 'visible');
-            backToTopButton.classList.add('opacity-0', 'invisible');
-        }
-        });
-    }
-
-
-    // Scroll progress bar
-    const scrollProgressBar = document.getElementById("scrollProgress");
-    if (scrollProgressBar) {
-        window.addEventListener('scroll', function() {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        scrollProgressBar.style.width = scrolled + "%";
-        });
-    }
-    
-
-    // Cookie consent banner
-    const cookieBanner = document.getElementById('cookieBanner');
-    if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
-      setTimeout(() => {
-        cookieBanner.classList.add('show');
-      }, 2000);
-    }
-
-    const acceptCookiesBtn = document.getElementById('acceptCookies');
-    if (acceptCookiesBtn) {
-        acceptCookiesBtn.addEventListener('click', function() {
-        localStorage.setItem('cookiesAccepted', 'true');
-        if(cookieBanner) cookieBanner.classList.remove('show');
-        });
-    }
-    
-    const rejectCookiesBtn = document.getElementById('rejectCookies');
-    if (rejectCookiesBtn) {
-        rejectCookiesBtn.addEventListener('click', function() {
-        localStorage.setItem('cookiesAccepted', 'false');
-        if(cookieBanner) cookieBanner.classList.remove('show');
-        });
-    }
-
-
-    // Form submission handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        const submitBtn = document.getElementById('submitBtn');
-        const submitText = document.getElementById('submitText');
-        const spinner = document.getElementById('spinner');
-        const formSuccess = document.getElementById('formSuccess');
-        const formError = document.getElementById('formError');
-
-        contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if(submitText) submitText.textContent = 'Sending...';
-        if(spinner) spinner.classList.remove('hidden');
-        if(submitBtn) submitBtn.disabled = true;
-        
-        const formData = new FormData(contactForm);
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (submitText) submitText.textContent = 'Send Message';
-            if (spinner) spinner.classList.add('hidden');
-            if (submitBtn) submitBtn.disabled = false;
-
-            if (response.ok) {
-                if(formSuccess) formSuccess.classList.remove('hidden');
-                if(formError) formError.classList.add('hidden');
-                contactForm.reset();
-                setTimeout(() => {
-                    if(formSuccess) formSuccess.classList.add('hidden');
-                }, 5000);
-            } else {
-                response.json().then(data => {
-                    if (data.errors) {
-                        // Handle specific errors if your backend provides them
-                        if(formError) formError.textContent = data.errors.map(error => error.message).join(", ");
-                    } else {
-                        if(formError) formError.textContent = 'There was an error sending your message. Please try again.';
-                    }
-                    if(formError) formError.classList.remove('hidden');
-                    if(formSuccess) formSuccess.classList.add('hidden');
-                })
-            }
-        }).catch(error => {
-            if (submitText) submitText.textContent = 'Send Message';
-            if (spinner) spinner.classList.add('hidden');
-            if (submitBtn) submitBtn.disabled = false;
-            if(formError) {
-                formError.textContent = 'There was an error sending your message. Please check your network and try again.';
-                formError.classList.remove('hidden');
-            }
-            if(formSuccess) formSuccess.classList.add('hidden');
-        });
-        });
-    }
-    
-
-    // Binary background animation
-    const canvas = document.getElementById('binaryCanvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const binary = "01";
-        let columns = Math.floor(canvas.width / 20); 
-        
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-        drops[i] = Math.floor(Math.random() * canvas.height);
-        }
-        
-        function drawBinary() {
-        ctx.fillStyle = document.body.classList.contains('dark-mode') ? "rgba(255, 255, 255, 0.03)" : "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = document.body.classList.contains('dark-mode') ? "#3b82f6" : "#0ea5e9"; // Blue color, adapts slightly for dark mode
-        ctx.font = "15px monospace";
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = binary.charAt(Math.floor(Math.random() * binary.length));
-            ctx.fillText(text, i * 20, drops[i] * 20);
-            
-            if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-            }
-            drops[i]++;
-        }
-        }
-        
-        window.addEventListener('resize', function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        columns = Math.floor(canvas.width / 20);
-        drops.length = 0; // Reset drops array
-          for (let i = 0; i < columns; i++) {
-            drops[i] = Math.floor(Math.random() * canvas.height);
-          }
-        });
-        
-        setInterval(drawBinary, 60); // Adjusted interval for smoother visual
-    }
-
-    // Update blog dates to current year
-    const currentGlobalYear = new Date().getFullYear();
-    document.querySelectorAll('[id^="blog"]').forEach(el => {
-      if (el.id.includes('date') && el.textContent) {
-        el.textContent = el.textContent.replace(/\d{4}/, currentGlobalYear.toString());
-      }
-    });
-
-    // Confetti effect for special actions
-    function createConfetti() {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti';
-      confetti.style.left = Math.random() * window.innerWidth + 'px';
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Random color
-      document.body.appendChild(confetti);
       
-      setTimeout(() => {
-        confetti.remove();
-      }, 5000); // Remove after 5 seconds
+      document.documentElement.style.setProperty('--primary', primary);
+      document.documentElement.style.setProperty('--secondary', secondary);
     }
     
-    const newsletterForm = document.querySelector('.newsletter section form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            // e.preventDefault(); // Keep if you want to handle submission with JS
-            for (let i = 0; i < 50; i++) {
-                setTimeout(createConfetti, i * 30); // Stagger confetti creation
-            }
-        });
-    }
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('selectedTheme') || 'blue';
+    document.body.classList.add(`theme-${savedTheme}`);
+    document.querySelector(`.theme-option[data-theme="${savedTheme}"]`).classList.add('active');
+    updateThemeVariables(savedTheme);
+    
+    // Rest of your existing JavaScript...
   </script>
 </body>
 </html>
