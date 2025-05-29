@@ -1,0 +1,96 @@
+/* style.css - NextEdge IT Services main stylesheet */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #004080;
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffcc00;
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.hero, .services-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #002050;
+}
+
+.features-list ul {
+  list-style: disc inside;
+  line-height: 1.6;
+  padding-left: 0;
+}
+
+footer {
+  background-color: #002050;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+  nav a {
+    margin: 0.5rem;
+  }
+}
