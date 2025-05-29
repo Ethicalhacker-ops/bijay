@@ -1,0 +1,13 @@
+nextedge-website/
+│
+├── index.html
+├── README.md
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       └── logo.png
+├── contact.html
+└── services.html
