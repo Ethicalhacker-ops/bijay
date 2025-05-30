@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IELTS Master - Premium Preparation Platform</title>
-    <meta name="description" content="Comprehensive IELTS preparation with 250+ features, practice tests, and expert guidance">
+    <title>IELTS Master Pro | 5,000+ Resources for IELTS Success</title>
+    <meta name="description" content="Comprehensive IELTS preparation platform with 5,000+ resources including Cambridge books, practice tests, video lessons, and expert strategies">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ===== Global Styles ===== */
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -14,6 +16,8 @@
             --dark: #2c3e50;
             --success: #27ae60;
             --warning: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -27,6 +31,7 @@
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -35,119 +40,8 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .cta-button {
-            background-color: var(--accent);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            color: white;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Features Section */
-        .features {
+        section {
             padding: 5rem 0;
-            background-color: white;
         }
         
         .section-title {
@@ -159,12 +53,179 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .section-title p {
             color: #666;
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== Header Styles ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav ul li a i {
+            font-size: 0.9rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== Features Section ===== */
+        .features {
+            background-color: white;
         }
         
         .features-grid {
@@ -177,8 +238,9 @@
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
         }
         
         .feature-card:hover {
@@ -189,6 +251,7 @@
         .feature-img {
             height: 200px;
             overflow: hidden;
+            position: relative;
         }
         
         .feature-img img {
@@ -202,6 +265,18 @@
             transform: scale(1.1);
         }
         
+        .feature-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
         .feature-content {
             padding: 1.5rem;
         }
@@ -210,6 +285,9 @@
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .feature-content p {
@@ -218,63 +296,65 @@
         }
         
         .feature-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--secondary);
             font-weight: 600;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
         
         .feature-link:hover {
             color: var(--accent);
+            gap: 12px;
         }
         
-        /* Quick Links Section */
-        .quick-links {
-            padding: 5rem 0;
+        /* ===== Resources Section ===== */
+        .resources {
             background-color: #f5f7fa;
         }
         
-        .tabs {
+        .resource-tabs {
             display: flex;
-            justify-content: center;
+            overflow-x: auto;
             margin-bottom: 2rem;
-            flex-wrap: wrap;
+            padding-bottom: 10px;
+            gap: 0.5rem;
         }
         
-        .tab-button {
+        .resource-tab {
             padding: 0.8rem 1.5rem;
             background-color: white;
             border: none;
             border-radius: 4px;
-            margin: 0 0.5rem 1rem;
             cursor: pointer;
             font-weight: 600;
             color: var(--dark);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .tab-button.active {
+        .resource-tab.active {
             background-color: var(--secondary);
             color: white;
         }
         
-        .tab-button:hover {
+        .resource-tab:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
-        .tab-content {
+        .resource-content {
             display: none;
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tab-content.active {
-            display: block;
+            box-shadow: var(--shadow);
             animation: fadeIn 0.5s ease;
         }
         
@@ -283,44 +363,155 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .resource-content.active {
+            display: block;
         }
         
-        .link-item {
-            padding: 1rem;
+        .resource-list {
+            columns: 3;
+            column-gap: 2rem;
+        }
+        
+        .resource-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
             border-left: 4px solid var(--secondary);
-            transition: all 0.3s ease;
+            background-color: rgba(52, 152, 219, 0.05);
+            border-radius: 4px;
+            transition: var(--transition);
         }
         
-        .link-item:hover {
+        .resource-item:hover {
             background-color: rgba(52, 152, 219, 0.1);
             transform: translateX(5px);
         }
         
-        .link-item h4 {
+        .resource-item h4 {
             color: var(--primary);
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .link-item a {
+        .resource-item p {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: var(--secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: var(--transition);
+            word-break: break-all;
         }
         
-        .link-item a:hover {
+        .resource-link:hover {
             color: var(--accent);
-            text-decoration: underline;
+            gap: 10px;
         }
         
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 0;
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px dashed #ddd;
+        }
+        
+        /* ===== Video Lessons ===== */
+        .video-lessons {
             background-color: white;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(231, 76, 60, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button:hover {
+            background-color: rgba(231, 76, 60, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .video-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* ===== Testimonials ===== */
+        .testimonials {
+            background-color: #f5f7fa;
         }
         
         .testimonial-grid {
@@ -330,10 +521,10 @@
         }
         
         .testimonial-card {
-            background-color: #f5f7fa;
+            background-color: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
             position: relative;
         }
         
@@ -388,10 +579,9 @@
             margin-top: 0.5rem;
         }
         
-        /* Pricing Section */
+        /* ===== Pricing ===== */
         .pricing {
-            padding: 5rem 0;
-            background-color: #f5f7fa;
+            background-color: white;
         }
         
         .pricing-grid {
@@ -404,9 +594,10 @@
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             position: relative;
+            border: 1px solid #eee;
         }
         
         .pricing-card:hover {
@@ -478,10 +669,9 @@
             font-weight: 600;
         }
         
-        /* Contact Section */
+        /* ===== Contact ===== */
         .contact {
-            padding: 5rem 0;
-            background-color: white;
+            background-color: #f5f7fa;
         }
         
         .contact-container {
@@ -531,7 +721,7 @@
         .contact-text a {
             color: #666;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
         
         .contact-text a:hover {
@@ -557,7 +747,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: var(--transition);
         }
         
         .contact-form input:focus,
@@ -572,7 +762,7 @@
             resize: vertical;
         }
         
-        /* Footer */
+        /* ===== Footer ===== */
         footer {
             background-color: var(--primary);
             color: white;
@@ -614,7 +804,7 @@
         .footer-col ul li a {
             color: #ddd;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
         
         .footer-col ul li a:hover {
@@ -636,7 +826,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
@@ -652,25 +842,112 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive Adjustments */
+        /* ===== Modal ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .resource-list {
+                columns: 2;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
+            .resource-list {
+                columns: 1;
             }
             
             nav ul {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
             }
             
             nav ul li {
-                margin: 0.5rem;
+                margin: 0;
             }
             
-            .hero h2 {
-                font-size: 2.2rem;
+            nav ul li a {
+                padding: 0.8rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .section-title h2 {
@@ -678,17 +955,27 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 1.8rem;
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
             }
             
             .hero p {
                 font-size: 1rem;
             }
             
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
             .section-title h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -699,16 +986,21 @@
         <div class="container header-container">
             <div class="logo">
                 <img src="https://via.placeholder.com/50x50" alt="IELTS Master Logo">
-                <h1>IELTS <span>Master</span></h1>
+                <div class="logo-text">
+                    <h1>IELTS Master</h1>
+                    <span>5,000+ Resources</span>
+                </div>
             </div>
             <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#quick-links">Quick Links</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="cta-button">Free Trial</a></li>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                    <li><a href="#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -716,11 +1008,12 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Achieve Your Dream IELTS Score With Our Comprehensive Platform</h2>
-                <p>Access 250+ premium features, expert guidance, and personalized study plans to maximize your IELTS performance.</p>
-                <a href="#" class="cta-button">Get Started Now</a>
+        <div class="container hero-content">
+            <h1>Master IELTS With 5,000+ Premium Resources</h1>
+            <p>Access the most comprehensive collection of IELTS preparation materials, practice tests, and expert strategies to achieve your dream score</p>
+            <div class="hero-buttons">
+                <a href="#resources" class="btn btn-primary">Explore Resources</a>
+                <a href="#pricing" class="btn btn-secondary">Get Premium</a>
             </div>
         </div>
     </section>
@@ -729,139 +1022,364 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Our Powerful Features</h2>
-                <p>Discover the tools that will help you master all four IELTS components with confidence</p>
+                <h2>Why Choose IELTS Master?</h2>
+                <p>Our platform offers everything you need for comprehensive IELTS preparation</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-img">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Practice Tests">
+                        <span class="feature-badge">New</span>
                     </div>
                     <div class="feature-content">
-                        <h3>Full-Length Practice Tests</h3>
-                        <p>Simulate the real IELTS exam experience with our timed tests that mirror the actual test format and difficulty.</p>
-                        <a href="#" class="feature-link">Explore Tests →</a>
+                        <h3><i class="fas fa-clipboard-check"></i> 500+ Practice Tests</h3>
+                        <p>Full-length tests that mirror the actual IELTS exam format and difficulty level</p>
+                        <a href="#resources" class="feature-link">View Tests <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI Evaluation">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI Evaluation">
+                        <span class="feature-badge">Popular</span>
                     </div>
                     <div class="feature-content">
-                        <h3>AI-Powered Evaluation</h3>
-                        <p>Get instant, detailed feedback on your writing and speaking responses with our advanced AI assessment system.</p>
-                        <a href="#" class="feature-link">Try AI Evaluation →</a>
+                        <h3><i class="fas fa-robot"></i> AI-Powered Evaluation</h3>
+                        <p>Get instant, detailed feedback on your writing and speaking responses</p>
+                        <a href="#resources" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-img">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Study Plans">
+                        <span class="feature-badge">Premium</span>
                     </div>
                     <div class="feature-content">
-                        <h3>Personalized Study Plans</h3>
-                        <p>Receive customized study schedules based on your target score, available time, and weak areas.</p>
-                        <a href="#" class="feature-link">Create Your Plan →</a>
+                        <h3><i class="fas fa-calendar-alt"></i> Personalized Study Plans</h3>
+                        <p>Customized schedules based on your target score and available time</p>
+                        <a href="#resources" class="feature-link">Create Plan <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links" id="quick-links">
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
         <div class="container">
             <div class="section-title">
-                <h2>Quick Access to All Resources</h2>
-                <p>Find exactly what you need with our organized collection of 250+ IELTS preparation tools</p>
+                <h2>5,000+ IELTS Resources</h2>
+                <p>Organized by category for easy access to all preparation materials</p>
             </div>
             
-            <div class="tabs">
-                <button class="tab-button active" data-tab="listening">Listening</button>
-                <button class="tab-button" data-tab="reading">Reading</button>
-                <button class="tab-button" data-tab="writing">Writing</button>
-                <button class="tab-button" data-tab="speaking">Speaking</button>
-                <button class="tab-button" data-tab="vocabulary">Vocabulary</button>
-                <button class="tab-button" data-tab="mock-tests">Mock Tests</button>
+            <div class="resource-tabs">
+                <button class="resource-tab active" data-tab="cambridge">
+                    <i class="fas fa-book-open"></i> Cambridge Books
+                </button>
+                <button class="resource-tab" data-tab="writing">
+                    <i class="fas fa-pen-fancy"></i> Writing
+                </button>
+                <button class="resource-tab" data-tab="speaking">
+                    <i class="fas fa-comments"></i> Speaking
+                </button>
+                <button class="resource-tab" data-tab="vocabulary">
+                    <i class="fas fa-language"></i> Vocabulary
+                </button>
+                <button class="resource-tab" data-tab="grammar">
+                    <i class="fas fa-spell-check"></i> Grammar
+                </button>
+                <button class="resource-tab" data-tab="tests">
+                    <i class="fas fa-clipboard-list"></i> Practice Tests
+                </button>
             </div>
             
-            <div id="listening" class="tab-content active">
-                <div class="links-grid">
-                    <div class="link-item">
-                        <h4>Full Listening Tests</h4>
-                        <p>Complete listening tests with all 4 sections</p>
-                        <a href="#">Access Now →</a>
+            <!-- Cambridge Books Resources -->
+            <div id="cambridge" class="resource-content active">
+                <div class="resource-list">
+                    <!-- Sample of 10 resources (would include all 850+ in full implementation) -->
+                    <div class="resource-item">
+                        <h4><i class="fas fa-book"></i> Cambridge IELTS 1-19 Full Collection</h4>
+                        <p>Complete set of all Cambridge IELTS books with PDF and audio files</p>
+                        <a href="https://www.ieltsxpress.com/download-all-cambridge-ielts-books-pdf-audio-for-free-cambridge-1-14-free-download/" target="_blank" class="resource-link">Download Collection <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF + Audio</span>
+                            <span>850MB</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Section-Wise Practice</h4>
-                        <p>Focus on specific listening sections</p>
-                        <a href="#">Practice Now →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> Cambridge IELTS 16 Academic</h4>
+                        <p>Official Cambridge IELTS Academic preparation book with answers</p>
+                        <a href="https://www.cambridge.org/us/cambridgeenglish/catalog/cambridge-english-exams-ielts/cambridge-ielts-16-academic-students-book-answers" target="_blank" class="resource-link">Access Book <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>25MB</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Multiple Accents</h4>
-                        <p>Train your ear with various English accents</p>
-                        <a href="#">Start Training →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> Cambridge IELTS 15 Audio Files</h4>
+                        <p>Complete listening test audio files for Cambridge IELTS 15</p>
+                        <a href="https://ieltsmaterial.com/cambridge-ielts-15-audio/" target="_blank" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-music"></i> MP3</span>
+                            <span>120MB</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Playback Controls</h4>
-                        <p>Adjust speed and replay difficult parts</p>
-                        <a href="#">Try Controls →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-key"></i> Cambridge Answer Keys</h4>
+                        <p>Official answer keys for all Cambridge IELTS tests</p>
+                        <a href="https://www.ielts-mentor.com/cambridge-ielts" target="_blank" class="resource-link">View Answers <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Webpage</span>
+                            <span>All Books</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Transcripts & Answers</h4>
-                        <p>Review with full transcripts and explanations</p>
-                        <a href="#">View Resources →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-search"></i> Cambridge Book Preview</h4>
+                        <p>Preview pages from all Cambridge IELTS books before downloading</p>
+                        <a href="https://www.cambridge.org/us/cambridgeenglish/catalog/cambridge-english-exams-ielts" target="_blank" class="resource-link">View Previews <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-eye"></i> Online</span>
+                            <span>1-19</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Note-Taking Practice</h4>
-                        <p>Develop effective note-taking strategies</p>
-                        <a href="#">Practice Now →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-download"></i> Cambridge IELTS 14 GT</h4>
+                        <p>General Training version with answers and audio</p>
+                        <a href="https://ieltsmaterial.com/cambridge-ielts-14-pdf-audio-general-training/" target="_blank" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
+                            <span>65MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-university"></i> Academic Writing Samples</h4>
+                        <p>Band 9 writing samples from Cambridge books</p>
+                        <a href="https://www.ieltsbuddy.com/ielts-writing-samples.html" target="_blank" class="resource-link">View Samples <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Webpage</span>
+                            <span>50+ Samples</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-microphone"></i> Speaking Test Samples</h4>
+                        <p>Band 9 speaking tests from Cambridge books</p>
+                        <a href="https://www.ieltsspeaking.co.uk/ielts-speaking-samples/" target="_blank" class="resource-link">View Samples <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-video"></i> Videos</span>
+                            <span>20+ Tests</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-chart-bar"></i> Reading Strategies</h4>
+                        <p>Proven strategies from Cambridge IELTS experts</p>
+                        <a href="https://www.ieltsadvantage.com/reading/" target="_blank" class="resource-link">Learn Strategies <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Guide</span>
+                            <span>15 Techniques</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones-alt"></i> Listening Practice</h4>
+                        <p>Cambridge listening tests with answer keys</p>
+                        <a href="https://ieltsliz.com/ielts-listening/" target="_blank" class="resource-link">Practice Now <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-headphones"></i> Audio</span>
+                            <span>40+ Tests</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="support-info">
-                    <p><strong>Support for this section:</strong> <a href="mailto:listening@bijay.us">listening@bijay.us</a></p>
+                    <p><strong>Cambridge Books Support:</strong> <a href="mailto:books@npielts.us">books@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
                 </div>
             </div>
             
-            <div id="reading" class="tab-content">
-                <div class="links-grid">
-                    <div class="link-item">
-                        <h4>Academic Reading Tests</h3>
-                        <p>Full reading tests with 3 passages</p>
-                        <a href="#">Take Test →</a>
+            <!-- Writing Resources -->
+            <div id="writing" class="resource-content">
+                <div class="resource-list">
+                    <!-- Sample of 10 writing resources (would include all 1200+ in full implementation) -->
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> 230 IELTS Writing Samples</h4>
+                        <p>Comprehensive collection of band 6-9 writing samples for all task types</p>
+                        <a href="https://bayanebartar.org/file-dl/library/IELTS1/Ielts-230-Writing-Samples.pdf" target="_blank" class="resource-link">Download PDF <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>8.5MB</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>General Training</h4>
-                        <p>Practice tests for GT candidates</p>
-                        <a href="#">Start Practice →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-chart-bar"></i> Academic Task 1 Masterclass</h4>
+                        <p>Complete guide to describing graphs, charts and diagrams</p>
+                        <a href="https://www.ieltsadvantage.com/writing-task-1/" target="_blank" class="resource-link">Access Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Online</span>
+                            <span>15 Lessons</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>True/False/Not Given</h4>
-                        <p>Master this challenging question type</p>
-                        <a href="#">Practice Now →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-envelope"></i> GT Letter Writing Samples</h4>
+                        <p>50+ band 9 letter examples for General Training Task 1</p>
+                        <a href="https://www.ielts-writing.info/IELTS_Letter_Samples/" target="_blank" class="resource-link">View Samples <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Webpage</span>
+                            <span>Formal/Informal</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Matching Headings</h4>
-                        <p>Develop strategies for heading questions</p>
-                        <a href="#">Learn Techniques →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-edit"></i> Essay Structure Guide</h4>
+                        <p>Step-by-step guide to writing high-scoring essays</p>
+                        <a href="https://ted-ielts.com/ielts-writing-structure/" target="_blank" class="resource-link">Learn Structure <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Guide</span>
+                            <span>5 Essay Types</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Time Management</h4>
-                        <p>Tools to improve your reading speed</p>
-                        <a href="#">Improve Speed →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-word"></i> Band 9 Essay Samples</h4>
+                        <p>100+ band 9 essays with examiner comments</p>
+                        <a href="https://www.ielts-blog.com/ielts-writing-samples/ielts-essay-samples-of-band-8/" target="_blank" class="resource-link">View Essays <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Webpage</span>
+                            <span>100+ Samples</span>
+                        </div>
                     </div>
-                    <div class="link-item">
-                        <h4>Answer Explanations</h4>
-                        <p>Detailed explanations for all answers</p>
-                        <a href="#">View Explanations →</a>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-tasks"></i> Writing Task 2 Topics</h4>
+                        <p>300+ recent essay topics with sample answers</p>
+                        <a href="https://www.ielts-mentor.com/ielts-writing-sample" target="_blank" class="resource-link">View Topics <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Webpage</span>
+                            <span>Updated Weekly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-download"></i> Writing Vocabulary PDF</h4>
+                        <p>Essential vocabulary for IELTS writing tasks</p>
+                        <a href="https://www.ieltsadvantage.com/wp-content/uploads/2015/09/IELTS-Advantage-Writing-Skills.pdf" target="_blank" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>4.2MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-check-circle"></i> Common Mistakes</h4>
+                        <p>50 most common IELTS writing mistakes to avoid</p>
+                        <a href="https://www.ieltsbuddy.com/common-ielts-mistakes.html" target="_blank" class="resource-link">Learn More <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Guide</span>
+                            <span>With Examples</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-stopwatch"></i> Time Management Guide</h4>
+                        <p>How to manage your time effectively in the writing test</p>
+                        <a href="https://ieltsliz.com/ielts-writing-task-2-time-management/" target="_blank" class="resource-link">Read Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-alt"></i> Article</span>
+                            <span>Step-by-Step</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-project-diagram"></i> Essay Planning Tool</h4>
+                        <p>Interactive tool to help plan your essays</p>
+                        <a href="https://www.ieltsessaybank.com/ielts-essay-builder/" target="_blank" class="resource-link">Try Tool <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-magic"></i> Interactive</span>
+                            <span>All Essay Types</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="support-info">
-                    <p><strong>Support for this section:</strong> <a href="mailto:reading@bijay.us">reading@bijay.us</a></p>
+                    <p><strong>Writing Support:</strong> <a href="mailto:writing@npielts.us">writing@npielts.us</a> | <strong>General Support:</strong> <a href="mailto:support@npielts.us">support@npielts.us</a></p>
                 </div>
             </div>
             
-            <!-- Additional tab contents would follow the same pattern -->
+            <!-- Additional resource categories would follow the same pattern -->
             
+        </div>
+    </section>
+
+    <!-- Video Lessons Section -->
+    <section class="video-lessons">
+        <div class="container">
+            <div class="section-title">
+                <h2>Expert Video Lessons</h2>
+                <p>Learn from our band 9 instructors with comprehensive video tutorials</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Listening Tips">
+                        <div class="play-button" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Listening Section Masterclass</h3>
+                        <div class="video-meta">
+                            <span><i class="fas fa-user"></i> Sarah Johnson</span>
+                            <span><i class="fas fa-clock"></i> 24:35</span>
+                        </div>
+                        <p>Learn proven strategies to improve your listening score with our band 9 instructor.</p>
+                        <a href="#" class="feature-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Writing Task 2">
+                        <div class="play-button" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Writing Task 2: Opinion Essays</h3>
+                        <div class="video-meta">
+                            <span><i class="fas fa-user"></i> Michael Chen</span>
+                            <span><i class="fas fa-clock"></i> 32:15</span>
+                        </div>
+                        <p>Step-by-step guide to writing high-scoring opinion essays for IELTS Writing Task 2.</p>
+                        <a href="#" class="feature-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Speaking Part 2">
+                        <div class="play-button" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Speaking Part 2: Cue Card Strategies</h3>
+                        <div class="video-meta">
+                            <span><i class="fas fa-user"></i> Emma Wilson</span>
+                            <span><i class="fas fa-clock"></i> 18:42</span>
+                        </div>
+                        <p>Learn how to structure your 2-minute talk and impress the examiner with fluency.</p>
+                        <a href="#" class="feature-link">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn btn-primary">View All Video Lessons</a>
+            </div>
         </div>
     </section>
 
@@ -884,7 +1402,13 @@
                         <div class="author-info">
                             <h5>Sarah K.</h5>
                             <p>Scored 7.5 Overall</p>
-                            <div class="rating">★★★★★</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -899,7 +1423,13 @@
                         <div class="author-info">
                             <h5>Raj P.</h5>
                             <p>Scored 8.0 in Listening</p>
-                            <div class="rating">★★★★★</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -914,7 +1444,13 @@
                         <div class="author-info">
                             <h5>Maria L.</h5>
                             <p>Scored 7.5 Overall</p>
-                            <div class="rating">★★★★★</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -945,7 +1481,7 @@
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#" class="cta-button">Get Started</a>
+                        <a href="#" class="btn btn-primary">Get Started</a>
                     </div>
                 </div>
                 <div class="pricing-card">
@@ -962,10 +1498,11 @@
                             <li>Priority Support</li>
                             <li>Personalized Study Plan</li>
                             <li>Progress Analytics</li>
+                            <li>Video Lessons Library</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#" class="cta-button">Get Started</a>
+                        <a href="#" class="btn btn-primary">Get Started</a>
                     </div>
                 </div>
                 <div class="pricing-card">
@@ -981,10 +1518,11 @@
                             <li>24/7 Support</li>
                             <li>Examiner Feedback</li>
                             <li>Guaranteed Score Improvement</li>
+                            <li>All Video Courses</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="#" class="cta-button">Get Started</a>
+                        <a href="#" class="btn btn-primary">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -1006,16 +1544,16 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i>📧</i>
+                                <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <a href="mailto:support@bijay.us">support@bijay.us</a>
+                                <a href="mailto:support@npielts.us">support@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i>📱</i>
+                                <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>Phone</h4>
@@ -1024,7 +1562,7 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">
-                                <i>📍</i>
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>Address</h4>
@@ -1041,32 +1579,38 @@
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>Listening Support</h4>
-                                <a href="mailto:listening@bijay.us">listening@bijay.us</a>
+                                <a href="mailto:listening@npielts.us">listening@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>Reading Support</h4>
-                                <a href="mailto:reading@bijay.us">reading@bijay.us</a>
+                                <a href="mailto:reading@npielts.us">reading@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>Writing Support</h4>
-                                <a href="mailto:writing@bijay.us">writing@bijay.us</a>
+                                <a href="mailto:writing@npielts.us">writing@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>Speaking Support</h4>
-                                <a href="mailto:speaking@bijay.us">speaking@bijay.us</a>
+                                <a href="mailto:speaking@npielts.us">speaking@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>Technical Support</h4>
+                                <a href="mailto:tech@npielts.us">tech@npielts.us</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" placeholder="Enter your name" required>
@@ -1092,7 +1636,7 @@
                             <label for="message">Your Message</label>
                             <textarea id="message" placeholder="Enter your message" required></textarea>
                         </div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1105,12 +1649,12 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h4>IELTS Master</h4>
-                    <p>The most comprehensive IELTS preparation platform with 250+ features to help you achieve your dream score.</p>
+                    <p>Comprehensive preparation with 5,000+ features to help you achieve your dream score.</p>
                     <div class="social-links">
-                        <a href="#"><i>📱</i></a>
-                        <a href="#"><i>📘</i></a>
-                        <a href="#"><i>📸</i></a>
-                        <a href="#"><i>🐦</i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1118,7 +1662,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#quick-links">Resources</a></li>
+                        <li><a href="#resources">Resources</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1126,69 +1670,165 @@
                 <div class="footer-col">
                     <h4>IELTS Sections</h4>
                     <ul>
-                        <li><a href="#">Listening</a></li>
-                        <li><a href="#">Reading</a></li>
-                        <li><a href="#">Writing</a></li>
-                        <li><a href="#">Speaking</a></li>
-                        <li><a href="#">Vocabulary</a></li>
+                        <li><a href="#listening">Listening</a></li>
+                        <li><a href="#reading">Reading</a></li>
+                        <li><a href="#writing">Writing</a></li>
+                        <li><a href="#speaking">Speaking</a></li>
+                        <li><a href="#vocabulary">Vocabulary</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
+                    <h4>Contact Support</h4>
                     <ul>
-                        <li><a href="mailto:support@bijay.us">General Support</a></li>
-                        <li><a href="mailto:listening@bijay.us">Listening Help</a></li>
-                        <li><a href="mailto:reading@bijay.us">Reading Help</a></li>
-                        <li><a href="mailto:writing@bijay.us">Writing Help</a></li>
-                        <li><a href="mailto:speaking@bijay.us">Speaking Help</a></li>
+                        <li><a href="mailto:exam@npielts.us">Exam Questions</a></li>
+                        <li><a href="mailto:international@npielts.us">International Students</a></li>
+                        <li><a href="mailto:support@npielts.us">General Support</a></li>
+                        <li><a href="mailto:ielts@npielts.us">IELTS Information</a></li>
+                        <li><a href="mailto:speaking@npielts.us">Speaking Help</a></li>
+                        <li><a href="mailto:writing@npielts.us">Writing Help</a></li>
+                        <li><a href="mailto:reading@npielts.us">Reading Help</a></li>
+                        <li><a href="mailto:listening@npielts.us">Listening Help</a></li>
+                        <li><a href="mailto:tech@npielts.us">Technical Support</a></li>
+                        <li><a href="mailto:admin@npielts.us">Administration</a></li>
+                        <li><a href="mailto:it@npielts.us">IT Support</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 IELTS Master. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>&copy; 2023 IELTS Master. All rights reserved. | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Refund Policy</a>
+                </p>
             </div>
         </div>
     </footer>
 
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons and contents
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    // Show corresponding content
-                    const tabId = button.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Resource Tab Functionality
+        const resourceTabs = document.querySelectorAll('.resource-tab');
+        const resourceContents = document.querySelectorAll('.resource-content');
+        
+        resourceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                resourceTabs.forEach(t => t.classList.remove('active'));
+                resourceContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
         });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Video Modal Functionality
+        const playButtons = document.querySelectorAll('.play-button');
+        const modal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        const closeModal = document.querySelector('.close-modal');
+        
+        playButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoUrl = button.getAttribute('data-video');
+                videoFrame.src = videoUrl;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            videoFrame.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                videoFrame.src = '';
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Scroll Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .resource-item, .video-card, .testimonial-card, .pricing-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.feature-card, .resource-item, .video-card, .testimonial-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
