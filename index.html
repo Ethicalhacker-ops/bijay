@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IELTS Master Pro | 5,000+ Resources for IELTS Success</title>
-    <meta name="description" content="Comprehensive IELTS preparation platform with 5,000+ resources including Cambridge books, practice tests, video lessons, and expert strategies">
+    <title>IELTS PTE Master | Study Materials & Abroad Guidance</title>
+    <meta name="description" content="Comprehensive IELTS and PTE preparation platform with test books, practice materials, and study abroad information for major countries">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== Global Styles ===== */
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -109,7 +108,7 @@
             transform: translateY(-3px);
         }
         
-        /* ===== Header Styles ===== */
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -171,10 +170,6 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
         
-        nav ul li a i {
-            font-size: 0.9rem;
-        }
-        
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -184,7 +179,7 @@
             cursor: pointer;
         }
         
-        /* ===== Hero Section ===== */
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
@@ -223,7 +218,17 @@
             flex-wrap: wrap;
         }
         
-        /* ===== Features Section ===== */
+        /* Current Date Display */
+        .current-date {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Features Section */
         .features {
             background-color: white;
         }
@@ -310,7 +315,7 @@
             gap: 12px;
         }
         
-        /* ===== Resources Section ===== */
+        /* Resources Section */
         .resources {
             background-color: #f5f7fa;
         }
@@ -427,89 +432,61 @@
             border-top: 1px dashed #ddd;
         }
         
-        /* ===== Video Lessons ===== */
-        .video-lessons {
+        /* Country Guides Section */
+        .country-guides {
             background-color: white;
         }
         
-        .video-grid {
+        .country-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         
-        .video-card {
-            background-color: white;
+        .country-card {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
         }
         
-        .video-card:hover {
+        .country-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .video-thumbnail {
-            position: relative;
-            height: 180px;
+        .country-flag {
+            height: 150px;
             overflow: hidden;
         }
         
-        .video-thumbnail img {
+        .country-flag img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: rgba(231, 76, 60, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .play-button:hover {
-            background-color: rgba(231, 76, 60, 1);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-info {
+        .country-info {
             padding: 1.5rem;
         }
         
-        .video-info h3 {
+        .country-info h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
-        }
-        
-        .video-meta {
             display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: 8px;
         }
         
-        .video-info p {
+        .country-info p {
             color: #666;
             margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
         
-        /* ===== Testimonials ===== */
+        /* Testimonials */
         .testimonials {
             background-color: #f5f7fa;
         }
@@ -579,97 +556,7 @@
             margin-top: 0.5rem;
         }
         
-        /* ===== Pricing ===== */
-        .pricing {
-            background-color: white;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .pricing-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid #eee;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-header {
-            padding: 1.5rem;
-            text-align: center;
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .pricing-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .pricing-header .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .pricing-header .price span {
-            font-size: 1rem;
-            font-weight: normal;
-        }
-        
-        .pricing-features {
-            padding: 1.5rem;
-        }
-        
-        .pricing-features ul {
-            list-style: none;
-        }
-        
-        .pricing-features ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .pricing-features ul li:last-child {
-            border-bottom: none;
-        }
-        
-        .pricing-features ul li::before {
-            content: '✓';
-            color: var(--success);
-            margin-right: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .pricing-footer {
-            padding: 1.5rem;
-            text-align: center;
-        }
-        
-        .popular-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        /* ===== Contact ===== */
+        /* Contact Section */
         .contact {
             background-color: #f5f7fa;
         }
@@ -762,7 +649,7 @@
             resize: vertical;
         }
         
-        /* ===== Footer ===== */
+        /* Footer */
         footer {
             background-color: var(--primary);
             color: white;
@@ -842,322 +729,7 @@
             font-size: 0.9rem;
         }
         
-        /* ===== Modal ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            width: 90%;
-            max-width: 900px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* ===== Login/Signup Modal ===== */
-        .auth-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .auth-content {
-            background-color: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            padding: 2rem;
-        }
-        
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .auth-tab {
-            padding: 0.8rem 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            color: #666;
-            position: relative;
-        }
-        
-        .auth-tab.active {
-            color: var(--primary);
-        }
-        
-        .auth-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        .auth-form {
-            display: none;
-        }
-        
-        .auth-form.active {
-            display: block;
-        }
-        
-        .auth-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .auth-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-        
-        .auth-form input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .auth-form input:focus {
-            outline: none;
-            border-color: var(--secondary);
-        }
-        
-        .auth-form button {
-            width: 100%;
-            padding: 0.8rem;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .auth-form button:hover {
-            background-color: #c0392b;
-        }
-        
-        .auth-switch {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
-        }
-        
-        .auth-switch a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .auth-switch a:hover {
-            text-decoration: underline;
-        }
-        
-        /* ===== Dashboard Styles ===== */
-        .dashboard {
-            display: none;
-        }
-        
-        .dashboard-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-        }
-        
-        .dashboard-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .dashboard-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        .dashboard-nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .dashboard-nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .dashboard-main {
-            padding: 2rem 0;
-        }
-        
-        .dashboard-welcome {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-        
-        .dashboard-welcome h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .progress-container {
-            margin-top: 1.5rem;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background-color: #eee;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-        
-        .progress {
-            height: 100%;
-            background-color: var(--success);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        
-        .progress-text {
-            display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .dashboard-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .dashboard-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .dashboard-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* ===== Responsive ===== */
+        /* Responsive */
         @media (max-width: 992px) {
             .resource-list {
                 columns: 2;
@@ -1212,10 +784,6 @@
             .section-title h2 {
                 font-size: 2rem;
             }
-            
-            .dashboard-nav ul {
-                display: none;
-            }
         }
         
         @media (max-width: 576px) {
@@ -1240,924 +808,601 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
-            
-            .auth-content {
-                padding: 1.5rem;
-            }
-            
-            .auth-tabs {
-                flex-direction: column;
-                border-bottom: none;
-            }
-            
-            .auth-tab {
-                border-bottom: 1px solid #ddd;
-                text-align: center;
-            }
-            
-            .auth-tab.active::after {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Main Content (Visible when not logged in) -->
-    <div id="mainContent">
-        <!-- Header -->
-        <header>
-            <div class="container header-container">
-                <div class="logo">
-                    <img src="https://via.placeholder.com/50x50" alt="IELTS Master Logo">
-                    <div class="logo-text">
-                        <h1>IELTS Master</h1>
-                        <span>5,000+ Resources</span>
-                    </div>
-                </div>
-                <nav>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <ul id="navMenu">
-                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
-                        <li><a href="#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                        <li><a href="#" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="container hero-content">
-                <h1>Master IELTS With 5,000+ Premium Resources</h1>
-                <p>Access the most comprehensive collection of IELTS preparation materials, practice tests, and expert strategies to achieve your dream score</p>
-                <div class="hero-buttons">
-                    <a href="#resources" class="btn btn-primary">Explore Resources</a>
-                    <a href="#" id="signupBtn" class="btn btn-secondary">Create Free Account</a>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50" alt="IELTS PTE Master Logo">
+                <div class="logo-text">
+                    <h1>IELTS PTE Master</h1>
+                    <span>Study Materials & Abroad Guidance</span>
                 </div>
             </div>
-        </section>
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#materials"><i class="fas fa-book"></i> Study Materials</a></li>
+                    <li><a href="#countries"><i class="fas fa-globe"></i> Study Abroad</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Features Section -->
-        <section class="features" id="features">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Why Choose IELTS Master?</h2>
-                    <p>Our platform offers everything you need for comprehensive IELTS preparation</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="current-date" id="currentDate"></div>
+            <h1>Your Complete IELTS & PTE Preparation Solution</h1>
+            <p>Access thousands of resources, practice tests, and comprehensive guides for studying abroad in top destinations</p>
+            <div class="hero-buttons">
+                <a href="#materials" class="btn btn-primary">Explore Materials</a>
+                <a href="#countries" class="btn btn-secondary">Study Abroad Guides</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Offer</h2>
+                <p>Everything you need for successful IELTS/PTE preparation and studying abroad</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Test Materials">
+                    </div>
+                    <div class="feature-content">
+                        <h3><i class="fas fa-book-open"></i> Test Materials</h3>
+                        <p>Download Cambridge IELTS books, PTE guides, practice tests, and sample answers in PDF format.</p>
+                        <a href="#materials" class="feature-link">View Materials <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-img">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Practice Tests">
-                            <span class="feature-badge">New</span>
-                        </div>
-                        <div class="feature-content">
-                            <h3><i class="fas fa-clipboard-check"></i> 500+ Practice Tests</h3>
-                            <p>Full-length tests that mirror the actual IELTS exam format and difficulty level</p>
-                            <a href="#resources" class="feature-link">View Tests <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Study Abroad">
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-img">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="AI Evaluation">
-                            <span class="feature-badge">Popular</span>
-                        </div>
-                        <div class="feature-content">
-                            <h3><i class="fas fa-robot"></i> AI-Powered Evaluation</h3>
-                            <p>Get instant, detailed feedback on your writing and speaking responses</p>
-                            <a href="#resources" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                    <div class="feature-content">
+                        <h3><i class="fas fa-globe-americas"></i> Study Abroad Guides</h3>
+                        <p>Comprehensive information about studying in the UK, USA, Canada, Australia, and other popular destinations.</p>
+                        <a href="#countries" class="feature-link">View Countries <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-img">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Study Plans">
-                            <span class="feature-badge">Premium</span>
-                        </div>
-                        <div class="feature-content">
-                            <h3><i class="fas fa-calendar-alt"></i> Personalized Study Plans</h3>
-                            <p>Customized schedules based on your target score and available time</p>
-                            <a href="#resources" class="feature-link">Create Plan <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Support">
+                    </div>
+                    <div class="feature-content">
+                        <h3><i class="fas fa-headset"></i> Expert Support</h3>
+                        <p>Get help from our specialized departments for each test section and study abroad queries.</p>
+                        <a href="#contact" class="feature-link">Contact Us <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Resources Section -->
-        <section class="resources" id="resources">
-            <div class="container">
-                <div class="section-title">
-                    <h2>5,000+ IELTS Resources</h2>
-                    <p>Organized by category for easy access to all preparation materials</p>
+    <!-- Study Materials Section -->
+    <section class="resources" id="materials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Study Materials</h2>
+                <p>Download free resources for IELTS and PTE preparation</p>
+            </div>
+            
+            <div class="resource-tabs">
+                <button class="resource-tab active" data-tab="ielts">
+                    <i class="fas fa-book-open"></i> IELTS Materials
+                </button>
+                <button class="resource-tab" data-tab="pte">
+                    <i class="fas fa-file-alt"></i> PTE Materials
+                </button>
+                <button class="resource-tab" data-tab="practice">
+                    <i class="fas fa-clipboard-list"></i> Practice Tests
+                </button>
+            </div>
+            
+            <!-- IELTS Materials -->
+            <div id="ielts" class="resource-content active">
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> Cambridge IELTS 1-19 Collection</h4>
+                        <p>Complete set of all Cambridge IELTS books with answers and audio files</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Collection <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
+                            <span>850MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Writing Samples</h4>
+                        <p>Band 9 writing samples for both Academic and General Training</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download PDF <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>8.5MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> IELTS Listening Practice</h4>
+                        <p>Complete listening tests with answer keys and audio files</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-music"></i> MP3</span>
+                            <span>120MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-word"></i> IELTS Speaking Guide</h4>
+                        <p>Complete guide with sample answers for all speaking parts</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>5.2MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-key"></i> IELTS Answer Keys</h4>
+                        <p>Official answer keys for all Cambridge IELTS tests</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Keys <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>3.1MB</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="resource-tabs">
-                    <button class="resource-tab active" data-tab="cambridge">
-                        <i class="fas fa-book-open"></i> Cambridge Books
-                    </button>
-                    <button class="resource-tab" data-tab="writing">
-                        <i class="fas fa-pen-fancy"></i> Writing
-                    </button>
-                    <button class="resource-tab" data-tab="speaking">
-                        <i class="fas fa-comments"></i> Speaking
-                    </button>
-                    <button class="resource-tab" data-tab="vocabulary">
-                        <i class="fas fa-language"></i> Vocabulary
-                    </button>
-                    <button class="resource-tab" data-tab="grammar">
-                        <i class="fas fa-spell-check"></i> Grammar
-                    </button>
-                    <button class="resource-tab" data-tab="tests">
-                        <i class="fas fa-clipboard-list"></i> Practice Tests
-                    </button>
+                <div class="support-info">
+                    <p><strong>IELTS Support:</strong> <a href="mailto:ielts@npielts.us">ielts@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
+                </div>
+            </div>
+            
+            <!-- PTE Materials -->
+            <div id="pte" class="resource-content">
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> Official PTE Guide</h4>
+                        <p>The complete official guide to PTE Academic with practice tests</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>25MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> PTE Speaking Samples</h4>
+                        <p>Audio samples for all speaking question types with transcripts</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-music"></i> MP3</span>
+                            <span>45MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-word"></i> PTE Writing Templates</h4>
+                        <p>High-scoring templates for essay and summarize written text</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Templates <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>2.8MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> PTE Vocabulary List</h4>
+                        <p>Essential vocabulary for all PTE sections</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download List <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>4.1MB</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Cambridge Books Resources -->
-                <div id="cambridge" class="resource-content active">
-                    <div class="resource-list">
-                        <!-- Sample of 10 resources (would include all 850+ in full implementation) -->
-                        <div class="resource-item">
-                            <h4><i class="fas fa-book"></i> Cambridge IELTS 1-19 Full Collection</h4>
-                            <p>Complete set of all Cambridge IELTS books with PDF and audio files</p>
-                            <a href="#" class="resource-link login-required">Download Collection <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-pdf"></i> PDF + Audio</span>
-                                <span>850MB</span>
+                <div class="support-info">
+                    <p><strong>PTE Support:</strong> <a href="mailto:pte@npielts.us">pte@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
+                </div>
+            </div>
+            
+            <!-- Practice Tests -->
+            <div id="practice" class="resource-content">
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h4><i class="fas fa-clipboard-list"></i> IELTS Full Practice Test</h4>
+                        <p>Complete IELTS Academic practice test with all sections</p>
+                        <a href="https://ielts.org/practice-test" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-laptop"></i> Online</span>
+                            <span>2h 45m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-microphone"></i> PTE Speaking Mock</h4>
+                        <p>Practice PTE speaking questions with instant feedback</p>
+                        <a href="https://ptepractice.com/speaking" class="resource-link">Try Test <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-laptop"></i> Online</span>
+                            <span>30m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Writing Practice</h4>
+                        <p>50 writing tasks with sample answers and examiner comments</p>
+                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>7.3MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> PTE Listening Mock</h4>
+                        <p>Full PTE listening test with audio files and answer key</p>
+                        <a href="https://ptepractice.com/listening" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-laptop"></i> Online</span>
+                            <span>45m</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="support-info">
+                    <p><strong>Practice Test Support:</strong> <a href="mailto:practice@npielts.us">practice@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Country Guides Section -->
+    <section class="country-guides" id="countries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Study Abroad Guides</h2>
+                <p>Comprehensive information about studying in top destinations worldwide</p>
+            </div>
+            <div class="country-grid">
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/gb.png" alt="UK Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-landmark"></i> United Kingdom</h3>
+                        <p>Complete guide to studying in the UK including top universities, visa process, and scholarships.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/us.png" alt="USA Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-university"></i> United States</h3>
+                        <p>Everything about studying in the USA - from Ivy League to state universities and visa requirements.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-maple-leaf"></i> Canada</h3>
+                        <p>Guide to Canadian education system, popular programs, and post-study work opportunities.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-koala"></i> Australia</h3>
+                        <p>Complete information about Australian universities, student visa process, and living costs.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-kiwi-bird"></i> New Zealand</h3>
+                        <p>Guide to studying in New Zealand with information about universities and immigration pathways.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="country-card">
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w320/eu.png" alt="Europe Flag">
+                    </div>
+                    <div class="country-info">
+                        <h3><i class="fas fa-monument"></i> Europe</h3>
+                        <p>Comprehensive guide to studying in Germany, France, Netherlands and other European countries.</p>
+                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from students who achieved their study abroad dreams with our help</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The materials and guidance helped me score 8.0 in IELTS and get into my dream university in the UK!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K.">
+                        </div>
+                        <div class="author-info">
+                            <h5>Sarah K.</h5>
+                            <p>University of London</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-file-pdf"></i> Cambridge IELTS 16 Academic</h4>
-                            <p>Official Cambridge IELTS Academic preparation book with answers</p>
-                            <a href="#" class="resource-link login-required">Access Book <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-pdf"></i> PDF</span>
-                                <span>25MB</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Thanks to the PTE materials, I scored 85+ and got my Australian student visa approved!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Raj P.">
+                        </div>
+                        <div class="author-info">
+                            <h5>Raj P.</h5>
+                            <p>University of Sydney</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-headphones"></i> Cambridge IELTS 15 Audio Files</h4>
-                            <p>Complete listening test audio files for Cambridge IELTS 15</p>
-                            <a href="#" class="resource-link login-required">Download Audio <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-music"></i> MP3</span>
-                                <span>120MB</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The Canada study guide helped me navigate the entire process from application to visa approval.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria L.">
+                        </div>
+                        <div class="author-info">
+                            <h5>Maria L.</h5>
+                            <p>University of Toronto</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-key"></i> Cambridge Answer Keys</h4>
-                            <p>Official answer keys for all Cambridge IELTS tests</p>
-                            <a href="#" class="resource-link login-required">View Answers <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Webpage</span>
-                                <span>All Books</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Contact our specialized departments for any questions</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Reach out to our specialized departments for assistance with your IELTS/PTE preparation or study abroad plans.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>General Inquiries</h4>
+                                <a href="mailto:info@npielts.us">info@npielts.us</a>
                             </div>
                         </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-search"></i> Cambridge Book Preview</h4>
-                            <p>Preview pages from all Cambridge IELTS books before downloading</p>
-                            <a href="#" class="resource-link login-required">View Previews <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-eye"></i> Online</span>
-                                <span>1-19</span>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
                             </div>
                         </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-download"></i> Cambridge IELTS 14 GT</h4>
-                            <p>General Training version with answers and audio</p>
-                            <a href="#" class="resource-link login-required">Download <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
-                                <span>65MB</span>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-university"></i> Academic Writing Samples</h4>
-                            <p>Band 9 writing samples from Cambridge books</p>
-                            <a href="#" class="resource-link login-required">View Samples <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Webpage</span>
-                                <span>50+ Samples</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-microphone"></i> Speaking Test Samples</h4>
-                            <p>Band 9 speaking tests from Cambridge books</p>
-                            <a href="#" class="resource-link login-required">View Samples <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-video"></i> Videos</span>
-                                <span>20+ Tests</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-chart-bar"></i> Reading Strategies</h4>
-                            <p>Proven strategies from Cambridge IELTS experts</p>
-                            <a href="#" class="resource-link login-required">Learn Strategies <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Guide</span>
-                                <span>15 Techniques</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-headphones-alt"></i> Listening Practice</h4>
-                            <p>Cambridge listening tests with answer keys</p>
-                            <a href="#" class="resource-link login-required">Practice Now <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-headphones"></i> Audio</span>
-                                <span>40+ Tests</span>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>123 Education Street, Learning City, 10001</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="support-info">
-                        <p><strong>Cambridge Books Support:</strong> <a href="mailto:books@npielts.us">books@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
-                    </div>
-                </div>
-                
-                <!-- Writing Resources -->
-                <div id="writing" class="resource-content">
-                    <div class="resource-list">
-                        <!-- Sample of 10 writing resources (would include all 1200+ in full implementation) -->
-                        <div class="resource-item">
-                            <h4><i class="fas fa-file-pdf"></i> 230 IELTS Writing Samples</h4>
-                            <p>Comprehensive collection of band 6-9 writing samples for all task types</p>
-                            <a href="#" class="resource-link login-required">Download PDF <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-pdf"></i> PDF</span>
-                                <span>8.5MB</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-chart-bar"></i> Academic Task 1 Masterclass</h4>
-                            <p>Complete guide to describing graphs, charts and diagrams</p>
-                            <a href="#" class="resource-link login-required">Access Guide <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Online</span>
-                                <span>15 Lessons</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-envelope"></i> GT Letter Writing Samples</h4>
-                            <p>50+ band 9 letter examples for General Training Task 1</p>
-                            <a href="#" class="resource-link login-required">View Samples <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Webpage</span>
-                                <span>Formal/Informal</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-edit"></i> Essay Structure Guide</h4>
-                            <p>Step-by-step guide to writing high-scoring essays</p>
-                            <a href="#" class="resource-link login-required">Learn Structure <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Guide</span>
-                                <span>5 Essay Types</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-file-word"></i> Band 9 Essay Samples</h4>
-                            <p>100+ band 9 essays with examiner comments</p>
-                            <a href="#" class="resource-link login-required">View Essays <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Webpage</span>
-                                <span>100+ Samples</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-tasks"></i> Writing Task 2 Topics</h4>
-                            <p>300+ recent essay topics with sample answers</p>
-                            <a href="#" class="resource-link login-required">View Topics <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Webpage</span>
-                                <span>Updated Weekly</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-file-download"></i> Writing Vocabulary PDF</h4>
-                            <p>Essential vocabulary for IELTS writing tasks</p>
-                            <a href="#" class="resource-link login-required">Download <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-pdf"></i> PDF</span>
-                                <span>4.2MB</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-check-circle"></i> Common Mistakes</h4>
-                            <p>50 most common IELTS writing mistakes to avoid</p>
-                            <a href="#" class="resource-link login-required">Learn More <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Guide</span>
-                                <span>With Examples</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-stopwatch"></i> Time Management Guide</h4>
-                            <p>How to manage your time effectively in the writing test</p>
-                            <a href="#" class="resource-link login-required">Read Guide <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-file-alt"></i> Article</span>
-                                <span>Step-by-Step</span>
-                            </div>
-                        </div>
-                        
-                        <div class="resource-item">
-                            <h4><i class="fas fa-project-diagram"></i> Essay Planning Tool</h4>
-                            <p>Interactive tool to help plan your essays</p>
-                            <a href="#" class="resource-link login-required">Try Tool <i class="fas fa-external-link-alt"></i></a>
-                            <div class="resource-meta">
-                                <span><i class="fas fa-magic"></i> Interactive</span>
-                                <span>All Essay Types</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 style="margin-top: 2rem;">Department Contacts</h3>
                     
-                    <div class="support-info">
-                        <p><strong>Writing Support:</strong> <a href="mailto:writing@npielts.us">writing@npielts.us</a> | <strong>General Support:</strong> <a href="mailto:support@npielts.us">support@npielts.us</a></p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>IELTS Support</h4>
+                                <a href="mailto:ielts@npielts.us">ielts@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>PTE Support</h4>
+                                <a href="mailto:pte@npielts.us">pte@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>UK Study</h4>
+                                <a href="mailto:uk@npielts.us">uk@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>USA Study</h4>
+                                <a href="mailto:usa@npielts.us">usa@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>Canada Study</h4>
+                                <a href="mailto:canada@npielts.us">canada@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>Technical Support</h4>
+                                <a href="mailto:tech@npielts.us">tech@npielts.us</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Additional resource categories would follow the same pattern -->
-                
-            </div>
-        </section>
-
-        <!-- Video Lessons Section -->
-        <section class="video-lessons">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Expert Video Lessons</h2>
-                    <p>Learn from our band 9 instructors with comprehensive video tutorials</p>
-                </div>
-                <div class="video-grid">
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Listening Tips">
-                            <div class="play-button" data-video="https://www.youtube.com/embed/5rC7gB_y5s4">
-                                <i class="fas fa-play"></i>
-                            </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xanooyvg" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
-                        <div class="video-info">
-                            <h3>Listening Section Masterclass</h3>
-                            <div class="video-meta">
-                                <span><i class="fas fa-user"></i> Sarah Johnson</span>
-                                <span><i class="fas fa-clock"></i> 24:35</span>
-                            </div>
-                            <p>Learn proven strategies to improve your listening score with our band 9 instructor.</p>
-                            <a href="#" class="feature-link login-required">Watch Now <i class="fas fa-arrow-right"></i></a>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Writing Task 2">
-                            <div class="play-button" data-video="https://www.youtube.com/embed/9Po8MgZbF2U">
-                                <i class="fas fa-play"></i>
-                            </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a department</option>
+                                <option value="ielts">IELTS Support</option>
+                                <option value="pte">PTE Support</option>
+                                <option value="uk">UK Study</option>
+                                <option value="usa">USA Study</option>
+                                <option value="canada">Canada Study</option>
+                                <option value="australia">Australia Study</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
                         </div>
-                        <div class="video-info">
-                            <h3>Writing Task 2: Opinion Essays</h3>
-                            <div class="video-meta">
-                                <span><i class="fas fa-user"></i> Michael Chen</span>
-                                <span><i class="fas fa-clock"></i> 32:15</span>
-                            </div>
-                            <p>Step-by-step guide to writing high-scoring opinion essays for IELTS Writing Task 2.</p>
-                            <a href="#" class="feature-link login-required">Watch Now <i class="fas fa-arrow-right"></i></a>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
                         </div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Speaking Part 2">
-                            <div class="play-button" data-video="https://www.youtube.com/embed/7XFLTDQ4JMk">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <h3>Speaking Part 2: Cue Card Strategies</h3>
-                            <div class="video-meta">
-                                <span><i class="fas fa-user"></i> Emma Wilson</span>
-                                <span><i class="fas fa-clock"></i> 18:42</span>
-                            </div>
-                            <p>Learn how to structure your 2-minute talk and impress the examiner with fluency.</p>
-                            <a href="#" class="feature-link login-required">Watch Now <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#" class="btn btn-primary login-required">View All Video Lessons</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Success Stories</h2>
-                    <p>Hear from students who achieved their dream scores with our platform</p>
-                </div>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>IELTS Master helped me improve my writing from 6.0 to 7.5 in just 3 weeks. The detailed feedback on my essays was invaluable.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-img">
-                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K.">
-                            </div>
-                            <div class="author-info">
-                                <h5>Sarah K.</h5>
-                                <p>Scored 7.5 Overall</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>The listening practice with different accents was exactly what I needed. I went from 6.5 to 8.0 in listening!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-img">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Raj P.">
-                            </div>
-                            <div class="author-info">
-                                <h5>Raj P.</h5>
-                                <p>Scored 8.0 in Listening</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>I was stuck at 6.0 overall for 2 years. With IELTS Master's personalized study plan, I finally achieved 7.5!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-img">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria L.">
-                            </div>
-                            <div class="author-info">
-                                <h5>Maria L.</h5>
-                                <p>Scored 7.5 Overall</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>IELTS PTE Master</h4>
+                    <p>Your complete solution for English test preparation and study abroad guidance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="pricing" id="pricing">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Flexible Pricing Plans</h2>
-                    <p>Choose the plan that fits your preparation needs and budget</p>
-                </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Basic</h3>
-                            <div class="price">$19<span>/month</span></div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li>10 Full Practice Tests</li>
-                                <li>Basic Writing Evaluation</li>
-                                <li>Vocabulary Builder</li>
-                                <li>Email Support</li>
-                                <li>Study Plan Generator</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="pricing-card">
-                        <div class="popular-tag">Most Popular</div>
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                            <div class="price">$39<span>/month</span></div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li>Unlimited Practice Tests</li>
-                                <li>Advanced AI Writing Evaluation</li>
-                                <li>Speaking Assessment</li>
-                                <li>Priority Support</li>
-                                <li>Personalized Study Plan</li>
-                                <li>Progress Analytics</li>
-                                <li>Video Lessons Library</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Intensive</h3>
-                            <div class="price">$99<span>/month</span></div>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li>Everything in Premium</li>
-                                <li>Weekly 1-on-1 Tutoring</li>
-                                <li>Custom Test Creation</li>
-                                <li>24/7 Support</li>
-                                <li>Examiner Feedback</li>
-                                <li>Guaranteed Score Improvement</li>
-                                <li>All Video Courses</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="#" class="btn btn-primary">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Get In Touch</h2>
-                    <p>Have questions? Our support team is ready to help you with any inquiries</p>
-                </div>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>Reach out to us for any questions about our platform, features, or your IELTS preparation journey.</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Email</h4>
-                                    <a href="mailto:support@npielts.us">support@npielts.us</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Phone</h4>
-                                    <a href="tel:+1234567890">+1 (234) 567-890</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Address</h4>
-                                    <p>123 IELTS Street, Education City, 10001</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="section-title">
-                            <h3>Section-Specific Support</h3>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <div class="contact-text">
-                                    <h4>Listening Support</h4>
-                                    <a href="mailto:listening@npielts.us">listening@npielts.us</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-text">
-                                    <h4>Reading Support</h4>
-                                    <a href="mailto:reading@npielts.us">reading@npielts.us</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-text">
-                                    <h4>Writing Support</h4>
-                                    <a href="mailto:writing@npielts.us">writing@npielts.us</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-text">
-                                    <h4>Speaking Support</h4>
-                                    <a href="mailto:speaking@npielts.us">speaking@npielts.us</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-text">
-                                    <h4>Technical Support</h4>
-                                    <a href="mailto:tech@npielts.us">tech@npielts.us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" placeholder="Enter your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" placeholder="Enter your email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <select id="subject" required>
-                                    <option value="">Select a subject</option>
-                                    <option value="general">General Inquiry</option>
-                                    <option value="technical">Technical Support</option>
-                                    <option value="listening">Listening Section</option>
-                                    <option value="reading">Reading Section</option>
-                                    <option value="writing">Writing Section</option>
-                                    <option value="speaking">Speaking Section</option>
-                                    <option value="billing">Billing Question</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" placeholder="Enter your message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-container">
-                    <div class="footer-col">
-                        <h4>IELTS Master</h4>
-                        <p>Comprehensive preparation with 5,000+ features to help you achieve your dream score.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#resources">Resources</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>IELTS Sections</h4>
-                        <ul>
-                            <li><a href="#listening">Listening</a></li>
-                            <li><a href="#reading">Reading</a></li>
-                            <li><a href="#writing">Writing</a></li>
-                            <li><a href="#speaking">Speaking</a></li>
-                            <li><a href="#vocabulary">Vocabulary</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Contact Support</h4>
-                        <ul>
-                            <li><a href="mailto:exam@npielts.us">Exam Questions</a></li>
-                            <li><a href="mailto:international@npielts.us">International Students</a></li>
-                            <li><a href="mailto:support@npielts.us">General Support</a></li>
-                            <li><a href="mailto:ielts@npielts.us">IELTS Information</a></li>
-                            <li><a href="mailto:speaking@npielts.us">Speaking Help</a></li>
-                            <li><a href="mailto:writing@npielts.us">Writing Help</a></li>
-                            <li><a href="mailto:reading@npielts.us">Reading Help</a></li>
-                            <li><a href="mailto:listening@npielts.us">Listening Help</a></li>
-                            <li><a href="mailto:tech@npielts.us">Technical Support</a></li>
-                            <li><a href="mailto:admin@npielts.us">Administration</a></li>
-                            <li><a href="mailto:it@npielts.us">IT Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2023 IELTS Master. All rights reserved. | 
-                        <a href="#">Privacy Policy</a> | 
-                        <a href="#">Terms of Service</a> | 
-                        <a href="#">Refund Policy</a>
-                    </p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Dashboard Content (Visible when logged in) -->
-    <div id="dashboardContent" class="dashboard">
-        <!-- Dashboard Header -->
-        <header class="dashboard-header">
-            <div class="container">
-                <div class="dashboard-nav">
-                    <div class="logo">
-                        <img src="https://via.placeholder.com/50x50" alt="IELTS Master Logo">
-                        <div class="logo-text">
-                            <h1>IELTS Master</h1>
-                        </div>
-                    </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
-                        <li><a href="#practice"><i class="fas fa-book"></i> Practice</a></li>
-                        <li><a href="#progress"><i class="fas fa-chart-line"></i> Progress</a></li>
-                        <li><a href="#resources"><i class="fas fa-file-alt"></i> Resources</a></li>
-                        <li><a href="#support"><i class="fas fa-question-circle"></i> Support</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#materials">Study Materials</a></li>
+                        <li><a href="#countries">Study Abroad</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                    <div class="user-menu">
-                        <div class="user-avatar" id="userMenuBtn">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Test Resources</h4>
+                    <ul>
+                        <li><a href="#ielts">IELTS Materials</a></li>
+                        <li><a href="#pte">PTE Materials</a></li>
+                        <li><a href="#practice">Practice Tests</a></li>
+                        <li><a href="#">Study Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Support</h4>
+                    <ul>
+                        <li><a href="mailto:ielts@npielts.us">IELTS Support</a></li>
+                        <li><a href="mailto:pte@npielts.us">PTE Support</a></li>
+                        <li><a href="mailto:uk@npielts.us">UK Study</a></li>
+                        <li><a href="mailto:usa@npielts.us">USA Study</a></li>
+                        <li><a href="mailto:canada@npielts.us">Canada Study</a></li>
+                        <li><a href="mailto:tech@npielts.us">Technical Support</a></li>
+                    </ul>
                 </div>
             </div>
-        </header>
-
-        <!-- Dashboard Main Content -->
-        <main class="dashboard-main">
-            <div class="container">
-                <div class="dashboard-welcome">
-                    <h2>Welcome back, <span id="userName">Student</span>!</h2>
-                    <p>You're making great progress in your IELTS preparation. Here's what you can do today:</p>
-                    
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress" id="userProgress" style="width: 45%;"></div>
-                        </div>
-                        <div class="progress-text">
-                            <span>Current Band Score: 6.0</span>
-                            <span>Target Band Score: 7.5</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-clipboard-list"></i> Practice Tests</h3>
-                        <p>Take a full-length IELTS practice test to assess your current level and identify areas for improvement.</p>
-                        <a href="#" class="btn btn-primary">Start Practice Test</a>
-                    </div>
-                    
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-pen-fancy"></i> Writing Evaluation</h3>
-                        <p>Submit your writing tasks for detailed feedback from our IELTS experts and AI analysis.</p>
-                        <a href="#" class="btn btn-primary">Submit Writing</a>
-                    </div>
-                    
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-comments"></i> Speaking Practice</h3>
-                        <p>Record your speaking responses and get feedback on fluency, pronunciation, and vocabulary.</p>
-                        <a href="#" class="btn btn-primary">Practice Speaking</a>
-                    </div>
-                    
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-calendar-alt"></i> Study Plan</h3>
-                        <p>View your personalized study plan based on your target score and available preparation time.</p>
-                        <a href="#" class="btn btn-primary">View Plan</a>
-                    </div>
-                    
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-video"></i> Video Lessons</h3>
-                        <p>Watch expert-led video lessons covering all IELTS sections and question types.</p>
-                        <a href="#" class="btn btn-primary">Browse Videos</a>
-                    </div>
-                    
-                    <div class="dashboard-card">
-                        <h3><i class="fas fa-book"></i> Resource Library</h3>
-                        <p>Access our collection of 5,000+ IELTS preparation materials, including Cambridge books.</p>
-                        <a href="#" class="btn btn-primary">View Resources</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Video Modal -->
-    <div class="modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="video-container">
-                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> IELTS PTE Master. All rights reserved. | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Refund Policy</a>
+                </p>
             </div>
         </div>
-    </div>
-
-    <!-- Login/Signup Modal -->
-    <div class="auth-modal" id="authModal">
-        <div class="auth-content">
-            <span class="close-modal">&times;</span>
-            
-            <div class="auth-tabs">
-                <button class="auth-tab active" data-tab="login">Login</button>
-                <button class="auth-tab" data-tab="signup">Sign Up</button>
-            </div>
-            
-            <form id="loginForm" class="auth-form active">
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
-                </div>
-                <button type="submit">Login</button>
-                <div class="auth-switch">
-                    Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
-                </div>
-            </form>
-            
-            <form id="signupForm" class="auth-form">
-                <div class="form-group">
-                    <label for="signupName">Full Name</label>
-                    <input type="text" id="signupName" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail">Email</label>
-                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" placeholder="Create a password" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupConfirmPassword">Confirm Password</label>
-                    <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required>
-                </div>
-                <button type="submit">Create Account</button>
-                <div class="auth-switch">
-                    Already have an account? <a href="#" id="switchToLogin">Login</a>
-                </div>
-            </form>
-        </div>
-    </div>
+    </footer>
 
     <script>
-        // Check if user is logged in (in a real app, this would check with the backend)
-        let isLoggedIn = false;
-        let currentUser = null;
-
-        // DOM Elements
-        const mainContent = document.getElementById('mainContent');
-        const dashboardContent = document.getElementById('dashboardContent');
-        const loginBtn = document.getElementById('loginBtn');
-        const signupBtn = document.getElementById('signupBtn');
-        const authModal = document.getElementById('authModal');
-        const closeModalBtns = document.querySelectorAll('.close-modal');
-        const loginForm = document.getElementById('loginForm');
-        const signupForm = document.getElementById('signupForm');
-        const switchToSignup = document.getElementById('switchToSignup');
-        const switchToLogin = document.getElementById('switchToLogin');
-        const authTabs = document.querySelectorAll('.auth-tab');
-        const authForms = document.querySelectorAll('.auth-form');
-        const loginRequiredLinks = document.querySelectorAll('.login-required');
-        const userName = document.getElementById('userName');
-        const userProgress = document.getElementById('userProgress');
-
+        // Display current date
+        const currentDateElement = document.getElementById('currentDate');
+        const currentYearElement = document.getElementById('currentYear');
+        
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date();
+        
+        currentDateElement.textContent = today.toLocaleDateString('en-US', options);
+        currentYearElement.textContent = today.getFullYear();
+        
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
@@ -2211,200 +1456,9 @@
             });
         });
         
-        // Video Modal Functionality
-        const playButtons = document.querySelectorAll('.play-button');
-        const videoModal = document.getElementById('videoModal');
-        const videoFrame = document.getElementById('videoFrame');
-        
-        playButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const videoUrl = button.getAttribute('data-video');
-                videoFrame.src = videoUrl;
-                videoModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        // Close Modal Functionality
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                videoModal.style.display = 'none';
-                authModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                videoFrame.src = '';
-            });
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === videoModal || e.target === authModal) {
-                videoModal.style.display = 'none';
-                authModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                videoFrame.src = '';
-            }
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-        
-        // Login/Signup Modal Toggle
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-        
-        signupBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            // Switch to signup tab
-            authTabs.forEach(tab => tab.classList.remove('active'));
-            authForms.forEach(form => form.classList.remove('active'));
-            document.querySelector('.auth-tab[data-tab="signup"]').classList.add('active');
-            document.getElementById('signupForm').classList.add('active');
-        });
-        
-        // Switch between login and signup forms
-        switchToSignup.addEventListener('click', (e) => {
-            e.preventDefault();
-            authTabs.forEach(tab => tab.classList.remove('active'));
-            authForms.forEach(form => form.classList.remove('active'));
-            document.querySelector('.auth-tab[data-tab="signup"]').classList.add('active');
-            document.getElementById('signupForm').classList.add('active');
-        });
-        
-        switchToLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            authTabs.forEach(tab => tab.classList.remove('active'));
-            authForms.forEach(form => form.classList.remove('active'));
-            document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
-            document.getElementById('loginForm').classList.add('active');
-        });
-        
-        // Auth tab switching
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-                authTabs.forEach(t => t.classList.remove('active'));
-                authForms.forEach(f => f.classList.remove('active'));
-                tab.classList.add('active');
-                document.getElementById(`${tabId}Form`).classList.add('active');
-            });
-        });
-        
-        // Login Form Submission
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            // In a real app, this would call your backend API
-            if (email && password) {
-                // Simulate successful login
-                isLoggedIn = true;
-                currentUser = {
-                    name: email.split('@')[0],
-                    email: email,
-                    progress: Math.floor(Math.random() * 30) + 20 // Random progress between 20-50%
-                };
-                
-                // Update UI
-                mainContent.style.display = 'none';
-                dashboardContent.style.display = 'block';
-                userName.textContent = currentUser.name;
-                userProgress.style.width = `${currentUser.progress}%`;
-                
-                // Close modal
-                authModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                // Reset form
-                loginForm.reset();
-            } else {
-                alert('Please enter both email and password');
-            }
-        });
-        
-        // Signup Form Submission
-        signupForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('signupConfirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Passwords do not match');
-                return;
-            }
-            
-            if (name && email && password) {
-                // Simulate successful signup and login
-                isLoggedIn = true;
-                currentUser = {
-                    name: name,
-                    email: email,
-                    progress: 10 // Starting progress
-                };
-                
-                // Update UI
-                mainContent.style.display = 'none';
-                dashboardContent.style.display = 'block';
-                userName.textContent = currentUser.name;
-                userProgress.style.width = `${currentUser.progress}%`;
-                
-                // Close modal
-                authModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                // Reset form
-                signupForm.reset();
-                
-                // Switch back to login tab for next time
-                authTabs.forEach(tab => tab.classList.remove('active'));
-                authForms.forEach(form => form.classList.remove('active'));
-                document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
-                document.getElementById('loginForm').classList.add('active');
-            } else {
-                alert('Please fill in all fields');
-            }
-        });
-        
-        // Login required links
-        loginRequiredLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (!isLoggedIn) {
-                    e.preventDefault();
-                    authModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-        
-        // User menu functionality
-        const userMenuBtn = document.getElementById('userMenuBtn');
-        userMenuBtn.addEventListener('click', () => {
-            if (confirm('Would you like to logout?')) {
-                // Logout
-                isLoggedIn = false;
-                currentUser = null;
-                mainContent.style.display = 'block';
-                dashboardContent.style.display = 'none';
-            }
-        });
-        
-        // Initialize - hide dashboard by default
-        dashboardContent.style.display = 'none';
-        
         // Scroll Animation
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.feature-card, .resource-item, .video-card, .testimonial-card, .pricing-card');
+            const elements = document.querySelectorAll('.feature-card, .resource-item, .country-card, .testimonial-card');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -2418,7 +1472,7 @@
         };
         
         // Set initial state for animation
-        document.querySelectorAll('.feature-card, .resource-item, .video-card, .testimonial-card, .pricing-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .resource-item, .country-card, .testimonial-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
