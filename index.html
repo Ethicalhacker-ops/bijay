@@ -3,59 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IELTS PTE Master | Study Materials & Abroad Guidance</title>
-    <meta name="description" content="Comprehensive IELTS and PTE preparation platform with test books, practice materials, and study abroad information for major countries">
+    <title>IELTS PTE Master Pro | Complete Test Preparation Platform</title>
+    <meta name="description" content="The ultimate IELTS and PTE preparation platform with AI scoring, 1000+ practice tests, study abroad guidance, and downloadable materials.">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== Global Styles ===== */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Primary Colors */
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #93c5fd;
+            
+            /* Secondary Colors */
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --secondary-light: #fde68a;
+            
+            /* Status Colors */
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            
+            /* Grayscale */
+            --dark: #1f2937;
+            --dark-gray: #6b7280;
+            --medium-gray: #9ca3af;
+            --light-gray: #e5e7eb;
+            --light: #f9fafb;
+            --white: #ffffff;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+            
+            /* Transitions */
             --transition: all 0.3s ease;
+            --transition-slow: all 0.6s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         section {
-            padding: 5rem 0;
+            padding: 100px 0;
         }
-        
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 60px;
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            color: var(--dark);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -63,431 +160,462 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
+            height: 4px;
             background-color: var(--secondary);
+            border-radius: 2px;
         }
-        
+
         .section-title p {
-            color: #666;
+            color: var(--dark-gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-        
-        .btn-primary:hover {
-            background-color: #c0392b;
-            border-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* Header Styles */
+
+        /* ===== Header ===== */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1.2rem 0;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .logo img {
             height: 50px;
         }
-        
+
         .logo-text h1 {
             font-size: 1.8rem;
             font-weight: 700;
-            line-height: 1;
+            color: var(--dark);
         }
-        
+
         .logo-text span {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 0.9rem;
             font-weight: 500;
         }
-        
+
         nav ul {
             display: flex;
-            list-style: none;
-            gap: 1.5rem;
+            gap: 25px;
         }
-        
+
         nav ul li a {
-            color: white;
-            text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
             transition: var(--transition);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            padding: 8px 12px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.1);
         }
-        
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--dark);
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
-        /* Hero Section */
+
+        /* ===== Hero Section ===== */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)), 
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)), 
                         url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
+            color: var(--white);
+            padding: 150px 0;
             text-align: center;
-            color: white;
             position: relative;
         }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
             line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
-        
+
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 20px;
             flex-wrap: wrap;
         }
-        
-        /* Current Date Display */
+
         .current-date {
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 1rem;
+            padding: 8px 16px;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
             font-size: 0.9rem;
         }
-        
-        /* Features Section */
+
+        /* ===== Features Section ===== */
         .features {
-            background-color: white;
+            background-color: var(--white);
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
-        
+
         .feature-card {
-            background-color: white;
-            border-radius: 8px;
+            background-color: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
-            border: 1px solid #eee;
+            border: 1px solid var(--light-gray);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
         }
-        
+
         .feature-img {
             height: 200px;
             overflow: hidden;
             position: relative;
         }
-        
+
         .feature-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .feature-card:hover .feature-img img {
             transform: scale(1.1);
         }
-        
+
         .feature-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.3rem 0.8rem;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .feature-content {
-            padding: 1.5rem;
+            padding: 25px;
         }
-        
+
         .feature-content h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            margin-bottom: 15px;
+            color: var(--dark);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .feature-content p {
-            color: #666;
-            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
         }
-        
+
         .feature-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--secondary);
+            color: var(--primary);
             font-weight: 600;
-            text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .feature-link:hover {
-            color: var(--accent);
+            color: var(--primary-dark);
             gap: 12px;
         }
-        
-        /* Resources Section */
-        .resources {
-            background-color: #f5f7fa;
+
+        /* ===== Test Preparation Section ===== */
+        .test-preparation {
+            background-color: var(--light);
         }
-        
-        .resource-tabs {
+
+        .test-tabs {
             display: flex;
             overflow-x: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
             padding-bottom: 10px;
-            gap: 0.5rem;
+            gap: 10px;
+            scrollbar-width: none; /* Firefox */
         }
-        
-        .resource-tab {
-            padding: 0.8rem 1.5rem;
-            background-color: white;
+
+        .test-tabs::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .test-tab {
+            padding: 12px 24px;
+            background-color: var(--white);
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             color: var(--dark);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
             white-space: nowrap;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
-        .resource-tab.active {
-            background-color: var(--secondary);
-            color: white;
+
+        .test-tab.active {
+            background-color: var(--primary);
+            color: var(--white);
         }
-        
-        .resource-tab:hover {
+
+        .test-tab:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-md);
         }
-        
-        .resource-content {
+
+        .test-content {
             display: none;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
             animation: fadeIn 0.5s ease;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .resource-content.active {
+
+        .test-content.active {
             display: block;
         }
-        
-        .resource-list {
-            columns: 3;
-            column-gap: 2rem;
+
+        .test-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
         }
-        
-        .resource-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            border-left: 4px solid var(--secondary);
-            background-color: rgba(52, 152, 219, 0.05);
-            border-radius: 4px;
+
+        .test-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        /* ===== Materials Section ===== */
+        .materials {
+            background-color: var(--white);
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .material-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
+            border: 1px solid var(--light-gray);
         }
-        
-        .resource-item:hover {
-            background-color: rgba(52, 152, 219, 0.1);
-            transform: translateX(5px);
+
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .resource-item h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+
+        .material-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .material-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .material-card:hover .material-img img {
+            transform: scale(1.05);
+        }
+
+        .material-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .material-content {
+            padding: 20px;
+        }
+
+        .material-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
-        .resource-item p {
-            color: #666;
-            margin-bottom: 0.8rem;
+
+        .material-content p {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
             font-size: 0.95rem;
         }
-        
-        .resource-link {
+
+        .material-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: var(--secondary);
-            text-decoration: none;
+            color: var(--primary);
             font-weight: 500;
             transition: var(--transition);
-            word-break: break-all;
         }
-        
-        .resource-link:hover {
-            color: var(--accent);
+
+        .material-link:hover {
+            color: var(--primary-dark);
             gap: 10px;
         }
-        
-        .resource-meta {
+
+        .material-meta {
             display: flex;
             justify-content: space-between;
-            color: #666;
+            color: var(--medium-gray);
             font-size: 0.85rem;
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
-            border-top: 1px dashed #ddd;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--light-gray);
         }
-        
-        /* Country Guides Section */
+
+        /* ===== Country Guides Section ===== */
         .country-guides {
-            background-color: white;
+            background-color: var(--light);
         }
-        
+
         .country-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-        
+
         .country-card {
-            border-radius: 8px;
+            background-color: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
-            position: relative;
             cursor: pointer;
         }
-        
+
         .country-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
         }
-        
+
         .country-flag {
-            height: 150px;
+            height: 160px;
             overflow: hidden;
         }
-        
+
         .country-flag img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .country-info {
-            padding: 1.5rem;
+            padding: 20px;
         }
-        
+
         .country-info h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+            margin-bottom: 10px;
+            color: var(--dark);
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .country-info p {
-            color: #666;
-            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
             font-size: 0.95rem;
         }
-        
-        /* Country Modal */
+
+        /* ===== Country Modal ===== */
         .country-modal {
             display: none;
             position: fixed;
@@ -498,104 +626,111 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             overflow-y: auto;
-            padding: 2rem;
+            padding: 30px;
         }
-        
+
         .modal-content {
-            background-color: white;
+            background-color: var(--white);
             max-width: 900px;
-            margin: 2rem auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
             overflow: hidden;
             animation: modalFadeIn 0.3s ease;
         }
-        
+
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .modal-header {
-            padding: 1.5rem;
+            padding: 20px 30px;
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .modal-header h3 {
             font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .close-modal {
             background: none;
             border: none;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 5px;
+            transition: var(--transition);
         }
-        
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
         .modal-body {
-            padding: 2rem;
+            padding: 30px;
         }
-        
+
         .country-overview {
             display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        
+
         .country-flag-large {
-            width: 200px;
-            height: 120px;
-            border-radius: 4px;
+            width: 250px;
+            height: 150px;
+            border-radius: 8px;
             overflow: hidden;
             flex-shrink: 0;
+            box-shadow: var(--shadow-md);
         }
-        
+
         .country-flag-large img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .country-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
-        
+
         .stat-item {
-            background-color: #f5f7fa;
-            padding: 1rem;
-            border-radius: 4px;
-            border-left: 4px solid var(--secondary);
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
         }
-        
+
         .stat-item h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1rem;
         }
-        
+
         .stat-item p {
-            color: #666;
+            color: var(--dark-gray);
             font-size: 0.95rem;
         }
-        
+
         .section-divider {
-            height: 2px;
-            background-color: #eee;
-            margin: 2rem 0;
+            height: 1px;
+            background-color: var(--light-gray);
+            margin: 30px 0;
             position: relative;
         }
-        
+
         .section-divider::before {
             content: '';
             position: absolute;
@@ -603,219 +738,245 @@
             top: 0;
             width: 100px;
             height: 2px;
-            background-color: var(--secondary);
+            background-color: var(--primary);
         }
-        
+
         .university-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .university-table th, 
         .university-table td {
-            padding: 0.8rem;
+            padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-gray);
         }
-        
+
         .university-table th {
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
+            font-weight: 600;
         }
-        
+
         .university-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: var(--light);
         }
-        
+
         .university-table tr:hover {
-            background-color: #f1f1f1;
+            background-color: rgba(37, 99, 235, 0.05);
         }
-        
-        /* Testimonials */
+
+        /* ===== Testimonials Section ===== */
         .testimonials {
-            background-color: #f5f7fa;
+            background-color: var(--white);
         }
-        
+
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
-        
+
         .testimonial-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
             position: relative;
         }
-        
+
         .testimonial-card::before {
             content: '"';
             position: absolute;
             top: 20px;
             left: 20px;
-            font-size: 4rem;
-            color: rgba(52, 152, 219, 0.1);
+            font-size: 5rem;
+            color: rgba(37, 99, 235, 0.1);
             font-family: Georgia, serif;
             line-height: 1;
+            z-index: 0;
         }
-        
+
         .testimonial-content {
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
+
         .author-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
-            margin-right: 1rem;
+            margin-right: 15px;
+            border: 3px solid var(--light);
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .author-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .author-info h5 {
-            color: var(--primary);
-            margin-bottom: 0.2rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
-        
+
         .author-info p {
-            color: #666;
+            color: var(--dark-gray);
             font-size: 0.9rem;
         }
-        
+
         .rating {
-            color: var(--warning);
-            margin-top: 0.5rem;
+            color: var(--secondary);
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
-        
-        /* Contact Section */
+
+        /* ===== Contact Section ===== */
         .contact {
-            background-color: #f5f7fa;
+            background-color: var(--light);
         }
-        
+
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 40px;
         }
-        
+
+        .contact-info {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
         .contact-info h3 {
             font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
         }
-        
+
         .contact-info p {
-            margin-bottom: 2rem;
-            color: #666;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
         }
-        
+
         .contact-details {
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
-        
+
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(52, 152, 219, 0.1);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(37, 99, 235, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            color: var(--secondary);
-        }
-        
-        .contact-text h4 {
+            margin-right: 15px;
             color: var(--primary);
-            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
-        
-        .contact-text a {
-            color: #666;
-            text-decoration: none;
+
+        .contact-text h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-text a, .contact-text p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
             transition: var(--transition);
         }
-        
+
         .contact-text a:hover {
-            color: var(--secondary);
-        }
-        
-        .contact-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
             color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
             font-weight: 500;
         }
-        
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
         }
-        
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: var(--secondary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
-        .contact-form textarea {
+
+        .form-group textarea {
             min-height: 150px;
             resize: vertical;
         }
-        
-        /* Footer */
+
+        /* ===== Footer ===== */
         footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 3rem 0 1rem;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 80px 0 30px;
         }
-        
+
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
         }
-        
+
         .footer-col h4 {
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 10px;
         }
-        
+
         .footer-col h4::after {
             content: '';
             position: absolute;
@@ -825,31 +986,37 @@
             height: 2px;
             background-color: var(--secondary);
         }
-        
-        .footer-col ul {
-            list-style: none;
+
+        .footer-col p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
-        
+
         .footer-col ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 12px;
         }
-        
+
         .footer-col ul li a {
-            color: #ddd;
-            text-decoration: none;
+            color: var(--medium-gray);
             transition: var(--transition);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
+
         .footer-col ul li a:hover {
             color: var(--secondary);
+            transform: translateX(5px);
         }
-        
+
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
+            margin-top: 20px;
         }
-        
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -858,62 +1025,241 @@
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            color: var(--white);
             transition: var(--transition);
         }
-        
+
         .social-links a:hover {
             background-color: var(--secondary);
             transform: translateY(-3px);
         }
-        
+
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
+            color: var(--medium-gray);
             font-size: 0.9rem;
         }
-        
-        /* Score Requirements */
-        .score-requirements {
-            margin: 2rem 0;
+
+        /* ===== Dashboard Styles ===== */
+        .dashboard {
+            background-color: var(--light);
+            padding: 50px 0;
         }
-        
-        .score-table {
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+
+        .sidebar {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: var(--dark-gray);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .sidebar-menu li a:hover, 
+        .sidebar-menu li a.active {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        .sidebar-menu li a i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            padding: 30px;
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-banner p {
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .welcome-banner::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-card h4 {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-bar-container {
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 2rem;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            height: 10px;
+            margin-bottom: 10px;
         }
-        
-        .score-table th, 
-        .score-table td {
-            padding: 0.8rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 65%;
+            position: relative;
+            transition: width 1s ease;
         }
-        
-        .score-table th {
-            background-color: var(--primary);
-            color: white;
+
+        .progress-bar::after {
+            content: '65%';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--dark);
         }
-        
-        .score-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
         }
-        
-        .score-table tr:hover {
-            background-color: #f1f1f1;
+
+        .recent-tests {
+            margin-top: 40px;
         }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .resource-list {
-                columns: 2;
+
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .test-item:last-child {
+            border-bottom: none;
+        }
+
+        .test-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .test-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .test-score {
+            background-color: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
             }
             
-            .hero h1 {
-                font-size: 3rem;
+            .sidebar {
+                display: none;
             }
             
             .country-overview {
@@ -925,10 +1271,14 @@
                 height: 200px;
             }
         }
-        
-        @media (max-width: 768px) {
-            .resource-list {
-                columns: 1;
+
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
             }
             
             nav ul {
@@ -937,70 +1287,81 @@
                 top: 80px;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: var(--white);
                 flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
             }
             
             nav ul.active {
                 display: flex;
             }
             
-            nav ul li {
-                margin: 0;
-            }
-            
-            nav ul li a {
-                padding: 0.8rem;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
             
+            .auth-buttons {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
                 font-size: 1.1rem;
             }
             
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .modal-body {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
             .hero-buttons {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 15px;
             }
             
             .btn {
                 width: 100%;
-                text-align: center;
             }
             
-            .section-title h2 {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .university-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
                 font-size: 1.8rem;
             }
             
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
             .modal-header h3 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+            }
+            
+            .modal-body {
+                padding: 20px;
             }
             
             .country-stats {
@@ -1014,23 +1375,32 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://i.imgur.com/JQKZQYt.png" alt="IELTS PTE Master Logo">
+                <img src="https://via.placeholder.com/50x50" alt="IELTS PTE Master Logo">
                 <div class="logo-text">
                     <h1>IELTS PTE Master</h1>
-                    <span>Study Materials & Abroad Guidance</span>
+                    <span>AI-Powered Test Preparation</span>
                 </div>
             </div>
+            
             <nav>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="navMenu">
                     <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#materials"><i class="fas fa-book"></i> Study Materials</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#tests"><i class="fas fa-clipboard-list"></i> Test Prep</a></li>
+                    <li><a href="#materials"><i class="fas fa-book"></i> Materials</a></li>
                     <li><a href="#countries"><i class="fas fa-globe"></i> Study Abroad</a></li>
+                    <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
+            
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
         </div>
     </header>
 
@@ -1048,7 +1418,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
             <div class="section-title">
                 <h2>What We Offer</h2>
@@ -1089,1740 +1459,5 @@
         </div>
     </section>
 
-    <!-- Study Materials Section -->
-    <section class="resources" id="materials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Study Materials</h2>
-                <p>Download free resources for IELTS and PTE preparation</p>
-            </div>
-            
-            <div class="resource-tabs">
-                <button class="resource-tab active" data-tab="ielts">
-                    <i class="fas fa-book-open"></i> IELTS Materials
-                </button>
-                <button class="resource-tab" data-tab="pte">
-                    <i class="fas fa-file-alt"></i> PTE Materials
-                </button>
-                <button class="resource-tab" data-tab="practice">
-                    <i class="fas fa-clipboard-list"></i> Practice Tests
-                </button>
-                <button class="resource-tab" data-tab="requirements">
-                    <i class="fas fa-star"></i> Score Requirements
-                </button>
-            </div>
-            
-            <!-- IELTS Materials -->
-            <div id="ielts" class="resource-content active">
-                <div class="resource-list">
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> Cambridge IELTS 1-19 Collection</h4>
-                        <p>Complete set of all Cambridge IELTS books with answers and audio files</p>
-                        <a href="https://drive.google.com/file/d/1aBcD3eF4gH5iJ6kL7mN8oP9qR0sT1uV" class="resource-link">Download Collection <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
-                            <span>850MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Writing Samples</h4>
-                        <p>Band 9 writing samples for both Academic and General Training</p>
-                        <a href="https://drive.google.com/file/d/2bC3dE4fG5h6iJ7kL8mN9oP0qR1sT2uV" class="resource-link">Download PDF <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>8.5MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-headphones"></i> IELTS Listening Practice</h4>
-                        <p>Complete listening tests with answer keys and audio files</p>
-                        <a href="https://drive.google.com/file/d/3cD4eF5gH6iJ7kL8mN9oP0qR1sT2uV" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-music"></i> MP3</span>
-                            <span>120MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-word"></i> IELTS Speaking Guide</h4>
-                        <p>Complete guide with sample answers for all speaking parts</p>
-                        <a href="https://drive.google.com/file/d/4dE5fG6hI7jK8lM9nO0p1Q2r3S4t5uV" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>5.2MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-key"></i> IELTS Answer Keys</h4>
-                        <p>Official answer keys for all Cambridge IELTS tests</p>
-                        <a href="https://drive.google.com/file/d/5eF6gH7iJ8kL9mN0oP1qR2sT3uV4wX" class="resource-link">Download Keys <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>3.1MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Vocabulary Builder</h4>
-                        <p>Essential vocabulary for all IELTS sections with exercises</p>
-                        <a href="https://drive.google.com/file/d/6fG7hI8jK9lM0nO1pQ2r3S4t5uV6wX" class="resource-link">Download Vocabulary <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>6.8MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Reading Strategies</h4>
-                        <p>Proven strategies and practice exercises for all question types</p>
-                        <a href="https://drive.google.com/file/d/7gH8iJ9kL0mN1oP2qR3sT4uV5wX6yZ" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>4.5MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Grammar Guide</h4>
-                        <p>Grammar rules and exercises specifically for IELTS success</p>
-                        <a href="https://drive.google.com/file/d/8hI9jK0lM1nO2pQ3rS4t5uV6wX7yZ" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>5.7MB</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="support-info">
-                    <p><strong>IELTS Support:</strong> <a href="mailto:ielts@npielts.us">ielts@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
-                </div>
-            </div>
-            
-            <!-- PTE Materials -->
-            <div id="pte" class="resource-content">
-                <div class="resource-list">
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> Official PTE Guide</h4>
-                        <p>The complete official guide to PTE Academic with practice tests</p>
-                        <a href="https://drive.google.com/file/d/9iJ0kL1mN2oP3qR4sT5uV6wX7yZ8aB" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>25MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-headphones"></i> PTE Speaking Samples</h4>
-                        <p>Audio samples for all speaking question types with transcripts</p>
-                        <a href="https://drive.google.com/file/d/0jK1lM2nO3pQ4rS5tU6vW7xY8z9aB" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-music"></i> MP3</span>
-                            <span>45MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-word"></i> PTE Writing Templates</h4>
-                        <p>High-scoring templates for essay and summarize written text</p>
-                        <a href="https://drive.google.com/file/d/1kL2mN3oP4qR5sT6uV7wX8yZ9aB0cD" class="resource-link">Download Templates <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>2.8MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> PTE Vocabulary List</h4>
-                        <p>Essential vocabulary for all PTE sections</p>
-                        <a href="https://drive.google.com/file/d/2lM3nO4pQ5rS6tU7vW8xY9z0aB1cD" class="resource-link">Download List <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>4.1MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> PTE Reading Strategies</h4>
-                        <p>Complete guide to mastering PTE reading section</p>
-                        <a href="https://drive.google.com/file/d/3mN4oP5qR6sT7uV8wX9yZ0aB1cD2eF" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>3.9MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-headphones"></i> PTE Listening Practice</h4>
-                        <p>Full-length listening tests with answer keys</p>
-                        <a href="https://drive.google.com/file/d/4nO5pQ6rS7tU8vW9xY0z1aB2cD3eF" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-music"></i> MP3</span>
-                            <span>68MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> PTE Score Guide</h4>
-                        <p>Understanding PTE scoring system and how to maximize your score</p>
-                        <a href="https://drive.google.com/file/d/5oP6qR7sT8uV9wX0y1aB2cD3eF4gH" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>3.2MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> PTE Mock Test Bundle</h4>
-                        <p>5 full PTE mock tests with answer keys and audio files</p>
-                        <a href="https://drive.google.com/file/d/6pQ7rS8tU9vW0x1y2aB3cD4eF5gH" class="resource-link">Download Bundle <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
-                            <span>210MB</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="support-info">
-                    <p><strong>PTE Support:</strong> <a href="mailto:pte@npielts.us">pte@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
-                </div>
-            </div>
-            
-            <!-- Practice Tests -->
-            <div id="practice" class="resource-content">
-                <div class="resource-list">
-                    <div class="resource-item">
-                        <h4><i class="fas fa-clipboard-list"></i> IELTS Full Practice Test</h4>
-                        <p>Complete IELTS Academic practice test with all sections</p>
-                        <a href="https://ielts.org/practice-test" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-laptop"></i> Online</span>
-                            <span>2h 45m</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-microphone"></i> PTE Speaking Mock</h4>
-                        <p>Practice PTE speaking questions with instant feedback</p>
-                        <a href="https://ptepractice.com/speaking" class="resource-link">Try Test <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-laptop"></i> Online</span>
-                            <span>30m</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Writing Practice</h4>
-                        <p>50 writing tasks with sample answers and examiner comments</p>
-                        <a href="https://drive.google.com/file/d/7qR8sT9uV0wX1y2aB3cD4eF5gH6iJ" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>7.3MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-headphones"></i> PTE Listening Mock</h4>
-                        <p>Full PTE listening test with audio files and answer key</p>
-                        <a href="https://ptepractice.com/listening" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-laptop"></i> Online</span>
-                            <span>45m</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> IELTS Reading Practice</h4>
-                        <p>15 academic reading tests with answer keys</p>
-                        <a href="https://drive.google.com/file/d/8rS9tU0vW1x2y3aB4cD5eF6gH7iJ" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>9.1MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-microphone-alt"></i> IELTS Speaking Simulator</h4>
-                        <p>Practice IELTS speaking with AI feedback and scoring</p>
-                        <a href="https://ielts-simulator.com" class="resource-link">Try Simulator <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-laptop"></i> Online</span>
-                            <span>15m</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-file-pdf"></i> PTE Writing Practice</h4>
-                        <p>30 essay topics with sample answers and scoring guide</p>
-                        <a href="https://drive.google.com/file/d/9sT0uV1wX2y3aB4cD5eF6gH7iJ8kL" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span>5.8MB</span>
-                        </div>
-                    </div>
-                    
-                    <div class="resource-item">
-                        <h4><i class="fas fa-headphones"></i> IELTS Listening Mock</h4>
-                        <p>Full IELTS listening test with audio and answer key</p>
-                        <a href="https://ielts.org/listening-test" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-laptop"></i> Online</span>
-                            <span>30m</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="support-info">
-                    <p><strong>Practice Test Support:</strong> <a href="mailto:practice@npielts.us">practice@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
-                </div>
-            </div>
-            
-            <!-- Score Requirements -->
-            <div id="requirements" class="resource-content">
-                <h3>IELTS Score Requirements by Country and University</h3>
-                <div class="score-requirements">
-                    <h4>United Kingdom</h4>
-                    <div class="score-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>University</th>
-                                    <th>Undergraduate</th>
-                                    <th>Postgraduate</th>
-                                    <th>Popular Courses</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>University of Oxford</td>
-                                    <td>7.0 overall (7.0 in each component)</td>
-                                    <td>7.5 overall (7.0 in each component)</td>
-                                    <td>Law, Medicine, PPE</td>
-                                </tr>
-                                <tr>
-                                    <td>University of Cambridge</td>
-                                    <td>7.0 overall (7.0 in each component)</td>
-                                    <td>7.5 overall (7.0 in each component)</td>
-                                    <td>Natural Sciences, Engineering, Economics</td>
-                                </tr>
-                                <tr>
-                                    <td>Imperial College London</td>
-                                    <td>6.5 overall (6.0 in each component)</td>
-                                    <td>7.0 overall (6.5 in each component)</td>
-                                    <td>Engineering, Medicine, Business</td>
-                                </tr>
-                                <tr>
-                                    <td>University College London</td>
-                                    <td>6.5 overall (6.0 in each component)</td>
-                                    <td>7.0 overall (6.5 in each component)</td>
-                                    <td>Architecture, Law, Computer Science</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <h4>United States</h4>
-                    <div class="score-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>University</th>
-                                    <th>Undergraduate</th>
-                                    <th>Postgraduate</th>
-                                    <th>Popular Courses</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Harvard University</td>
-                                    <td>7.0 overall (no band below 7.0)</td>
-                                    <td>7.5 overall (no band below 7.0)</td>
-                                    <td>Law, Medicine, Business</td>
-                                </tr>
-                                <tr>
-                                    <td>Stanford University</td>
-                                    <td>7.0 overall (no band below 6.5)</td>
-                                    <td>7.0 overall (no band below 6.5)</td>
-                                    <td>Computer Science, Engineering, Business</td>
-                                </tr>
-                                <tr>
-                                    <td>MIT</td>
-                                    <td>7.0 overall (no band below 6.5)</td>
-                                    <td>7.0 overall (no band below 6.5)</td>
-                                    <td>Engineering, Computer Science, Physics</td>
-                                </tr>
-                                <tr>
-                                    <td>University of California, Berkeley</td>
-                                    <td>6.5 overall (no band below 6.0)</td>
-                                    <td>7.0 overall (no band below 6.0)</td>
-                                    <td>Computer Science, Business, Environmental Science</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <h3>PTE Score Requirements by Country and University</h3>
-                    <h4>Australia</h4>
-                    <div class="score-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>University</th>
-                                    <th>Undergraduate</th>
-                                    <th>Postgraduate</th>
-                                    <th>Popular Courses</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>University of Melbourne</td>
-                                    <td>58 overall (no band below 50)</td>
-                                    <td>65 overall (no band below 58)</td>
-                                    <td>Medicine, Law, Business</td>
-                                </tr>
-                                <tr>
-                                    <td>Australian National University</td>
-                                    <td>64 overall (55 in each skill)</td>
-                                    <td>70 overall (60 in each skill)</td>
-                                    <td>International Relations, Science, Engineering</td>
-                                </tr>
-                                <tr>
-                                    <td>University of Sydney</td>
-                                    <td>61 overall (54 in each skill)</td>
-                                    <td>68 overall (61 in each skill)</td>
-                                    <td>Medicine, Architecture, Business</td>
-                                </tr>
-                                <tr>
-                                    <td>University of Queensland</td>
-                                    <td>64 overall (60 in each skill)</td>
-                                    <td>64 overall (60 in each skill)</td>
-                                    <td>Mining Engineering, Agriculture, Psychology</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <h4>Canada</h4>
-                    <div class="score-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>University</th>
-                                    <th>Undergraduate</th>
-                                    <th>Postgraduate</th>
-                                    <th>Popular Courses</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>University of Toronto</td>
-                                    <td>65 overall (60 in each skill)</td>
-                                    <td>70 overall (65 in each skill)</td>
-                                    <td>Computer Science, Medicine, Engineering</td>
-                                </tr>
-                                <tr>
-                                    <td>University of British Columbia</td>
-                                    <td>65 overall (60 in each skill)</td>
-                                    <td>65 overall (60 in each skill)</td>
-                                    <td>Forestry, Business, Environmental Science</td>
-                                </tr>
-                                <tr>
-                                    <td>McGill University</td>
-                                    <td>65 overall (60 in each skill)</td>
-                                    <td>70 overall (65 in each skill)</td>
-                                    <td>Medicine, Law, Management</td>
-                                </tr>
-                                <tr>
-                                    <td>University of Alberta</td>
-                                    <td>61 overall (60 in each skill)</td>
-                                    <td>68 overall (60 in each skill)</td>
-                                    <td>Petroleum Engineering, Agriculture, Nursing</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="support-info">
-                    <p><strong>Admission Support:</strong> <a href="mailto:admissions@npielts.us">admissions@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Country Guides Section -->
-    <section class="country-guides" id="countries">
-        <div class="container">
-            <div class="section-title">
-                <h2>Study Abroad Guides</h2>
-                <p>Comprehensive information about studying in top destinations worldwide</p>
-            </div>
-            <div class="country-grid">
-                <div class="country-card" data-country="uk">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/gb.png" alt="UK Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-landmark"></i> United Kingdom</h3>
-                        <p>Complete guide to studying in the UK including top universities, visa process, and scholarships.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="country-card" data-country="usa">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/us.png" alt="USA Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-university"></i> United States</h3>
-                        <p>Everything about studying in the USA - from Ivy League to state universities and visa requirements.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="country-card" data-country="canada">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-maple-leaf"></i> Canada</h3>
-                        <p>Guide to Canadian education system, popular programs, and post-study work opportunities.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="country-card" data-country="australia">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-koala"></i> Australia</h3>
-                        <p>Complete information about Australian universities, student visa process, and living costs.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="country-card" data-country="newzealand">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-kiwi-bird"></i> New Zealand</h3>
-                        <p>Guide to studying in New Zealand with information about universities and immigration pathways.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="country-card" data-country="europe">
-                    <div class="country-flag">
-                        <img src="https://flagcdn.com/w320/eu.png" alt="Europe Flag">
-                    </div>
-                    <div class="country-info">
-                        <h3><i class="fas fa-monument"></i> Europe</h3>
-                        <p>Comprehensive guide to studying in Germany, France, Netherlands and other European countries.</p>
-                        <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Country Modals -->
-    <div class="country-modal" id="ukModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-landmark"></i> United Kingdom Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/gb.png" alt="UK Flag">
-                    </div>
-                    <div>
-                        <p>The United Kingdom is home to some of the world's most prestigious universities, including Oxford and Cambridge. With a rich academic tradition dating back centuries, the UK offers high-quality education across all disciplines. The UK education system is known for its rigorous standards and shorter degree durations compared to other countries.</p>
-                        <p>International students are drawn to the UK for its world-class education, cultural diversity, and post-study work opportunities. The Graduate Route visa allows students to stay for 2 years after graduation (3 years for PhD students) to work or look for work.</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Universities</h4>
-                        <p>University of Oxford, University of Cambridge, Imperial College London, UCL, LSE</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Business, Law, Medicine, Engineering, Computer Science, Economics</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>£10,000 - £38,000 per year (varies by course and university)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>£12,000 - £15,000 per year (outside London), £15,000 - £20,000 (London)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>UK universities typically require:</p>
-                <ul>
-                    <li>Completed application through UCAS (undergraduate) or directly to university (postgraduate)</li>
-                    <li>Academic transcripts and certificates</li>
-                    <li>IELTS/PTE scores (typically 6.0-7.5 IELTS or equivalent)</li>
-                    <li>Personal statement</li>
-                    <li>Letters of recommendation</li>
-                    <li>Portfolio or additional tests for certain courses (e.g., LNAT for Law, BMAT for Medicine)</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>To study in the UK, you'll need a Student Visa (previously Tier 4). Requirements include:</p>
-                <ul>
-                    <li>Confirmation of Acceptance for Studies (CAS) from your university</li>
-                    <li>Proof of English language proficiency (IELTS/PTE)</li>
-                    <li>Financial evidence showing you can cover tuition and living costs (£1,023 per month outside London, £1,334 in London)</li>
-                    <li>Valid passport</li>
-                    <li>TB test results (if applicable)</li>
-                </ul>
-                <p>The visa application fee is £348, and you'll also need to pay the Immigration Health Surcharge (£470 per year).</p>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>University of Oxford</td>
-                                <td>7.0 overall (7.0 in each component)</td>
-                                <td>7.5 overall (7.0 in each component)</td>
-                                <td>76 overall (76 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Cambridge</td>
-                                <td>7.0 overall (7.0 in each component)</td>
-                                <td>7.5 overall (7.0 in each component)</td>
-                                <td>76 overall (76 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Imperial College London</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.5 in each component)</td>
-                                <td>69 overall (62 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University College London</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.5 in each component)</td>
-                                <td>69 overall (62 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>London School of Economics</td>
-                                <td>7.0 overall (7.0 in each component)</td>
-                                <td>7.0 overall (7.0 in each component)</td>
-                                <td>69 overall (69 in each skill)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Several scholarships are available for international students in the UK:</p>
-                <ul>
-                    <li><strong>Chevening Scholarships</strong>: Funded by the UK government for postgraduate studies</li>
-                    <li><strong>Commonwealth Scholarships</strong>: For students from Commonwealth countries</li>
-                    <li><strong>University-specific scholarships</strong>: Most universities offer merit-based scholarships</li>
-                    <li><strong>GREAT Scholarships</strong>: For students from specific countries</li>
-                    <li><strong>Marshall Scholarships</strong>: For US students to study in the UK</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>International students in the UK can work up to 20 hours per week during term time and full-time during vacations. The Graduate Route allows students to stay for 2 years (3 years for PhD graduates) after completing their studies to work at any skill level.</p>
-                <p>Popular job sectors for international graduates include finance, technology, healthcare, and engineering. London remains the top destination for graduate jobs, followed by Manchester, Edinburgh, and Birmingham.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="country-modal" id="usaModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-university"></i> United States Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/us.png" alt="USA Flag">
-                    </div>
-                    <div>
-                        <p>The United States is the top destination for international students worldwide, boasting over 4,000 higher education institutions. From Ivy League universities to state colleges and liberal arts institutions, the US offers diverse educational opportunities across all fields of study.</p>
-                        <p>US universities are known for their flexible curriculum, cutting-edge research facilities, and strong industry connections. The Optional Practical Training (OPT) program allows international students to work for 1 year after graduation (3 years for STEM fields).</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Universities</h4>
-                        <p>Harvard, Stanford, MIT, Caltech, University of Chicago, Columbia</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Business Administration, Computer Science, Engineering, Medicine, Law</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>$20,000 - $60,000 per year (varies by institution and program)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>$10,000 - $20,000 per year (varies by location)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>US universities typically require:</p>
-                <ul>
-                    <li>Completed application (Common App or university-specific)</li>
-                    <li>Academic transcripts (may require evaluation for international credentials)</li>
-                    <li>Standardized test scores (SAT/ACT for undergraduate, GRE/GMAT for graduate)</li>
-                    <li>IELTS/PTE/TOEFL scores (typically 6.5-7.5 IELTS or equivalent)</li>
-                    <li>Personal essays or statement of purpose</li>
-                    <li>Letters of recommendation</li>
-                    <li>Extracurricular activities and achievements</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>International students need an F-1 visa to study in the US. The process involves:</p>
-                <ul>
-                    <li>Receiving Form I-20 from your university after admission</li>
-                    <li>Paying the SEVIS fee ($350)</li>
-                    <li>Completing the DS-160 visa application form</li>
-                    <li>Paying the visa application fee ($160)</li>
-                    <li>Scheduling and attending a visa interview at a US embassy/consulate</li>
-                    <li>Providing financial evidence showing ability to cover costs</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Harvard University</td>
-                                <td>7.0 overall (no band below 7.0)</td>
-                                <td>7.5 overall (no band below 7.0)</td>
-                                <td>75 overall (75 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Stanford University</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>68 overall (62 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>MIT</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>68 overall (62 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of California, Berkeley</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>7.0 overall (no band below 6.0)</td>
-                                <td>65 overall (59 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>New York University</td>
-                                <td>7.0 overall (no band below 7.0)</td>
-                                <td>7.5 overall (no band below 7.0)</td>
-                                <td>70 overall (70 in each skill)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Funding options for international students in the US include:</p>
-                <ul>
-                    <li><strong>University scholarships</strong>: Merit-based and need-based awards</li>
-                    <li><strong>Fulbright Program</strong>: For graduate students from participating countries</li>
-                    <li><strong>Private scholarships</strong>: From organizations and foundations</li>
-                    <li><strong>Assistantships</strong>: Teaching or research positions for graduate students</li>
-                    <li><strong>Athletic scholarships</strong>: For talented student-athletes</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>F-1 visa holders can work on-campus up to 20 hours per week during term time. Optional Practical Training (OPT) allows students to work off-campus for 12 months after graduation (36 months for STEM fields).</p>
-                <p>Popular industries for international graduates include technology (Silicon Valley), finance (New York), engineering, healthcare, and entertainment. The H-1B visa is the primary work visa for long-term employment.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="country-modal" id="canadaModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-maple-leaf"></i> Canada Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/ca.png" alt="Canada Flag">
-                    </div>
-                    <div>
-                        <p>Canada is renowned for its high-quality education system, welcoming immigration policies, and excellent quality of life. Canadian universities consistently rank among the world's best, offering internationally recognized degrees at relatively affordable tuition rates compared to the US and UK.</p>
-                        <p>International students can work up to 20 hours per week during studies and full-time during breaks. After graduation, students can apply for a Post-Graduation Work Permit (PGWP) valid for up to 3 years, providing a pathway to permanent residency.</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Universities</h4>
-                        <p>University of Toronto, University of British Columbia, McGill University, McMaster University</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Computer Science, Business, Engineering, Health Sciences, Environmental Studies</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>CA$15,000 - CA$35,000 per year (varies by program and institution)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>CA$10,000 - CA$15,000 per year (varies by city)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>Canadian universities typically require:</p>
-                <ul>
-                    <li>Completed application through university portal or centralized system</li>
-                    <li>Academic transcripts (may require evaluation for international credentials)</li>
-                    <li>IELTS/PTE scores (typically 6.0-7.0 IELTS or equivalent)</li>
-                    <li>Statement of purpose or personal essay</li>
-                    <li>Letters of recommendation</li>
-                    <li>Portfolio or additional requirements for certain programs</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>To study in Canada, you'll need a Study Permit. Requirements include:</p>
-                <ul>
-                    <li>Letter of acceptance from a Designated Learning Institution (DLI)</li>
-                    <li>Proof of financial support (minimum CA$10,000 per year plus tuition)</li>
-                    <li>IELTS/PTE scores meeting the university's requirements</li>
-                    <li>Medical exam (if required)</li>
-                    <li>Police clearance certificate</li>
-                    <li>Statement of purpose explaining your study plans</li>
-                </ul>
-                <p>The application fee is CA$150, and processing times vary by country.</p>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>University of Toronto</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.5 in each component)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of British Columbia</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.5 in each component)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>McGill University</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Alberta</td>
-                                <td>6.5 overall (5.5 in each component)</td>
-                                <td>6.5 overall (5.5 in each component)</td>
-                                <td>61 overall (59 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Waterloo</td>
-                                <td>6.5 overall (6.0 in writing/speaking, 6.5 in reading/listening)</td>
-                                <td>7.0 overall (6.5 in writing/speaking, 7.0 in reading/listening)</td>
-                                <td>65 overall (65 in reading/listening, 60 in writing/speaking)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Scholarship opportunities for international students in Canada include:</p>
-                <ul>
-                    <li><strong>Vanier Canada Graduate Scholarships</strong>: For doctoral students</li>
-                    <li><strong>Banting Postdoctoral Fellowships</strong>: For postdoctoral researchers</li>
-                    <li><strong>University-specific scholarships</strong>: Most universities offer merit-based awards</li>
-                    <li><strong>Provincial scholarships</strong>: Offered by individual provinces</li>
-                    <li><strong>Private scholarships</strong>: From organizations and foundations</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>Study permit holders can work up to 20 hours per week during term time and full-time during scheduled breaks. The Post-Graduation Work Permit (PGWP) allows students to work for up to 3 years after graduation, depending on the length of their study program.</p>
-                <p>Canada's Express Entry system provides a pathway to permanent residency for international graduates with Canadian work experience. Popular industries for international graduates include technology (Toronto, Vancouver), natural resources (Alberta), finance, and healthcare.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="country-modal" id="australiaModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-koala"></i> Australia Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/au.png" alt="Australia Flag">
-                    </div>
-                    <div>
-                        <p>Australia is a leading global education destination with world-class universities, a relaxed lifestyle, and post-study work opportunities. Australian qualifications are recognized worldwide, and the country offers a safe, multicultural environment for international students.</p>
-                        <p>The Temporary Graduate visa (subclass 485) allows international students to stay and work in Australia for 2-4 years after completing their studies, depending on their qualification level. Australia's education system emphasizes practical skills and industry connections.</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Universities</h4>
-                        <p>University of Melbourne, Australian National University, University of Sydney, University of Queensland</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Business, Engineering, Medicine, Environmental Science, Hospitality</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>AU$20,000 - AU$45,000 per year (varies by program and institution)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>AU$20,000 - AU$25,000 per year (varies by city)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>Australian universities typically require:</p>
-                <ul>
-                    <li>Completed application through university portal or agent</li>
-                    <li>Academic transcripts (may require assessment for international qualifications)</li>
-                    <li>IELTS/PTE scores (typically 6.0-7.0 IELTS or equivalent)</li>
-                    <li>Statement of purpose</li>
-                    <li>Letters of recommendation (for postgraduate studies)</li>
-                    <li>Portfolio or additional requirements for certain courses</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>To study in Australia, you'll need a Student Visa (subclass 500). Requirements include:</p>
-                <ul>
-                    <li>Confirmation of Enrolment (CoE) from your education provider</li>
-                    <li>Genuine Temporary Entrant (GTE) statement</li>
-                    <li>Proof of English proficiency (IELTS/PTE)</li>
-                    <li>Financial evidence showing ability to cover tuition and living costs (AU$21,041 per year)</li>
-                    <li>Overseas Student Health Cover (OSHC)</li>
-                    <li>Character and health requirements</li>
-                </ul>
-                <p>The visa application fee is AU$630, and processing times vary.</p>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>University of Melbourne</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>7.0 overall (no band below 6.0)</td>
-                                <td>58 overall (50 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Australian National University</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.0 in each component)</td>
-                                <td>64 overall (55 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Sydney</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.0 in each component)</td>
-                                <td>61 overall (54 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Queensland</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>64 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of New South Wales</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>7.0 overall (6.0 in each component)</td>
-                                <td>64 overall (54 in each skill)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Scholarship options for international students in Australia include:</p>
-                <ul>
-                    <li><strong>Australia Awards Scholarships</strong>: Funded by the Australian government</li>
-                    <li><strong>Endeavour Postgraduate Scholarships</strong>: For postgraduate studies</li>
-                    <li><strong>University-specific scholarships</strong>: Merit-based and need-based awards</li>
-                    <li><strong>Research Training Program (RTP)</strong>: For research students</li>
-                    <li><strong>Destination Australia</strong>: For regional study</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>Student visa holders can work up to 40 hours per fortnight during term time and unlimited hours during breaks. The Temporary Graduate visa (subclass 485) allows graduates to stay and work for 2-4 years, depending on their qualification.</p>
-                <p>Popular industries for international graduates include healthcare, engineering, information technology, accounting, and education. Australia's Skilled Occupation List identifies occupations in demand for migration purposes.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="country-modal" id="newzealandModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-kiwi-bird"></i> New Zealand Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/nz.png" alt="New Zealand Flag">
-                    </div>
-                    <div>
-                        <p>New Zealand offers high-quality education in a safe, English-speaking environment with stunning natural beauty. The country's education system is based on the British model and is known for its practical, hands-on approach to learning.</p>
-                        <p>International students can work up to 20 hours per week during studies and full-time during holidays. After graduation, students may be eligible for a Post-study Work Visa valid for up to 3 years, providing a pathway to residency.</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Universities</h4>
-                        <p>University of Auckland, University of Otago, Victoria University of Wellington</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Agriculture, Environmental Science, Tourism, Film Production, Computer Science</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>NZ$22,000 - NZ$35,000 per year (varies by program and institution)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>NZ$15,000 - NZ$20,000 per year (varies by city)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>New Zealand universities typically require:</p>
-                <ul>
-                    <li>Completed application through university portal or agent</li>
-                    <li>Academic transcripts (may require assessment for international qualifications)</li>
-                    <li>IELTS/PTE scores (typically 6.0-6.5 IELTS or equivalent)</li>
-                    <li>Statement of purpose</li>
-                    <li>Letters of recommendation (for postgraduate studies)</li>
-                    <li>Additional requirements for certain programs (portfolio, interviews, etc.)</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>To study in New Zealand, you'll need a Student Visa. Requirements include:</p>
-                <ul>
-                    <li>Offer of place from an approved education provider</li>
-                    <li>Proof of sufficient funds (NZ$15,000 per year for living costs)</li>
-                    <li>Proof of English proficiency (IELTS/PTE)</li>
-                    <li>Medical and police certificates (if required)</li>
-                    <li>Travel insurance (for some institutions)</li>
-                </ul>
-                <p>The visa application fee is NZ$330, and processing times vary.</p>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>University of Auckland</td>
-                                <td>6.0 overall (5.5 in each component)</td>
-                                <td>6.5 overall (6.0 in each component)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Otago</td>
-                                <td>6.0 overall (no band below 5.5)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Victoria University of Wellington</td>
-                                <td>6.0 overall (no band below 5.5)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Canterbury</td>
-                                <td>6.0 overall (no band below 5.5)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Massey University</td>
-                                <td>6.0 overall (no band below 5.5)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Scholarship opportunities for international students in New Zealand include:</p>
-                <ul>
-                    <li><strong>New Zealand Scholarships</strong>: Funded by the New Zealand government</li>
-                    <li><strong>University-specific scholarships</strong>: Merit-based and need-based awards</li>
-                    <li><strong>New Zealand International Doctoral Research Scholarships</strong>: For PhD students</li>
-                    <li><strong>Prime Minister's Scholarships for Asia and Latin America</strong>: For study abroad</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>Student visa holders can work up to 20 hours per week during term time and full-time during holidays. The Post-study Work Visa allows graduates to stay and work for up to 3 years, depending on their qualification level and where they studied.</p>
-                <p>New Zealand's Skilled Migrant Category provides a pathway to residency for international graduates with job offers in skilled occupations. Popular industries include agriculture, tourism, information technology, and healthcare.</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="country-modal" id="europeModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-monument"></i> Europe Study Guide</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="country-overview">
-                    <div class="country-flag-large">
-                        <img src="https://flagcdn.com/w640/eu.png" alt="Europe Flag">
-                    </div>
-                    <div>
-                        <p>Europe offers diverse study opportunities across many countries, each with unique education systems, cultures, and languages. Many European countries offer low-cost or free tuition to international students, along with high-quality education and rich cultural experiences.</p>
-                        <p>The Erasmus+ program facilitates student mobility across Europe, while many universities offer programs taught entirely in English. Post-study work opportunities vary by country, with many offering pathways to stay after graduation.</p>
-                    </div>
-                </div>
-                
-                <div class="country-stats">
-                    <div class="stat-item">
-                        <h4>Top Countries</h4>
-                        <p>Germany, France, Netherlands, Sweden, Switzerland, Italy, Spain</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Popular Courses</h4>
-                        <p>Engineering, Business, Computer Science, Medicine, Arts & Design</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Average Tuition</h4>
-                        <p>€0 - €20,000 per year (varies by country and institution)</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>Living Costs</h4>
-                        <p>€8,000 - €15,000 per year (varies by country and city)</p>
-                    </div>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Admission Requirements</h3>
-                <p>Requirements vary by country but typically include:</p>
-                <ul>
-                    <li>Completed application through university portal or centralized system</li>
-                    <li>Academic transcripts (may require nostrification/recognition)</li>
-                    <li>IELTS/PTE scores for English-taught programs (typically 6.0-6.5 IELTS or equivalent)</li>
-                    <li>Language proficiency for programs in local languages</li>
-                    <li>Motivation letter</li>
-                    <li>Letters of recommendation</li>
-                    <li>Entrance exams for certain programs/countries</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Student Visa Process</h3>
-                <p>Visa requirements vary by country but generally include:</p>
-                <ul>
-                    <li>Letter of acceptance from a recognized institution</li>
-                    <li>Proof of financial means (amount varies by country)</li>
-                    <li>Health insurance coverage</li>
-                    <li>Proof of accommodation</li>
-                    <li>Medical certificate (some countries)</li>
-                    <li>Language proficiency (if required)</li>
-                </ul>
-                <p>Schengen Area countries allow visa holders to travel freely within the zone.</p>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Top Universities and IELTS/PTE Requirements</h3>
-                <div class="score-table">
-                    <table class="university-table">
-                        <thead>
-                            <tr>
-                                <th>University</th>
-                                <th>Country</th>
-                                <th>Undergraduate</th>
-                                <th>Postgraduate</th>
-                                <th>PTE Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ETH Zurich</td>
-                                <td>Switzerland</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Technical University of Munich</td>
-                                <td>Germany</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>University of Amsterdam</td>
-                                <td>Netherlands</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>7.0 overall (no band below 6.5)</td>
-                                <td>65 overall (60 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Sorbonne University</td>
-                                <td>France</td>
-                                <td>6.0 overall (no band below 5.5)</td>
-                                <td>6.5 overall (no band below 6.0)</td>
-                                <td>50 overall (42 in each skill)</td>
-                            </tr>
-                            <tr>
-                                <td>Karolinska Institute</td>
-                                <td>Sweden</td>
-                                <td>6.5 overall (no band below 5.5)</td>
-                                <td>7.0 overall (no band below 6.0)</td>
-                                <td>65 overall (59 in each skill)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Scholarships and Funding</h3>
-                <p>Scholarship opportunities in Europe include:</p>
-                <ul>
-                    <li><strong>Erasmus Mundus Scholarships</strong>: For international students in joint European programs</li>
-                    <li><strong>DAAD Scholarships</strong>: For study in Germany</li>
-                    <li><strong>Eiffel Scholarships</strong>: For study in France</li>
-                    <li><strong>Holland Scholarship</strong>: For study in the Netherlands</li>
-                    <li><strong>University-specific scholarships</strong>: Offered by individual institutions</li>
-                </ul>
-                
-                <div class="section-divider"></div>
-                
-                <h3>Work Opportunities</h3>
-                <p>Work rights for students vary by country but typically allow part-time work during studies (10-20 hours per week). Many European countries offer post-study work options:</p>
-                <ul>
-                    <li><strong>Germany</strong>: 18-month job seeker visa after graduation</li>
-                    <li><strong>France</strong>: 2-year post-study work permit for master's graduates</li>
-                    <li><strong>Netherlands</strong>: Orientation year permit for graduates</li>
-                    <li><strong>Sweden</strong>: 6-12 months to seek employment after studies</li>
-                </ul>
-                <p>The EU Blue Card provides a work and residence permit for highly qualified non-EU citizens.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Success Stories</h2>
-                <p>Hear from students who achieved their study abroad dreams with our help</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>The materials and guidance helped me score 8.0 in IELTS and get into my dream university in the UK!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K.">
-                        </div>
-                        <div class="author-info">
-                            <h5>Sarah K.</h5>
-                            <p>University of London</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Thanks to the PTE materials, I scored 85+ and got my Australian student visa approved!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Raj P.">
-                        </div>
-                        <div class="author-info">
-                            <h5>Raj P.</h5>
-                            <p>University of Sydney</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>The Canada study guide helped me navigate the entire process from application to visa approval.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria L.">
-                        </div>
-                        <div class="author-info">
-                            <h5>Maria L.</h5>
-                            <p>University of Toronto</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Contact our specialized departments for any questions</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Reach out to our specialized departments for assistance with your IELTS/PTE preparation or study abroad plans.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>General Inquiries</h4>
-                                <a href="mailto:info@npielts.us">info@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <a href="tel:+1234567890">+1 (234) 567-890</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Address</h4>
-                                <p>123 Education Street, Learning City, 10001</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 style="margin-top: 2rem;">Department Contacts</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>IELTS Support</h4>
-                                <p>For all IELTS-related questions, materials, and test strategies</p>
-                                <a href="mailto:ielts@npielts.us">ielts@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>PTE Support</h4>
-                                <p>For PTE Academic preparation, scoring, and test information</p>
-                                <a href="mailto:pte@npielts.us">pte@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>UK Study</h4>
-                                <p>For university applications, visas, and life in the UK</p>
-                                <a href="mailto:uk@npielts.us">uk@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>USA Study</h4>
-                                <p>For US college applications, tests, and visa guidance</p>
-                                <a href="mailto:usa@npielts.us">usa@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>Canada Study</h4>
-                                <p>For Canadian university applications and immigration</p>
-                                <a href="mailto:canada@npielts.us">canada@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>Australia/NZ Study</h4>
-                                <p>For Australian and New Zealand education information</p>
-                                <a href="mailto:anz@npielts.us">anz@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>Europe Study</h4>
-                                <p>For studying in Germany, France, Netherlands, etc.</p>
-                                <a href="mailto:europe@npielts.us">europe@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>Admissions Support</h4>
-                                <p>For university application reviews and guidance</p>
-                                <a href="mailto:admissions@npielts.us">admissions@npielts.us</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-text">
-                                <h4>Technical Support</h4>
-                                <p>For website issues and download problems</p>
-                                <a href="mailto:tech@npielts.us">tech@npielts.us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/xanooyvg" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Department</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a department</option>
-                                <option value="ielts">IELTS Support</option>
-                                <option value="pte">PTE Support</option>
-                                <option value="uk">UK Study</option>
-                                <option value="usa">USA Study</option>
-                                <option value="canada">Canada Study</option>
-                                <option value="australia">Australia/NZ Study</option>
-                                <option value="europe">Europe Study</option>
-                                <option value="admissions">Admissions Support</option>
-                                <option value="technical">Technical Support</option>
-                                <option value="other">Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h4>IELTS PTE Master</h4>
-                    <p>Your complete solution for English test preparation and study abroad guidance.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#materials">Study Materials</a></li>
-                        <li><a href="#countries">Study Abroad</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Test Resources</h4>
-                    <ul>
-                        <li><a href="#ielts">IELTS Materials</a></li>
-                        <li><a href="#pte">PTE Materials</a></li>
-                        <li><a href="#practice">Practice Tests</a></li>
-                        <li><a href="#requirements">Score Requirements</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Support</h4>
-                    <ul>
-                        <li><a href="mailto:ielts@npielts.us">IELTS Support</a></li>
-                        <li><a href="mailto:pte@npielts.us">PTE Support</a></li>
-                        <li><a href="mailto:uk@npielts.us">UK Study</a></li>
-                        <li><a href="mailto:usa@npielts.us">USA Study</a></li>
-                        <li><a href="mailto:canada@npielts.us">Canada Study</a></li>
-                        <li><a href="mailto:tech@npielts.us">Technical Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear"></span> IELTS PTE Master. All rights reserved. | 
-                    <a href="#">Privacy Policy</a> | 
-                    <a href="#">Terms of Service</a> | 
-                    <a href="#">Refund Policy</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Display current date
-        const currentDateElement = document.getElementById('currentDate');
-        const currentYearElement = document.getElementById('currentYear');
-        
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const today = new Date();
-        
-        currentDateElement.textContent = today.toLocaleDateString('en-US', options);
-        currentYearElement.textContent = today.getFullYear();
-        
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Resource Tab Functionality
-        const resourceTabs = document.querySelectorAll('.resource-tab');
-        const resourceContents = document.querySelectorAll('.resource-content');
-        
-        resourceTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs and contents
-                resourceTabs.forEach(t => t.classList.remove('active'));
-                resourceContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Country Modal Functionality
-        const countryCards = document.querySelectorAll('.country-card');
-        const countryModals = document.querySelectorAll('.country-modal');
-        const closeModalButtons = document.querySelectorAll('.close-modal');
-        
-        countryCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const country = card.getAttribute('data-country');
-                document.getElementById(`${country}Modal`).style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                countryModals.forEach(modal => {
-                    modal.style.display = 'none';
-                });
-                document.body.style.overflow = 'auto';
-            });
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('country-modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                }
-            });
-        });
-        
-        // Scroll Animation
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.feature-card, .resource-item, .country-card, .testimonial-card');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        // Set initial state for animation
-        document.querySelectorAll('.feature-card, .resource-item, .country-card, .testimonial-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
-</body>
-</html>
+    <!-- Test Preparation Section -->
+ 
