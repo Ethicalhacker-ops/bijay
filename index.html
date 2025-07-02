@@ -449,6 +449,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            cursor: pointer;
         }
         
         .country-card:hover {
@@ -484,6 +485,151 @@
             color: #666;
             margin-bottom: 1rem;
             font-size: 0.95rem;
+        }
+        
+        /* Country Modal */
+        .country-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        
+        .modal-content {
+            background-color: white;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .country-overview {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .country-flag-large {
+            width: 200px;
+            height: 120px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .country-flag-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .country-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+            background-color: #f5f7fa;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .stat-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background-color: #eee;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .university-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .university-table th, 
+        .university-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .university-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .university-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .university-table tr:hover {
+            background-color: #f1f1f1;
         }
         
         /* Testimonials */
@@ -729,6 +875,37 @@
             font-size: 0.9rem;
         }
         
+        /* Score Requirements */
+        .score-requirements {
+            margin: 2rem 0;
+        }
+        
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .score-table th, 
+        .score-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .score-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .score-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .score-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .resource-list {
@@ -737,6 +914,15 @@
             
             .hero h1 {
                 font-size: 3rem;
+            }
+            
+            .country-overview {
+                flex-direction: column;
+            }
+            
+            .country-flag-large {
+                width: 100%;
+                height: 200px;
             }
         }
         
@@ -784,6 +970,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -808,6 +998,14 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
+            
+            .modal-header h3 {
+                font-size: 1.3rem;
+            }
+            
+            .country-stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -816,7 +1014,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="IELTS PTE Master Logo">
+                <img src="https://i.imgur.com/JQKZQYt.png" alt="IELTS PTE Master Logo">
                 <div class="logo-text">
                     <h1>IELTS PTE Master</h1>
                     <span>Study Materials & Abroad Guidance</span>
@@ -909,6 +1107,9 @@
                 <button class="resource-tab" data-tab="practice">
                     <i class="fas fa-clipboard-list"></i> Practice Tests
                 </button>
+                <button class="resource-tab" data-tab="requirements">
+                    <i class="fas fa-star"></i> Score Requirements
+                </button>
             </div>
             
             <!-- IELTS Materials -->
@@ -917,7 +1118,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-pdf"></i> Cambridge IELTS 1-19 Collection</h4>
                         <p>Complete set of all Cambridge IELTS books with answers and audio files</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Collection <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/1aBcD3eF4gH5iJ6kL7mN8oP9qR0sT1uV" class="resource-link">Download Collection <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
                             <span>850MB</span>
@@ -927,7 +1128,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-pdf"></i> IELTS Writing Samples</h4>
                         <p>Band 9 writing samples for both Academic and General Training</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download PDF <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/2bC3dE4fG5h6iJ7kL8mN9oP0qR1sT2uV" class="resource-link">Download PDF <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>8.5MB</span>
@@ -937,7 +1138,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-headphones"></i> IELTS Listening Practice</h4>
                         <p>Complete listening tests with answer keys and audio files</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/3cD4eF5gH6iJ7kL8mN9oP0qR1sT2uV" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-music"></i> MP3</span>
                             <span>120MB</span>
@@ -947,7 +1148,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-word"></i> IELTS Speaking Guide</h4>
                         <p>Complete guide with sample answers for all speaking parts</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/4dE5fG6hI7jK8lM9nO0p1Q2r3S4t5uV" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>5.2MB</span>
@@ -957,10 +1158,40 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-key"></i> IELTS Answer Keys</h4>
                         <p>Official answer keys for all Cambridge IELTS tests</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Keys <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/5eF6gH7iJ8kL9mN0oP1qR2sT3uV4wX" class="resource-link">Download Keys <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>3.1MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Vocabulary Builder</h4>
+                        <p>Essential vocabulary for all IELTS sections with exercises</p>
+                        <a href="https://drive.google.com/file/d/6fG7hI8jK9lM0nO1pQ2r3S4t5uV6wX" class="resource-link">Download Vocabulary <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>6.8MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Reading Strategies</h4>
+                        <p>Proven strategies and practice exercises for all question types</p>
+                        <a href="https://drive.google.com/file/d/7gH8iJ9kL0mN1oP2qR3sT4uV5wX6yZ" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>4.5MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Grammar Guide</h4>
+                        <p>Grammar rules and exercises specifically for IELTS success</p>
+                        <a href="https://drive.google.com/file/d/8hI9jK0lM1nO2pQ3rS4t5uV6wX7yZ" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>5.7MB</span>
                         </div>
                     </div>
                 </div>
@@ -976,7 +1207,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-pdf"></i> Official PTE Guide</h4>
                         <p>The complete official guide to PTE Academic with practice tests</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/9iJ0kL1mN2oP3qR4sT5uV6wX7yZ8aB" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>25MB</span>
@@ -986,7 +1217,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-headphones"></i> PTE Speaking Samples</h4>
                         <p>Audio samples for all speaking question types with transcripts</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/0jK1lM2nO3pQ4rS5tU6vW7xY8z9aB" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-music"></i> MP3</span>
                             <span>45MB</span>
@@ -996,7 +1227,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-word"></i> PTE Writing Templates</h4>
                         <p>High-scoring templates for essay and summarize written text</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download Templates <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/1kL2mN3oP4qR5sT6uV7wX8yZ9aB0cD" class="resource-link">Download Templates <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>2.8MB</span>
@@ -1006,10 +1237,50 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-pdf"></i> PTE Vocabulary List</h4>
                         <p>Essential vocabulary for all PTE sections</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download List <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/2lM3nO4pQ5rS6tU7vW8xY9z0aB1cD" class="resource-link">Download List <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>4.1MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> PTE Reading Strategies</h4>
+                        <p>Complete guide to mastering PTE reading section</p>
+                        <a href="https://drive.google.com/file/d/3mN4oP5qR6sT7uV8wX9yZ0aB1cD2eF" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>3.9MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> PTE Listening Practice</h4>
+                        <p>Full-length listening tests with answer keys</p>
+                        <a href="https://drive.google.com/file/d/4nO5pQ6rS7tU8vW9xY0z1aB2cD3eF" class="resource-link">Download Audio <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-music"></i> MP3</span>
+                            <span>68MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> PTE Score Guide</h4>
+                        <p>Understanding PTE scoring system and how to maximize your score</p>
+                        <a href="https://drive.google.com/file/d/5oP6qR7sT8uV9wX0y1aB2cD3eF4gH" class="resource-link">Download Guide <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>3.2MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> PTE Mock Test Bundle</h4>
+                        <p>5 full PTE mock tests with answer keys and audio files</p>
+                        <a href="https://drive.google.com/file/d/6pQ7rS8tU9vW0x1y2aB3cD4eF5gH" class="resource-link">Download Bundle <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF + MP3</span>
+                            <span>210MB</span>
                         </div>
                     </div>
                 </div>
@@ -1045,7 +1316,7 @@
                     <div class="resource-item">
                         <h4><i class="fas fa-file-pdf"></i> IELTS Writing Practice</h4>
                         <p>50 writing tasks with sample answers and examiner comments</p>
-                        <a href="https://drive.google.com/file/d/example" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/7qR8sT9uV0wX1y2aB3cD4eF5gH6iJ" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
                         <div class="resource-meta">
                             <span><i class="fas fa-file-pdf"></i> PDF</span>
                             <span>7.3MB</span>
@@ -1061,10 +1332,221 @@
                             <span>45m</span>
                         </div>
                     </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> IELTS Reading Practice</h4>
+                        <p>15 academic reading tests with answer keys</p>
+                        <a href="https://drive.google.com/file/d/8rS9tU0vW1x2y3aB4cD5eF6gH7iJ" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>9.1MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-microphone-alt"></i> IELTS Speaking Simulator</h4>
+                        <p>Practice IELTS speaking with AI feedback and scoring</p>
+                        <a href="https://ielts-simulator.com" class="resource-link">Try Simulator <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-laptop"></i> Online</span>
+                            <span>15m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-file-pdf"></i> PTE Writing Practice</h4>
+                        <p>30 essay topics with sample answers and scoring guide</p>
+                        <a href="https://drive.google.com/file/d/9sT0uV1wX2y3aB4cD5eF6gH7iJ8kL" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span>5.8MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4><i class="fas fa-headphones"></i> IELTS Listening Mock</h4>
+                        <p>Full IELTS listening test with audio and answer key</p>
+                        <a href="https://ielts.org/listening-test" class="resource-link">Take Test <i class="fas fa-external-link-alt"></i></a>
+                        <div class="resource-meta">
+                            <span><i class="fas fa-laptop"></i> Online</span>
+                            <span>30m</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="support-info">
                     <p><strong>Practice Test Support:</strong> <a href="mailto:practice@npielts.us">practice@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
+                </div>
+            </div>
+            
+            <!-- Score Requirements -->
+            <div id="requirements" class="resource-content">
+                <h3>IELTS Score Requirements by Country and University</h3>
+                <div class="score-requirements">
+                    <h4>United Kingdom</h4>
+                    <div class="score-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>University</th>
+                                    <th>Undergraduate</th>
+                                    <th>Postgraduate</th>
+                                    <th>Popular Courses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>University of Oxford</td>
+                                    <td>7.0 overall (7.0 in each component)</td>
+                                    <td>7.5 overall (7.0 in each component)</td>
+                                    <td>Law, Medicine, PPE</td>
+                                </tr>
+                                <tr>
+                                    <td>University of Cambridge</td>
+                                    <td>7.0 overall (7.0 in each component)</td>
+                                    <td>7.5 overall (7.0 in each component)</td>
+                                    <td>Natural Sciences, Engineering, Economics</td>
+                                </tr>
+                                <tr>
+                                    <td>Imperial College London</td>
+                                    <td>6.5 overall (6.0 in each component)</td>
+                                    <td>7.0 overall (6.5 in each component)</td>
+                                    <td>Engineering, Medicine, Business</td>
+                                </tr>
+                                <tr>
+                                    <td>University College London</td>
+                                    <td>6.5 overall (6.0 in each component)</td>
+                                    <td>7.0 overall (6.5 in each component)</td>
+                                    <td>Architecture, Law, Computer Science</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4>United States</h4>
+                    <div class="score-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>University</th>
+                                    <th>Undergraduate</th>
+                                    <th>Postgraduate</th>
+                                    <th>Popular Courses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Harvard University</td>
+                                    <td>7.0 overall (no band below 7.0)</td>
+                                    <td>7.5 overall (no band below 7.0)</td>
+                                    <td>Law, Medicine, Business</td>
+                                </tr>
+                                <tr>
+                                    <td>Stanford University</td>
+                                    <td>7.0 overall (no band below 6.5)</td>
+                                    <td>7.0 overall (no band below 6.5)</td>
+                                    <td>Computer Science, Engineering, Business</td>
+                                </tr>
+                                <tr>
+                                    <td>MIT</td>
+                                    <td>7.0 overall (no band below 6.5)</td>
+                                    <td>7.0 overall (no band below 6.5)</td>
+                                    <td>Engineering, Computer Science, Physics</td>
+                                </tr>
+                                <tr>
+                                    <td>University of California, Berkeley</td>
+                                    <td>6.5 overall (no band below 6.0)</td>
+                                    <td>7.0 overall (no band below 6.0)</td>
+                                    <td>Computer Science, Business, Environmental Science</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3>PTE Score Requirements by Country and University</h3>
+                    <h4>Australia</h4>
+                    <div class="score-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>University</th>
+                                    <th>Undergraduate</th>
+                                    <th>Postgraduate</th>
+                                    <th>Popular Courses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>University of Melbourne</td>
+                                    <td>58 overall (no band below 50)</td>
+                                    <td>65 overall (no band below 58)</td>
+                                    <td>Medicine, Law, Business</td>
+                                </tr>
+                                <tr>
+                                    <td>Australian National University</td>
+                                    <td>64 overall (55 in each skill)</td>
+                                    <td>70 overall (60 in each skill)</td>
+                                    <td>International Relations, Science, Engineering</td>
+                                </tr>
+                                <tr>
+                                    <td>University of Sydney</td>
+                                    <td>61 overall (54 in each skill)</td>
+                                    <td>68 overall (61 in each skill)</td>
+                                    <td>Medicine, Architecture, Business</td>
+                                </tr>
+                                <tr>
+                                    <td>University of Queensland</td>
+                                    <td>64 overall (60 in each skill)</td>
+                                    <td>64 overall (60 in each skill)</td>
+                                    <td>Mining Engineering, Agriculture, Psychology</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4>Canada</h4>
+                    <div class="score-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>University</th>
+                                    <th>Undergraduate</th>
+                                    <th>Postgraduate</th>
+                                    <th>Popular Courses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>University of Toronto</td>
+                                    <td>65 overall (60 in each skill)</td>
+                                    <td>70 overall (65 in each skill)</td>
+                                    <td>Computer Science, Medicine, Engineering</td>
+                                </tr>
+                                <tr>
+                                    <td>University of British Columbia</td>
+                                    <td>65 overall (60 in each skill)</td>
+                                    <td>65 overall (60 in each skill)</td>
+                                    <td>Forestry, Business, Environmental Science</td>
+                                </tr>
+                                <tr>
+                                    <td>McGill University</td>
+                                    <td>65 overall (60 in each skill)</td>
+                                    <td>70 overall (65 in each skill)</td>
+                                    <td>Medicine, Law, Management</td>
+                                </tr>
+                                <tr>
+                                    <td>University of Alberta</td>
+                                    <td>61 overall (60 in each skill)</td>
+                                    <td>68 overall (60 in each skill)</td>
+                                    <td>Petroleum Engineering, Agriculture, Nursing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="support-info">
+                    <p><strong>Admission Support:</strong> <a href="mailto:admissions@npielts.us">admissions@npielts.us</a> | <strong>Technical Support:</strong> <a href="mailto:tech@npielts.us">tech@npielts.us</a></p>
                 </div>
             </div>
         </div>
@@ -1078,7 +1560,7 @@
                 <p>Comprehensive information about studying in top destinations worldwide</p>
             </div>
             <div class="country-grid">
-                <div class="country-card">
+                <div class="country-card" data-country="uk">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/gb.png" alt="UK Flag">
                     </div>
@@ -1088,7 +1570,7 @@
                         <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="country-card">
+                <div class="country-card" data-country="usa">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/us.png" alt="USA Flag">
                     </div>
@@ -1098,7 +1580,7 @@
                         <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="country-card">
+                <div class="country-card" data-country="canada">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag">
                     </div>
@@ -1108,7 +1590,7 @@
                         <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="country-card">
+                <div class="country-card" data-country="australia">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag">
                     </div>
@@ -1118,7 +1600,7 @@
                         <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="country-card">
+                <div class="country-card" data-country="newzealand">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand Flag">
                     </div>
@@ -1128,7 +1610,7 @@
                         <a href="#" class="feature-link">View Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="country-card">
+                <div class="country-card" data-country="europe">
                     <div class="country-flag">
                         <img src="https://flagcdn.com/w320/eu.png" alt="Europe Flag">
                     </div>
@@ -1141,6 +1623,809 @@
             </div>
         </div>
     </section>
+
+    <!-- Country Modals -->
+    <div class="country-modal" id="ukModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-landmark"></i> United Kingdom Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/gb.png" alt="UK Flag">
+                    </div>
+                    <div>
+                        <p>The United Kingdom is home to some of the world's most prestigious universities, including Oxford and Cambridge. With a rich academic tradition dating back centuries, the UK offers high-quality education across all disciplines. The UK education system is known for its rigorous standards and shorter degree durations compared to other countries.</p>
+                        <p>International students are drawn to the UK for its world-class education, cultural diversity, and post-study work opportunities. The Graduate Route visa allows students to stay for 2 years after graduation (3 years for PhD students) to work or look for work.</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Universities</h4>
+                        <p>University of Oxford, University of Cambridge, Imperial College London, UCL, LSE</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Business, Law, Medicine, Engineering, Computer Science, Economics</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>£10,000 - £38,000 per year (varies by course and university)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>£12,000 - £15,000 per year (outside London), £15,000 - £20,000 (London)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>UK universities typically require:</p>
+                <ul>
+                    <li>Completed application through UCAS (undergraduate) or directly to university (postgraduate)</li>
+                    <li>Academic transcripts and certificates</li>
+                    <li>IELTS/PTE scores (typically 6.0-7.5 IELTS or equivalent)</li>
+                    <li>Personal statement</li>
+                    <li>Letters of recommendation</li>
+                    <li>Portfolio or additional tests for certain courses (e.g., LNAT for Law, BMAT for Medicine)</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>To study in the UK, you'll need a Student Visa (previously Tier 4). Requirements include:</p>
+                <ul>
+                    <li>Confirmation of Acceptance for Studies (CAS) from your university</li>
+                    <li>Proof of English language proficiency (IELTS/PTE)</li>
+                    <li>Financial evidence showing you can cover tuition and living costs (£1,023 per month outside London, £1,334 in London)</li>
+                    <li>Valid passport</li>
+                    <li>TB test results (if applicable)</li>
+                </ul>
+                <p>The visa application fee is £348, and you'll also need to pay the Immigration Health Surcharge (£470 per year).</p>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>University of Oxford</td>
+                                <td>7.0 overall (7.0 in each component)</td>
+                                <td>7.5 overall (7.0 in each component)</td>
+                                <td>76 overall (76 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Cambridge</td>
+                                <td>7.0 overall (7.0 in each component)</td>
+                                <td>7.5 overall (7.0 in each component)</td>
+                                <td>76 overall (76 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Imperial College London</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.5 in each component)</td>
+                                <td>69 overall (62 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University College London</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.5 in each component)</td>
+                                <td>69 overall (62 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>London School of Economics</td>
+                                <td>7.0 overall (7.0 in each component)</td>
+                                <td>7.0 overall (7.0 in each component)</td>
+                                <td>69 overall (69 in each skill)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Several scholarships are available for international students in the UK:</p>
+                <ul>
+                    <li><strong>Chevening Scholarships</strong>: Funded by the UK government for postgraduate studies</li>
+                    <li><strong>Commonwealth Scholarships</strong>: For students from Commonwealth countries</li>
+                    <li><strong>University-specific scholarships</strong>: Most universities offer merit-based scholarships</li>
+                    <li><strong>GREAT Scholarships</strong>: For students from specific countries</li>
+                    <li><strong>Marshall Scholarships</strong>: For US students to study in the UK</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>International students in the UK can work up to 20 hours per week during term time and full-time during vacations. The Graduate Route allows students to stay for 2 years (3 years for PhD graduates) after completing their studies to work at any skill level.</p>
+                <p>Popular job sectors for international graduates include finance, technology, healthcare, and engineering. London remains the top destination for graduate jobs, followed by Manchester, Edinburgh, and Birmingham.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-modal" id="usaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-university"></i> United States Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/us.png" alt="USA Flag">
+                    </div>
+                    <div>
+                        <p>The United States is the top destination for international students worldwide, boasting over 4,000 higher education institutions. From Ivy League universities to state colleges and liberal arts institutions, the US offers diverse educational opportunities across all fields of study.</p>
+                        <p>US universities are known for their flexible curriculum, cutting-edge research facilities, and strong industry connections. The Optional Practical Training (OPT) program allows international students to work for 1 year after graduation (3 years for STEM fields).</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Universities</h4>
+                        <p>Harvard, Stanford, MIT, Caltech, University of Chicago, Columbia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Business Administration, Computer Science, Engineering, Medicine, Law</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>$20,000 - $60,000 per year (varies by institution and program)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>$10,000 - $20,000 per year (varies by location)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>US universities typically require:</p>
+                <ul>
+                    <li>Completed application (Common App or university-specific)</li>
+                    <li>Academic transcripts (may require evaluation for international credentials)</li>
+                    <li>Standardized test scores (SAT/ACT for undergraduate, GRE/GMAT for graduate)</li>
+                    <li>IELTS/PTE/TOEFL scores (typically 6.5-7.5 IELTS or equivalent)</li>
+                    <li>Personal essays or statement of purpose</li>
+                    <li>Letters of recommendation</li>
+                    <li>Extracurricular activities and achievements</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>International students need an F-1 visa to study in the US. The process involves:</p>
+                <ul>
+                    <li>Receiving Form I-20 from your university after admission</li>
+                    <li>Paying the SEVIS fee ($350)</li>
+                    <li>Completing the DS-160 visa application form</li>
+                    <li>Paying the visa application fee ($160)</li>
+                    <li>Scheduling and attending a visa interview at a US embassy/consulate</li>
+                    <li>Providing financial evidence showing ability to cover costs</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Harvard University</td>
+                                <td>7.0 overall (no band below 7.0)</td>
+                                <td>7.5 overall (no band below 7.0)</td>
+                                <td>75 overall (75 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Stanford University</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>68 overall (62 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>MIT</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>68 overall (62 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of California, Berkeley</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>7.0 overall (no band below 6.0)</td>
+                                <td>65 overall (59 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>New York University</td>
+                                <td>7.0 overall (no band below 7.0)</td>
+                                <td>7.5 overall (no band below 7.0)</td>
+                                <td>70 overall (70 in each skill)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Funding options for international students in the US include:</p>
+                <ul>
+                    <li><strong>University scholarships</strong>: Merit-based and need-based awards</li>
+                    <li><strong>Fulbright Program</strong>: For graduate students from participating countries</li>
+                    <li><strong>Private scholarships</strong>: From organizations and foundations</li>
+                    <li><strong>Assistantships</strong>: Teaching or research positions for graduate students</li>
+                    <li><strong>Athletic scholarships</strong>: For talented student-athletes</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>F-1 visa holders can work on-campus up to 20 hours per week during term time. Optional Practical Training (OPT) allows students to work off-campus for 12 months after graduation (36 months for STEM fields).</p>
+                <p>Popular industries for international graduates include technology (Silicon Valley), finance (New York), engineering, healthcare, and entertainment. The H-1B visa is the primary work visa for long-term employment.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-modal" id="canadaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-maple-leaf"></i> Canada Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/ca.png" alt="Canada Flag">
+                    </div>
+                    <div>
+                        <p>Canada is renowned for its high-quality education system, welcoming immigration policies, and excellent quality of life. Canadian universities consistently rank among the world's best, offering internationally recognized degrees at relatively affordable tuition rates compared to the US and UK.</p>
+                        <p>International students can work up to 20 hours per week during studies and full-time during breaks. After graduation, students can apply for a Post-Graduation Work Permit (PGWP) valid for up to 3 years, providing a pathway to permanent residency.</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Universities</h4>
+                        <p>University of Toronto, University of British Columbia, McGill University, McMaster University</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Computer Science, Business, Engineering, Health Sciences, Environmental Studies</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>CA$15,000 - CA$35,000 per year (varies by program and institution)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>CA$10,000 - CA$15,000 per year (varies by city)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>Canadian universities typically require:</p>
+                <ul>
+                    <li>Completed application through university portal or centralized system</li>
+                    <li>Academic transcripts (may require evaluation for international credentials)</li>
+                    <li>IELTS/PTE scores (typically 6.0-7.0 IELTS or equivalent)</li>
+                    <li>Statement of purpose or personal essay</li>
+                    <li>Letters of recommendation</li>
+                    <li>Portfolio or additional requirements for certain programs</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>To study in Canada, you'll need a Study Permit. Requirements include:</p>
+                <ul>
+                    <li>Letter of acceptance from a Designated Learning Institution (DLI)</li>
+                    <li>Proof of financial support (minimum CA$10,000 per year plus tuition)</li>
+                    <li>IELTS/PTE scores meeting the university's requirements</li>
+                    <li>Medical exam (if required)</li>
+                    <li>Police clearance certificate</li>
+                    <li>Statement of purpose explaining your study plans</li>
+                </ul>
+                <p>The application fee is CA$150, and processing times vary by country.</p>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>University of Toronto</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.5 in each component)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of British Columbia</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.5 in each component)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>McGill University</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Alberta</td>
+                                <td>6.5 overall (5.5 in each component)</td>
+                                <td>6.5 overall (5.5 in each component)</td>
+                                <td>61 overall (59 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Waterloo</td>
+                                <td>6.5 overall (6.0 in writing/speaking, 6.5 in reading/listening)</td>
+                                <td>7.0 overall (6.5 in writing/speaking, 7.0 in reading/listening)</td>
+                                <td>65 overall (65 in reading/listening, 60 in writing/speaking)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Scholarship opportunities for international students in Canada include:</p>
+                <ul>
+                    <li><strong>Vanier Canada Graduate Scholarships</strong>: For doctoral students</li>
+                    <li><strong>Banting Postdoctoral Fellowships</strong>: For postdoctoral researchers</li>
+                    <li><strong>University-specific scholarships</strong>: Most universities offer merit-based awards</li>
+                    <li><strong>Provincial scholarships</strong>: Offered by individual provinces</li>
+                    <li><strong>Private scholarships</strong>: From organizations and foundations</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>Study permit holders can work up to 20 hours per week during term time and full-time during scheduled breaks. The Post-Graduation Work Permit (PGWP) allows students to work for up to 3 years after graduation, depending on the length of their study program.</p>
+                <p>Canada's Express Entry system provides a pathway to permanent residency for international graduates with Canadian work experience. Popular industries for international graduates include technology (Toronto, Vancouver), natural resources (Alberta), finance, and healthcare.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-modal" id="australiaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-koala"></i> Australia Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/au.png" alt="Australia Flag">
+                    </div>
+                    <div>
+                        <p>Australia is a leading global education destination with world-class universities, a relaxed lifestyle, and post-study work opportunities. Australian qualifications are recognized worldwide, and the country offers a safe, multicultural environment for international students.</p>
+                        <p>The Temporary Graduate visa (subclass 485) allows international students to stay and work in Australia for 2-4 years after completing their studies, depending on their qualification level. Australia's education system emphasizes practical skills and industry connections.</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Universities</h4>
+                        <p>University of Melbourne, Australian National University, University of Sydney, University of Queensland</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Business, Engineering, Medicine, Environmental Science, Hospitality</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>AU$20,000 - AU$45,000 per year (varies by program and institution)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>AU$20,000 - AU$25,000 per year (varies by city)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>Australian universities typically require:</p>
+                <ul>
+                    <li>Completed application through university portal or agent</li>
+                    <li>Academic transcripts (may require assessment for international qualifications)</li>
+                    <li>IELTS/PTE scores (typically 6.0-7.0 IELTS or equivalent)</li>
+                    <li>Statement of purpose</li>
+                    <li>Letters of recommendation (for postgraduate studies)</li>
+                    <li>Portfolio or additional requirements for certain courses</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>To study in Australia, you'll need a Student Visa (subclass 500). Requirements include:</p>
+                <ul>
+                    <li>Confirmation of Enrolment (CoE) from your education provider</li>
+                    <li>Genuine Temporary Entrant (GTE) statement</li>
+                    <li>Proof of English proficiency (IELTS/PTE)</li>
+                    <li>Financial evidence showing ability to cover tuition and living costs (AU$21,041 per year)</li>
+                    <li>Overseas Student Health Cover (OSHC)</li>
+                    <li>Character and health requirements</li>
+                </ul>
+                <p>The visa application fee is AU$630, and processing times vary.</p>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>University of Melbourne</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>7.0 overall (no band below 6.0)</td>
+                                <td>58 overall (50 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Australian National University</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.0 in each component)</td>
+                                <td>64 overall (55 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Sydney</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.0 in each component)</td>
+                                <td>61 overall (54 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Queensland</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>64 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of New South Wales</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>7.0 overall (6.0 in each component)</td>
+                                <td>64 overall (54 in each skill)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Scholarship options for international students in Australia include:</p>
+                <ul>
+                    <li><strong>Australia Awards Scholarships</strong>: Funded by the Australian government</li>
+                    <li><strong>Endeavour Postgraduate Scholarships</strong>: For postgraduate studies</li>
+                    <li><strong>University-specific scholarships</strong>: Merit-based and need-based awards</li>
+                    <li><strong>Research Training Program (RTP)</strong>: For research students</li>
+                    <li><strong>Destination Australia</strong>: For regional study</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>Student visa holders can work up to 40 hours per fortnight during term time and unlimited hours during breaks. The Temporary Graduate visa (subclass 485) allows graduates to stay and work for 2-4 years, depending on their qualification.</p>
+                <p>Popular industries for international graduates include healthcare, engineering, information technology, accounting, and education. Australia's Skilled Occupation List identifies occupations in demand for migration purposes.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-modal" id="newzealandModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-kiwi-bird"></i> New Zealand Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/nz.png" alt="New Zealand Flag">
+                    </div>
+                    <div>
+                        <p>New Zealand offers high-quality education in a safe, English-speaking environment with stunning natural beauty. The country's education system is based on the British model and is known for its practical, hands-on approach to learning.</p>
+                        <p>International students can work up to 20 hours per week during studies and full-time during holidays. After graduation, students may be eligible for a Post-study Work Visa valid for up to 3 years, providing a pathway to residency.</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Universities</h4>
+                        <p>University of Auckland, University of Otago, Victoria University of Wellington</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Agriculture, Environmental Science, Tourism, Film Production, Computer Science</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>NZ$22,000 - NZ$35,000 per year (varies by program and institution)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>NZ$15,000 - NZ$20,000 per year (varies by city)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>New Zealand universities typically require:</p>
+                <ul>
+                    <li>Completed application through university portal or agent</li>
+                    <li>Academic transcripts (may require assessment for international qualifications)</li>
+                    <li>IELTS/PTE scores (typically 6.0-6.5 IELTS or equivalent)</li>
+                    <li>Statement of purpose</li>
+                    <li>Letters of recommendation (for postgraduate studies)</li>
+                    <li>Additional requirements for certain programs (portfolio, interviews, etc.)</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>To study in New Zealand, you'll need a Student Visa. Requirements include:</p>
+                <ul>
+                    <li>Offer of place from an approved education provider</li>
+                    <li>Proof of sufficient funds (NZ$15,000 per year for living costs)</li>
+                    <li>Proof of English proficiency (IELTS/PTE)</li>
+                    <li>Medical and police certificates (if required)</li>
+                    <li>Travel insurance (for some institutions)</li>
+                </ul>
+                <p>The visa application fee is NZ$330, and processing times vary.</p>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>University of Auckland</td>
+                                <td>6.0 overall (5.5 in each component)</td>
+                                <td>6.5 overall (6.0 in each component)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Otago</td>
+                                <td>6.0 overall (no band below 5.5)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Victoria University of Wellington</td>
+                                <td>6.0 overall (no band below 5.5)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Canterbury</td>
+                                <td>6.0 overall (no band below 5.5)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Massey University</td>
+                                <td>6.0 overall (no band below 5.5)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Scholarship opportunities for international students in New Zealand include:</p>
+                <ul>
+                    <li><strong>New Zealand Scholarships</strong>: Funded by the New Zealand government</li>
+                    <li><strong>University-specific scholarships</strong>: Merit-based and need-based awards</li>
+                    <li><strong>New Zealand International Doctoral Research Scholarships</strong>: For PhD students</li>
+                    <li><strong>Prime Minister's Scholarships for Asia and Latin America</strong>: For study abroad</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>Student visa holders can work up to 20 hours per week during term time and full-time during holidays. The Post-study Work Visa allows graduates to stay and work for up to 3 years, depending on their qualification level and where they studied.</p>
+                <p>New Zealand's Skilled Migrant Category provides a pathway to residency for international graduates with job offers in skilled occupations. Popular industries include agriculture, tourism, information technology, and healthcare.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="country-modal" id="europeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-monument"></i> Europe Study Guide</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="country-overview">
+                    <div class="country-flag-large">
+                        <img src="https://flagcdn.com/w640/eu.png" alt="Europe Flag">
+                    </div>
+                    <div>
+                        <p>Europe offers diverse study opportunities across many countries, each with unique education systems, cultures, and languages. Many European countries offer low-cost or free tuition to international students, along with high-quality education and rich cultural experiences.</p>
+                        <p>The Erasmus+ program facilitates student mobility across Europe, while many universities offer programs taught entirely in English. Post-study work opportunities vary by country, with many offering pathways to stay after graduation.</p>
+                    </div>
+                </div>
+                
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <h4>Top Countries</h4>
+                        <p>Germany, France, Netherlands, Sweden, Switzerland, Italy, Spain</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Popular Courses</h4>
+                        <p>Engineering, Business, Computer Science, Medicine, Arts & Design</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Average Tuition</h4>
+                        <p>€0 - €20,000 per year (varies by country and institution)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Living Costs</h4>
+                        <p>€8,000 - €15,000 per year (varies by country and city)</p>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Admission Requirements</h3>
+                <p>Requirements vary by country but typically include:</p>
+                <ul>
+                    <li>Completed application through university portal or centralized system</li>
+                    <li>Academic transcripts (may require nostrification/recognition)</li>
+                    <li>IELTS/PTE scores for English-taught programs (typically 6.0-6.5 IELTS or equivalent)</li>
+                    <li>Language proficiency for programs in local languages</li>
+                    <li>Motivation letter</li>
+                    <li>Letters of recommendation</li>
+                    <li>Entrance exams for certain programs/countries</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Student Visa Process</h3>
+                <p>Visa requirements vary by country but generally include:</p>
+                <ul>
+                    <li>Letter of acceptance from a recognized institution</li>
+                    <li>Proof of financial means (amount varies by country)</li>
+                    <li>Health insurance coverage</li>
+                    <li>Proof of accommodation</li>
+                    <li>Medical certificate (some countries)</li>
+                    <li>Language proficiency (if required)</li>
+                </ul>
+                <p>Schengen Area countries allow visa holders to travel freely within the zone.</p>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Top Universities and IELTS/PTE Requirements</h3>
+                <div class="score-table">
+                    <table class="university-table">
+                        <thead>
+                            <tr>
+                                <th>University</th>
+                                <th>Country</th>
+                                <th>Undergraduate</th>
+                                <th>Postgraduate</th>
+                                <th>PTE Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ETH Zurich</td>
+                                <td>Switzerland</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Technical University of Munich</td>
+                                <td>Germany</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>University of Amsterdam</td>
+                                <td>Netherlands</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>7.0 overall (no band below 6.5)</td>
+                                <td>65 overall (60 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Sorbonne University</td>
+                                <td>France</td>
+                                <td>6.0 overall (no band below 5.5)</td>
+                                <td>6.5 overall (no band below 6.0)</td>
+                                <td>50 overall (42 in each skill)</td>
+                            </tr>
+                            <tr>
+                                <td>Karolinska Institute</td>
+                                <td>Sweden</td>
+                                <td>6.5 overall (no band below 5.5)</td>
+                                <td>7.0 overall (no band below 6.0)</td>
+                                <td>65 overall (59 in each skill)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Scholarships and Funding</h3>
+                <p>Scholarship opportunities in Europe include:</p>
+                <ul>
+                    <li><strong>Erasmus Mundus Scholarships</strong>: For international students in joint European programs</li>
+                    <li><strong>DAAD Scholarships</strong>: For study in Germany</li>
+                    <li><strong>Eiffel Scholarships</strong>: For study in France</li>
+                    <li><strong>Holland Scholarship</strong>: For study in the Netherlands</li>
+                    <li><strong>University-specific scholarships</strong>: Offered by individual institutions</li>
+                </ul>
+                
+                <div class="section-divider"></div>
+                
+                <h3>Work Opportunities</h3>
+                <p>Work rights for students vary by country but typically allow part-time work during studies (10-20 hours per week). Many European countries offer post-study work options:</p>
+                <ul>
+                    <li><strong>Germany</strong>: 18-month job seeker visa after graduation</li>
+                    <li><strong>France</strong>: 2-year post-study work permit for master's graduates</li>
+                    <li><strong>Netherlands</strong>: Orientation year permit for graduates</li>
+                    <li><strong>Sweden</strong>: 6-12 months to seek employment after studies</li>
+                </ul>
+                <p>The EU Blue Card provides a work and residence permit for highly qualified non-EU citizens.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
@@ -1265,36 +2550,63 @@
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>IELTS Support</h4>
+                                <p>For all IELTS-related questions, materials, and test strategies</p>
                                 <a href="mailto:ielts@npielts.us">ielts@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>PTE Support</h4>
+                                <p>For PTE Academic preparation, scoring, and test information</p>
                                 <a href="mailto:pte@npielts.us">pte@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>UK Study</h4>
+                                <p>For university applications, visas, and life in the UK</p>
                                 <a href="mailto:uk@npielts.us">uk@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>USA Study</h4>
+                                <p>For US college applications, tests, and visa guidance</p>
                                 <a href="mailto:usa@npielts.us">usa@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
                                 <h4>Canada Study</h4>
+                                <p>For Canadian university applications and immigration</p>
                                 <a href="mailto:canada@npielts.us">canada@npielts.us</a>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-text">
+                                <h4>Australia/NZ Study</h4>
+                                <p>For Australian and New Zealand education information</p>
+                                <a href="mailto:anz@npielts.us">anz@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>Europe Study</h4>
+                                <p>For studying in Germany, France, Netherlands, etc.</p>
+                                <a href="mailto:europe@npielts.us">europe@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
+                                <h4>Admissions Support</h4>
+                                <p>For university application reviews and guidance</p>
+                                <a href="mailto:admissions@npielts.us">admissions@npielts.us</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-text">
                                 <h4>Technical Support</h4>
+                                <p>For website issues and download problems</p>
                                 <a href="mailto:tech@npielts.us">tech@npielts.us</a>
                             </div>
                         </div>
@@ -1312,7 +2624,7 @@
                             <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject">Department</label>
                             <select id="subject" name="subject" required>
                                 <option value="">Select a department</option>
                                 <option value="ielts">IELTS Support</option>
@@ -1320,7 +2632,9 @@
                                 <option value="uk">UK Study</option>
                                 <option value="usa">USA Study</option>
                                 <option value="canada">Canada Study</option>
-                                <option value="australia">Australia Study</option>
+                                <option value="australia">Australia/NZ Study</option>
+                                <option value="europe">Europe Study</option>
+                                <option value="admissions">Admissions Support</option>
                                 <option value="technical">Technical Support</option>
                                 <option value="other">Other Inquiry</option>
                             </select>
@@ -1367,7 +2681,7 @@
                         <li><a href="#ielts">IELTS Materials</a></li>
                         <li><a href="#pte">PTE Materials</a></li>
                         <li><a href="#practice">Practice Tests</a></li>
-                        <li><a href="#">Study Tips</a></li>
+                        <li><a href="#requirements">Score Requirements</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1430,6 +2744,35 @@
                 const tabId = tab.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
+        });
+        
+        // Country Modal Functionality
+        const countryCards = document.querySelectorAll('.country-card');
+        const countryModals = document.querySelectorAll('.country-modal');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        
+        countryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const country = card.getAttribute('data-country');
+                document.getElementById(`${country}Modal`).style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                countryModals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('country-modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
         
         // Smooth Scrolling for Anchor Links
