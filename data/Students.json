@@ -1,0 +1,204 @@
+{
+  "students": [
+    {
+      "symbol": "IELTS2023001",
+      "name": "Sophia Johnson",
+      "overall": 7.5,
+      "listening": 8.0,
+      "reading": 8.0,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Focus on writing task response and coherence. Practice more academic writing structures."
+    },
+    {
+      "symbol": "IELTS2023002",
+      "name": "Michael Chen",
+      "overall": 7.0,
+      "listening": 7.5,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 7.5,
+      "comments": "Writing needs improvement in grammatical range and lexical resource. Read more sample essays."
+    },
+    {
+      "symbol": "IELTS2023003",
+      "name": "Emma Williams",
+      "overall": 6.5,
+      "listening": 7.0,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 6.5,
+      "comments": "Speaking fluency needs work. Practice speaking for 2 minutes on random topics daily."
+    },
+    {
+      "symbol": "IELTS2023004",
+      "name": "James Brown",
+      "overall": 6.0,
+      "listening": 6.5,
+      "reading": 6.0,
+      "writing": 5.5,
+      "speaking": 6.0,
+      "comments": "All areas need improvement. Focus particularly on writing task achievement."
+    },
+    {
+      "symbol": "IELTS2023005",
+      "name": "Olivia Davis",
+      "overall": 7.5,
+      "listening": 8.5,
+      "reading": 8.0,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Excellent listening and reading. Writing needs more complex sentence structures."
+    },
+    {
+      "symbol": "IELTS2023006",
+      "name": "William Martinez",
+      "overall": 5.5,
+      "listening": 6.0,
+      "reading": 5.5,
+      "writing": 5.0,
+      "speaking": 5.5,
+      "comments": "Needs significant improvement in all areas, especially writing coherence."
+    },
+    {
+      "symbol": "IELTS2023007",
+      "name": "Ava Anderson",
+      "overall": 7.0,
+      "listening": 7.5,
+      "reading": 7.0,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Writing needs better paragraphing and clearer progression of ideas."
+    },
+    {
+      "symbol": "IELTS2023008",
+      "name": "Benjamin Taylor",
+      "overall": 6.5,
+      "listening": 7.0,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 6.5,
+      "comments": "Speaking needs more natural vocabulary and fewer pauses."
+    },
+    {
+      "symbol": "IELTS2023009",
+      "name": "Mia Thomas",
+      "overall": 7.0,
+      "listening": 7.0,
+      "reading": 7.5,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Listening could improve with more practice of different accents."
+    },
+    {
+      "symbol": "IELTS2023010",
+      "name": "Lucas Hernandez",
+      "overall": 6.0,
+      "listening": 6.5,
+      "reading": 6.0,
+      "writing": 5.5,
+      "speaking": 6.0,
+      "comments": "Writing needs better task response and more relevant ideas."
+    },
+    {
+      "symbol": "IELTS2023011",
+      "name": "Charlotte Wilson",
+      "overall": 7.5,
+      "listening": 8.0,
+      "reading": 8.0,
+      "writing": 7.0,
+      "speaking": 7.0,
+      "comments": "Excellent performance. Maintain consistency in writing and speaking."
+    },
+    {
+      "symbol": "IELTS2023012",
+      "name": "Henry Garcia",
+      "overall": 6.5,
+      "listening": 7.0,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 6.5,
+      "comments": "Writing needs more academic vocabulary and fewer errors."
+    },
+    {
+      "symbol": "IELTS2023013",
+      "name": "Amelia Rodriguez",
+      "overall": 7.0,
+      "listening": 7.5,
+      "reading": 7.0,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Speaking could improve with more idiomatic expressions."
+    },
+    {
+      "symbol": "IELTS2023014",
+      "name": "Alexander Martinez",
+      "overall": 5.5,
+      "listening": 6.0,
+      "reading": 5.5,
+      "writing": 5.0,
+      "speaking": 5.5,
+      "comments": "Needs fundamental improvement in grammar and vocabulary."
+    },
+    {
+      "symbol": "IELTS2023015",
+      "name": "Harper Lee",
+      "overall": 7.5,
+      "listening": 8.0,
+      "reading": 8.5,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Excellent reading skills. Writing needs better coherence between paragraphs."
+    },
+    {
+      "symbol": "IELTS2023016",
+      "name": "Ethan Walker",
+      "overall": 6.5,
+      "listening": 7.0,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 6.5,
+      "comments": "Speaking needs more complex grammatical structures."
+    },
+    {
+      "symbol": "IELTS2023017",
+      "name": "Evelyn Young",
+      "overall": 7.0,
+      "listening": 7.5,
+      "reading": 7.0,
+      "writing": 6.5,
+      "speaking": 7.0,
+      "comments": "Writing needs more precise vocabulary and fewer errors."
+    },
+    {
+      "symbol": "IELTS2023018",
+      "name": "Daniel Allen",
+      "overall": 6.0,
+      "listening": 6.5,
+      "reading": 6.0,
+      "writing": 5.5,
+      "speaking": 6.0,
+      "comments": "Writing needs significant improvement in task achievement."
+    },
+    {
+      "symbol": "IELTS2023019",
+      "name": "Abigail King",
+      "overall": 7.5,
+      "listening": 8.0,
+      "reading": 8.0,
+      "writing": 7.0,
+      "speaking": 7.0,
+      "comments": "Excellent performance overall. Maintain consistency."
+    },
+    {
+      "symbol": "IELTS2023020",
+      "name": "Matthew Scott",
+      "overall": 6.5,
+      "listening": 7.0,
+      "reading": 7.0,
+      "writing": 6.0,
+      "speaking": 6.5,
+      "comments": "Speaking needs more natural pronunciation and fluency."
+    }
+  ]
+}
