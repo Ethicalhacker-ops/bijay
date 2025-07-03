@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Results Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <i class="fas fa-certificate logo-icon"></i>
+                <h1>IELTS Results Portal</h1>
+            </div>
+            <p class="subtitle">Enter your symbol number to view your detailed test results</p>
+        </header>
+
+        <div class="search-section card">
+            <div class="search-header">
+                <h2><i class="fas fa-search"></i> Result Lookup</h2>
+                <div class="test-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Test Date: June 2023</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <input type="text" id="symbolInput" placeholder="Enter your symbol number (e.g. IELTS2023001)">
+                <button id="searchBtn" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> View Results
+                </button>
+            </div>
+            <p id="errorMsg" class="error-message"></p>
+        </div>
+
+        <div id="resultSection" class="hidden">
+            <div class="result-card card">
+                <div class="result-header">
+                    <h2><i class="fas fa-user-graduate"></i> Student Details</h2>
+                    <div class="result-status">
+                        <span class="status-badge passed">Result Published</span>
+                        <span class="print-btn" onclick="window.print()">
+                            <i class="fas fa-print"></i> Print
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="student-info">
+                    <div class="info-row">
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-id-badge"></i> Symbol Number:</span>
+                            <span id="resultSymbol" class="info-value">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-user"></i> Name:</span>
+                            <span id="resultName" class="info-value">-</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-calendar-day"></i> Test Date:</span>
+                            <span class="info-value">15 June 2023</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"><i class="fas fa-university"></i> Test Center:</span>
+                            <span class="info-value">Kathmandu IELTS Center</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider">
+                    <h2><i class="fas fa-chart-line"></i> Test Results</h2>
+                </div>
+                
+                <div class="scores-grid">
+                    <div class="score-card overall">
+                        <div class="score-header">
+                            <h3><i class="fas fa-star"></i> Overall Band Score</h3>
+                            <div class="band-description" id="overallDescription"></div>
+                        </div>
+                        <div class="band-score-container">
+                            <div class="band-score" id="overallScore"></div>
+                            <div class="band-label">Band Score</div>
+                        </div>
+                        <div class="score-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="overallProgress"></div>
+                            </div>
+                            <div class="progress-labels">
+                                <span>0</span>
+                                <span>9</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-container">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h3><i class="fas fa-headphones"></i> Listening</h3>
+                                <div class="band-description" id="listeningDescription"></div>
+                            </div>
+                            <div class="band-score-container">
+                                <div class="band-score" id="listeningScore"></div>
+                                <div class="band-label">Band Score</div>
+                            </div>
+                            <div class="skill-details">
+                                <p><i class="fas fa-check-circle"></i> <strong>Correct Answers:</strong> <span id="listeningCorrect">-</span>/40</p>
+                                <p><i class="fas fa-clock"></i> <strong>Time Taken:</strong> 30 minutes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h3><i class="fas fa-book-open"></i> Reading</h3>
+                                <div class="band-description" id="readingDescription"></div>
+                            </div>
+                            <div class="band-score-container">
+                                <div class="band-score" id="readingScore"></div>
+                                <div class="band-label">Band Score</div>
+                            </div>
+                            <div class="skill-details">
+                                <p><i class="fas fa-check-circle"></i> <strong>Correct Answers:</strong> <span id="readingCorrect">-</span>/40</p>
+                                <p><i class="fas fa-clock"></i> <strong>Time Taken:</strong> 60 minutes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h3><i class="fas fa-pen-fancy"></i> Writing</h3>
+                                <div class="band-description" id="writingDescription"></div>
+                            </div>
+                            <div class="band-score-container">
+                                <div class="band-score" id="writingScore"></div>
+                                <div class="band-label">Band Score</div>
+                            </div>
+                            <div class="skill-details">
+                                <p><i class="fas fa-tasks"></i> <strong>Task Achievement:</strong> <span id="writingTask">-</span>/9</p>
+                                <p><i class="fas fa-align-left"></i> <strong>Coherence:</strong> <span id="writingCoherence">-</span>/9</p>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h3><i class="fas fa-comments"></i> Speaking</h3>
+                                <div class="band-description" id="speakingDescription"></div>
+                            </div>
+                            <div class="band-score-container">
+                                <div class="band-score" id="speakingScore"></div>
+                                <div class="band-label">Band Score</div>
+                            </div>
+                            <div class="skill-details">
+                                <p><i class="fas fa-volume-up"></i> <strong>Fluency:</strong> <span id="speakingFluency">-</span>/9</p>
+                                <p><i class="fas fa-language"></i> <strong>Pronunciation:</strong> <span id="speakingPronunciation">-</span>/9</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider">
+                    <h2><i class="fas fa-clipboard-check"></i> Examiner's Detailed Feedback</h2>
+                </div>
+                
+                <div class="feedback-container">
+                    <div class="feedback-card">
+                        <h3><i class="fas fa-thumbs-up"></i> Strengths</h3>
+                        <ul id="strengthsList" class="feedback-list">
+                            <li><i class="fas fa-check-circle"></i> Good range of vocabulary</li>
+                            <li><i class="fas fa-check-circle"></i> Clear pronunciation</li>
+                        </ul>
+                    </div>
+                    <div class="feedback-card improvement">
+                        <h3><i class="fas fa-bullseye"></i> Areas for Improvement</h3>
+                        <ul id="improvementList" class="feedback-list">
+                            <li><i class="fas fa-exclamation-circle"></i> More complex sentence structures needed</li>
+                            <li><i class="fas fa-exclamation-circle"></i> Better time management in writing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="comments-card">
+                    <h3><i class="fas fa-comment-dots"></i> Overall Comments</h3>
+                    <div class="comments-content" id="examinerComments"></div>
+                </div>
+
+                <div class="recommendations-card">
+                    <h3><i class="fas fa-lightbulb"></i> Preparation Recommendations</h3>
+                    <div class="recommendations-content">
+                        <div class="resource-item">
+                            <i class="fas fa-book"></i>
+                            <div>
+                                <h4>Suggested Study Materials</h4>
+                                <p>Cambridge IELTS 15-18, Official IELTS Practice Materials</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <i class="fas fa-link"></i>
+                            <div>
+                                <h4>Useful Websites</h4>
+                                <p>IELTS.org, British Council LearnEnglish, IELTS Liz</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <div>
+                                <h4>Preparation Course</h4>
+                                <p>Consider our 4-week intensive preparation course starting July 10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-question-circle"></i> Need Help With Your Results?</h3>
+                        <p>Our support team is available to answer your questions about the test or your results.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Support</h4>
+                                    <ul>
+                                        <li>General Inquiries: <a href="mailto:contact@npielts.us">contact@npielts.us</a></li>
+                                        <li>Administration: <a href="mailto:admin@npielts.us">admin@npielts.us</a></li>
+                                        <li>Technical Support: <a href="mailto:admin@bijay.us">admin@bijay.us</a></li>
+                                        <li>Result Analysis: <a href="mailto:analyst@analystpaneru.xyz">analyst@analystpaneru.xyz</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Phone Support</h4>
+                                    <p>+977-1-4223456 (9:00 AM - 5:00 PM, Sunday-Friday)</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Test Center Address</h4>
+                                    <p>IELTS Test Center, Kathmandu, Nepal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-footer">
+                    <p><i class="fas fa-info-circle"></i> This result is valid for two years from the test date.</p>
+                    <p><i class="fas fa-lock"></i> Your result information is secure and confidential.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-certificate"></i>
+                <span>IELTS Testing Center</span>
+            </div>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                <a href="#"><i class="fas fa-question"></i> FAQ</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2023 IELTS Testing Center. All rights reserved. | Version 2.1.0</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+  </html>
