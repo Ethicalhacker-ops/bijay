@@ -8,21 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4a6bff;
+            --primary: #4361ee;
             --primary-dark: #3a56cc;
-            --secondary: #ff6b6b;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
             --light: #f8f9fa;
-            --dark: #343a40;
+            --dark: #212529;
             --gray: #6c757d;
             --light-gray: #e9ecef;
             --white: #ffffff;
-            --listening: #4a6bff;
-            --reading: #6b4aff;
-            --writing: #ff6b4a;
-            --speaking: #4aff6b;
+            --listening: #4361ee;
+            --reading: #7209b7;
+            --writing: #f8961e;
+            --speaking: #4cc9f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.05);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         * {
@@ -32,65 +39,106 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7ff;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8fafc;
             color: #333;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
         }
         
         /* Header Styles */
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px 0;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            margin-bottom: 2rem;
+            padding: 2.5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
         
         .logo-icon {
             font-size: 2.5rem;
-            margin-right: 15px;
+            margin-right: 1rem;
             color: var(--white);
+            background: rgba(255,255,255,0.2);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         
         .header h1 {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
         }
         
         /* Card Styles */
         .card {
             background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
         
         /* Search Section */
         .search-section {
             position: relative;
             overflow: hidden;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .search-section::before {
@@ -99,7 +147,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
@@ -107,7 +155,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .search-header h2 {
@@ -115,95 +163,128 @@
             color: var(--primary);
             display: flex;
             align-items: center;
+            font-weight: 600;
         }
         
         .search-header h2 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
+            color: var(--primary);
         }
         
         .test-date {
             display: flex;
             align-items: center;
-            background-color: var(--light);
-            padding: 8px 15px;
+            background-color: var(--primary-light);
+            padding: 0.5rem 1rem;
             border-radius: 30px;
             font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
         }
         
         .test-date i {
-            margin-right: 8px;
+            margin-right: 0.5rem;
             color: var(--primary);
         }
         
         .input-group {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
+            position: relative;
         }
         
         .input-icon {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 12px 15px;
+            padding: 1rem 1.25rem;
             border-radius: 8px 0 0 8px;
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
         }
         
         #symbolInput {
             flex: 1;
-            padding: 12px 15px;
+            padding: 1rem 1.25rem;
             border: 2px solid var(--light-gray);
             border-left: none;
             border-radius: 0 8px 8px 0;
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: var(--transition);
+            height: 54px;
+            font-family: 'Poppins', sans-serif;
         }
         
         #symbolInput:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
         }
         
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 1rem 1.75rem;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 500;
-            margin-left: 15px;
-            transition: all 0.3s;
+            margin-left: 1rem;
+            transition: var(--transition);
             display: flex;
             align-items: center;
+            height: 54px;
+            box-shadow: var(--shadow-md);
         }
         
         .btn-primary:hover {
-            background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-dark), #5e0a9e);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
         }
         
         .btn-primary i {
-            margin-left: 8px;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover i {
+            transform: translateX(3px);
         }
         
         .error-message {
             color: var(--danger);
             font-size: 0.9rem;
-            margin-top: 5px;
+            margin-top: 0.5rem;
             display: none;
+            padding: 0.5rem 1rem;
+            background-color: rgba(239, 35, 60, 0.1);
+            border-radius: 6px;
+            border-left: 3px solid var(--danger);
         }
         
         /* Result Section */
         .hidden {
             display: none;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
         .result-card {
             position: relative;
             overflow: hidden;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .result-card::before {
@@ -212,7 +293,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
@@ -220,7 +301,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .result-header h2 {
@@ -228,10 +309,12 @@
             color: var(--primary);
             display: flex;
             align-items: center;
+            font-weight: 600;
         }
         
         .result-header h2 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
+            color: var(--primary);
         }
         
         .result-status {
@@ -240,16 +323,18 @@
         }
         
         .status-badge {
-            padding: 6px 12px;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 15px;
+            font-weight: 600;
+            margin-right: 1rem;
+            box-shadow: var(--shadow-sm);
         }
         
         .passed {
-            background-color: rgba(40, 167, 69, 0.2);
+            background-color: rgba(76, 201, 240, 0.2);
             color: var(--success);
+            border: 1px solid rgba(76, 201, 240, 0.3);
         }
         
         .print-btn {
@@ -258,69 +343,70 @@
             color: var(--primary);
             cursor: pointer;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background-color: var(--primary-light);
         }
         
         .print-btn:hover {
             color: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            background-color: rgba(67, 97, 238, 0.1);
         }
         
         .print-btn i {
-            margin-right: 5px;
+            margin-right: 0.5rem;
         }
         
         /* Student Info */
         .student-info {
-            background-color: var(--light);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .info-row {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .info-row:last-child {
-            margin-bottom: 0;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
         
         .info-item {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .info-label {
             font-weight: 500;
-            color: var(--gray);
+            color: var(--primary);
             display: flex;
             align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
         }
         
         .info-label i {
-            margin-right: 8px;
+            margin-right: 0.5rem;
             color: var(--primary);
         }
         
         .info-value {
             font-weight: 600;
             color: var(--dark);
-            display: block;
-            margin-top: 5px;
+            font-size: 1.1rem;
         }
         
         /* Section Divider */
         .section-divider {
             position: relative;
-            margin: 30px 0;
+            margin: 2rem 0;
             text-align: center;
         }
         
         .section-divider h2 {
             display: inline-block;
             background-color: var(--white);
-            padding: 0 20px;
+            padding: 0 1.5rem;
             font-size: 1.3rem;
             color: var(--primary);
             position: relative;
@@ -328,10 +414,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 600;
         }
         
         .section-divider h2 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
         }
         
         .section-divider::before {
@@ -349,7 +436,7 @@
         .scores-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 1.5rem;
         }
         
         @media (min-width: 768px) {
@@ -361,34 +448,40 @@
         /* Overall Score Card */
         .score-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .overall {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            box-shadow: var(--shadow-md);
         }
         
         .score-header {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .overall .score-header h3 {
             color: white;
             display: flex;
             align-items: center;
+            font-size: 1.25rem;
         }
         
         .score-header h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
         }
         
         .band-description {
             font-size: 0.85rem;
-            margin-top: 5px;
+            margin-top: 0.5rem;
             opacity: 0.9;
+            line-height: 1.5;
         }
         
         .overall .band-description {
@@ -397,23 +490,33 @@
         
         .band-score-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .band-score {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             line-height: 1;
+            margin-bottom: 0.5rem;
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
         }
         
         .overall .band-score {
             color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .band-label {
             font-size: 0.9rem;
             opacity: 0.8;
-            margin-top: 5px;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .overall .band-label {
@@ -421,7 +524,7 @@
         }
         
         .score-progress {
-            margin-top: 20px;
+            margin-top: 1.5rem;
         }
         
         .progress-bar {
@@ -437,12 +540,13 @@
             border-radius: 4px;
             width: 0;
             transition: width 1s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .progress-labels {
             display: flex;
             justify-content: space-between;
-            margin-top: 5px;
+            margin-top: 0.5rem;
             font-size: 0.8rem;
         }
         
@@ -454,7 +558,7 @@
         .skills-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 1.5rem;
         }
         
         @media (min-width: 768px) {
@@ -466,10 +570,16 @@
         /* Skill Card */
         .skill-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
             border-top: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
         
         .skill-card:nth-child(1) {
@@ -489,17 +599,18 @@
         }
         
         .skill-header {
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
         
         .skill-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
+            margin-bottom: 0.5rem;
         }
         
         .skill-header h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
         }
         
         .skill-card:nth-child(1) .skill-header h3 i {
@@ -523,13 +634,13 @@
         }
         
         .skill-details p {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
         }
         
         .skill-details p i {
-            margin-right: 8px;
+            margin-right: 0.5rem;
             color: var(--primary);
         }
         
@@ -541,8 +652,8 @@
         .feedback-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         @media (min-width: 768px) {
@@ -553,20 +664,26 @@
         
         .feedback-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .feedback-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
         .feedback-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
         
         .feedback-card h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
         }
         
         .feedback-list {
@@ -574,15 +691,16 @@
         }
         
         .feedback-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
             position: relative;
+            line-height: 1.5;
         }
         
         .feedback-list li i {
             position: absolute;
             left: 0;
-            top: 2px;
+            top: 3px;
         }
         
         .feedback-list li:last-child {
@@ -590,32 +708,38 @@
         }
         
         .improvement {
-            border-left: 4px solid var(--secondary);
+            border-left: 4px solid var(--accent);
         }
         
         .improvement h3 i {
-            color: var(--secondary);
+            color: var(--accent);
         }
         
         /* Comments Card */
         .comments-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
             border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .comments-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
         .comments-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
         
         .comments-card h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
             color: var(--primary);
         }
         
@@ -624,49 +748,73 @@
             line-height: 1.7;
         }
         
+        .comments-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .comments-content p:last-child {
+            margin-bottom: 0;
+        }
+        
         /* Recommendations Card */
         .recommendations-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
             border-left: 4px solid var(--success);
+            transition: var(--transition);
+        }
+        
+        .recommendations-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
         .recommendations-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
         }
         
         .recommendations-card h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
             color: var(--success);
         }
         
         .resource-item {
             display: flex;
-            margin-bottom: 15px;
+            margin-bottom: 1.25rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .resource-item:hover {
+            background-color: var(--primary-light);
+            transform: translateX(5px);
         }
         
         .resource-item i {
             font-size: 1.5rem;
             color: var(--primary);
-            margin-right: 15px;
-            margin-top: 3px;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
         }
         
         .resource-item h4 {
             font-size: 1rem;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             color: var(--dark);
         }
         
         .resource-item p {
             font-size: 0.9rem;
             color: var(--gray);
+            line-height: 1.5;
         }
         
         .resource-item:last-child {
@@ -675,37 +823,44 @@
         
         /* Contact Section */
         .contact-section {
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
         }
         
         .contact-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
         .contact-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
         
         .contact-card h3 i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
             color: var(--primary);
         }
         
         .contact-card p {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .contact-methods {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 1.5rem;
         }
         
         @media (min-width: 768px) {
@@ -716,24 +871,33 @@
         
         .contact-method {
             display: flex;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-method:hover {
+            background-color: var(--primary-light);
         }
         
         .contact-method i {
             font-size: 1.5rem;
             color: var(--primary);
-            margin-right: 15px;
-            margin-top: 3px;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
         }
         
         .contact-method h4 {
             font-size: 1rem;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             color: var(--dark);
         }
         
         .contact-method p, .contact-method ul {
             font-size: 0.9rem;
             color: var(--gray);
+            line-height: 1.5;
         }
         
         .contact-method ul {
@@ -741,38 +905,39 @@
         }
         
         .contact-method ul li {
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
         }
         
         .contact-method a {
             color: var(--primary);
             text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
+            font-weight: 500;
         }
         
         .contact-method a:hover {
-            color: var(--primary-dark);
+            color: var(--secondary);
             text-decoration: underline;
         }
         
         /* Result Footer */
         .result-footer {
-            background-color: var(--light);
-            border-radius: 8px;
-            padding: 15px 20px;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
             font-size: 0.85rem;
             text-align: center;
         }
         
         .result-footer p {
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .result-footer p i {
-            margin-right: 8px;
+            margin-right: 0.5rem;
             color: var(--primary);
         }
         
@@ -782,19 +947,19 @@
         
         /* Footer */
         .footer {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--dark), #111);
             color: var(--light);
-            padding: 30px 0 15px;
-            margin-top: 30px;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
         }
         
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 2rem;
         }
         
         @media (min-width: 768px) {
@@ -806,13 +971,13 @@
         .footer-logo {
             display: flex;
             align-items: center;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
         
         .footer-logo i {
-            margin-right: 10px;
+            margin-right: 0.75rem;
             color: var(--primary);
         }
         
@@ -824,43 +989,59 @@
         .footer-links a {
             color: var(--light);
             text-decoration: none;
-            margin-bottom: 10px;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
-            transition: all 0.3s;
-        }
-        
-        .footer-links a i {
-            margin-right: 8px;
+            transition: var(--transition);
+            opacity: 0.8;
         }
         
         .footer-links a:hover {
             color: var(--primary);
+            opacity: 1;
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-right: 0.5rem;
+            width: 1rem;
+            text-align: center;
         }
         
         .footer-social {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
         }
         
         .footer-social a {
             color: var(--light);
-            font-size: 1.2rem;
-            transition: all 0.3s;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            opacity: 0.8;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255,255,255,0.1);
         }
         
         .footer-social a:hover {
             color: var(--primary);
+            opacity: 1;
             transform: translateY(-3px);
+            background-color: rgba(67, 97, 238, 0.2);
         }
         
         .footer-copyright {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.8rem;
             color: var(--gray);
+            opacity: 0.7;
         }
         
         /* Animations */
@@ -870,7 +1051,28 @@
         }
         
         .result-card {
-            animation: fadeIn 0.5s ease-out;
+            animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(67, 97, 238, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
         /* Print Styles */
@@ -878,10 +1080,12 @@
             body {
                 background-color: white;
                 color: black;
+                font-size: 12pt;
             }
             
             .container {
                 padding: 0;
+                max-width: 100%;
             }
             
             .header, .search-section, .footer, .print-btn {
@@ -891,7 +1095,8 @@
             .card {
                 box-shadow: none;
                 padding: 0;
-                margin: 0;
+                margin: 0 0 20pt 0;
+                page-break-inside: avoid;
             }
             
             .result-card::before {
@@ -905,6 +1110,70 @@
             .overall {
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
+                background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+            }
+            
+            .student-info {
+                background-color: #e6f0ff !important;
+            }
+            
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 1.5rem 0;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .search-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            #symbolInput {
+                border-radius: 0 0 8px 8px;
+                border-left: 2px solid var(--light-gray);
+                border-top: none;
+                width: 100%;
+            }
+            
+            .input-icon {
+                border-radius: 8px 8px 0 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .btn-primary {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .student-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -914,9 +1183,11 @@
         <header class="header">
             <div class="logo-container">
                 <i class="fas fa-certificate logo-icon"></i>
-                <h1>IELTS Results Portal</h1>
+                <div>
+                    <h1>IELTS Results Portal</h1>
+                    <p class="subtitle">Enter your symbol number to view your detailed test results</p>
+                </div>
             </div>
-            <p class="subtitle">Enter your symbol number to view your detailed test results</p>
         </header>
 
         <div class="search-section card">
@@ -937,6 +1208,10 @@
                 </button>
             </div>
             <p id="errorMsg" class="error-message"></p>
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p>Fetching your results...</p>
+            </div>
         </div>
 
         <div id="resultSection" class="hidden">
@@ -952,25 +1227,21 @@
                 </div>
                 
                 <div class="student-info">
-                    <div class="info-row">
-                        <div class="info-item">
-                            <span class="info-label"><i class="fas fa-id-badge"></i> Symbol Number:</span>
-                            <span id="resultSymbol" class="info-value">-</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label"><i class="fas fa-user"></i> Name:</span>
-                            <span id="resultName" class="info-value">-</span>
-                        </div>
+                    <div class="info-item">
+                        <span class="info-label"><i class="fas fa-id-badge"></i> Symbol Number:</span>
+                        <span id="resultSymbol" class="info-value">-</span>
                     </div>
-                    <div class="info-row">
-                        <div class="info-item">
-                            <span class="info-label"><i class="fas fa-calendar-day"></i> Test Date:</span>
-                            <span class="info-value">30 June 2025</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label"><i class="fas fa-university"></i> Test Center:</span>
-                            <span class="info-value">Oli & Associates Birtamode</span>
-                        </div>
+                    <div class="info-item">
+                        <span class="info-label"><i class="fas fa-user"></i> Name:</span>
+                        <span id="resultName" class="info-value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label"><i class="fas fa-calendar-day"></i> Test Date:</span>
+                        <span class="info-value">30 June 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label"><i class="fas fa-university"></i> Test Center:</span>
+                        <span class="info-value">Oli & Associates Birtamode</span>
                     </div>
                 </div>
 
@@ -1166,23 +1437,44 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-certificate"></i>
-                <span>IELTS Testing Center</span>
+            <div>
+                <div class="footer-logo">
+                    <i class="fas fa-certificate"></i>
+                    <span>IELTS Testing Center</span>
+                </div>
+                <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem; line-height: 1.6;">
+                    Providing high-quality English language testing services since 2010. Our results portal offers detailed feedback to help candidates improve their English proficiency.
+                </p>
             </div>
             <div class="footer-links">
                 <a href="#"><i class="fas fa-file-alt"></i> Terms of Service</a>
                 <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
                 <a href="#"><i class="fas fa-question"></i> FAQ</a>
+                <a href="#"><i class="fas fa-user-graduate"></i> Testimonials</a>
+                <a href="#"><i class="fas fa-calendar-alt"></i> Upcoming Tests</a>
             </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <div>
+                <h4 style="color: white; margin-bottom: 1rem; font-weight: 500;">Connect With Us</h4>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: white; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Subscribe to Newsletter</h4>
+                    <div style="display: flex;">
+                        <input type="email" placeholder="Your email" style="padding: 0.5rem; border: none; border-radius: 4px 0 0 4px; flex: 1; font-family: 'Poppins', sans-serif;">
+                        <button style="background: var(--primary); color: white; border: none; padding: 0 1rem; border-radius: 0 4px 4px 0; cursor: pointer;">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-copyright">
-            <p>&copy; 2025 IELTS Result. All rights reserved. | Version 10.1.0</p>
+            <p>&copy; 2025 IELTS Testing Center. All rights reserved. | Version 2.1.0</p>
         </div>
     </footer>
 
@@ -1192,6 +1484,7 @@
             const symbolInput = document.getElementById('symbolInput');
             const errorMsg = document.getElementById('errorMsg');
             const resultSection = document.getElementById('resultSection');
+            const loading = document.getElementById('loading');
             
             // Mock data for demonstration
             const mockResults = {
@@ -1207,7 +1500,12 @@
                     writingTask: 7.0,
                     writingCoherence: 7.5,
                     speakingFluency: 8.0,
-                    speakingPronunciation: 7.5
+                    speakingPronunciation: 7.5,
+                    overallDescription: "Good user with operational command of the language with occasional inaccuracies and misunderstandings in some situations.",
+                    listeningDescription: "Very good user with fully operational command of the language with only occasional unsystematic inaccuracies.",
+                    readingDescription: "Good user with operational command of the language though with occasional inaccuracies and misunderstandings in some situations.",
+                    writingDescription: "Good user with operational command of the language with occasional inaccuracies and misunderstandings in some situations.",
+                    speakingDescription: "Good user with operational command of the language with occasional inaccuracies and misunderstandings in some situations."
                 },
                 "IELTS2023002": {
                     name: "Jane Smith",
@@ -1221,12 +1519,36 @@
                     writingTask: 6.0,
                     writingCoherence: 6.5,
                     speakingFluency: 6.5,
-                    speakingPronunciation: 6.5
+                    speakingPronunciation: 6.5,
+                    overallDescription: "Competent user with generally effective command of the language despite some inaccuracies and misunderstandings.",
+                    listeningDescription: "Good user with operational command of the language with occasional inaccuracies and misunderstandings in some situations.",
+                    readingDescription: "Competent user with generally effective command of the language despite some inaccuracies and misunderstandings.",
+                    writingDescription: "Competent user with generally effective command of the language despite some inaccuracies and misunderstandings.",
+                    speakingDescription: "Competent user with generally effective command of the language despite some inaccuracies and misunderstandings."
+                },
+                "IELTS2023003": {
+                    name: "Alex Johnson",
+                    overall: 8.0,
+                    listening: 8.5,
+                    reading: 8.0,
+                    writing: 7.5,
+                    speaking: 8.0,
+                    listeningCorrect: 38,
+                    readingCorrect: 36,
+                    writingTask: 7.5,
+                    writingCoherence: 8.0,
+                    speakingFluency: 8.5,
+                    speakingPronunciation: 8.0,
+                    overallDescription: "Very good user with fully operational command of the language with only occasional unsystematic inaccuracies.",
+                    listeningDescription: "Excellent user with fully operational command of the language with only occasional unsystematic inaccuracies.",
+                    readingDescription: "Very good user with fully operational command of the language with only occasional unsystematic inaccuracies.",
+                    writingDescription: "Good user with operational command of the language with occasional inaccuracies and misunderstandings in some situations.",
+                    speakingDescription: "Very good user with fully operational command of the language with only occasional unsystematic inaccuracies."
                 }
             };
             
             searchBtn.addEventListener('click', function() {
-                const symbolNumber = symbolInput.value.trim();
+                const symbolNumber = symbolInput.value.trim().toUpperCase();
                 
                 if (!symbolNumber) {
                     errorMsg.textContent = "Please enter your symbol number";
@@ -1234,37 +1556,49 @@
                     return;
                 }
                 
-                if (mockResults[symbolNumber]) {
-                    // Display results
-                    const result = mockResults[symbolNumber];
-                    document.getElementById('resultSymbol').textContent = symbolNumber;
-                    document.getElementById('resultName').textContent = result.name;
-                    document.getElementById('overallScore').textContent = result.overall;
-                    document.getElementById('overallProgress').style.width = `${(result.overall / 9) * 100}%`;
-                    document.getElementById('listeningScore').textContent = result.listening;
-                    document.getElementById('readingScore').textContent = result.reading;
-                    document.getElementById('writingScore').textContent = result.writing;
-                    document.getElementById('speakingScore').textContent = result.speaking;
-                    document.getElementById('listeningCorrect').textContent = result.listeningCorrect;
-                    document.getElementById('readingCorrect').textContent = result.readingCorrect;
-                    document.getElementById('writingTask').textContent = result.writingTask;
-                    document.getElementById('writingCoherence').textContent = result.writingCoherence;
-                    document.getElementById('speakingFluency').textContent = result.speakingFluency;
-                    document.getElementById('speakingPronunciation').textContent = result.speakingPronunciation;
-                    
-                    // Hide error message if previously shown
-                    errorMsg.style.display = "none";
-                    
-                    // Show result section
-                    resultSection.classList.remove('hidden');
-                    
-                    // Scroll to results
-                    resultSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    errorMsg.textContent = "No results found for this symbol number. Please check and try again.";
-                    errorMsg.style.display = "block";
-                    resultSection.classList.add('hidden');
-                }
+                // Show loading animation
+                loading.classList.remove('hidden');
+                resultSection.classList.add('hidden');
+                errorMsg.style.display = "none";
+                
+                // Simulate API call with timeout
+                setTimeout(function() {
+                    if (mockResults[symbolNumber]) {
+                        // Display results
+                        const result = mockResults[symbolNumber];
+                        document.getElementById('resultSymbol').textContent = symbolNumber;
+                        document.getElementById('resultName').textContent = result.name;
+                        document.getElementById('overallScore').textContent = result.overall;
+                        document.getElementById('overallProgress').style.width = `${(result.overall / 9) * 100}%`;
+                        document.getElementById('overallDescription').textContent = result.overallDescription;
+                        document.getElementById('listeningScore').textContent = result.listening;
+                        document.getElementById('readingScore').textContent = result.reading;
+                        document.getElementById('writingScore').textContent = result.writing;
+                        document.getElementById('speakingScore').textContent = result.speaking;
+                        document.getElementById('listeningCorrect').textContent = result.listeningCorrect;
+                        document.getElementById('readingCorrect').textContent = result.readingCorrect;
+                        document.getElementById('writingTask').textContent = result.writingTask;
+                        document.getElementById('writingCoherence').textContent = result.writingCoherence;
+                        document.getElementById('speakingFluency').textContent = result.speakingFluency;
+                        document.getElementById('speakingPronunciation').textContent = result.speakingPronunciation;
+                        document.getElementById('listeningDescription').textContent = result.listeningDescription;
+                        document.getElementById('readingDescription').textContent = result.readingDescription;
+                        document.getElementById('writingDescription').textContent = result.writingDescription;
+                        document.getElementById('speakingDescription').textContent = result.speakingDescription;
+                        
+                        // Hide loading and show results
+                        loading.classList.add('hidden');
+                        resultSection.classList.remove('hidden');
+                        
+                        // Scroll to results
+                        resultSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        loading.classList.add('hidden');
+                        errorMsg.textContent = "No results found for this symbol number. Please check and try again.";
+                        errorMsg.style.display = "block";
+                        resultSection.classList.add('hidden');
+                    }
+                }, 1500);
             });
             
             // Allow search on Enter key
