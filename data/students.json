@@ -1,204 +1,385 @@
-{
-  "students": [
+import sys
+import time
+from colorama import init, Fore, Back, Style
+from pyfiglet import Figlet
+
+# Initialize colorama
+init()
+
+# Student data with updated names and symbol numbers
+students = [
     {
-      "symbol": "IELTS2023001",
-      "name": "Sophia Johnson",
-      "overall": 7.5,
-      "listening": 8.0,
-      "reading": 8.0,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Focus on writing task response and coherence. Practice more academic writing structures."
+        "symbol": "24070101",
+        "name": "Arjun Shah",
+        "overall": 7.5,
+        "listening": 8.0,
+        "reading": 8.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Focus on writing task response and coherence. Practice more academic writing structures."
     },
     {
-      "symbol": "IELTS2023002",
-      "name": "Michael Chen",
-      "overall": 7.0,
-      "listening": 7.5,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 7.5,
-      "comments": "Writing needs improvement in grammatical range and lexical resource. Read more sample essays."
+        "symbol": "24070102",
+        "name": "Juna Bhandari",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 7.5,
+        "comments": "Writing needs improvement in grammatical range and lexical resource. Read more sample essays."
     },
     {
-      "symbol": "IELTS2023003",
-      "name": "Emma Williams",
-      "overall": 6.5,
-      "listening": 7.0,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 6.5,
-      "comments": "Speaking fluency needs work. Practice speaking for 2 minutes on random topics daily."
+        "symbol": "24070103",
+        "name": "Sonishma Dulal",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Speaking fluency needs work. Practice speaking for 2 minutes on random topics daily."
     },
     {
-      "symbol": "IELTS2023004",
-      "name": "James Brown",
-      "overall": 6.0,
-      "listening": 6.5,
-      "reading": 6.0,
-      "writing": 5.5,
-      "speaking": 6.0,
-      "comments": "All areas need improvement. Focus particularly on writing task achievement."
+        "symbol": "24070104",
+        "name": "Mohit Mahato",
+        "overall": 6.0,
+        "listening": 6.5,
+        "reading": 6.0,
+        "writing": 5.5,
+        "speaking": 6.0,
+        "comments": "All areas need improvement. Focus particularly on writing task achievement."
     },
     {
-      "symbol": "IELTS2023005",
-      "name": "Olivia Davis",
-      "overall": 7.5,
-      "listening": 8.5,
-      "reading": 8.0,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Excellent listening and reading. Writing needs more complex sentence structures."
+        "symbol": "24070105",
+        "name": "Kushal Karki Doli",
+        "overall": 7.5,
+        "listening": 8.5,
+        "reading": 8.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Excellent listening and reading. Writing needs more complex sentence structures."
     },
     {
-      "symbol": "IELTS2023006",
-      "name": "William Martinez",
-      "overall": 5.5,
-      "listening": 6.0,
-      "reading": 5.5,
-      "writing": 5.0,
-      "speaking": 5.5,
-      "comments": "Needs significant improvement in all areas, especially writing coherence."
+        "symbol": "24070106",
+        "name": "Arju Basnet",
+        "overall": 5.5,
+        "listening": 6.0,
+        "reading": 5.5,
+        "writing": 5.0,
+        "speaking": 5.5,
+        "comments": "Needs significant improvement in all areas, especially writing coherence."
     },
     {
-      "symbol": "IELTS2023007",
-      "name": "Ava Anderson",
-      "overall": 7.0,
-      "listening": 7.5,
-      "reading": 7.0,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Writing needs better paragraphing and clearer progression of ideas."
+        "symbol": "24070107",
+        "name": "Kriti Dahal",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Writing needs better paragraphing and clearer progression of ideas."
     },
     {
-      "symbol": "IELTS2023008",
-      "name": "Benjamin Taylor",
-      "overall": 6.5,
-      "listening": 7.0,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 6.5,
-      "comments": "Speaking needs more natural vocabulary and fewer pauses."
+        "symbol": "24070108",
+        "name": "Komal Laxmi Osti",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Speaking needs more natural vocabulary and fewer pauses."
     },
     {
-      "symbol": "IELTS2023009",
-      "name": "Mia Thomas",
-      "overall": 7.0,
-      "listening": 7.0,
-      "reading": 7.5,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Listening could improve with more practice of different accents."
+        "symbol": "24070109",
+        "name": "Arpana Pyakurel",
+        "overall": 7.0,
+        "listening": 7.0,
+        "reading": 7.5,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Listening could improve with more practice of different accents."
     },
     {
-      "symbol": "IELTS2023010",
-      "name": "Lucas Hernandez",
-      "overall": 6.0,
-      "listening": 6.5,
-      "reading": 6.0,
-      "writing": 5.5,
-      "speaking": 6.0,
-      "comments": "Writing needs better task response and more relevant ideas."
+        "symbol": "24070110",
+        "name": "Usika Khadka",
+        "overall": 6.0,
+        "listening": 6.5,
+        "reading": 6.0,
+        "writing": 5.5,
+        "speaking": 6.0,
+        "comments": "Writing needs better task response and more relevant ideas."
     },
     {
-      "symbol": "IELTS2023011",
-      "name": "Charlotte Wilson",
-      "overall": 7.5,
-      "listening": 8.0,
-      "reading": 8.0,
-      "writing": 7.0,
-      "speaking": 7.0,
-      "comments": "Excellent performance. Maintain consistency in writing and speaking."
+        "symbol": "24070111",
+        "name": "Rayan Rasaily",
+        "overall": 7.5,
+        "listening": 8.0,
+        "reading": 8.0,
+        "writing": 7.0,
+        "speaking": 7.0,
+        "comments": "Excellent performance. Maintain consistency in writing and speaking."
     },
     {
-      "symbol": "IELTS2023012",
-      "name": "Henry Garcia",
-      "overall": 6.5,
-      "listening": 7.0,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 6.5,
-      "comments": "Writing needs more academic vocabulary and fewer errors."
+        "symbol": "24070112",
+        "name": "Nisha Limbu",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Writing needs more academic vocabulary and fewer errors."
     },
     {
-      "symbol": "IELTS2023013",
-      "name": "Amelia Rodriguez",
-      "overall": 7.0,
-      "listening": 7.5,
-      "reading": 7.0,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Speaking could improve with more idiomatic expressions."
+        "symbol": "24070113",
+        "name": "Sejal Pradhan",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Speaking could improve with more idiomatic expressions."
     },
     {
-      "symbol": "IELTS2023014",
-      "name": "Alexander Martinez",
-      "overall": 5.5,
-      "listening": 6.0,
-      "reading": 5.5,
-      "writing": 5.0,
-      "speaking": 5.5,
-      "comments": "Needs fundamental improvement in grammar and vocabulary."
+        "symbol": "24070114",
+        "name": "Manisha Rai",
+        "overall": 5.5,
+        "listening": 6.0,
+        "reading": 5.5,
+        "writing": 5.0,
+        "speaking": 5.5,
+        "comments": "Needs fundamental improvement in grammar and vocabulary."
     },
     {
-      "symbol": "IELTS2023015",
-      "name": "Harper Lee",
-      "overall": 7.5,
-      "listening": 8.0,
-      "reading": 8.5,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Excellent reading skills. Writing needs better coherence between paragraphs."
+        "symbol": "24070115",
+        "name": "Amisha Sambahamphe",
+        "overall": 7.5,
+        "listening": 8.0,
+        "reading": 8.5,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Excellent reading skills. Writing needs better coherence between paragraphs."
     },
     {
-      "symbol": "IELTS2023016",
-      "name": "Ethan Walker",
-      "overall": 6.5,
-      "listening": 7.0,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 6.5,
-      "comments": "Speaking needs more complex grammatical structures."
+        "symbol": "24070116",
+        "name": "Srijan Kharel",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Speaking needs more complex grammatical structures."
     },
     {
-      "symbol": "IELTS2023017",
-      "name": "Evelyn Young",
-      "overall": 7.0,
-      "listening": 7.5,
-      "reading": 7.0,
-      "writing": 6.5,
-      "speaking": 7.0,
-      "comments": "Writing needs more precise vocabulary and fewer errors."
+        "symbol": "24070117",
+        "name": "Binayak Ghimire",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Writing needs more precise vocabulary and fewer errors."
     },
     {
-      "symbol": "IELTS2023018",
-      "name": "Daniel Allen",
-      "overall": 6.0,
-      "listening": 6.5,
-      "reading": 6.0,
-      "writing": 5.5,
-      "speaking": 6.0,
-      "comments": "Writing needs significant improvement in task achievement."
+        "symbol": "24070118",
+        "name": "Sudhir Kumar Das",
+        "overall": 6.0,
+        "listening": 6.5,
+        "reading": 6.0,
+        "writing": 5.5,
+        "speaking": 6.0,
+        "comments": "Writing needs significant improvement in task achievement."
     },
     {
-      "symbol": "IELTS2023019",
-      "name": "Abigail King",
-      "overall": 7.5,
-      "listening": 8.0,
-      "reading": 8.0,
-      "writing": 7.0,
-      "speaking": 7.0,
-      "comments": "Excellent performance overall. Maintain consistency."
+        "symbol": "24070119",
+        "name": "Shrijana Kadel",
+        "overall": 7.5,
+        "listening": 8.0,
+        "reading": 8.0,
+        "writing": 7.0,
+        "speaking": 7.0,
+        "comments": "Excellent performance overall. Maintain consistency."
     },
     {
-      "symbol": "IELTS2023020",
-      "name": "Matthew Scott",
-      "overall": 6.5,
-      "listening": 7.0,
-      "reading": 7.0,
-      "writing": 6.0,
-      "speaking": 6.5,
-      "comments": "Speaking needs more natural pronunciation and fluency."
+        "symbol": "24070120",
+        "name": "Aswin Mainali",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Speaking needs more natural pronunciation and fluency."
+    },
+    {
+        "symbol": "24070121",
+        "name": "Surakshya Uprety",
+        "overall": 7.0,
+        "listening": 7.0,
+        "reading": 7.5,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Good overall performance. Focus on writing complex structures."
+    },
+    {
+        "symbol": "24070122",
+        "name": "Ekta Rajbanshi",
+        "overall": 6.0,
+        "listening": 6.5,
+        "reading": 6.0,
+        "writing": 5.5,
+        "speaking": 6.0,
+        "comments": "Needs improvement in all areas, particularly writing coherence."
+    },
+    {
+        "symbol": "24070123",
+        "name": "Pujita Subedie",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Speaking could use more varied vocabulary and natural expressions."
+    },
+    {
+        "symbol": "24070124",
+        "name": "Milan Bharati",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Writing needs better organization and clearer main ideas."
+    },
+    {
+        "symbol": "24070125",
+        "name": "Manisha Pokhrel",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Good performance. Focus on writing task achievement."
+    },
+    {
+        "symbol": "24070126",
+        "name": "Sneha Khadka",
+        "overall": 6.5,
+        "listening": 7.0,
+        "reading": 7.0,
+        "writing": 6.0,
+        "speaking": 6.5,
+        "comments": "Speaking needs more complex sentences and varied vocabulary."
+    },
+    {
+        "symbol": "24070127",
+        "name": "Pawan Bhattrai",
+        "overall": 7.0,
+        "listening": 7.5,
+        "reading": 7.0,
+        "writing": 6.5,
+        "speaking": 7.0,
+        "comments": "Writing needs better paragraph structure and clearer progression."
     }
-  ]
-}
+]
+
+def display_welcome():
+    """Display welcome banner"""
+    f = Figlet(font='slant')
+    print(Fore.CYAN + f.renderText('IELTS Results'))
+    print(Fore.YELLOW + "="*80)
+    print(Fore.GREEN + " " * 25 + "STUDENT RESULT PORTAL")
+    print(Fore.YELLOW + "="*80 + Style.RESET_ALL)
+    print("\n")
+
+def display_menu():
+    """Display main menu options"""
+    print(Fore.MAGENTA + "\n" + "="*50)
+    print(Fore.CYAN + " " * 15 + "MAIN MENU")
+    print(Fore.MAGENTA + "="*50)
+    print(Fore.YELLOW + "1. Search by Symbol Number")
+    print("2. View All Students")
+    print("3. Exit")
+    print(Fore.MAGENTA + "="*50 + Style.RESET_ALL)
+
+def display_result(student):
+    """Display student result in an attractive format"""
+    print("\n" + Fore.GREEN + "="*80)
+    print(Fore.CYAN + " " * 30 + "IELTS RESULT")
+    print(Fore.GREEN + "="*80)
+    
+    print(Fore.YELLOW + f"\nStudent Name: {Fore.WHITE}{student['name']}")
+    print(Fore.YELLOW + f"Symbol Number: {Fore.WHITE}{student['symbol']}")
+    
+    print(Fore.GREEN + "\n" + "-"*40)
+    print(Fore.CYAN + " " * 15 + "SCORES")
+    print(Fore.GREEN + "-"*40)
+    
+    print(Fore.YELLOW + f"\nOverall Band: {Fore.WHITE}{student['overall']}")
+    print(Fore.YELLOW + f"Listening: {Fore.WHITE}{student['listening']}")
+    print(Fore.YELLOW + f"Reading: {Fore.WHITE}{student['reading']}")
+    print(Fore.YELLOW + f"Writing: {Fore.WHITE}{student['writing']}")
+    print(Fore.YELLOW + f"Speaking: {Fore.WHITE}{student['speaking']}")
+    
+    print(Fore.RED + "\n" + "-"*40)
+    print(Fore.CYAN + " " * 15 + "COMMENTS")
+    print(Fore.RED + "-"*40)
+    print(Fore.WHITE + f"\n{student['comments']}\n")
+    print(Fore.GREEN + "="*80 + Style.RESET_ALL)
+
+def search_by_symbol():
+    """Search student by symbol number"""
+    symbol = input(Fore.YELLOW + "\nEnter Symbol Number: " + Style.RESET_ALL)
+    found = False
+    for student in students:
+        if student['symbol'] == symbol:
+            display_result(student)
+            found = True
+            break
+    if not found:
+        print(Fore.RED + "\nStudent with symbol number", symbol, "not found!" + Style.RESET_ALL)
+
+def view_all_students():
+    """Display list of all students"""
+    print(Fore.CYAN + "\n" + "="*80)
+    print(Fore.YELLOW + " " * 25 + "LIST OF ALL STUDENTS")
+    print(Fore.CYAN + "="*80)
+    print(Fore.GREEN + "\n{:<15} {:<25} {:<10}".format("Symbol No.", "Name", "Overall"))
+    print(Fore.YELLOW + "-"*50)
+    for student in students:
+        print(Fore.WHITE + "{:<15} {:<25} {:<10}".format(
+            student['symbol'], 
+            student['name'], 
+            student['overall']
+        ))
+    print(Fore.CYAN + "="*80 + Style.RESET_ALL)
+
+def loading_animation():
+    """Display loading animation"""
+    print(Fore.YELLOW + "\nLoading", end="")
+    for i in range(5):
+        print(".", end="")
+        sys.stdout.flush()
+        time.sleep(0.3)
+    print(Style.RESET_ALL)
+
+def main():
+    """Main program function"""
+    display_welcome()
+    
+    while True:
+        display_menu()
+        choice = input(Fore.YELLOW + "\nEnter your choice (1-3): " + Style.RESET_ALL)
+        
+        if choice == '1':
+            loading_animation()
+            search_by_symbol()
+        elif choice == '2':
+            loading_animation()
+            view_all_students()
+        elif choice == '3':
+            print(Fore.GREEN + "\nThank you for using the IELTS Results Portal!")
+            print(Fore.CYAN + "Exiting..." + Style.RESET_ALL)
+            break
+        else:
+            print(Fore.RED + "\nInvalid choice! Please enter 1, 2 or 3." + Style.RESET_ALL)
+
+if __name__ == "__main__":
+    main()
