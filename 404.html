@@ -4,42 +4,79 @@
     <title>Page Not Found</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             text-align: center;
             padding: 50px;
-            background-color: #f5f7fa;
+            background-color: #f5f7ff;
+            color: #333;
         }
         h1 {
-            font-size: 50px;
-            color: #e74c3c;
+            font-size: 72px;
+            color: #4a6bff;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
         p {
-            font-size: 20px;
+            font-size: 18px;
             margin: 20px 0;
+            line-height: 1.6;
         }
         a {
-            color: #3498db;
+            color: #4a6bff;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
         }
         a:hover {
+            color: #3a56cc;
             text-decoration: underline;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4a6bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #3a56cc;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 107, 255, 0.3);
+        }
+        .error-icon {
+            font-size: 100px;
+            color: #4a6bff;
+            margin-bottom: 20px;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
+        <div class="error-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
         <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <p>Return to <a href="/">IELTS Results Portal</a></p>
-        <p>Need help? Contact us at <a href="mailto:contact@npielts.us">contact@npielts.us</a></p>
+        <p>Oops! The page you're looking for doesn't exist or may have been moved.</p>
+        <p>You can return to our <a href="/">IELTS Results Portal</a> to check your test results.</p>
+        <p>If you need further assistance, please contact us at <a href="mailto:contact@npielts.us">contact@npielts.us</a></p>
+        
+        <a href="/" class="btn">
+            <i class="fas fa-arrow-left"></i> Back to Results Portal
+        </a>
     </div>
 </body>
 </html>
