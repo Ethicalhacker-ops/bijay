@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Not Found - IELTS Results Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4a6bff, #667eea, #764ba2);
+        }
+        .error-icon {
+            font-size: 120px;
+            color: #4a6bff;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        h1 {
+            font-size: 84px;
+            color: #4a6bff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(74, 107, 255, 0.2);
+        }
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+        a {
+            color: #4a6bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        a:hover {
+            color: #3a56cc;
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a6bff, #667eea);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            margin: 30px 10px 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(74, 107, 255, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(74, 107, 255, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        .btn i {
+            margin-right: 8px;
+        }
+        .countdown {
+            font-size: 16px;
+            color: #666;
+            margin-top: 30px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 4px solid #4a6bff;
+        }
+        .countdown strong {
+            color: #4a6bff;
+            font-weight: 600;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 64px;
+            }
+            .error-icon {
+                font-size: 80px;
+            }
+            .subtitle {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <h1>404</h1>
+        <div class="subtitle">Page Not Found</div>
+        <p>Oops! The page you're looking for doesn't exist or may have been moved.</p>
+        <p>Don't worry, we'll redirect you to the <strong>IELTS Results Portal</strong> automatically.</p>
+        <p>If you need assistance, contact us at <a href="mailto:contact@npielts.us">contact@npielts.us</a></p>
+        
+        <a href="https://npielts.us/result" class="btn pulse">
+            <i class="fas fa-graduation-cap"></i> Go to Results Portal
+        </a>
+        
+        <div class="countdown">
+            <i class="fas fa-clock"></i> 
+            Redirecting automatically in <strong><span id="countdown">5</span> seconds</strong>
+        </div>
+    </div>
+
+    <script>
+        // Auto-redirect countdown
+        let timeLeft = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdown = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = 'https://npielts.us/result';
+            }
+        }, 1000);
+        
+        // Immediate redirect on button click
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            clearInterval(countdown);
+            window.location.href = 'https://npielts.us/result';
+        });
+    </script>
+</body>
+</html>
